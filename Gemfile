@@ -4,6 +4,8 @@ gem "rails", "~> 8.0.1"
 
 gem "bootsnap", require: false
 gem "cssbundling-rails"
+gem "govuk-components"
+gem "govuk_design_system_formbuilder"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"
