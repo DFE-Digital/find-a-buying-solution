@@ -1,22 +1,6 @@
-# README
+# Find A Buying Solution
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Github Repo](https://github.com/DFE-Digital/find-a-buying-solution)
 
-Things you may want to cover:
+A service to help school buying professionals create an end-to-end seamless journey (service) that helps users in schools to find, choose and use the right buying solution for them.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
