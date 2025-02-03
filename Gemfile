@@ -18,7 +18,7 @@ gem "contentful"
 
 group :development, :test do
   gem "brakeman", require: false
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "rspec"
   gem "rspec-rails"
   gem "rubocop-govuk", require: false
@@ -26,4 +26,5 @@ group :development, :test do
 end
 
 group :development do
+  gem "rladr"
 end
