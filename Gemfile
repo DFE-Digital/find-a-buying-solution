@@ -11,6 +11,7 @@ gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "bundler", ">=2.6.2"
+gem 'dotenv'
 
 # https://github.com/contentful/contentful.rb
 # https://www.rubydoc.info/gems/contentful

@@ -97,6 +97,7 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
     domain_name (0.6.20240107)
+    dotenv (3.1.7)
     drb (2.2.1)
     erubi (1.13.1)
     ffi (1.17.1-aarch64-linux-gnu)
@@ -342,6 +343,7 @@ DEPENDENCIES
   contentful
   cssbundling-rails
   debug
+  dotenv
   govuk-components
   govuk_design_system_formbuilder
   jsbundling-rails
