@@ -316,6 +316,8 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.2)
     useragent (0.16.11)
+    vcr (6.3.1)
+      base64
     view_component (3.21.0)
       activesupport (>= 5.2.0, < 8.1)
       concurrent-ruby (~> 1.0)
@@ -356,6 +358,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-govuk
   rubocop-performance
+  vcr
 
 BUNDLED WITH
    2.6.2
