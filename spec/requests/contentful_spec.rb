@@ -3,9 +3,9 @@ require 'dotenv/load'
 require 'rspec'
 
 # Needs the following ENV variables to be set before running the RSpec
-ENV['CONTENTFUL_SPACE_ID']
-ENV['CONTENTFUL_ACCESS_TOKEN']
-ENV['CONTENTFUL_ENTRY_ID']
+# ENV['CONTENTFUL_SPACE_ID']
+# ENV['CONTENTFUL_ACCESS_TOKEN']
+# ENV['CONTENTFUL_ENTRY_ID']
 
 RSpec.describe 'Contentful Entry through Contentful Delivery API' do
     let(:client) { Contentful::Client.new(space: ENV['CONTENTFUL_SPACE_ID'], access_token: ENV['CONTENTFUL_ACCESS_TOKEN']) }
