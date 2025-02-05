@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "rails", "~> 8.0.1"
+
 gem "bootsnap", require: false
 gem "contentful"
 gem "cssbundling-rails"
@@ -10,7 +12,6 @@ gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
-gem "rails", "~> 8.0.1"
 gem "vcr"
 
 group :development, :test do

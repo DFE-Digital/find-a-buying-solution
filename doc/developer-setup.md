@@ -8,11 +8,15 @@ alternative documentation for Linux or Windows users.
 ### Ruby
 
 You can use either  [rbenv](https://rbenv.org/) or [RVM](https://rvm.io/) or [asdf](https://github.com/asdf-vm/asdf)
+with the [asdf-ruby plugin](https://github.com/asdf-vm/asdf-ruby) to install
+Ruby. Both will work; **asdf** has an advantage in allowing you to manage
+versions of a wide range of tools (NodeJS, Python, etc.) via a single,
+consistent interface.
 
 Refer to `.ruby-version` in the root of the project for the version of Ruby
 currently used.
 
-## Install rbenv
+## Installing using rbenv
 
 ```
 $ brew install rbenv ruby-build
@@ -28,11 +32,7 @@ $ echo 'eval "$(rbenv init - bash)"' >> ~/.bash_profile
 
 ## Reload your shell:
 $ source ~/.bash_profile
-```
 
-## Install the right version of ruby
-
-```
 ## Do this after installing rbenv
 $ rbenv install  3.4.1
 
@@ -58,13 +58,6 @@ brew install postgresql@14
 ```
 $ gem install bundler
 $ bundle install
-```
-
-## The following gems have been added to the Gemfile to begin with
-
-```
-gem "bundler", ">=2.6.2"
-gem contentful
 ```
 
 ## Set up the database and seed the local environment:
