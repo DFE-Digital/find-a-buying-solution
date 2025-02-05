@@ -34,16 +34,16 @@ $ source ~/.bash_profile
 
 ```
 ## Do this after installing rbenv
-$ rbenv install  3.2.0
+$ rbenv install  3.4.1
 
 ## Ensure Ruby Version is Set Correctly
-## Run the following command to confirm that rbenv is using the desired version of Ruby ( 3.2.0):
+## Run the following command to confirm that rbenv is using the desired version of Ruby ( 3.4.1):
 
-## The output should indicate ruby  3.2.0. If not, set the Ruby version globally (or locally) with:
-$ rbenv global  3.2.0
+## The output should indicate ruby  3.4.1. If not, set the Ruby version globally (or locally) with:
+$ rbenv global  3.4.1
 
 ## Or for a specific project directory:
-$ rbenv local  3.2.0
+$ rbenv local  3.4.1
 
 ## After setting the Ruby version, rehash rbenv to ensure everything works correctly:
 $ rbenv rehash
