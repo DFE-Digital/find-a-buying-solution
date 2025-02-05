@@ -23,4 +23,3 @@ RSpec.describe "Contentful Entry through Contentful Delivery API" do
     expect(client.entry(ENV["CONTENTFUL_ENTRY_ID"]).fields[:desc]).to eq("FABS Description")
   end
 end
-
