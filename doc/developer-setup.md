@@ -48,7 +48,7 @@ $ rbenv local  3.4.1
 ## After setting the Ruby version, rehash rbenv to ensure everything works correctly:
 $ rbenv rehash
 ```
-
+ 
 ## Install Postgres
 
 brew install postgresql@14
