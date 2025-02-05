@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-
-
 gem "bootsnap", require: false
 gem "contentful"
 gem "cssbundling-rails"
