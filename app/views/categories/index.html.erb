@@ -1,5 +1,11 @@
-<% @categories.each do |category| %>
-  <div>
-    <%= render "category", category: category %>
-  </div>
-<% end %>
+<h2 class="govuk-heading">Buying options, by category</h2>
+<p>
+  Find DfE-approved buying options such as frameworks, which are lists of pre-checked suppliers.
+</p>
+<div class="dfe-grid-container">
+  <% @categories.each do |category| %>
+    <div>
+      <%= render "category", category: category %>
+    </div>
+  <% end %>
+</div>
