@@ -1,7 +1,7 @@
 <div class="dfe-card">
     <div class="dfe-card-container">
       <h3 class="govuk-heading-m">
-        <%= link_to category.title, "#", class: "govuk-link govuk-link--no-visited-state dfe-card-link--header" %>
+        <%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-visited-state dfe-card-link--header" %>
       </h3>
       <p>
         <%= category.summary %>
