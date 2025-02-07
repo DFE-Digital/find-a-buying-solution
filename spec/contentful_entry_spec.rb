@@ -32,5 +32,3 @@ RSpec.describe "Contentful Entry through Contentful Delivery API" do
     end
   end
 end
-
-
