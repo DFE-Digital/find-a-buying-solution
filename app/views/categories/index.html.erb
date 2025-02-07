@@ -4,8 +4,6 @@
 </p>
 <div class="dfe-grid-container">
   <% @categories.each do |category| %>
-    <div>
-      <%= render "category", category: category %>
-    </div>
+    <%= render "category", category: category %>
   <% end %>
 </div>
