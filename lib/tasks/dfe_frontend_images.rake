@@ -10,7 +10,7 @@
 namespace :assets do
   desc "Copy DfE Frontend images to Rails.root.join('app','assets','images','dfe-frontend')"
   # node_modules/dfe-frontend/packages/assets
-  task copy_dfe_frontend_images: :environment do
+  task dfe_frontend_images: :environment do
     source = Rails.root.join("node_modules", "dfe-frontend", "packages", "assets")
     destination = Rails.root.join("app", "assets", "images", "dfe-frontend")
     puts "Source path: #{source}"
@@ -22,7 +22,7 @@ namespace :assets do
 
   desc "Copy Govuk Frontend images to Rails.root.join('app','assets','images','govuk-frontend')"
   # node_modules/govuk-frontend/dist/govuk/assets/images
-  task copy_gov_frontend_images: :environment do
+  task gov_frontend_images: :environment do
     source = Rails.root.join("node_modules", "govuk-frontend", "dist", "govuk", "assets", "images")
     destination = Rails.root.join("app", "assets", "images", "govuk-frontend")
     puts "Source path: #{source}"

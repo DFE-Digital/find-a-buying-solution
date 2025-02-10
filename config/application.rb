@@ -48,8 +48,8 @@ module FindABuyingSolution
     # assets are available during deployment.
     # This runs automatically when the Rails server starts.
     config.before_initialize do
-      Rake::Task["assets:copy_dfe_frontend_images"].invoke
-      Rake::Task["assets:copy_govuk_frontend_images"].invoke
+      Rake::Task["assets:dfe_frontend_images"].invoke
+      Rake::Task["assets:govuk_frontend_images"].invoke
     end
   end
 end
