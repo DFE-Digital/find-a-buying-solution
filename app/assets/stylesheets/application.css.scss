@@ -1,0 +1,15 @@
+
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+$govuk-assets-path: "/";
+
+@use "../node_modules/govuk-frontend/dist/govuk" as govuk;
+@use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
+
+.dfe-page-hero {
+  color: #fff;
+}
+
+.govuk-footer__copyright-logo {
+  background-image: url('/assets/images/govuk-frontend/govuk-crest.svg');
+}
