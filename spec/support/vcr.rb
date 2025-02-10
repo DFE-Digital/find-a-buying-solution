@@ -1,8 +1,10 @@
-VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-  config.hook_into :webmock
+contentful_space_id = ENV.fetch("CONTENTFUL_SPACE_ID", "fakespaceid")
+contentful_access_token = ENV.fetch("CONTENTFUL_ACCESS_TOKEN", "fakeapikey")
 
-  config.filter_sensitive_data("<API_KEY>") do |interaction|
-    interaction.request.headers["Authorization"]&.first
-  end
+VCR.configure do |config|
+  config.cassette_library_dir =
+    File.expand_path("../fixtures/vcr_cassettes", __dir__)
+  config.hook_into :webmock
+  config.filter_sensitive_data("__SPACE_ID__") { contentful_space_id }
+  config.filter_sensitive_data("__ACCESS_TOKEN__") { contentful_access_token }
 end

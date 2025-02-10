@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/o6csh136j1jr/environments/master/entries?content_type=category
+    uri: https://cdn.contentful.com/spaces/__SPACE_ID__/environments/master/entries?content_type=category
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -10,7 +10,7 @@ http_interactions:
       X-Contentful-User-Agent:
       - sdk contentful.rb/2.17.1; platform ruby/3.3.4; os macOS/21;
       Authorization:
-      - "<API_KEY>"
+      - "__ACCESS_TOKEN__"
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Accept-Encoding:
