@@ -3,8 +3,8 @@
 # for use in the application, especially in production where asset pipelines are used.
 #
 # Usage:
-#   - Run manually: `rake assets:copy_dfe_frontend_images`
-#   - Run manually: `rake assets:copy_govuk_frontend_images`
+#   - Run manually: `rake assets:dfe_frontend_images`
+#   - Run manually: `rake assets:govuk_frontend_images`
 #   - Can be configured to run automatically before asset precompilation.
 
 namespace :assets do
@@ -22,7 +22,7 @@ namespace :assets do
 
   desc "Copy Govuk Frontend images to Rails.root.join('app','assets','images','govuk-frontend')"
   # node_modules/govuk-frontend/dist/govuk/assets/images
-  task gov_frontend_images: :environment do
+  task govuk_frontend_images: :environment do
     source = Rails.root.join("node_modules/govuk-frontend/dist/govuk/assets/images")
     destination = Rails.root.join("app/assets/images/govuk-frontend")
     puts "Source path: #{source}"
