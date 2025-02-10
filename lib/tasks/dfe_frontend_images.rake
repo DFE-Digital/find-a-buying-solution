@@ -2,10 +2,8 @@
 # into the Rails app's assets directory. This ensures that the images are available
 # for use in the application, especially in production where asset pipelines are used.
 #
-# Usage:
-#   - Run manually: `rake assets:dfe_frontend_images`
-#   - Run manually: `rake assets:govuk_frontend_images`
-#   - Can be configured to run automatically before asset precompilation.
+# Usage: bundle exec rake assets:dfe_frontend_images
+# Can be configured to run automatically before asset precompilation.
 
 namespace :assets do
   desc "Copy DfE Frontend images to Rails.root.join('app','assets','images','dfe-frontend')"

@@ -22,6 +22,28 @@ currently used.
 
 brew install postgresql@14
 
+## dfe-frontend
+## https://design.education.gov.uk/design-system/dfe-frontend
+## https://www.npmjs.com/package/dfe-frontend
+Refer to the documentation for the latest version of the 'dfe-frontend'.
+Run the following commend at the root of the project directory
+
+```
+$ npm i dfe-frontend
+```
+Ensure that the folders: /node_modules/dfe-frontend and  /node_modules/govuk-frontend are created
+
+## Run the following rake task : dfe_frontend_images
+
+This Rake task copies images from external (/node_modules) frontend packages (DfE & GOV.UK Frontend)
+into the Rails app's assets directory. This ensures that the images are available
+for use in the application, especially in production where asset pipelines are used.
+Usage: 
+```
+$ bundle exec rake assets:dfe_frontend_images
+```
+The rake task can be configured to run automatically before asset precompilation.
+
 ## Initialise the application
 
 ```
