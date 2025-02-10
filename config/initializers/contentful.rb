@@ -1,5 +1,5 @@
 ContentfulClient = Contentful::Client.new(
-  space: ENV["CONTENTFUL_SPACE_ID"],
-  access_token: ENV["CONTENTFUL_ACCESS_TOKEN"],
-  dynamic_entries: :auto,
+  space: ENV.fetch("CONTENTFUL_SPACE_ID", "fakespaceid"),
+  access_token: ENV.fetch("CONTENTFUL_ACCESS_TOKEN", "<API_KEY>"),
+dynamic_entries: :auto,
 )
