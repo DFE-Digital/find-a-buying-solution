@@ -41,5 +41,15 @@ module FindABuyingSolution
 
     # Adding dfe-frontend node_modules folder to the asset pipeline
     config.assets.paths << Rails.root.join("node_modules")
+
+    # Before the Rails application fully initializes, this hook ensures that
+    # required assets (especially from external dfe-frontend packages) are
+    # copied into the app's asset pipeline. This is useful for making sure
+    # assets are available during deployment.
+    # This runs automatically when the Rails server starts.
+    config.before_initialize do
+      Rake::Task["assets:copy_dfe_frontend_images"].invoke
+      Rake::Task["assets:copy_govuk_frontend_images"].invoke
+    end
   end
 end
