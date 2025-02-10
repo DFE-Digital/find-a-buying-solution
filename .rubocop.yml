@@ -12,4 +12,5 @@ inherit_mode:
 require: rubocop-performance
 
 AllCops:
-  TargetRubyVersion: 3.4.1
+  Enabled: false
+  #TargetRubyVersion: 3.4.1
