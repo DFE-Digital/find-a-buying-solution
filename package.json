@@ -1,0 +1,16 @@
+{
+  "name": "app",
+  "dependencies": {
+    "dfe-frontend": "^2.0.1",
+    "govuk-frontend": "5.2.0",
+    "sass": "^1.84.0"
+  },
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --quiet-deps",
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2"
+  },
+  "packageManager": "yarn@4.6.0"
+}

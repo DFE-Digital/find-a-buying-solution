@@ -11,7 +11,6 @@ gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.1"
-gem "vcr"
 
 group :development, :test do
   gem "brakeman", require: false
@@ -20,6 +19,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop-govuk", require: false
   gem "rubocop-performance", require: false
+  gem "vcr"
+  gem "webmock"
 end
 
 group :development do
