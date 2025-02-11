@@ -3,7 +3,7 @@ class Category
   include ActiveModel::Conversion
   include ActiveModel::Serialization
 
-  attr_reader :id, :title, :summary, :description, :slug
+  attr_reader :id, :title, :summary, :description, :slug, :solutions
 
   def initialize(entry)
     @id = entry.id
@@ -11,11 +11,16 @@ class Category
     @summary = entry.fields[:summary]
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
+    @solutions = entry.fields[:solutions]&.map do |solution|
+      Solution.new(solution)
+    end || []
   end
 
   def self.all
-    ContentfulClient.entries(content_type: "category")
-      .map { |entry| new(entry) }
+    ContentfulClient.entries(
+      content_type: "category",
+      select: "sys.id,fields.title,fields.summary,fields.slug",
+    ).map { |entry| new(entry) }
   end
 
   def to_param
@@ -23,13 +28,14 @@ class Category
   end
 
   def self.find_by_slug(slug)
-    entry = ContentfulClient.entries(content_type: "category", 'fields.slug': slug, include: 2).first
-    new(entry) if entry
-  end
+    entry = ContentfulClient.entries(
+      content_type: "category",
+      'fields.slug': slug,
+      include: 1,
+      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.solutions",
+    ).first
+    raise ContentfulRecordNotFoundError, "Category with slug '#{slug}' not found" unless entry
 
-  def solutions
-    ContentfulClient.entries(content_type: "solution", 'fields.category.sys.id': id)&.map do |solution|
-      Solution.new(solution)
-    end || []
+    new(entry)
   end
 end

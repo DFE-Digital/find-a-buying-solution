@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=ict-and-computer-software&include=1&select=fields.title,fields.summary,fields.description,fields.slug,fields.solutions,sys
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.3.4; os macOS/21;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '1382'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"3160812946360151888"
+      X-Content-Type-Options:
+      - nosniff
+      Contentful-Api:
+      - cda
+      Content-Encoding:
+      - gzip
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Upstream:
+      - default
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '2019'
+      Date:
+      - Tue, 11 Feb 2025 16:48:18 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740060-EWR, cache-lcy-eglc8600085-LCY
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1739292499.820137,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - b0c972fd-960c-4dd5-b7f7-69f08e6d7e6d
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA91Y23LbNhB971dg+NDLDKkRSVka682WfGvtprFkJ3ab6UAgRMEmARoXyarH/94Fb5IdaRSlSZ04LyEtYAns7jl7dh8cNVdO98HR84w6XWdPSjx3Hl1HC40Tp+u7jrplmdNtuk7CUqbhT014ZpqmsO/PB2fMaBIVJphOrI2T3hBhHiEi0sxoKpESYz3DkjpgzKQplnNYdYozLTLl1svgUeNRQjU8VDtcNJICRyMw56J3zDtkheVEmAgpKqeMUNUAuxFVRLJMM8G/uG2VmBiMMqI9OIdXXctbvpZIjP124ZKnLj1l/BZOmMB/w8LJB1yDC8CJEZhtJUfncXR1TNRl0x/2WkeXb7CeOY+P7sOz2Gww1L5QycX+27f90/nZ/YhP75vHPc4/w1C4l1xe0Zvo9/N+60CIW9LDcRx8hqEgmh0N/wnH19H78M00u3jf0/pX9RmGwp1brNR1Gh+KmN1fsn7r/P58DIY+QKaW3lYZJpB9m502yBeW3hdtoiZ+2L7xb6Q9WBGTi/3enfhtGuwe3B3J6bSTDU4GNmAlSKr4EUmxptEegMIJmsGO1wy85s7Q97ut3W7QaeyEO9ewy2TRR8t8f+gH3XC322o2/J22XUb5lEnBU8rBXn2NPEdSrABHiwOsyoTFZnuNzIwSpiY0uqRS5aAIXUfSKSteAtchgmv4VJGSm73WW1peeonArWIBmWw/mAiCc/RT7l0MbGhgFSeJAWTa6xQ+s4SRUo3BIThnHRxbyMBaOA6hmc7fvk5Q12TjdlENg0YQdtZFtQ7+YtlXjirw8yKq8PLfo6pKKlsZVXcF3Z8xIoXlQjSY4Iyi4YSiQ6NNzvdPefmIarRYviB5ZcgEYYXeCRnlBD+kOIUyIDiaCwMFhEyESH5SiN4zpRmPUQSpDNSPsEYRU0QYSOYIZbKqB4s68zW++Rdf/dGiUKSVQzxlHeLpCfXGlUMyKaYsovJvjlMLl9odBS2+FDjWMOyW4PAbYXt3MzjqZa8fHAdTKud6YlPWyqKxhKjPhLSC4GNoTLCMrE5CFR6SQiPlkFihjQDsnBLNpkzP6z1Lgok8kUmooGN7FGy0SLFmBI0wuTVZJaUAcRKdDMFWlgmpSxXHlUk05mRuhdZTYH0XJy5QSetIeFbJLUfiOSaH+/0XRuNqBbYlGoNGu+NvRmO97PWj8QwSmY0NB8wIjhPUL6vIz2eHffWLi/6QjBdZ32cxgwbIVqTbcSJmaFD2MGhQdh05OM4wxzEUnmJj+RO8AcdbobUB71CuoGxJKHT5E0pza1YA1g0Q0gJJGhlC0cyKQGiXnoIafi82j6VIUWovmCW0qo85oPPfLeyBL9ZD+aUPU9bOcaS8/Ch5rxUVYfAsZdowAAF9c2Bd08BtCVa/0WmH68Bqu4V21291/bDRaf0f3UJnWVe2XkRXQh06rgrip9VNmBuUQrIsnEvDhac1dFEKOZ25gLCxkaO8X7KAkdQDKJoxJlbFRhWYGuhKGEQwRzhRAsUgZiXNMJOu1aCZUMAXlhSgVRWE2ZavHlEs1d7l2ppiSwAcaitdX1u/+1uV4xPtVWphY/G1MmNUt5e2adxypHJi3vDjE9HaS94F7R45umTXB0VPurC6pdHVM4FH+AeDmpeS7WtmPltyT9DY3Q3Wcc9yT1sue/1CYUjJhItExHNbzKH8aoV+RHsLYNcqINhQ46uc/3QUP6MQemdYVmiCktyInZLaISnMnyiHHhg4JxWcaSHVM44amfkqOlocRlFtMuAvmMcgMsE8toafdQBfmKW++fsVfKXrFAA9UqRALkkW7O5VA2gvWKtLPjw+/vAvEPtgK2QXAAA=
+  recorded_at: Tue, 11 Feb 2025 16:48:18 GMT
+recorded_with: VCR 6.3.1

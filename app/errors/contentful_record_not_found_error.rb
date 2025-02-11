@@ -1,0 +1,2 @@
+class ContentfulRecordNotFoundError < StandardError
+end

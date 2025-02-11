@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '625'
+      - '680'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/content_types"
       Etag:
-      - W/"2100542266352480628"
+      - W/"2667063603462916413"
       X-Content-Type-Options:
       - nosniff
       Contentful-Api:
@@ -71,27 +71,27 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '84567'
+      - '2019'
       Date:
-      - Tue, 11 Feb 2025 11:45:50 GMT
+      - Tue, 11 Feb 2025 16:48:18 GMT
       X-Served-By:
-      - cache-ewr-kewr1740030-EWR, cache-lhr-egll1980084-LHR
+      - cache-ewr-kewr1740030-EWR, cache-lcy-eglc8600095-LCY
       X-Cache-Hits:
-      - 2, 0
+      - 0, 0
       X-Timer:
-      - S1739274350.417006,VS0,VE1
+      - S1739292498.356290,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 6eaedf99-1eaa-4684-bebe-55d63164489c
+      - dc26a1fa-cf70-4da6-92ee-0a2c50fa96fa
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA+1WTXPaMBC991d4dCaMZWIIujFpesqhU+ilmU5H2IIqyJYryUxdhv/elRFGUJKYpLTTTMcnyavdtx9vd1dIVxqRFTJVwRBBI6VohdYdZKShApFeB+kFLxAJO0jwjBtEcBjCgRuWwcO71VaBLmgCGpqzU3jL8wWyb/PFZGNiXAuChhTsyX6iv+Je/x7fK7QGu/WtLqcJNWwuVQWCTtO1zA3LTa2lgxLFQCIdASAUhVF8EUYXOJxgTOKQ4H73anj1CcTKIn1IrEdw3B2EsRVj+ZIrmWeg33OhxpJRbZjawfjVoRvvsXVBsSXXXOaIRHBKuS4Erd5xJqw6w42w+HOa2XiP9zxNmU4UL0z92P8XyFlAg+tdTGZW3Sb+NcoDtRNnxYVuXGVTKcCqkAkV/AeDJzMqNLNgv5Vc2QujSjgDXDoVnoCEpEOg3YN1Z7VJkQ+18eath7/J24R9N0+Ydlja2vZqw4XRi8xB3b3U4b3SvclNXZFLCCLUFaRpkwJb3X55kjvUYPy8th+EzRHtt/JEirIulhNIEsaWJJdDEuHucFBX/yMkiUjc6w7w4O+SZOfmPkNGwbSseD4P9E7idTHjNFLqMstoXaFNe9leOFq0IOOJJkU59+xtTudrO4WSS54y9aV2sPHzvbsO3PUfACDkXB4B4K7bd6F2vW+vDY20ZgaGtGvFpbKt3WX844fbXTdo1ffbAWis/XPNdxum/aXi6Pxtn7VWJHnu7PCRnnN8PGfH8sdHHF8+ND6OiJ1px8JP7ljecnA4PrYRCBJYLinP9eFA0UCm/xPlNU4US6w3PwFTNq7a/wwAAA==
-  recorded_at: Tue, 11 Feb 2025 11:45:50 GMT
+        H4sIAAAAAAAAA+1WTW/bMAy971cYOqeB5cT50K3oulMPw5JdVhSFYquZWtnyJDmYF+S/j7IVR0naNB2SYSgGn0RT5CMlvccl0pVGZIlMVTBE0KVStEKrDjLSUIFIr4P0Ey8QCTtI8IwbRHAYwoIblsHG2+U6gC5oAhHatQt4w/MnZPfmT9MmxaR2hAgp5JODRH/HvcEjflRoBXlrq5aiNFzm4OXCXMncsNzUITooUYwall4CGhSFUXwRRhdhPMWY9Mckwt3xMP4GbmWR7rlhPMUDgnsk7neH4cC6sXzBlcwziO/hr4FkVBumNjD2q7n2Nlv8ii24ttDJCFYp14Wg1SfOhA1nuBEWf04z2+zJpsyU6UTxoi4aTiGYlRXP54HXiAcbo+l4DW0n1tSFdv2aVNlMCkglZEIF/8VgywMVmlmEP0qurMGoEtaAkc6E5yDhmKG7bsOqs2wOxYfYlvDRw90e1pT9NCdNrcsso6ryOtcaXL2nTynKuZevWZ2vuYWSC54ydV9fjba9n505cOa/AEDIuXwGgDPvvOoDl8vdtldu1xYzXGrNDJCPu3ClshfYvZWvX25g8Zb6jwPQZtPlLAG2mMvte+YbXfaGIw8/reOStzTa8q8jmAW8WeAuYIPmxVv69CmQ3CIf793qbquR17mBKoCOXCf3C7valHrWI22QdNARBbUgoRr4ALuTplMqi9cJV/fblCWO+4eUJSLxmPSi7mg4PqOy9F9VFu94d5Vl3YEgAUmlPNe7WqPhnf0Xm/csNuupwp70zihiTf8Wza1npJc47lxMsa0HR5MFDu0YGocED7qj8ehFsmjcegTHMIbW0+qZxtDoVbKYbCnfNl94/wL5ENDAY5b3RRLHKfapJfWoEfwZbf8TRb1bffgNKXsbtu8NAAA=
+  recorded_at: Tue, 11 Feb 2025 16:48:18 GMT
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&select=fields.title,fields.summary,fields.slug,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -118,7 +118,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '1742'
+      - '1656'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -132,7 +132,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"16128210397875559520"
+      - W/"12431269872778141351"
       X-Content-Type-Options:
       - nosniff
       Contentful-Api:
@@ -159,23 +159,23 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Age:
-      - '92198'
       Date:
-      - Tue, 11 Feb 2025 11:45:50 GMT
+      - Tue, 11 Feb 2025 16:48:18 GMT
+      Age:
+      - '2447'
       X-Served-By:
-      - cache-ewr-kewr1740073-EWR, cache-lhr-egll1980051-LHR
+      - cache-ewr-kewr1740032-EWR, cache-lcy-eglc8600057-LCY
       X-Cache-Hits:
-      - 0, 0
+      - 1, 3
       X-Timer:
-      - S1739274351.515632,VS0,VE1
+      - S1739292498.455145,VS0,VE0
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 56cc87a1-0a12-4e65-9f61-ffe4f8195ab8
+      - 4bf21ccb-d59c-4b7d-9dc2-be0fd23da3c7
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-  recorded_at: Tue, 11 Feb 2025 11:45:50 GMT
+        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
+  recorded_at: Tue, 11 Feb 2025 16:48:18 GMT
 recorded_with: VCR 6.3.1
