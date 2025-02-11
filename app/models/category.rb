@@ -1,7 +1,5 @@
 class Category
   include ActiveModel::Model
-  include ActiveModel::Conversion
-  include ActiveModel::Serialization
 
   attr_reader :id, :title, :summary, :description, :slug, :solutions
 
