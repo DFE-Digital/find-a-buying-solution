@@ -20,9 +20,12 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app %>
     <%= stylesheet_link_tag "application" %>
+
+    <%= javascript_include_tag "application", defer: true %>
   </head>
 
   <body class="govuk-template__body">
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
     <%= render "layouts/header" %>
     <div class="govuk-width-container">
       <%= render "layouts/phase_banner" %>
@@ -30,6 +33,5 @@
         <%= yield %>
       </main>
     </div>
-
   </body>
 </html>
