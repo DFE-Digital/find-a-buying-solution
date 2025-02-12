@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%#= yield :head %>
+    <%= yield :header %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
@@ -21,15 +20,25 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app %>
     <%= stylesheet_link_tag "application" %>
+
+    <%= javascript_include_tag "application", defer: true %>
   </head>
 
-  <body>
-    <!-- Use the shared/dfe_homepage_header for Homepage -->
-    <%= render "shared/dfe_homepage_header" %>
+  <body class="govuk-template__body">
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
-    <!-- Use the shared/dfe_header for other pages -->
-    <%#= render "shared/dfe_header" %>
-    <%= yield %>
-  <%= render "shared/dfe_footer" %>
+    <% if controller_name == "category" %>
+      <%= render "layouts/dfe_homepage_header" %>
+    <% else %>
+      <%= render "layouts/dfe_header" %>
+    <% end %>
+
+    <div class="dfe-width-container">
+      <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+        <%= yield %>
+      </main>
+    </div>
+
+    <%= render "layouts/dfe_footer" %>
   </body>
 </html>
