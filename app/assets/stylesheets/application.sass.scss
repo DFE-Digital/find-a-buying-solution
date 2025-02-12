@@ -3,7 +3,7 @@ $govuk-global-styles: true;
 $govuk-new-link-styles: true;
 $govuk-assets-path: "/";
 
-@use "../node_modules/govuk-frontend/dist/govuk" as govuk;
+@use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
 
 .dfe-page-hero {
