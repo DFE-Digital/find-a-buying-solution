@@ -1,22 +1,17 @@
 <header class="dfe-header" role="banner">
   <%= render "shared/dfe_logo_and_menu" %>
+  <%= render "shared/dfe_beta_banner" %>
 
-  <div class="dfe-width-container dfe-header__link--service govuk-!-margin-top-7">
+  <div class="dfe-width-container dfe-header__link--service">
     <section class="dfe-page-hero">
       <div class="dfe-width-container">
         <div class="dfe-grid-row">
           <div class="dfe-grid-column-two-thirds">
             <h1 class="dfe-heading-xl">
-              Get help buying for schools
+              <%= t('fabs_header_title') %>
             </h1>
             <p class="dfe-body-l">
-              A procurement hub to help you buy for your school,
-              academy or trust:
-              <ul class="dfe-body-l">
-                <li>compliantly</li>
-                <li>save time</li>
-                <li>get value for money</li>
-              </ul>
+              <%= t('fabs_header_description') %>
             </p>
             <%= render "shared/dfe_search" %>
           </div>
@@ -29,5 +24,3 @@
     <a href="/" class="dfe-header__link--service">View list of all DfE approved frameworks</a>
   </div>
 </header>
-
-<%= render "shared/dfe_beta_banner" %>

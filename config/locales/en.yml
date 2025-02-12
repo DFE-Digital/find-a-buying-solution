@@ -28,4 +28,5 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  fabs_header_title: "Get help buying for schools"
+  fabs_header_description: "A procurement hub to help you buy for your school, academy or trust and ensure compliance, save time and get value for money."
