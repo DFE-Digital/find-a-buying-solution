@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by_slug(params[:slug])
   rescue ContentfulRecordNotFoundError
-    render plain: "Category not found", status: :not_found
+    @message = "Category not found"
+    render template: "errors/not_found", status: :not_found
   end
 end
