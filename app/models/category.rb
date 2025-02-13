@@ -9,16 +9,14 @@ class Category
     @summary = entry.fields[:summary]
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
-    @solutions = entry.fields[:solutions]&.map do |solution|
-      Solution.new(solution)
-    end || []
+    @solutions = entry.fields.fetch(:solutions, []).map { Solution.new(it) }
   end
 
   def self.all
     ContentfulClient.entries(
       content_type: "category",
       select: "sys.id,fields.title,fields.summary,fields.slug",
-    ).map { |entry| new(entry) }
+    ).map { new(it) }
   end
 
   def to_param
