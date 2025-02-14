@@ -40,8 +40,5 @@ module FindABuyingSolution
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-
-    # Adding dfe-frontend node_modules folder to the asset pipeline
-    config.assets.paths << Rails.root.join("node_modules")
   end
 end

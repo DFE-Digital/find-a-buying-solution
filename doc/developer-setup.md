@@ -22,11 +22,13 @@ currently used.
 
 brew install postgresql@14
 
-## dfe-frontend
-## https://design.education.gov.uk/design-system/dfe-frontend
-## https://www.npmjs.com/package/dfe-frontend
-Refer to the documentation for the latest version of the 'dfe-frontend'.
-Run the following commend at the root of the project directory
+## Install dfe-frontend
+
+Refer to the following links for the latest documentation and version of the 'dfe-frontend'.
+Run the following commend at the root of the project directory.
+
+https://design.education.gov.uk/design-system/dfe-frontend
+https://www.npmjs.com/package/dfe-frontend
 
 ```
 $ npm i dfe-frontend
@@ -42,7 +44,7 @@ Usage:
 ```
 $ bundle exec rake assets:dfe_frontend_images
 ```
-The rake task can be configured to run automatically before asset precompilation.
+The rake task can be configured to run automatically before asset pre-compilation.
 
 ## Initialise the application
 
