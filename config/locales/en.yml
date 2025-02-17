@@ -28,4 +28,6 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  header_title: "Get help buying for schools"
+  description: "A procurement hub to help you buy for your school, academy or trust and ensure compliance, save time and get value for money."
+

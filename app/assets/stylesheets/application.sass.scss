@@ -1,2 +1,26 @@
-@use "govuk-frontend/dist/govuk/all" as *;
-@use "../node_modules/dfe-frontend/packages/dfefrontend" as *;
+
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+$govuk-assets-path: "/";
+
+@use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
+@use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
+
+.dfe-page-hero {
+  color: #fff;
+}
+
+.govuk-footer__copyright-logo {
+  background-image: url("govuk-frontend/govuk-crest.svg");
+}
+
+.beta-banner {
+  background-color: #fff;
+  padding: 10px;
+}
+
+.beta {
+  color: #fff;
+  background-color: #347CA9;
+  padding: 0px 5px;
+}
