@@ -35,17 +35,6 @@ $ npm i dfe-frontend
 ```
 Ensure that the folders: /node_modules/dfe-frontend and  /node_modules/govuk-frontend are created
 
-## Run the following rake task : dfe_frontend_images
-
-This Rake task copies images from external (/node_modules) frontend packages (DfE & GOV.UK Frontend)
-into the Rails app's assets directory. This ensures that the images are available
-for use in the application, especially in production where asset pipelines are used.
-Usage: 
-```
-$ bundle exec rake assets:dfe_frontend_images
-```
-The rake task can be configured to run automatically before asset pre-compilation.
-
 ## Initialise the application
 
 ```
@@ -64,6 +53,18 @@ $ bundle exec rails db:setup
 ```
 $ bundle exec rails assets:precompile
 ```
+
+## The following take tasts are also run as part of the assets:precompile task
+
+This ensures to not slow down Rails startup and runs only when assets are precompiled (e.g., during deployment).
+
+```
+lib/tasks/dfe_frontend_images.rake
+```
+
+This rake task copies images from external (/node_modules) frontend packages (DfE & GOV.UK Frontend)
+into the Rails app's  assets directory. This ensures that the images are available
+for use in the application, especially in production where asset pipelines are used.
 
 ## Start the application
 
