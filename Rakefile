@@ -3,10 +3,5 @@
 
 require_relative "config/application"
 
-# Enhance the assets:precompile task after it's loaded
 Rails.application.load_tasks
 
-Rake::Task["assets:precompile"].enhance do
-  Rake::Task["assets:dfe_frontend_images"].invoke
-  Rake::Task["assets:govuk_frontend_images"].invoke
-end
