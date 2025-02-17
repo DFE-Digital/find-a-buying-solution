@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.3.4; os macOS/21;
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/21;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"9156391922049250725"'
+      - '"7787070206043126912"'
       X-Content-Type-Options:
       - nosniff
       Contentful-Api:
@@ -69,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '61269'
+      - '0'
       Date:
-      - Wed, 12 Feb 2025 09:18:55 GMT
+      - Mon, 17 Feb 2025 09:54:31 GMT
       X-Served-By:
-      - cache-ewr-kewr1740039-EWR, cache-lon420124-LON
+      - cache-ewr-kewr1740039-EWR, cache-lcy-eglc8600087-LCY
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1739351935.266459,VS0,VE1
+      - S1739786072.718346,VS0,VE147
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - a6d3ae88-d0be-4358-a758-ed8e98302cd4
+      - d5979816-81fc-4db4-9fbd-e6d5c459ba9c
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Wed, 12 Feb 2025 09:18:55 GMT
+  recorded_at: Mon, 17 Feb 2025 09:54:31 GMT
 recorded_with: VCR 6.3.1
