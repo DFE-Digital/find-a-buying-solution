@@ -39,6 +39,15 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
+  spelling:
+    name: Check spelling and typos
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Actions Repository
+      uses: actions/checkout@v4
+    - name: Spell Check Repo
+      uses: crate-ci/typos@v1.29.7
+
   specs:
     name: Run specs
     runs-on: ubuntu-latest
