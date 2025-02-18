@@ -1,0 +1,2 @@
+[files]
+extend-exclude = ["spec/fixtures/vcr_cassettes/"]
