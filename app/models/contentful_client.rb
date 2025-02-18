@@ -14,6 +14,7 @@ class ContentfulClient
   def configure(space:, access_token:)
     @space = space
     @access_token = access_token
+    @client = nil
   end
 
   def client
