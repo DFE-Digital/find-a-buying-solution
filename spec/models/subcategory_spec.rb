@@ -1,16 +1,14 @@
 require "rails_helper"
 
-RSpec.describe Subcategory, type: :model do
+RSpec.describe Subcategory, :vcr, type: :model do
   describe "#initialize" do
     subject(:subcategory) { described_class.new(entry) }
 
     let(:entry) do
-      VCR.use_cassette("contentful/subcategory") do
-        ContentfulClient.entries(
-          content_type: "subcategory",
-          "fields.slug": "hardware",
-        ).first
-      end
+      ContentfulClient.entries(
+        content_type: "subcategory",
+        "fields.slug": "hardware",
+      ).first
     end
 
     it "sets the attributes" do
