@@ -12,9 +12,11 @@ RSpec.describe Subcategory, :vcr, type: :model do
     end
 
     it "sets the attributes" do
-      expect(subcategory.id).to be_present
-      expect(subcategory.title).to be_present
-      expect(subcategory.slug).to be_present
+      expect(subcategory).to have_attributes(
+        id: be_present,
+        title: be_present,
+        slug: be_present
+      )
     end
   end
 end
