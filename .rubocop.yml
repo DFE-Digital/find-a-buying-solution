@@ -13,3 +13,6 @@ require: rubocop-performance
 
 AllCops:
   TargetRubyVersion: 3.4.1
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: no_comma

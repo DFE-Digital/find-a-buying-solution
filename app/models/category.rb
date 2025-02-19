@@ -16,7 +16,7 @@ class Category
   def self.all
     ContentfulClient.entries(
       content_type: "category",
-      select: "sys.id,fields.title,fields.summary,fields.slug",
+      select: "sys.id,fields.title,fields.summary,fields.slug"
     ).map { new(it) }
   end
 
@@ -29,7 +29,7 @@ class Category
       content_type: "category",
       'fields.slug': slug,
       include: 1,
-      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.subcategories,fields.solutions",
+      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.subcategories,fields.solutions"
     ).first
     raise ContentfulRecordNotFoundError, "Category with slug '#{slug}' not found" unless entry
 

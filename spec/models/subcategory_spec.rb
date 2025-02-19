@@ -7,7 +7,7 @@ RSpec.describe Subcategory, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "subcategory",
-        "fields.slug": "hardware",
+        "fields.slug": "hardware"
       ).first
     end
 

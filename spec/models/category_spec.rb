@@ -7,7 +7,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software",
+        "fields.slug": "ict-and-computer-software"
       ).first
     end
 
@@ -30,7 +30,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software",
+        "fields.slug": "ict-and-computer-software"
       ).first
     end
 
@@ -68,7 +68,7 @@ RSpec.describe Category, :vcr, type: :model do
       ContentfulClient.entries(
         content_type: "category",
         "fields.slug": "ict-and-computer-software",
-        include: 2,
+        include: 2
       ).first
     end
 
