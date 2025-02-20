@@ -20,8 +20,7 @@ class ContentfulClient
   def client
     @client ||= Contentful::Client.new(
       space: @space,
-      access_token: @access_token,
-      dynamic_entries: :auto,
+      access_token: @access_token
     )
   end
 end
