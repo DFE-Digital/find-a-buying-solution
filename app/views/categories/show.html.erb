@@ -1,27 +1,33 @@
-<div class="dfe-page-header">
-  <h1><%= @category.title %></h1>
-  <p>
-    <%= @category.description %>
-  </p>
+<div class="page-header">
+  <div class="dfe-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <%= govuk_back_link(href: "/") %>
+        <div>Buying category</div>
+        <h2 class="govuk-heading"><%= @category.title %></h2>
+        <p>
+          <%= @category.description %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= govuk_back_link(href: "/") %>
-
-<h2>Buying options</h2>
-
-<%= govuk_accordion do |accordion| %>
-  <% @category.solutions.each do |solution| %>
-    <% accordion.with_section(heading_text: solution.title) do %>
-      <p>Provider: <%= solution.provider_name %></p>
-      <p><%= solution.description %></p>
-      <div class="govuk-button-group">
-        <a href="#" class="govuk-button" data-module="govuk-button">
-          Go to framework
-        </a>
-        <a href="#"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Learn more about this framework
-        </a>
-      </div>
+<div class="dfe-width-container">
+  <%= govuk_accordion do |accordion| %>
+    <% @category.solutions.each do |solution| %>
+      <% accordion.with_section(heading_text: solution.title) do %>
+        <p>Provider: <%= solution.provider_name %></p>
+        <p><%= solution.description %></p>
+        <div class="govuk-button-group">
+          <a href="#" class="govuk-button" data-module="govuk-button">
+            Go to framework
+          </a>
+          <a href="#"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Learn more about this framework
+          </a>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
