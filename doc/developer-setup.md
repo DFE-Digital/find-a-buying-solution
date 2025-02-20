@@ -15,7 +15,7 @@ consistent interface.
 
 [read more ...](https://github.com/DFE-Digital/rails-template?tab=readme-ov-file#tools-optionally-installed-by-asdf)
 
-Refer to `.ruby-version` in the root of the project for the version of Ruby
+Refer to `.tool-versions` in the root of the project for the version of Ruby
 currently used.
 
 ## Install Postgres
