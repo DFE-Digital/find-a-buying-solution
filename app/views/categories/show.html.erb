@@ -15,10 +15,10 @@
       <p>Provider: <%= solution.provider_name %></p>
       <p><%= solution.description %></p>
       <div class="govuk-button-group">
-        <a href="#" class="govuk-button" data-module="govuk-button">
+        <a href="<%= category_solution_path(@category.slug, solution.slug) %>" class="govuk-button" data-module="govuk-button">
           Go to framework
         </a>
-        <a href="#"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        <a href="<%= category_solution_path(@category.slug, solution.slug) %>"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Learn more about this framework
         </a>
       </div>

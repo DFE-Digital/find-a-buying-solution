@@ -13,4 +13,16 @@ class Solution
     @url = entry.fields[:url]
     @category = entry.fields[:category]
   end
+
+  def self.find_by_slug(slug)
+    entry = ContentfulClient.entries(
+      content_type: "solution",
+      'fields.slug': slug,
+      include: 1,
+      select: "sys.id,fields.title,fields.description,fields.summary,fields.slug, fields.provider_name, fields.url",
+      ).find { |solution| solution.fields[:slug] == slug }
+    raise ContentfulRecordNotFoundError, "Category > Solution with slug '#{slug}' not found" unless entry
+
+    new(entry)
+  end
 end
