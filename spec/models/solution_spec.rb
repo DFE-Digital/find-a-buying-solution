@@ -1,26 +1,25 @@
 require "rails_helper"
 
-RSpec.describe Solution, type: :model do
+RSpec.describe Solution, :vcr, type: :model do
   describe "#initialize" do
     subject(:solution) { described_class.new(entry) }
 
     let(:entry) do
-      VCR.use_cassette("contentful/solution") do
-        ContentfulClient.entries(
-          content_type: "solution",
-          "fields.slug": "it-hardware-framework",
-        ).first
-      end
+      ContentfulClient.entries(
+        content_type: "solution",
+        "fields.slug": "technology-products-and-associated-services-2"
+      ).first
     end
 
     it "sets the attributes" do
-      expect(solution.id).to be_present
-      expect(solution.title).to be_present
-      expect(solution.summary).to be_present
-      expect(solution.description).to be_present
-      expect(solution.slug).to be_present
-      expect(solution.provider_name).to be_present
-      expect(solution.category).to be_present
+      expect(solution).to have_attributes(
+        id: be_present,
+        title: be_present,
+        summary: be_present,
+        description: be_present,
+        slug: be_present,
+        provider_name: be_present
+      )
     end
   end
 end

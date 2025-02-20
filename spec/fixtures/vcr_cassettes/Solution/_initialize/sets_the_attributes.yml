@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&fields.slug=technology-products-and-associated-services-2
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os Linux;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '540'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"18008674759787092024"
+      X-Content-Type-Options:
+      - nosniff
+      Contentful-Api:
+      - cda
+      Content-Encoding:
+      - gzip
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Upstream:
+      - default
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Date:
+      - Wed, 19 Feb 2025 17:49:19 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740021-EWR, cache-lcy-eglc8600041-LCY
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1739987360.766779,VS0,VE156
+      X-Cache:
+      - MISS
+      X-Contentful-Request-Id:
+      - dc2247b1-1934-4cc7-b988-cba4180f9099
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA91Sy27bMBC89ysIHnqSDD1io9bNeaAtkAINYhdoi6CgqY3FmCJZLuVEMPzvWcqubaSH3gv4YK5mZ3ZnZ8uxR15teegd8IrPvBc93yU82CA0r/KE41o5XmUJ16pVgUoZ/VcBWur7ueUtBFGLIAYSsYrFh4RLayS4MLyI7SCCTkhS2b4RvVVmzSO/Wc/3Y9wPQJKpaSY7kdjk5eQpf/J8R2xDdbJAvbi8u7u+7b+8LM3mJft0ZQz1HDa5McH39JQeRIB6RpPzIivGaVak2Xie59XFtCqL0XRa/CBY52iJN7D8wzwfV/Qbl6OyvIgwMBvlrWnBEN9xj2GgVmAAfxrg761uzprjHq5baoUN1N/Ao7KGV2XCPWzU/lEMNgaS2rvyb9uuzuAHm9DqLkTuKKitFDqeGUy6uI9nflSg630AVBg+zUE2xmq76tlXb+tOBmTv2QzRShUdYvfgN0oCsoI9etHCs/XxejWg9MoNWhX/CIE1wtfPwkPCsJMNE8i0cME6TJi0revILWTC1CyIpYZA5fgQJyX43SkXrT4SyIgkIEkBmH13a40K1uOIfbcdk8IwodGyZdefc+Fh6tMwCKFzCYvZZbIRZhWJP89JyznrwzBMK1Q8gKAwj2hH7NpWUKr+2/10t6LlwjECqTtEICU30tNp0j92pgXZQqCNqsH/MhSHGKHLa4rbw+7dK9f2GpJeBAAA
+  recorded_at: Wed, 19 Feb 2025 17:49:19 GMT
+recorded_with: VCR 6.3.1

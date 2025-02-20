@@ -1,11 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "Categories pages", type: :request do
+RSpec.describe "Categories pages", :vcr, type: :request do
   describe "GET /" do
-    around do |example|
-      VCR.use_cassette("contentful/categories_all") { example.run }
-    end
-
     before do
       get root_path
     end
