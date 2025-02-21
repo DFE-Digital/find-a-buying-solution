@@ -3,7 +3,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         <%= govuk_back_link(href:  page_back_link ) %>
-        <div>Buying category</div>
+        <div><%= page_section_title %></div>
         <h2 class="govuk-heading"><%= page_title %></h2>
         <p>
           <%= page_description %>
@@ -14,9 +14,8 @@
 </div>
 
 <div class="dfe-width-container">
-  <div class="blue-line">
-    <div class=" govuk-!-margin-top-7">
+  <div class="blue-line">  </div>
+    <div class="govuk-!-margin-top-7">
       <%= yield %>
     </div>
-  </div>
 </div>
