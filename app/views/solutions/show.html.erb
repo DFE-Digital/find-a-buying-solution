@@ -1,13 +1,6 @@
-<%= govuk_back_link(href: category_path(@category)) %>
-
-<div class="dfe-page-header">
-  <h1><%= @solution.title %></h1>
-  <p>
-    <%= @solution.description %>
-  </p>
-</div>
-
-<h2>Buying options</h2>
-
-<%=  render_markdown_to_html(@solution.summary) %>
-
+<%= render 'shared/dfe_page',
+           page_title: @solution.title,
+           page_description: @solution.description,
+           page_back_link: category_path(@category) do %>
+    <%= render_markdown_to_html(@solution.summary) %>
+<% end %>

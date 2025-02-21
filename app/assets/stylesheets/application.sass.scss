@@ -15,7 +15,7 @@ $govuk-assets-path: "/";
 }
 
 .beta-banner {
-  background-color: #fff;
+  background-color: #f6f6f6;
   padding: 10px;
 }
 
@@ -23,4 +23,13 @@ $govuk-assets-path: "/";
   color: #fff;
   background-color: #347CA9;
   padding: 0px 5px;
+}
+
+.page-header {
+  background-color: #f6f6f6;
+}
+
+.blue-line {
+  border-top: 4px solid #1d70b8; /* GOV.UK blue */
+  width: 80px; /* Adjust width */
 }
