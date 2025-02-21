@@ -23,17 +23,13 @@
   <body class="govuk-template__body">
     <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 
-    <% if controller_name == "categories" %>
+    <% if controller_name == "categories" and  action_name == "index"%>
       <%= render "layouts/dfe_homepage_header" %>
     <% else %>
       <%= render "layouts/dfe_header" %>
     <% end %>
 
-    <div class="dfe-width-container">
-      <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
-        <%= yield %>
-      </main>
-    </div>
+     <%= yield %>
 
     <%= render "layouts/dfe_footer" %>
   </body>
