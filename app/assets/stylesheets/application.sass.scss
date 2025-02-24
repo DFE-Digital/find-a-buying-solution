@@ -33,3 +33,13 @@ $govuk-assets-path: "/";
   border-top: 4px solid #1d70b8; /* GOV.UK blue */
   width: 80px; /* Adjust width */
 }
+
+.govuk-details__text {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.solution {
+  border-bottom: 1px solid #b1b4b6;
+  padding: 15px 0;
+}

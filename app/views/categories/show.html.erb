@@ -1,24 +1,44 @@
-
 <%= render 'shared/dfe_page',
            page_section_title: "Buying category",
            page_title: @category.title,
            page_description: @category.description,
            page_back_link: root_path do %>
-  <% govuk_accordion do |accordion| %>
-    <% @category.solutions.each do |solution| %>
-      <% accordion.with_section(heading_text: solution.title) do %>
-        <p>Provider: <%= solution.provider_name %></p>
-        <p><%= solution.description %></p>
-        <div class="govuk-button-group">
-          <a href="<%= category_solution_path(@category.slug, solution.slug) %>" class="govuk-button" data-module="govuk-button">
-            Go to framework
-          </a>
-          <a href="<%= category_solution_path(@category.slug, solution.slug) %>"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Learn more about this framework
-          </a>
-        </div>
+
+<div class="dfe-width-container">
+  <h2>Buying options</h2>
+
+  <div class="govuk-form-group">
+    <%= govuk_details(summary_text: "Filter", open: params[:subcategory_slugs].presence) do %>
+      <%= form_with url: category_path(@category), method: :get  do |f| %>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
+            <%= f.collection_check_boxes :subcategory_slugs, @subcategories, :slug, :title,
+            checked: params[:subcategory_slugs] do |b| %>
+              <div class="govuk-checkboxes__item">
+                <%= b.check_box(class: "govuk-checkboxes__input") %>
+                <%= b.label(class: "govuk-label govuk-checkboxes__label") do %>
+                  <%= b.text %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </fieldset>
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Apply
+        </button>
       <% end %>
     <% end %>
+  </div>
+
+  <% @solutions.each do |solution| %>
+    <div class="solution">
+      <h3>
+        <%= govuk_link_to solution.title, category_solution_path(@category.slug, solution.slug) %>
+      </h3>
+      <p>
+        <%= solution.description %>
+      </p>
+    </div>
   <% end %>
 <% end %>
 
