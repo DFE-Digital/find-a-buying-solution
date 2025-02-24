@@ -19,7 +19,7 @@ class Solution
       content_type: "solution",
       'fields.slug': slug,
       include: 1,
-      select: "sys.id,fields.title,fields.description,fields.summary,fields.slug, fields.provider_name, fields.url",
+      select: "sys.id,fields.title,fields.description,fields.summary,fields.slug, fields.provider_name, fields.url"
       ).find { |solution| solution.fields[:slug] == slug }
     raise ContentfulRecordNotFoundError, "Category > Solution with slug '#{slug}' not found" unless entry
 
