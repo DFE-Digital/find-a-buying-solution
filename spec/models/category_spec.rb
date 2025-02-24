@@ -48,16 +48,16 @@ RSpec.describe Category, :vcr, type: :model do
     end
   end
 
-  describe ".find_by_slug" do
+  describe ".find_by_slug!" do
     it "fetches a category by its slug from Contentful" do
-      category = described_class.find_by_slug("ict-and-computer-software")
+      category = described_class.find_by_slug!("ict-and-computer-software")
       expect(category).to be_present
       expect(category).to be_a(described_class)
       expect(category.slug).to eq("ict-and-computer-software")
     end
 
     it "raises ContentfulRecordNotFoundError if no category is found by the given slug" do
-      expect { described_class.find_by_slug("non-existent-slug") }.to raise_error(ContentfulRecordNotFoundError)
+      expect { described_class.find_by_slug!("non-existent-slug") }.to raise_error(ContentfulRecordNotFoundError)
     end
   end
 
