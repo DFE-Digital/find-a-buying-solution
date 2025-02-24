@@ -20,7 +20,7 @@ class Solution
       'fields.slug': slug,
       include: 1,
       select: "sys.id,fields.title,fields.description,fields.summary,fields.slug, fields.provider_name, fields.url"
-      ).find { |solution| solution.fields[:slug] == slug }
+    ).find { |solution| solution.fields[:slug] == slug }
     raise ContentfulRecordNotFoundError, "Category > Solution with slug '#{slug}' not found" unless entry
 
     new(entry)
