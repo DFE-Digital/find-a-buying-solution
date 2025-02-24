@@ -53,4 +53,52 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       expect(response.body).to include("Everything ICT framework")
     end
   end
+
+  describe "GET /categories/:slug with subcategory filters" do
+    around do |example|
+      VCR.use_cassette("contentful/category_with_subcategories") { example.run }
+    end
+
+    context "with empty subcategory_slugs parameter" do
+      before do
+        get category_path("ict-and-computer-software", subcategory_slugs: [])
+      end
+
+      it "returns a successful response" do
+        expect(response).to be_successful
+      end
+
+      it "displays all solutions in the category" do
+        expect(response.body).to include("IT Hardware framework")
+        expect(response.body).to include("Everything ICT framework")
+      end
+    end
+
+    context "with specific subcategory_slugs parameters" do
+      before do
+        get category_path("ict-and-computer-software", subcategory_slugs: ["hardware"])
+      end
+
+      it "returns a successful response" do
+        expect(response).to be_successful
+      end
+
+      it "only displays solutions with matching subcategories" do
+        expect(response.body).to include("IT Hardware framework")
+        expect(response.body).not_to include("Cloud Services framework")
+      end
+    end
+
+    context "when form is submitted with selected subcategories" do
+      before do
+        get category_path("ict-and-computer-software", subcategory_slugs: ["hardware", "software"])
+      end
+
+      it "keeps the checkboxes selected after form submission" do
+        expect(response.body).to include('value="hardware" checked')
+        expect(response.body).to include('value="software" checked')
+        expect(response.body).not_to include('value="networking" checked')
+      end
+    end
+  end
 end
