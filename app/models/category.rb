@@ -31,7 +31,7 @@ class Category
       include: 1,
       select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.subcategories,fields.solutions"
     ).first
-    raise ContentfulRecordNotFoundError, "Category: '#{slug}' not found" unless entry
+    raise ContentfulRecordNotFoundError, "Category: '#{slug}' not found" if entry.nil?
 
     new(entry)
   end
