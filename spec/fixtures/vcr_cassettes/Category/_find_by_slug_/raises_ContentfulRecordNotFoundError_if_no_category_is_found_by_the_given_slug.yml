@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os Linux;
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -69,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '7416'
+      - '3340'
       Date:
-      - Wed, 19 Feb 2025 17:44:05 GMT
+      - Mon, 24 Feb 2025 18:08:47 GMT
       X-Served-By:
-      - cache-ewr-kewr1740071-EWR, cache-lcy-eglc8600068-LCY
+      - cache-ewr-kewr1740071-EWR, cache-lhr-egll1980030-LHR
       X-Cache-Hits:
-      - 0, 0
+      - 1, 0
       X-Timer:
-      - S1739987046.654009,VS0,VE1
+      - S1740420528.983175,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 6335dd77-1da8-42b3-958b-fa2caed8a03d
+      - c9f6aab8-1cca-4ba0-86f8-1d397ea52084
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Wed, 19 Feb 2025 17:44:05 GMT
+  recorded_at: Mon, 24 Feb 2025 18:08:47 GMT
 recorded_with: VCR 6.3.1
