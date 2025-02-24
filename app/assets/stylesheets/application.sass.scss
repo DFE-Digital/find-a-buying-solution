@@ -28,3 +28,8 @@ $govuk-assets-path: "/";
 .page-header {
   background-color: #f6f6f6;
 }
+
+.blue-line {
+  border-top: 4px solid #1d70b8; /* GOV.UK blue */
+  width: 80px; /* Adjust width */
+}
