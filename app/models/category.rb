@@ -24,14 +24,14 @@ class Category
     slug
   end
 
-  def self.find_by_slug(slug)
+  def self.find_by_slug!(slug)
     entry = ContentfulClient.entries(
       content_type: "category",
       'fields.slug': slug,
       include: 1,
       select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.subcategories,fields.solutions"
     ).first
-    raise ContentfulRecordNotFoundError, "Category with slug '#{slug}' not found" unless entry
+    raise ContentfulRecordNotFoundError, "Category: '#{slug}' not found" unless entry
 
     new(entry)
   end

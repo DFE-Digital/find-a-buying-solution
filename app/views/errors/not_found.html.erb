@@ -1,20 +1,22 @@
-<%= govuk_back_link(href: "/") %>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">
-      <%= @message.presence || "Page not found" %>
-    </h1>
-    <p class="govuk-body">
-      If you entered a web address, check it is correct.
-    </p>
-    <p class="govuk-body">
-      If you pasted the web address, check you copied the entire address.
-    </p>
-    <p class="govuk-body">
-      If the web address is correct or you selected a link or button and you
-      need to speak to someone about this problem, contact the <%=
-      t('service.name') %> team: <a class="govuk-link" href="mailto:<%%=
+<div class="page-header">
+  <div class="dfe-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <%= govuk_back_link(href: root_path ) %>
+        <h2 class="govuk-heading"><%= @message.presence || "Page not found" %></h2>
+        <p class="govuk-body">
+          If you entered a web address, check it is correct.
+        </p>
+        <p class="govuk-body">
+          If you pasted the web address, check you copied the entire address.
+        </p>
+        <p class="govuk-body">
+          If the web address is correct or you selected a link or button and you
+          need to speak to someone about this problem, contact the <%=
+          t('service.name') %> team: <a class="govuk-link" href="mailto:<%%=
       t('service.email') %>"><%= t('service.email') %></a>.
-    </p>
+        </p>
+      </div>
+    </div>
   </div>
 </div>

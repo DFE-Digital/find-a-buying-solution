@@ -14,7 +14,7 @@ class Solution
     @category = entry.fields[:category]
   end
 
-  def self.find_by_slug(slug)
+  def self.find_by_slug!(slug)
     entry = ContentfulClient.entries(
       content_type: "solution",
       'fields.slug': slug,
@@ -29,7 +29,7 @@ class Solution
         fields.url
       ].join(",")
     ).find { |solution| solution.fields[:slug] == slug }
-    raise ContentfulRecordNotFoundError, "Category > Solution with slug '#{slug}' not found" unless entry
+    raise ContentfulRecordNotFoundError, "Solution: '#{slug}' not found" unless entry
 
     new(entry)
   end

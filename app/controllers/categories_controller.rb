@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find_by_slug(params[:slug])
-    raise ContentfulRecordNotFoundError, "Category not found" unless @category
+    @category = Category.find_by_slug!(params[:slug])
   end
 end
