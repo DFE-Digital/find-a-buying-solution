@@ -76,7 +76,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     context "with specific subcategory_slugs parameters" do
       before do
-        get category_path("ict-and-computer-software", subcategory_slugs: ["hardware"])
+        get category_path("ict-and-computer-software", subcategory_slugs: %w[hardware])
       end
 
       it "returns a successful response" do
@@ -91,7 +91,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     context "when form is submitted with selected subcategories" do
       before do
-        get category_path("ict-and-computer-software", subcategory_slugs: ["hardware", "software"])
+        get category_path("ict-and-computer-software", subcategory_slugs: %w[hardware software])
       end
 
       it "keeps the checkboxes selected after form submission" do
