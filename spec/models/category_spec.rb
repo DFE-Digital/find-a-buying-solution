@@ -48,6 +48,23 @@ RSpec.describe Category, :vcr, type: :model do
     end
   end
 
+  describe "solutions ordering" do
+    subject(:category) { described_class.new(entry) }
+
+    let(:entry) do
+      ContentfulClient.entries(
+        content_type: "category",
+        "fields.slug": "ict-and-computer-software",
+        include: 1
+      ).first
+    end
+
+    it "orders solutions alphabetically by title" do
+      solution_titles = category.solutions.map(&:title)
+      expect(solution_titles).to eq(solution_titles.sort)
+    end
+  end
+
   describe "#filtered_solutions" do
     subject(:category) { described_class.new(entry) }
 
