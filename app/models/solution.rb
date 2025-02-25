@@ -1,7 +1,7 @@
 class Solution
   include ActiveModel::Model
 
-  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :category
+  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :category, :subcategories
 
   def initialize(entry)
     @id = entry.id
@@ -12,6 +12,7 @@ class Solution
     @provider_name = entry.fields[:provider_name]
     @url = entry.fields[:url]
     @category = entry.fields[:category]
+    @subcategories = entry.fields[:subcategories]
   end
 
   def self.find_by_slug!(slug)

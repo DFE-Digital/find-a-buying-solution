@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=ict-and-computer-software&include=1&select=fields.title,fields.summary,fields.description,fields.slug,fields.subcategories,fields.solutions,sys
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '2417'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"18088027008217969489"
+      X-Content-Type-Options:
+      - nosniff
+      Contentful-Api:
+      - cda
+      Content-Encoding:
+      - gzip
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Upstream:
+      - default
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 24 Feb 2025 23:22:37 GMT
+      Age:
+      - '280713'
+      X-Served-By:
+      - cache-ewr-kewr1740075-EWR, cache-lhr-egll1980028-LHR
+      X-Cache-Hits:
+      - 1, 1
+      X-Timer:
+      - S1740439357.496196,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - dd349c6b-1205-4340-b04d-dc3f9cc422cb
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Mon, 24 Feb 2025 23:22:37 GMT
+recorded_with: VCR 6.3.1

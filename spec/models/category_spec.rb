@@ -48,6 +48,42 @@ RSpec.describe Category, :vcr, type: :model do
     end
   end
 
+  describe "#filtered_solutions" do
+    subject(:category) { described_class.new(entry) }
+
+    let(:entry) do
+      ContentfulClient.entries(
+        content_type: "category",
+        "fields.slug": "ict-and-computer-software",
+        include: 2
+      ).first
+    end
+
+    it "filters solutions by subcategory slugs" do
+      subcategory_slugs = %w[hardware software]
+      filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
+      expected_solution_slugs = %w[it-hardware-framework microsoft-shape-the-future]
+
+      expect(filtered).to be_an(Array)
+      expect(filtered).to all(be_a(Solution))
+      expect(filtered.map(&:slug)).to match_array(expected_solution_slugs)
+    end
+
+    it "returns all solutions when subcategory_slugs is nil" do
+      expect(category.filtered_solutions(subcategory_slugs: nil)).to eq(category.solutions)
+    end
+
+    it "returns all solutions when subcategory_slugs is empty" do
+      expect(category.filtered_solutions(subcategory_slugs: [])).to eq(category.solutions)
+    end
+
+    it "excludes solutions that don't match any of the specified subcategory slugs" do
+      subcategory_slugs = %w[hardware]
+      filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
+      expect(filtered.map(&:slug)).not_to include("microsoft-shape-the-future")
+    end
+  end
+
   describe ".find_by_slug!" do
     it "fetches a category by its slug from Contentful" do
       category = described_class.find_by_slug!("ict-and-computer-software")

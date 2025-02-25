@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
   rescue_from ContentfulRecordNotFoundError, with: :record_not_found
 
 private

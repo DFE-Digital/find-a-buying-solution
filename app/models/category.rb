@@ -35,4 +35,14 @@ class Category
 
     new(entry)
   end
+
+  def filtered_solutions(subcategory_slugs: nil)
+    return solutions if subcategory_slugs.blank?
+
+    solutions.select do |solution|
+      solution.subcategories&.any? do |subcat|
+        subcategory_slugs.include?(subcat.fields[:slug])
+      end
+    end
+  end
 end
