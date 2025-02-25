@@ -4,28 +4,34 @@
            page_description: @category.description,
            page_back_link: root_path do %>
 
-  <div class="govuk-form-group">
-    <%= govuk_details(summary_text: "Filter", open: params[:subcategory_slugs].presence) do %>
-      <%= form_with url: category_path(@category), method: :get  do |f| %>
-        <fieldset class="govuk-fieldset">
-          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
-            <%= f.collection_check_boxes :subcategory_slugs, @subcategories, :slug, :title,
-            checked: params[:subcategory_slugs] do |b| %>
-              <div class="govuk-checkboxes__item">
-                <%= b.check_box(class: "govuk-checkboxes__input") %>
-                <%= b.label(class: "govuk-label govuk-checkboxes__label") do %>
-                  <%= b.text %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </fieldset>
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Apply
-        </button>
+  <div class="subcategory-filters-container">
+    <div class="subcategory-filters">
+      <%= govuk_details(summary_text: "Filter", open: params[:subcategory_slugs].presence) do %>
+        <%= form_with url: category_path(@category), method: :get  do |f| %>
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
+              <%= f.collection_check_boxes :subcategory_slugs, @subcategories, :slug, :title,
+              checked: params[:subcategory_slugs] do |b| %>
+                <div class="govuk-checkboxes__item">
+                  <%= b.check_box(class: "govuk-checkboxes__input") %>
+                  <%= b.label(class: "govuk-label govuk-checkboxes__label") do %>
+                    <%= b.text %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </fieldset>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Apply
+          </button>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
+    <div class="solutions-count">
+      <%= t("results.count", count: @solutions.count) %>
+    </div>
   </div>
+
   <h2>Frameworks</h2>
   <p>All frameworks are DfE approved and listed alphabetically.</p>
 

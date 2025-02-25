@@ -1,0 +1,92 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=ict-and-computer-software&include=1&select=fields.title,fields.summary,fields.description,fields.slug,fields.subcategories,fields.solutions,sys
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '2423'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"6855557625877662821"
+      X-Content-Type-Options:
+      - nosniff
+      Contentful-Api:
+      - cda
+      Content-Encoding:
+      - gzip
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Upstream:
+      - default
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '15511'
+      Date:
+      - Tue, 25 Feb 2025 14:49:23 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740075-EWR, cache-lhr-egll1980088-LHR
+      X-Cache-Hits:
+      - 1, 0
+      X-Timer:
+      - S1740494964.682407,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - b1c683b0-ca90-4bc7-8c81-5c5ee0ca9385
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Tue, 25 Feb 2025 14:49:23 GMT
+recorded_with: VCR 6.3.1
