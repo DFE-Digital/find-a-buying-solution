@@ -5,3 +5,9 @@ en:
   service:
     name: Find A Buying Solution
     email: fabs@education.gov.uk
+
+  results:
+    count:
+      zero: "No results"
+      one: "1 result"
+      other: "%{count} results"
