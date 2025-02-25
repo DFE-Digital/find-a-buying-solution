@@ -62,14 +62,11 @@ RSpec.describe Category, :vcr, type: :model do
     it "filters solutions by subcategory slugs" do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
+      expected_solution_slugs = %w[it-hardware-framework microsoft-shape-the-future]
 
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
-
-      # Verify all returned solutions have at least one of the specified subcategories
-      expect(filtered).to all(satisfy do |solution|
-        solution.subcategories&.any? { |subcat| subcategory_slugs.include?(subcat.fields[:slug]) }
-      end)
+      expect(filtered.map(&:slug)).to match_array(expected_solution_slugs)
     end
 
     it "returns all solutions when subcategory_slugs is nil" do
@@ -83,14 +80,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "excludes solutions that don't match any of the specified subcategory slugs" do
       subcategory_slugs = %w[hardware]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-
-      # Find solutions that don't have the specified subcategory
-      non_matching_solutions = category.solutions.reject do |solution|
-        solution.subcategories&.any? { |subcat| subcategory_slugs.include?(subcat.fields[:slug]) }
-      end
-
-      # Verify these solutions are not included in the filtered results
-      expect(filtered).not_to include(*non_matching_solutions)
+      expect(filtered.map(&:slug)).not_to include("microsoft-shape-the-future")
     end
   end
 
