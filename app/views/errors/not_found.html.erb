@@ -3,18 +3,15 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         <%= govuk_back_link(href: root_path ) %>
-        <h2 class="govuk-heading"><%= @message.presence || "Page not found" %></h2>
+        <h2 class="govuk-heading"><%= @message.presence || t(".title") %></h2>
         <p class="govuk-body">
-          If you entered a web address, check it is correct.
+          <%= t(".check_typed") %>
         </p>
         <p class="govuk-body">
-          If you pasted the web address, check you copied the entire address.
+          <%= t(".check_pasted") %>
         </p>
         <p class="govuk-body">
-          If the web address is correct or you selected a link or button and you
-          need to speak to someone about this problem, contact the <%=
-          t('service.name') %> team: <a class="govuk-link" href="mailto:<%%=
-      t('service.email') %>"><%= t('service.email') %></a>.
+          <%= t(".contact", service_name: t("service.name"), link: mail_to(t("service.email"))) %>
         </p>
       </div>
     </div>

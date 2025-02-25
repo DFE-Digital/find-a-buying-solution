@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for(:title) || "Find A Buying Solution" %></title>
+  <title><%= content_for(:title) || t("service.name") %></title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
@@ -19,5 +19,3 @@
   <%= yield %>
 </body>
 </html>
-
-

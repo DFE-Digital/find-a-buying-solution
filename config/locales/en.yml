@@ -1,6 +1,8 @@
 en:
-  header_title: "Get help buying for schools"
-  header_description: "A procurement hub to help you buy for your school, academy or trust and ensure compliance, save time and get value for money."
+  header_title: Get help buying for schools
+  header_description: |
+    A procurement hub to help you buy for your school, academy or trust and
+    ensure compliance, save time and get value for money.
 
   service:
     name: Find A Buying Solution
@@ -11,3 +13,32 @@ en:
       zero: "No results"
       one: "1 result"
       other: "%{count} results"
+
+  categories:
+    index:
+      title: Buying options, by category
+      standfirst: |
+        Find DfE-approved buying options such as frameworks, which are lists of
+        pre-checked suppliers.
+    show:
+      section_title: Buying category
+      filter: Filter
+      apply: Apply
+      title: Frameworks
+      standfirst: All frameworks are DfE approved and listed alphabetically.
+  errors:
+    not_found:
+      title: Page not found
+      check_typed: If you entered a web address, check it is correct.
+      check_pasted: If you pasted the web address, check you copied the entire address.
+      contact: |
+        If the web address is correct or you selected a link or button and you
+        need to speak to someone about this problem, contact the %{service_name}
+        team: %{link}.
+
+  solutions:
+    show:
+      section_title: Framework
+  shared:
+    _dfe_homepage_header:
+      home_link: View list of all DfE approved frameworks

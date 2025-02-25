@@ -1,5 +1,5 @@
 <%= render 'shared/dfe_page',
-           page_section_title: "Buying category",
+           page_section_title: t(".section_title"),
            page_title: @category.title,
            page_description: @category.description,
            page_back_link: root_path do %>
@@ -22,7 +22,7 @@
             </div>
           </fieldset>
           <button type="submit" class="govuk-button" data-module="govuk-button">
-            Apply
+            <%= t(".apply") %>
           </button>
         <% end %>
       <% end %>
@@ -32,9 +32,8 @@
     </div>
   </div>
 
-  <h2>Frameworks</h2>
-  <p>All frameworks are DfE approved and listed alphabetically.</p>
-
+  <h2><%= t(".title") %></h2>
+  <p><%= t(".standfirst") %></p>
 
   <% @solutions.each do |solution| %>
     <div class="solution">
