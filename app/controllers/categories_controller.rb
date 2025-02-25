@@ -7,6 +7,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by_slug!(params[:slug])
     @subcategories = @category.subcategories
-    @solutions = @category.filtered_solutions(subcategory_slugs: params[:subcategory_slugs]&.reject(&:blank?))
+    @solutions = @category.filtered_solutions(subcategory_slugs: params[:subcategory_slugs]&.compact_blank)
   end
 end
