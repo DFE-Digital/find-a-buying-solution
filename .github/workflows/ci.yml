@@ -37,6 +37,15 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
+      - name: Check that translations are normalised
+        run: bundler exec i18n-tasks check-normalized
+
+      - name: Check that no translations are missing
+        run: bundler exec i18n-tasks missing
+
+      - name: Check that there are no unused translations
+        run: bundler exec i18n-tasks unused
+
   spelling:
     name: Check spelling and typos
     runs-on: ubuntu-latest
