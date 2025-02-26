@@ -11,6 +11,7 @@
         <a href="/" class="govuk-link govuk-link--inverse">About us</a>
       </li>
     </ul>
+    <%= render "shared/dfe_search" if defined? :show_search %>
     <div class="dfe-header__menu">
       <button class="dfe-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
     </div>
