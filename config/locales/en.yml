@@ -40,5 +40,5 @@ en:
     show:
       section_title: Framework
   shared:
-    _dfe_homepage_header:
+    dfe_homepage_header:
       home_link: View list of all DfE approved frameworks

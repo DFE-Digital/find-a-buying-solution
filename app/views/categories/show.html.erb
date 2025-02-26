@@ -1,48 +1,48 @@
-<%= render 'shared/dfe_page',
-           page_section_title: t(".section_title"),
-           page_title: @category.title,
-           page_description: @category.description,
-           page_back_link: root_path do %>
+<%
+  @page_section_title = t(".section_title")
+  @page_title = @category.title
+  @page_description = @category.description
+  @page_back_link = root_path
+%>
 
-  <div class="subcategory-filters-container">
-    <div class="subcategory-filters">
-      <%= govuk_details(summary_text: "Filter", open: params[:subcategory_slugs].presence) do %>
-        <%= form_with url: category_path(@category), method: :get  do |f| %>
-          <fieldset class="govuk-fieldset">
-            <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
-              <%= f.collection_check_boxes :subcategory_slugs, @subcategories, :slug, :title,
-              checked: params[:subcategory_slugs] do |b| %>
-                <div class="govuk-checkboxes__item">
-                  <%= b.check_box(class: "govuk-checkboxes__input") %>
-                  <%= b.label(class: "govuk-label govuk-checkboxes__label") do %>
-                    <%= b.text %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </fieldset>
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            <%= t(".apply") %>
-          </button>
-        <% end %>
+<div class="subcategory-filters-container">
+  <div class="subcategory-filters">
+    <%= govuk_details(summary_text: "Filter", open: params[:subcategory_slugs].presence) do %>
+      <%= form_with url: category_path(@category), method: :get  do |f| %>
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
+            <%= f.collection_check_boxes :subcategory_slugs, @subcategories, :slug, :title,
+            checked: params[:subcategory_slugs] do |b| %>
+              <div class="govuk-checkboxes__item">
+                <%= b.check_box(class: "govuk-checkboxes__input") %>
+                <%= b.label(class: "govuk-label govuk-checkboxes__label") do %>
+                  <%= b.text %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </fieldset>
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          <%= t(".apply") %>
+        </button>
       <% end %>
-    </div>
-    <div class="solutions-count">
-      <%= t("results.count", count: @solutions.count) %>
-    </div>
+    <% end %>
   </div>
+  <div class="solutions-count">
+    <%= t("results.count", count: @solutions.count) %>
+  </div>
+</div>
 
-  <h2><%= t(".title") %></h2>
-  <p><%= t(".standfirst") %></p>
+<h2><%= t(".title") %></h2>
+<p><%= t(".standfirst") %></p>
 
-  <% @solutions.each do |solution| %>
-    <div class="solution">
-      <h3>
-        <%= govuk_link_to solution.title, category_solution_path(@category.slug, solution.slug) %>
-      </h3>
-      <p>
-        <%= solution.description %>
-      </p>
-    </div>
-  <% end %>
+<% @solutions.each do |solution| %>
+  <div class="solution">
+    <h3>
+      <%= govuk_link_to solution.title, category_solution_path(@category.slug, solution.slug) %>
+    </h3>
+    <p>
+      <%= solution.description %>
+    </p>
+  </div>
 <% end %>
