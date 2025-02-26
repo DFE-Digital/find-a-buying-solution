@@ -42,3 +42,36 @@ en:
   shared:
     dfe_homepage_header:
       home_link: View list of all DfE approved frameworks
+    dfe_beta_banner:
+      beta: BETA
+      banner_text_html: This is a new service-your %{feedback} will help us to improve it.
+      feedback: feedback
+    dfe_footer:
+      service_and_information: Service and information
+      get_help_dfe: Get help from DfE procurement experts
+      get_help_other: Get help from other schools or trusts
+      about_dfe_approved: About "DfE-approved"
+      about_us: About us
+      contact_us: Contact us
+      give_feedback: Give feedback
+      report_issue: Report a technical issue
+      site_information: Site information
+      accessibility_statement: Accessibility statement
+      privacy_notice: Privacy notice
+      terms_and_conditions: Terms and Conditions
+      licensing_html: All content is available under the %{ogl3}, except where otherwise stated.
+      ogl3: Open Government Licence v3.0
+      crown_copyright: "© Crown copyright"
+    dfe_logo_and_menu:
+      about_us: About us
+      menu: Menu
+      close_menu: Close menu
+      home: Home
+      offers: Offers
+      training: Training
+      guidance: Guidance
+      support: Support
+    dfe_search:
+      search: Search
+      search_this_website: Search this website
+      close_search: Close search

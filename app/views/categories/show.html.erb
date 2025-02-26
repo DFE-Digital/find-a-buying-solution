@@ -7,7 +7,7 @@
 
 <div class="subcategory-filters-container">
   <div class="subcategory-filters">
-    <%= govuk_details(summary_text: "Filter", open: params[:subcategory_slugs].presence) do %>
+    <%= govuk_details(summary_text: t(".filter"), open: params[:subcategory_slugs].presence) do %>
       <%= form_with url: category_path(@category), method: :get  do |f| %>
         <fieldset class="govuk-fieldset">
           <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
