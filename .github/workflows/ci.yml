@@ -44,7 +44,7 @@ jobs:
     - name: Checkout Actions Repository
       uses: actions/checkout@v4
     - name: Spell Check Repo
-      uses: crate-ci/typos@v1.29.9
+      uses: crate-ci/typos@v1.29.10
 
   specs:
     name: Run specs
