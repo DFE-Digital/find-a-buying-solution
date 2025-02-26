@@ -8,5 +8,6 @@ class CategoriesController < ApplicationController
     @category = Category.find_by_slug!(params[:slug])
     @subcategories = @category.subcategories
     @solutions = @category.filtered_solutions(subcategory_slugs: params[:subcategory_slugs]&.compact_blank)
+    render layout: "page"
   end
 end

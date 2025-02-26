@@ -1,5 +1,5 @@
 <%= render "shared/dfe_base" do %>
   <%= render "shared/dfe_header" %>
-  <%= yield %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
   <%= render "shared/dfe_footer" %>
 <% end %>
