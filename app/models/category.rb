@@ -20,6 +20,14 @@ class Category
     ).map { new(it) }
   end
 
+  def self.search(query: "")
+    ContentfulClient.entries(
+      content_type: "category",
+      query: query,
+      select: "sys.id,fields.title,fields.summary,fields.slug"
+    ).map { new(it) }
+  end
+
   def to_param
     slug
   end

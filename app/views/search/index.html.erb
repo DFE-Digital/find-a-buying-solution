@@ -1,0 +1,61 @@
+<%= render "shared/dfe_base" do %>
+  <div class="dfe-width-container govuk-!-margin-top-4">
+    <main class="govuk-main-wrapper">
+      <%= govuk_back_link(href: root_path) %>
+      
+      <h1 class="govuk-heading-l">Search Get Help Buying for Schools</h1>
+
+      <div class="dfe-width-container">
+        <div class="dfe-grid-row">
+          <div class="dfe-grid-column-two-thirds">
+            <%= render "shared/dfe_search" %>
+          </div>
+        </div>
+      </div>
+
+    <% if @solutions.any? %>
+      <h2 class="govuk-heading-m">
+        <%= t("results.section.title.type.solution") %>
+      </h2>
+      <% @solutions.each do |solution| %>
+        <ul class="govuk-list">
+            <li>
+              <%= solution.title %>
+            </li>
+        </ul>
+      <% end %>
+    <% end %>
+
+    <% if @categories.any? %>
+      <h2 class="govuk-heading-m">
+        <%= t("results.section.title.type.category") %>
+      </h2>
+      <% @categories.each do |category| %>
+        <ul class="govuk-list">
+            <li>
+              <%= category.title %>
+            </li>
+        </ul>
+      <% end %>
+    <% end %>
+
+<hr/>
+      <% if @search_results.any? %>
+        <% @search_results.group_by { |r| r.content_type.id }.slice('solution', 'category').each do |type, results| %>
+          <h2 class="govuk-heading-m">
+            <%= t("results.section.title.type.#{type.downcase}") %>
+          </h2>
+          <ul class="govuk-list">
+            <% results.each do |result| %>
+              <li>
+                <%= result.title %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% else %>
+        <p class="govuk-body">No results found.</p>
+      <% end %>
+    </main>
+  </div>
+<% end %>

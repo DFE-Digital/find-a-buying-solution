@@ -11,3 +11,9 @@ en:
       zero: "No results"
       one: "1 result"
       other: "%{count} results"
+
+    section:
+      title: 
+        type:
+          solution: "Matching frameworks"
+          category: "Categories"
