@@ -1,13 +1,76 @@
+---
 en:
-  header_title: "Get help buying for schools"
-  header_description: "A procurement hub to help you buy for your school, academy or trust and ensure compliance, save time and get value for money."
-
-  service:
-    name: Find A Buying Solution
-    email: fabs@education.gov.uk
-
+  categories:
+    index:
+      standfirst: |
+        Find DfE-approved buying options such as frameworks, which are lists of
+        pre-checked suppliers.
+      title: Buying options, by category
+    show:
+      apply: Apply
+      filter: Filter
+      section_title: Buying category
+      standfirst: All frameworks are DfE approved and listed alphabetically.
+      title: Frameworks
+  errors:
+    not_found:
+      check_pasted: If you pasted the web address, check you copied the entire address.
+      check_typed: If you entered a web address, check it is correct.
+      contact: |
+        If the web address is correct or you selected a link or button and you
+        need to speak to someone about this problem, contact the %{service_name}
+        team: %{link}.
+      title: Page not found
+  header_description: |
+    A procurement hub to help you buy for your school, academy or trust and
+    ensure compliance, save time and get value for money.
+  header_title: Get help buying for schools
   results:
     count:
-      zero: "No results"
-      one: "1 result"
+      one: 1 result
       other: "%{count} results"
+      zero: No results
+  service:
+    email: fabs@education.gov.uk
+    name: Find A Buying Solution
+  shared:
+    dfe_beta_banner:
+      banner_text_html: This is a new service-your %{feedback} will help us to improve
+        it.
+      beta: BETA
+      feedback: feedback
+    dfe_footer:
+      about_dfe_approved: About ‘DfE-approved’
+      about_us: About us
+      accessibility_statement: Accessibility statement
+      contact_us: Contact us
+      crown_copyright: "© Crown copyright"
+      get_help_dfe: Get help from DfE procurement experts
+      get_help_other: Get help from other schools or trusts
+      give_feedback: Give feedback
+      licensing_html: All content is available under the %{ogl3}, except where otherwise
+        stated.
+      ogl3: Open Government Licence v3.0
+      privacy_notice: Privacy notice
+      report_issue: Report a technical issue
+      service_and_information: Service and information
+      site_information: Site information
+      terms_and_conditions: Terms and Conditions
+    dfe_homepage_header:
+      home_link: View list of all DfE approved frameworks
+    dfe_logo_and_menu:
+      about_us: About us
+      close_menu: Close menu
+      guidance: Guidance
+      home: Home
+      menu: Menu
+      offers: Offers
+      support: Support
+      training: Training
+    dfe_search:
+      close_search: Close search
+      search: Search
+      search_this_website: Search this website
+  solutions:
+    show:
+      section_title: Framework
