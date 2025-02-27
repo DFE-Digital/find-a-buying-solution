@@ -26,6 +26,11 @@
           <%= t(".apply") %>
         </button>
       <% end %>
+
+    <% end %>
+
+    <% unless params.fetch(:subcategory_slugs, []).compact_blank.blank? %>
+      <%= render "categories/filter_labels" %>
     <% end %>
   </div>
   <div class="solutions-count">
