@@ -2,7 +2,7 @@
   @page_section_title = t(".section_title")
   @page_title = @solution.title
   @page_description = @solution.description
-  @page_back_link = category_path(@category)
+  @page_back_link = request.referer || category_path(@category)
 %>
 
 <%= render_markdown_to_html(@solution.summary) %>
