@@ -9,7 +9,7 @@ class Category
     @summary = entry.fields[:summary]
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
-    @solutions = entry.fields.fetch(:solutions, []).map { Solution.new(it) }
+    @solutions = entry.fields.fetch(:solutions, []).map { Solution.new(it) }.sort_by(&:title)
     @subcategories = entry.fields.fetch(:subcategories, []).map { Subcategory.new(it) }
   end
 

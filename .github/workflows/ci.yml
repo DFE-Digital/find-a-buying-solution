@@ -37,6 +37,15 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
+      - name: Check that translations are normalised
+        run: bundler exec i18n-tasks check-normalized
+
+      - name: Check that no translations are missing
+        run: bundler exec i18n-tasks missing
+
+      - name: Check that there are no unused translations
+        run: bundler exec i18n-tasks unused
+
   spelling:
     name: Check spelling and typos
     runs-on: ubuntu-latest
@@ -44,7 +53,7 @@ jobs:
     - name: Checkout Actions Repository
       uses: actions/checkout@v4
     - name: Spell Check Repo
-      uses: crate-ci/typos@v1.29.8
+      uses: crate-ci/typos@v1.29.10
 
   specs:
     name: Run specs

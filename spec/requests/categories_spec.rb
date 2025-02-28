@@ -72,6 +72,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
         expect(response.body).to include("IT Hardware framework")
         expect(response.body).to include("Everything ICT framework")
       end
+
+      it "displays the correct results count text" do
+        expect(response.body).to include("5 results")
+      end
     end
 
     context "with specific subcategory_slugs parameters" do
@@ -87,6 +91,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
         expect(response.body).to include("IT Hardware framework")
         expect(response.body).not_to include("Cloud Services framework")
       end
+
+      it "displays the correct results count text" do
+        expect(response.body).to include("1 result")
+      end
     end
 
     context "when form is submitted with selected subcategories" do
@@ -98,6 +106,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
         expect(response.body).to include('value="hardware" checked')
         expect(response.body).to include('value="software" checked')
         expect(response.body).not_to include('value="networking" checked')
+      end
+
+      it "displays the correct results count text" do
+        expect(response.body).to include("2 results")
       end
     end
   end

@@ -55,3 +55,18 @@ $govuk-assets-path: "/";
   border-bottom: 1px solid #b1b4b6;
   padding: 15px 0;
 }
+
+.subcategory-filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.subcategory-filters {
+  flex: 1;
+}
+
+.solutions-count {
+  color: #505a5f;
+}

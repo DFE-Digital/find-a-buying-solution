@@ -8,66 +8,67 @@
   <div class="dfe-header__content" id="content-header">
     <ul class="dfe-header__action-links">
       <li>
-        <a href="/" class="govuk-link govuk-link--inverse">About us</a>
+        <a href="/TODO" class="govuk-link govuk-link--inverse"><%= t(".about_us") %></a>
       </li>
     </ul>
+    <%= render "shared/dfe_search" if defined? :show_search %>
     <div class="dfe-header__menu">
-      <button class="dfe-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
+      <button class="dfe-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false"><%= t(".menu") %></button>
     </div>
   </div>
 </div>
 
 <div class="dfe-width-container dfe-header__service-name">
-  <a href="/" class="dfe-header__link--service">Get help buying for schools</a>
+  <a href="/" class="dfe-header__link--service"><%= t("header_title") %></a>
 </div>
 
 <nav class="dfe-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
   <div class="dfe-width-container">
     <p class="dfe-header__navigation-title">
-      <span id="label-navigation">Menu</span>
+      <span id="label-navigation"><%= t(".menu") %></span>
       <button class="dfe-header__navigation-close" id="close-menu">
         <svg class="dfe-icon dfe-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
         </svg>
-        <span class="govuk-visually-hidden">Close menu</span>
+        <span class="govuk-visually-hidden"><%= t(".close_menu") %></span>
       </button>
     </p>
     <ul class="dfe-header__navigation-list">
       <li class="dfe-header__navigation-item dfe-header__navigation-item--current">
         <a class="dfe-header__navigation-link" href="/">
-          Home
+          <%= t(".home") %>
           <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
       <li class="dfe-header__navigation-item ">
-        <a class="dfe-header__navigation-link" href="/">
-          Offers
+        <a class="dfe-header__navigation-link" href="/TODO">
+          <%= t(".offers") %>
           <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
       <li class="dfe-header__navigation-item ">
-        <a class="dfe-header__navigation-link" href="/">
-          Training
+        <a class="dfe-header__navigation-link" href="/TODO">
+          <%= t(".training") %>
           <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
       <li class="dfe-header__navigation-item ">
-        <a class="dfe-header__navigation-link" href="/">
-          Guidance
+        <a class="dfe-header__navigation-link" href="/TODO">
+          <%= t(".guidance") %>
           <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
         </a>
       </li>
       <li class="dfe-header__navigation-item ">
-        <a class="dfe-header__navigation-link" href="/">
-          Support
+        <a class="dfe-header__navigation-link" href="/TODO">
+          <%= t(".support") %>
           <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
