@@ -8,7 +8,7 @@
   <ul class="filters-remove-tags">
     <% @subcategories.select { |s| params[:subcategory_slugs]&.include?(s.slug) }.each do |subcategory| %>
       <li>
-        <%= govuk_link_to category_path(@category, subcategory_slugs: params[:subcategory_slugs] - [subcategory.slug]),
+        <%= link_to category_path(@category, subcategory_slugs: params[:subcategory_slugs] - [subcategory.slug]),
         class: "filters-remove-tag",
             no_underline: true do %>
           <span class="govuk-visually-hidden">Remove filter</span>
