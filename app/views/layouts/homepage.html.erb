@@ -15,11 +15,13 @@
       </div>
     </div>
 
-  <div class="dfe-width-container">
-    <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-      <%= yield(:content) %>
+  <% if content_for?(:content) %>
+    <div class="dfe-width-container">
+      <div class="govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+        <%= yield(:content) %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <%= render "shared/dfe_footer" %>
 <% end %>
