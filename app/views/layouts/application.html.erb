@@ -17,12 +17,12 @@
     </div>
   </div>
 
-  <% if not yield.blank? %>
+  <% if content_for?(:content) %>
     <div class="page-with-sidebar">
       <div class="dfe-width-container">
         <div class="blue-line"></div>
         <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-          <%= yield %>
+          <%= yield(:content) %>
         </div>
         <%= render "shared/dfe_sidebar" %>
       </div>
@@ -30,5 +30,4 @@
   <% end %>
 
   <%= render "shared/dfe_footer" %>
- <% end %>
-
+<% end %>
