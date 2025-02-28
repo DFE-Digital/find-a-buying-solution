@@ -1,0 +1,23 @@
+<div class="filters-remove">
+  <div class="filters-remove__heading">
+    <div class="govuk-body filters-remove__heading-title govuk-!-margin-bottom-0">
+      Active filters
+    </div>
+  </div>
+
+  <ul class="filters-remove-tags">
+    <% @subcategories.select { |s| params[:subcategory_slugs]&.include?(s.slug) }.each do |subcategory| %>
+      <li>
+        <%= govuk_link_to category_path(@category, subcategory_slugs: params[:subcategory_slugs] - [subcategory.slug]),
+        class: "filters-remove-tag",
+            no_underline: true do %>
+          <span class="govuk-visually-hidden">Remove filter</span>
+          <%= subcategory.title %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= govuk_link_to "Clear all filters", category_path(@category) %>
+
+</div>
