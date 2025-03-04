@@ -1,6 +1,9 @@
 ---
 en:
   categories:
+    filter_labels:
+      active_filters: Active filters
+      clear_all_filters: Clear all filters
     index:
       standfirst: |
         Find DfE-approved buying options such as frameworks, which are lists of
