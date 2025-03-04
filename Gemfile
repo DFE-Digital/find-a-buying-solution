@@ -18,6 +18,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "i18n-tasks"
+  gem "l10nizer", require: false
   gem "rspec"
   gem "rspec-rails"
   gem "rubocop-govuk", require: false
