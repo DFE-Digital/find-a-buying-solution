@@ -11,7 +11,7 @@
         <%= link_to category_path(@category, subcategory_slugs: params[:subcategory_slugs] - [subcategory.slug]),
         class: "filters-remove-tag",
             no_underline: true do %>
-          <span class="govuk-visually-hidden">Remove filter</span>
+          <span class="govuk-visually-hidden"><%= t(".remove_filter") %></span>
           <%= subcategory.title %>
         <% end %>
       </li>
