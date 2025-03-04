@@ -12,7 +12,6 @@ $govuk-assets-path: "/";
 
 .page-with-sidebar {
   background-color: #fff !important;
-  display: flex;
   flex-direction: column;
 }
 
@@ -69,4 +68,8 @@ $govuk-assets-path: "/";
 
 .solutions-count {
   color: #505a5f;
+}
+
+footer {
+  clear:both;
 }
