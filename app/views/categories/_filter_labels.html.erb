@@ -1,12 +1,12 @@
 <div class="filters-remove">
   <div class="filters-remove__heading">
     <div class="govuk-body filters-remove__heading-title govuk-!-margin-bottom-0">
-      Active filters
+      <%= t(".active_filters") %>
     </div>
   </div>
 
   <ul class="filters-remove-tags">
-    <% @subcategories.select { |s| params[:subcategory_slugs]&.include?(s.slug) }.each do |subcategory| %>
+    <% @selected_subcategories.each do |subcategory| %>
       <li>
         <%= link_to category_path(@category, subcategory_slugs: params[:subcategory_slugs] - [subcategory.slug]),
         class: "filters-remove-tag",
@@ -18,6 +18,6 @@
     <% end %>
   </ul>
 
-  <%= govuk_link_to "Clear all filters", category_path(@category) %>
+  <%= govuk_link_to t(".clear_all_filters"), category_path(@category) %>
 
 </div>

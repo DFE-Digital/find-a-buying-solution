@@ -12,6 +12,9 @@ en:
       section_title: Buying category
       standfirst: All frameworks are DfE approved and listed alphabetically.
       title: Frameworks
+    filter_labels:
+      active_filters: Active filters
+      clear_all_filters: Clear all filters
   errors:
     not_found:
       check_pasted: If you pasted the web address, check you copied the entire address.
