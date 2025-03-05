@@ -11,7 +11,7 @@
         <a href="/TODO" class="govuk-link govuk-link--inverse"><%= t(".about_us") %></a>
       </li>
     </ul>
-    <%= render "shared/dfe_search" if defined? :show_search %>
+    <%= render "shared/dfe_search" if defined? local_assigns[:locals][:show_search] %>
     <div class="dfe-header__menu">
       <button class="dfe-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false"><%= t(".menu") %></button>
     </div>
