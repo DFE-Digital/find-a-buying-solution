@@ -37,6 +37,9 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
+      - name: Check that there is no unlocalised text in templates
+        run: bundler exec l10nizer
+
       - name: Check that translations are normalised
         run: bundler exec i18n-tasks check-normalized
 

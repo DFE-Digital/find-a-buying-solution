@@ -1,6 +1,10 @@
 ---
 en:
   categories:
+    filter_labels:
+      active_filters: Active filters
+      clear_all_filters: Clear all filters
+      remove_filter: Remove filter
     index:
       standfirst: |
         Find DfE-approved buying options such as frameworks, which are lists of
@@ -71,6 +75,9 @@ en:
       close_search: Close search
       search: Search
       search_this_website: Search this website
+    dfe_sidebar:
+      catalogues: Catalogues
+      related_actions: Related actions
   solutions:
     show:
       section_title: Framework
