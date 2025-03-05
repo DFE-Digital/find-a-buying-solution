@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :enable_search_in_header, except: :index
+
   def index
     @categories = Category.all
     render layout: "homepage"
