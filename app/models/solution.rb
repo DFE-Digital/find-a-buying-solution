@@ -15,6 +15,14 @@ class Solution
     @subcategories = entry.fields[:subcategories]
   end
 
+  def self.search(query: "")
+    ContentfulClient.entries(
+      content_type: "solution",
+      query: query,
+      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug"
+    ).map { new(it) }
+  end
+
   def self.find_by_slug!(slug)
     entry = ContentfulClient.entries(
       content_type: "solution",

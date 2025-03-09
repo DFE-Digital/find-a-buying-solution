@@ -34,6 +34,13 @@ en:
       one: 1 result
       other: "%{count} results"
       zero: No results
+    section:
+      title:
+        type:
+          category: Categories
+          solution: Matching frameworks
+  search:
+    title: Search Get Help Buying for Schools
   service:
     email: fabs@education.gov.uk
     name: Find A Buying Solution

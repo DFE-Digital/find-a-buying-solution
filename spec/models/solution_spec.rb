@@ -22,4 +22,21 @@ RSpec.describe Solution, :vcr, type: :model do
       )
     end
   end
+
+  describe ".search" do
+    subject(:search) { described_class.search(query: query) }
+
+    let(:query) { "technology" }
+
+    it "returns solutions matching the query" do
+      expect(search).to all(be_a(described_class))
+      expect(search.first).to have_attributes(
+        id: be_present,
+        title: be_present,
+        summary: be_present,
+        description: be_present,
+        slug: be_present
+      )
+    end
+  end
 end
