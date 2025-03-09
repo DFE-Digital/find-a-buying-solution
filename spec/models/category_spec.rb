@@ -131,4 +131,20 @@ RSpec.describe Category, :vcr, type: :model do
       expect(category.subcategories.map(&:title)).to match_array(expected_titles)
     end
   end
+
+  describe ".search" do
+    subject(:search) { described_class.search(query: query) }
+
+    let(:query) { "software" }
+
+    it "returns categories matching the query" do
+      expect(search).to all(be_a(described_class))
+      expect(search.first).to have_attributes(
+        id: be_present,
+        title: be_present,
+        summary: be_present,
+        slug: be_present
+      )
+    end
+  end
 end
