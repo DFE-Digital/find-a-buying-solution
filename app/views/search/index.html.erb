@@ -5,8 +5,8 @@
 
       <div>
         <div class="dfe-grid-row">
-          <div class="dfe-grid-column-two-thirds">
-            <%= render "shared/dfe_search" %>
+          <div class="dfe-grid-column-full-width">
+            <%= render "search/full_width_search_box" %>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
                   <ul class="govuk-list">
                     <li>
                       <h3>
-                        <%= govuk_link_to solution.title, "" %>
+                          <%= govuk_link_to solution.title, solution_path(solution.slug) %>
                       </h3>
                       <p>
                         <%= solution.description %>
