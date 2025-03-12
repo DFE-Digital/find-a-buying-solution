@@ -12,7 +12,7 @@ gem "kramdown"
 gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.0.2"
 
 group :development, :test do
   gem "brakeman", require: false
