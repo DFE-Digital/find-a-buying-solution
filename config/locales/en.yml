@@ -23,7 +23,7 @@ en:
       contact: |
         If the web address is correct or you selected a link or button and you
         need to speak to someone about this problem, contact the %{service_name}
-        team: %{link}.
+        team:
       title: Page not found
   header_description: |
     A procurement hub to help you buy for your school, academy or trust and
