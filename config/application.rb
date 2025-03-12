@@ -40,5 +40,8 @@ module FindABuyingSolution
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Use custom error pages
+    config.exceptions_app = self.routes
   end
 end
