@@ -23,6 +23,15 @@ $govuk-assets-path: "/";
   margin: 0;
 }
 
+.sidebar a {
+  color: #1d70b8;
+  &:hover,
+  &:active,
+  &:focus {
+    color: #003078;
+  }
+}
+
 .govuk-footer__copyright-logo {
   background-image: url("govuk-frontend/govuk-crest.svg");
 }
