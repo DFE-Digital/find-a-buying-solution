@@ -18,10 +18,6 @@ consistent interface.
 Refer to `.tool-versions` in the root of the project for the version of Ruby
 currently used.
 
-## Install Postgres
-
-brew install postgresql@14
-
 ## Install dfe-frontend
 
 Refer to the following links for the latest documentation and version of the 'dfe-frontend'.
