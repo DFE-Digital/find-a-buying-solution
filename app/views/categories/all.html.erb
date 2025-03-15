@@ -12,7 +12,7 @@
       <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
       <ul>
       <% @categories.each do |category| %>
-        <li><%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-visited-state dfe-card-link--header" %></li>
+        <li><%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-visited-state" %></li>
       <% end %>
       </ul>
     </div>
