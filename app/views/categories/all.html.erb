@@ -2,7 +2,7 @@
   @page_section_title = t(".all_frameworks_section_title")
   @page_title = t(".all_frameworks_title")
   @page_description = t(".all_frameworks_description")
-  @page_back_link = request.referer || root_path
+  @page_back_link = request.referer
 %>
 
 <div class="page-with-sidebar">
@@ -12,7 +12,7 @@
       <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
       <ul>
       <% @categories.each do |category| %>
-        <li><%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-visited-state" %></li>
+        <li><%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %></li>
       <% end %>
       </ul>
     </div>
