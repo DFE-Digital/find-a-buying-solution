@@ -1,0 +1,41 @@
+<%
+  @page_section_title = t(".all_frameworks_section_title")
+  @page_title = t(".all_frameworks_title")
+  @page_description = t(".all_frameworks_description")
+  @page_back_link = request.referer || root_path
+%>
+
+<div class="page-with-sidebar">
+  <div class="dfe-width-container">
+    <div class="blue-line"></div>
+    <div class="sidebar govuk-grid-column-one-third govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+      <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
+      <ul>
+      <% @categories.each do |category| %>
+        <li><%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-visited-state dfe-card-link--header" %></li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+      <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_frameworks_header") %></div>
+      <% @categories.each do |category| %>
+        <%
+          category = Category.find_by_slug!(category.slug)
+          solutions = category.solutions
+        %>
+        <h4><%= category.title %></h4>
+        <p><%= category.summary %></p>
+        <% solutions.each do |solution| %>
+          <div class="solution">
+            <p>
+              <%= govuk_link_to solution.title, solution_path(solution.slug) %>
+            </p>
+            <p>
+              <%= solution.description %>
+            </p>
+          </div>
+        <% end %>
+     <% end %>
+    </div>
+  </div>
+</div>

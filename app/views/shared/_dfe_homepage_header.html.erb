@@ -20,7 +20,7 @@
   </div>
 
   <div class="dfe-width-container dfe-header__service-name govuk-!-margin-top-4">
-    <a href="/" class="dfe-header__link--service"><%= t(".home_link") %></a>
+    <%= link_to  t(".home_link"), categories_all_path, class:"dfe-header__link--service" %>
   </div>
 
   <%= render "shared/dfe_beta_banner" %>
