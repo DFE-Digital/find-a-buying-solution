@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :enable_search_in_header, except: %i[index sall]
+  before_action :enable_search_in_header, except: %i[index all]
 
   def index
     @categories = Category.all
