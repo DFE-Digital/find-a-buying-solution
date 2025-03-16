@@ -12,7 +12,7 @@
       <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
       <ul>
       <% @categories.each do |category| %>
-        <li><%= link_to category.title, category_path(category), class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %></li>
+        <li><%= link_to category.title,  "##{category.slug.parameterize}", class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %></li>
       <% end %>
       </ul>
     </div>
@@ -23,7 +23,7 @@
           category = Category.find_by_slug!(category.slug)
           solutions = category.solutions
         %>
-        <h4><%= category.title %></h4>
+        <h4 id=<%= category.slug.parameterize %>> <%= category.title%></h4>
         <p><%= category.summary %></p>
         <% solutions.each do |solution| %>
           <div class="solution">
