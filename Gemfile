@@ -4,6 +4,7 @@ ruby file: ".tool-versions"
 gem "bootsnap", require: false
 gem "contentful"
 gem "cssbundling-rails"
+gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: 'v1.15.4'
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
