@@ -7,15 +7,23 @@
 
 <div class="page-with-sidebar">
   <div class="dfe-width-container">
+
     <div class="blue-line"></div>
+
     <div class="sidebar govuk-grid-column-one-third govuk-!-margin-top-7 govuk-!-margin-bottom-7">
       <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
-      <ul>
-      <% @categories.each do |category| %>
-        <li><%= link_to category.title,  "##{category.slug.parameterize}", class: "govuk-link govuk-link--no-underline govuk-link--no-visited-state" %></li>
-      <% end %>
-      </ul>
+      <nav class="dfe-side-navigation" aria-label="Side navigation">
+        <ul class="dfe-side-navigation__list">
+          <% @categories.each_with_index do |category, index| %>
+            <% active_class = index.zero? ? "dfe-side-navigation__item dfe-side-navigation__item--active" : "dfe-side-navigation__item" %>
+            <li class="<%= active_class %>">
+              <%= link_to category.title, "##{category.slug.parameterize}", class: "dfe-side-navigation__link" %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
     </div>
+
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
       <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_frameworks_header") %></div>
       <% @categories.each do |category| %>
@@ -37,5 +45,6 @@
         <% end %>
      <% end %>
     </div>
+
   </div>
 </div>

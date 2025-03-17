@@ -1,6 +1,14 @@
 ---
 en:
   categories:
+    all:
+      all_frameworks_categories_header: Procurement categories
+      all_frameworks_description: "This is a list of all DfE approved framework agreements.\nUse
+        one to ensure your procurement is compliant. \nWe'll continue to review and
+        update this list.\n"
+      all_frameworks_frameworks_header: Frameworks
+      all_frameworks_section_title: DfE approved
+      all_frameworks_title: All frameworks
     filter_labels:
       active_filters: Active filters
       clear_all_filters: Clear all filters
@@ -16,15 +24,6 @@ en:
       section_title: Buying category
       standfirst: All frameworks are DfE approved and listed alphabetically.
       title: Frameworks
-    all:
-      all_frameworks_section_title: DfE approved
-      all_frameworks_title: All frameworks
-      all_frameworks_description: |
-        This is a list of all DfE approved framework agreements.
-        Use one to ensure your procurement is compliant. 
-        We'll continue to review and update this list.
-      all_frameworks_categories_header: Procurement categories
-      all_frameworks_frameworks_header: Frameworks
   errors:
     not_found:
       check_pasted: If you pasted the web address, check you copied the entire address.
