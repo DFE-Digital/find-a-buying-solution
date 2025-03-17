@@ -16,7 +16,8 @@ class Category
   def self.all
     ContentfulClient.entries(
       content_type: "category",
-      select: "sys.id,fields.title,fields.summary,fields.slug"
+      select: "sys.id,fields.title,fields.summary,fields.slug",
+      order: "fields.title"
     ).map { new(it) }
   end
 

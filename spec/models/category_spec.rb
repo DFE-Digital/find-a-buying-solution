@@ -46,6 +46,11 @@ RSpec.describe Category, :vcr, type: :model do
       expect(categories).to be_a(Array)
       expect(categories).to all(be_a(described_class))
     end
+
+    it "fetches categories in alphabetical order" do
+      categories = described_class.all
+      expect(categories.map(&:title)).to eq(categories.map(&:title).sort_by(&:downcase))
+    end
   end
 
   describe "solutions ordering" do
