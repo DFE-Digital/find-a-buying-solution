@@ -11,7 +11,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays category titles" do
-      expected_titles = ["Vehicle hire and purchase", "Furniture", "ICT and computer software"]
+      expected_titles = ["Audit or consultancy services", "Banking and Loans", "Catering"]
 
       expected_titles.each do |title|
         expect(response.body).to include(title)
