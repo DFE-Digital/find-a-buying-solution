@@ -85,4 +85,5 @@ en:
       related_actions: Related actions
   solutions:
     show:
+      cta: Visit the %{title} website
       section_title: Framework
