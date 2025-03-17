@@ -7,8 +7,9 @@
 
 <%= render_markdown_to_html(@solution.summary) %>
 
-<%= link_to "Visit the #{h(@solution.title)} website", "", class: "govuk-button" %>
+<%= link_to t(".cta", title: h(@solution.title)), safe_url(@solution.url), class: "govuk-button" %>
 
 <% content_for :sidebar do %>
   <%= render "shared/related_actions" %>
 <% end %>
+
