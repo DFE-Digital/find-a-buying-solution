@@ -7,44 +7,45 @@
 
 <div class="page-with-sidebar">
   <div class="dfe-width-container">
-
     <div class="blue-line"></div>
+    <div class="govuk-grid-row">
+      <div class="sidebar govuk-grid-column-one-third">
+        <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+        <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
+        <nav class="moj-side-navigation" aria-label="Side navigation">
+          <ul class="moj-side-navigation__list">
+            <% @categories.each_with_index do |category, index| %>
+              <% active_class = index.zero? ? "moj-side-navigation__item moj-side-navigation__item--active" : "moj-side-navigation__item" %>
+              <li class="<%= active_class %>">
+                <%= link_to category.title, "##{category.slug.parameterize}", class: "dfe-side-navigation__link" %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+        </div>
+      </div>
 
-    <div class="sidebar govuk-grid-column-one-third govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-      <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
-      <nav class="dfe-side-navigation" aria-label="Side navigation">
-        <ul class="dfe-side-navigation__list">
-          <% @categories.each_with_index do |category, index| %>
-            <% active_class = index.zero? ? "dfe-side-navigation__item dfe-side-navigation__item--active" : "dfe-side-navigation__item" %>
-            <li class="<%= active_class %>">
-              <%= link_to category.title, "##{category.slug.parameterize}", class: "dfe-side-navigation__link" %>
-            </li>
+      <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+        <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_frameworks_header") %></div>
+        <% @categories.each do |category| %>
+          <%
+           category = Category.find_by_slug!(category.slug)
+           solutions = category.solutions
+          %>
+          <h4 id=<%= category.slug.parameterize %>> <%= category.title%></h4>
+          <p><%= category.summary %></p>
+          <% solutions.each do |solution| %>
+            <div class="solution">
+              <p>
+                <%= govuk_link_to solution.title, solution_path(solution.slug) %>
+              </p>
+              <p>
+                <%= solution.description %>
+              </p>
+            </div>
           <% end %>
-        </ul>
-      </nav>
+       <% end %>
+      </div>
     </div>
-
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-      <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_frameworks_header") %></div>
-      <% @categories.each do |category| %>
-        <%
-          category = Category.find_by_slug!(category.slug)
-          solutions = category.solutions
-        %>
-        <h4 id=<%= category.slug.parameterize %>> <%= category.title%></h4>
-        <p><%= category.summary %></p>
-        <% solutions.each do |solution| %>
-          <div class="solution">
-            <p>
-              <%= govuk_link_to solution.title, solution_path(solution.slug) %>
-            </p>
-            <p>
-              <%= solution.description %>
-            </p>
-          </div>
-        <% end %>
-     <% end %>
-    </div>
-
   </div>
 </div>
