@@ -18,22 +18,22 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
     end
 
-    it "displays category summaries" do
-      expected_summaries = ["Long-term catering contracts", "IT experts and technical advisors", "Lending or buying minibuses, coaches for school trips or other school transport"]
+    it "displays category descriptions" do
+      expected_descriptions = [
+        "Buy professional services from DfE-approved suppliers",
+        "Buy banking and financial services from DfE-approved suppliers",
+        "Buy catering equipment, catering service or food supplies from DfE-approved suppliers",
+      ]
 
-      expected_summaries.each do |summary|
-        expect(response.body).to include(summary)
+      expected_descriptions.each do |description|
+        expect(response.body).to include(description)
       end
     end
   end
 
   describe "GET /categories/:slug" do
-    around do |example|
-      VCR.use_cassette("contentful/category_by_slug") { example.run }
-    end
-
     before do
-      get category_path("ict-and-computer-software")
+      get category_path("ict")
     end
 
     it "returns a successful response" do
@@ -41,27 +41,23 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays the category title" do
-      expect(response.body).to include("ICT and computer software")
+      expect(response.body).to include("IT services")
     end
 
     it "displays the category description" do
-      expect(response.body).to include("Laptops, computers, tablets, software, broadband, Wi-Fi and cloud services")
+      expect(response.body).to include("Buy IT and ICT equipment and services from DfE-approved suppliers")
     end
 
     it "displays solutions in the category" do
-      expect(response.body).to include("IT Hardware framework")
-      expect(response.body).to include("Everything ICT framework")
+      expect(response.body).to include("IT Hardware")
+      expect(response.body).to include("Everything ICT")
     end
   end
 
   describe "GET /categories/:slug with subcategory filters" do
-    around do |example|
-      VCR.use_cassette("contentful/category_with_subcategories") { example.run }
-    end
-
     context "with empty subcategory_slugs parameter" do
       before do
-        get category_path("ict-and-computer-software", subcategory_slugs: [])
+        get category_path("ict", subcategory_slugs: [])
       end
 
       it "returns a successful response" do
@@ -69,8 +65,8 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays all solutions in the category" do
-        expect(response.body).to include("IT Hardware framework")
-        expect(response.body).to include("Everything ICT framework")
+        expect(response.body).to include("IT Hardware")
+        expect(response.body).to include("Everything ICT")
       end
 
       it "displays the correct results count text" do
@@ -80,7 +76,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     context "with specific subcategory_slugs parameters" do
       before do
-        get category_path("ict-and-computer-software", subcategory_slugs: %w[hardware])
+        get category_path("ict", subcategory_slugs: %w[hardware])
       end
 
       it "returns a successful response" do
@@ -88,18 +84,19 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "only displays solutions with matching subcategories" do
-        expect(response.body).to include("IT Hardware framework")
-        expect(response.body).not_to include("Cloud Services framework")
+        expect(response.body).to include("IT Hardware")
+        expect(response.body).to include("Multifunctional devices and digital transformation solutions")
+        expect(response.body).not_to include("G-Cloud 14")
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("1 result")
+        expect(response.body).to include("2 results")
       end
     end
 
     context "when form is submitted with selected subcategories" do
       before do
-        get category_path("ict-and-computer-software", subcategory_slugs: %w[hardware software])
+        get category_path("ict", subcategory_slugs: %w[hardware software])
       end
 
       it "keeps the checkboxes selected after form submission" do
@@ -109,7 +106,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("2 results")
+        expect(response.body).to include("3 results")
       end
     end
   end
