@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :categories, only: %i[show index], param: :slug
   resources :solutions, only: %i[show], param: :slug
   get "/search", to: "search#index"
+
+  # Keep this route at the bottom so that it doesn't override the other routes
   get "/:slug", to: "pages#show", as: :page
 end
