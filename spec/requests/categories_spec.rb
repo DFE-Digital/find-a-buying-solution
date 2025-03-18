@@ -18,11 +18,15 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
     end
 
-    it "displays category summaries" do
-      expected_summaries = ["Long-term catering contracts", "IT experts and technical advisors", "Lending or buying minibuses, coaches for school trips or other school transport"]
+    it "displays category descriptions" do
+      expected_descriptions = [
+        "Buy professional services from DfE-approved suppliers",
+        "Buy banking and financial services from DfE-approved suppliers",
+        "Buy catering equipment, catering service or food supplies from DfE-approved suppliers",
+      ]
 
-      expected_summaries.each do |summary|
-        expect(response.body).to include(summary)
+      expected_descriptions.each do |description|
+        expect(response.body).to include(description)
       end
     end
   end

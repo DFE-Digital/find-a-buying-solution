@@ -15,7 +15,6 @@ RSpec.describe Category, :vcr, type: :model do
       expect(category).to have_attributes(
         id: be_present,
         title: be_present,
-        summary: be_present,
         description: be_present,
         slug: be_present,
         solutions: be_an(Array),
@@ -147,7 +146,7 @@ RSpec.describe Category, :vcr, type: :model do
       expect(search.first).to have_attributes(
         id: be_present,
         title: be_present,
-        summary: be_present,
+        description: be_present,
         slug: be_present
       )
     end
