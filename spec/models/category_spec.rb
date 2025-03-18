@@ -7,7 +7,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software"
+        "fields.slug": "ict"
       ).first
     end
 
@@ -29,7 +29,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software"
+        "fields.slug": "ict"
       ).first
     end
 
@@ -58,7 +58,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software",
+        "fields.slug": "ict",
         include: 1
       ).first
     end
@@ -75,7 +75,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software",
+        "fields.slug": "ict",
         include: 2
       ).first
     end
@@ -83,7 +83,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "filters solutions by subcategory slugs" do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-      expected_solution_slugs = %w[it-hardware-framework microsoft-shape-the-future]
+      expected_solution_slugs = %w[it-hardware mfd-digi-transform g-cloud]
 
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
@@ -107,10 +107,10 @@ RSpec.describe Category, :vcr, type: :model do
 
   describe ".find_by_slug!" do
     it "fetches a category by its slug from Contentful" do
-      category = described_class.find_by_slug!("ict-and-computer-software")
+      category = described_class.find_by_slug!("ict")
       expect(category).to be_present
       expect(category).to be_a(described_class)
-      expect(category.slug).to eq("ict-and-computer-software")
+      expect(category.slug).to eq("ict")
     end
 
     it "raises ContentfulRecordNotFoundError if no category is found by the given slug" do
@@ -124,7 +124,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict-and-computer-software",
+        "fields.slug": "ict",
         include: 2
       ).first
     end
@@ -139,7 +139,7 @@ RSpec.describe Category, :vcr, type: :model do
   describe ".search" do
     subject(:search) { described_class.search(query: query) }
 
-    let(:query) { "software" }
+    let(:query) { "catering" }
 
     it "returns categories matching the query" do
       expect(search).to all(be_a(described_class))
