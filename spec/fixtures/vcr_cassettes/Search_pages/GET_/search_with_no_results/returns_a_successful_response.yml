@@ -69,26 +69,26 @@ http_interactions:
       Age:
       - '0'
       Date:
-      - Tue, 18 Mar 2025 08:05:15 GMT
+      - Tue, 18 Mar 2025 10:43:19 GMT
       X-Served-By:
-      - cache-ewr-kewr1740060-EWR, cache-lhr-egll1980078-LHR
+      - cache-ewr-kewr1740060-EWR, cache-lhr-egll1980061-LHR
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1742285115.064018,VS0,VE156
+      - S1742294600.550672,VS0,VE397
       X-Cache:
-      - MISS
+      - HIT
       X-Contentful-Request-Id:
-      - '096b493a-385a-4e23-8f8a-c5c1ee359b46'
+      - dbdd3862-f820-4295-b812-76bb10716b98
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Tue, 18 Mar 2025 08:05:15 GMT
+  recorded_at: Tue, 18 Mar 2025 10:43:19 GMT
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=nonexistent&select=fields.title,fields.summary,fields.slug,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=nonexistent&select=fields.title,fields.description,fields.slug,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -155,21 +155,21 @@ http_interactions:
       Age:
       - '0'
       Date:
-      - Tue, 18 Mar 2025 08:05:15 GMT
+      - Tue, 18 Mar 2025 10:43:20 GMT
       X-Served-By:
-      - cache-ewr-kewr1740089-EWR, cache-lhr-egll1980083-LHR
+      - cache-ewr-kewr1740069-EWR, cache-lhr-egll1980090-LHR
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1742285115.316136,VS0,VE142
+      - S1742294600.074795,VS0,VE187
       X-Cache:
       - MISS
       X-Contentful-Request-Id:
-      - ee7e8b38-9453-4546-8bd7-f8e395d559e5
+      - 19b93b80-d69e-47c3-9712-46c1dc352cdb
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Tue, 18 Mar 2025 08:05:15 GMT
+  recorded_at: Tue, 18 Mar 2025 10:43:20 GMT
 recorded_with: VCR 6.3.1
