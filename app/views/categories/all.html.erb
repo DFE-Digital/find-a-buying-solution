@@ -33,7 +33,7 @@
            solutions = category.solutions
           %>
           <h4 id=<%= category.slug.parameterize %>> <%= category.title%></h4>
-          <p><%= category.summary %></p>
+          <p><%= category.description %></p>
           <% solutions.each do |solution| %>
             <div class="solution">
               <p>

@@ -39,19 +39,22 @@
       <%= render "categories/filter_labels" %>
     <% end %>
   </div>
+<% end %>
 
-  <h2><%= t(".title") %></h2>
-  <p><%= t(".standfirst") %></p>
+<h2><%= t(".title") %></h2>
+<p><%= t(".standfirst") %></p>
 
-  <% @solutions.each do |solution| %>
-    <div class="solution">
-      <h3>
-        <%= govuk_link_to solution.title, solution_path(solution.slug) %>
-      </h3>
-      <p>
-        <%= solution.description %>
-      </p>
-    </div>
-  <% end %>
+<% @solutions.each do |solution| %>
+  <div class="solution">
+    <h3>
+      <%= govuk_link_to solution.title, solution_path(solution.slug) %>
+    </h3>
+    <p>
+      <%= solution.description %>
+    </p>
+  </div>
+<% end %>
 
+<% content_for :sidebar do %>
+  <%= render "shared/related_actions" %>
 <% end %>

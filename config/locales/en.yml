@@ -31,7 +31,7 @@ en:
       contact: |
         If the web address is correct or you selected a link or button and you
         need to speak to someone about this problem, contact the %{service_name}
-        team: %{link}.
+        team.
       title: Page not found
   header_description: |
     A procurement hub to help you buy for your school, academy or trust and
@@ -50,8 +50,7 @@ en:
   search:
     title: Search Get Help Buying for Schools
   service:
-    email: fabs@education.gov.uk
-    name: Find A Buying Solution
+    name: Get Help Buying for Schools
   shared:
     dfe_beta_banner:
       banner_text_html: This is a new service-your %{feedback} will help us to improve
@@ -83,16 +82,13 @@ en:
       guidance: Guidance
       home: Home
       menu: Menu
-      offers: Offers
-      support: Support
-      training: Training
     dfe_search:
       close_search: Close search
       search: Search
       search_this_website: Search this website
     dfe_sidebar:
-      catalogues: Catalogues
       related_actions: Related actions
   solutions:
     show:
+      cta: Visit the %{title} website
       section_title: Framework

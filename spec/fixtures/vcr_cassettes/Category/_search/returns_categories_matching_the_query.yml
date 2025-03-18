@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=software&select=fields.title,fields.summary,fields.slug,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=software&select=fields.title,fields.description,fields.slug,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '693'
+      - '67'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"1152810959253950308"'
+      - '"7787070206043126912"'
       X-Content-Type-Options:
       - nosniff
       Contentful-Api:
@@ -69,23 +69,108 @@ http_interactions:
       Age:
       - '0'
       Date:
-      - Sun, 09 Mar 2025 20:08:23 GMT
+      - Tue, 18 Mar 2025 07:56:59 GMT
       X-Served-By:
-      - cache-ewr-kewr1740068-EWR, cache-man4177-MAN
+      - cache-ewr-kewr1740033-EWR, cache-lhr-egll1980052-LHR
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1741550904.722224,VS0,VE161
+      - S1742284620.617962,VS0,VE327
       X-Cache:
-      - MISS
+      - HIT
       X-Contentful-Request-Id:
-      - 5f9c6999-abe3-4696-af46-d595c76a2c57
+      - c3b04b73-0e07-4cf1-a9df-97953652ed25
     body:
       encoding: ASCII-8BIT
-      string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"ICT","summary":"ICT
-        hardware, such as laptops, tablets, printers, software, broadband or Wi-Fi,
-        cloud storage, consultancy, or Management Information Systems.","slug":"ict-and-computer-software"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"UBCqoKv29EqGrvv7pSISy","type":"Entry","createdAt":"2025-02-05T11:49:27.535Z","updatedAt":"2025-03-07T14:54:03.702Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":41,"revision":18,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
+      string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Sun, 09 Mar 2025 20:08:23 GMT
+  recorded_at: Tue, 18 Mar 2025 07:56:59 GMT
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=catering&select=fields.title,fields.description,fields.slug,sys
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '488'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"17515927382848719716"
+      X-Content-Type-Options:
+      - nosniff
+      Contentful-Api:
+      - cda
+      Content-Encoding:
+      - gzip
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Tue, 18 Mar 2025 07:58:33 GMT
+      Age:
+      - '13'
+      X-Served-By:
+      - cache-ewr-kewr1740087-EWR, cache-lon4276-LON
+      X-Cache-Hits:
+      - 0, 1
+      X-Timer:
+      - S1742284714.692885,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - 3c5eb560-fcc6-4542-9955-a5a0577ce370
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA72STW/bMAyG7/sVgs52YMkfqXVLuwDD0MOGeF3RYQfPVlw1tqRKcgIjyH8f5bhN0ALdduhOtiiK5Pvy2WM7WMz22A2aY4YXxpQDPgTYKVe2mNEA243QmEUBbkUnHGYkgn/heAfvfuzxWvC2PpYQrvU1rkrHjZANDnDNbWWEdkJJuLjsB1RNl4g/9kJ3XLrgFLPcbEXFkTJorVSNbK91K7hFa6M69HG9DEutjdry5ytjoYtt+wbKP5X240+qrC4rGGn/QuW1kBt418KnOOpejYmgq4ZCKqvsPYmzB/Jg8AGqjdHs+jbt7/rh+67Y0d3i0uafhPAiJ+uW0pkBjpXhoLFegFWYRjQNIxpGaUEIS3IWR7OIxneQ1uv6RVocknlBMpam4PEsTy58GpdbYZT0Rp3pGAfqSgtGnwZ4rWp59tjr0P2vVth7Xt9wY8edENil4VtxPMUwvZIOeh1t+bNvV2fpk09+DY0CK3zHVlXlCAWX4beVD71FDGpg6xaV8rR6kPcaIg9HgGqAbDMmP0M1AfSPwIRj2xAqhU/EvRNDZHHTV92K5039+fYxIZuMdF+//A1DAEdWUMpoymgyi3P6FkMJS+eMzmc0Tf8HQxfnDKXvz9DPw4ffMf7LOLgEAAA=
+  recorded_at: Tue, 18 Mar 2025 07:58:33 GMT
 recorded_with: VCR 6.3.1
