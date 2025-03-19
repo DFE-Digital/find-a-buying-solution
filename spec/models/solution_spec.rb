@@ -37,11 +37,13 @@ RSpec.describe Solution, :vcr, type: :model do
     end
 
     context "when filtering by category_id" do
-      let(:category_id) { "ict" }
+      let(:category) { Category.find_by_slug!("ict") }
+      let(:category_id) { category.id }
       let(:solutions) { described_class.all(category_id: category_id) }
 
       it "returns only solutions from the specified category" do
-        expect(solutions.map(&:category).map { |c| c&.dig(:sys, :id) }).to all(eq category_id)
+        solution_category_ids = solutions.map { it.category.id }
+        expect(solution_category_ids).to all(eq category_id)
       end
     end
   end
