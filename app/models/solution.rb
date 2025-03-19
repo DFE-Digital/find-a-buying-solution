@@ -52,4 +52,9 @@ class Solution
 
     new(entry)
   end
+
+  def ==(other)
+    super ||
+      other.instance_of?(self.class) && other.id == id
+  end
 end

@@ -90,15 +90,15 @@ RSpec.describe Category, :vcr, type: :model do
     end
 
     it "returns all solutions when subcategory_slugs is nil" do
-      filtered_solution_ids = category.filtered_solutions(subcategory_slugs: nil).map(&:id)
-      all_solution_ids = category.solutions.map(&:id)
-      expect(filtered_solution_ids).to eq(all_solution_ids)
+      filtered_solutions = category.filtered_solutions(subcategory_slugs: nil)
+      all_solutions = category.solutions
+      expect(filtered_solutions).to eq(all_solutions)
     end
 
     it "returns all solutions when subcategory_slugs is empty" do
-      filtered_solution_ids = category.filtered_solutions(subcategory_slugs: []).map(&:id)
-      all_solution_ids = category.solutions.map(&:id)
-      expect(filtered_solution_ids).to eq(all_solution_ids)
+      filtered_solutions = category.filtered_solutions(subcategory_slugs: [])
+      all_solutions = category.solutions
+      expect(filtered_solutions).to eq(all_solutions)
     end
 
     it "excludes solutions that don't match any of the specified subcategory slugs" do
