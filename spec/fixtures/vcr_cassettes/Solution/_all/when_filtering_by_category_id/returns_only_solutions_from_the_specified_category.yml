@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=ict&select=fields.title,fields.description,fields.slug,fields.subcategories,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&fields.category.sys.id=ict&order=fields.title&select=fields.title,fields.description,fields.slug,fields.category,fields.subcategories,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '688'
+      - '67'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -43,13 +43,11 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"11804337857182890684"
+      - '"2194105350430811168"'
       X-Content-Type-Options:
       - nosniff
       Contentful-Api:
       - cda
-      Content-Encoding:
-      - gzip
       Server:
       - Contentful
       X-Contentful-Region:
@@ -69,22 +67,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '3768'
+      - '0'
       Date:
-      - Wed, 19 Mar 2025 11:28:46 GMT
+      - Wed, 19 Mar 2025 11:43:26 GMT
       X-Served-By:
-      - cache-ewr-kewr1740028-EWR, cache-lcy-eglc8600046-LCY
+      - cache-ewr-kewr1740089-EWR, cache-man4164-MAN
       X-Cache-Hits:
-      - 2, 0
+      - 0, 0
       X-Timer:
-      - S1742383727.608361,VS0,VE70
+      - S1742384606.090761,VS0,VE139
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - 1d42824c-2fbc-49a8-a720-c251cb3ea07c
+      - b8615826-0aa6-4a60-8a50-6b7276a6c4f9
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA+VWUW/aMBB+36+I/AwokIS2vFFWUbaxboJ2lGkPTuIEC8d2bQeWVvz3nUOAdqKiVJqqqU8Q+7uz777v7vyAdKFR5wGZQhLUQV2lcIFWNWSEwQx1mjWk51SijltDjGbUwJIL/6khGdj9fEAJJSxeu6CGWR+DsaOJWtCIaFRDMdGRotJQwWHvPC8c2Mc8dga9sUPuciozwk25srFyEiUy52NyUcdSKrEgsJVLyShR1qNmeQquaGTsRx5G2JBUKArH2Qs9DegL5XOAMfgZr0O84EYVsERjcOJPzid81veTbye9c4/f3bry++dPaLWqHemoTfteqlzt4mmfDNOw4NFdNn+FI58N8it+ORB+l/1otXtR/4ZOL17hqM3IYBzch+n1ROuZH0yjZeb/Bke/gN4qSVriCCg7HOuoBFZJS+7DbB4vw2VcSHuxdSrbk+B2eJUINRRR7zS7vL3WKU/AppLWJu+RIkBY3AUpoZbbCuquV2+ejZtup+V1vFajHTSnYJXL+CUwwhdUCW419CiOktsMa0PU7gL7pLAztnHIPGRUz0h8A0orBQv6V2RBtx+R4AaOWkvpcNp6j+BVmiq1QpHBgUxEuKwZwuvXI8sNoHjEcqgaG846Z1bVGTEYEoLLWsWplTpg4ToRkab8+jesPlMgR7LqN4Kz4DCrW9h/x+quDe0ntranT45EYpZY2bKqWprerJT9580o39+BjqQ8aJw0W4cp38LeBeWXWMUV5U/n4lBwaoTS5RyckyIUgHw07GYbwzdVxjND7mhleO7pS5RRwd6FMrp5TEXJPkybHJ5ef7+cRiKHTQtgNJ0ZR5s8sdO1ah3Y2tdhu17Zv61Q9r89jhSK3zjzXvAW2MLehVC+ErMUak55uiOf79bs82714Q9bmAIw1wsAAA==
-  recorded_at: Wed, 19 Mar 2025 11:28:46 GMT
+      string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
+
+        '
+  recorded_at: Wed, 19 Mar 2025 11:43:26 GMT
 recorded_with: VCR 6.3.1

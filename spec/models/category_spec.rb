@@ -17,7 +17,6 @@ RSpec.describe Category, :vcr, type: :model do
         title: be_present,
         description: be_present,
         slug: be_present,
-        solutions: be_an(Array),
         subcategories: be_an(Array)
       )
     end
@@ -91,11 +90,11 @@ RSpec.describe Category, :vcr, type: :model do
     end
 
     it "returns all solutions when subcategory_slugs is nil" do
-      expect(category.filtered_solutions(subcategory_slugs: nil)).to eq(category.solutions)
+      expect(category.filtered_solutions(subcategory_slugs: nil).length).to eq(category.solutions.length)
     end
 
     it "returns all solutions when subcategory_slugs is empty" do
-      expect(category.filtered_solutions(subcategory_slugs: [])).to eq(category.solutions)
+      expect(category.filtered_solutions(subcategory_slugs: []).length).to eq(category.solutions.length)
     end
 
     it "excludes solutions that don't match any of the specified subcategory slugs" do
