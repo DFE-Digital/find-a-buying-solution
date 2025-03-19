@@ -1,15 +1,18 @@
 class Category
   include ActiveModel::Model
 
-  attr_reader :id, :title, :description, :slug, :solutions, :subcategories
+  attr_reader :id, :title, :description, :slug, :subcategories
 
   def initialize(entry)
     @id = entry.id
     @title = entry.fields[:title]
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
-    @solutions = entry.fields.fetch(:solutions, []).map { Solution.new(it) }.sort_by(&:title)
     @subcategories = entry.fields.fetch(:subcategories, []).map { Subcategory.new(it) }
+  end
+
+  def solutions
+    Solution.all(category_id: id)
   end
 
   def self.all
@@ -36,8 +39,7 @@ class Category
     entry = ContentfulClient.entries(
       content_type: "category",
       'fields.slug': slug,
-      include: 1,
-      select: "sys.id,fields.title,fields.description,fields.slug,fields.subcategories,fields.solutions"
+      select: "sys.id,fields.title,fields.description,fields.slug,fields.subcategories"
     ).first
     raise ContentfulRecordNotFoundError, "Category: '#{slug}' not found" unless entry
 
