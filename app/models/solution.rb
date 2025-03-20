@@ -15,6 +15,16 @@ class Solution
     @subcategories = entry.fields[:subcategories]
   end
 
+  def self.all(category_id: nil)
+    params = {
+      content_type: "solution",
+      select: "sys.id, fields.title, fields.description, fields.slug, fields.category, fields.subcategories",
+      order: "fields.title",
+      "fields.category.sys.id": category_id,
+    }.compact
+    ContentfulClient.entries(params).map { new(it) }
+  end
+
   def self.search(query: "")
     ContentfulClient.entries(
       content_type: "solution",
@@ -41,5 +51,10 @@ class Solution
     raise ContentfulRecordNotFoundError, "Solution: '#{slug}' not found" unless entry
 
     new(entry)
+  end
+
+  def ==(other)
+    super ||
+      other.instance_of?(self.class) && other.id == id
   end
 end

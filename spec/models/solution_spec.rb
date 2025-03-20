@@ -23,6 +23,31 @@ RSpec.describe Solution, :vcr, type: :model do
     end
   end
 
+  describe ".all" do
+    subject(:solutions) { described_class.all }
+
+    it "fetches solutions from Contentful" do
+      expect(solutions).to be_present
+      expect(solutions).to be_a(Array)
+      expect(solutions).to all(be_a(described_class))
+    end
+
+    it "fetches solutions in alphabetical order" do
+      expect(solutions.map(&:title)).to eq(solutions.map(&:title).sort_by(&:downcase))
+    end
+
+    context "when filtering by category_id" do
+      let(:category) { Category.find_by_slug!("ict") }
+      let(:category_id) { category.id }
+      let(:solutions) { described_class.all(category_id: category_id) }
+
+      it "returns only solutions from the specified category" do
+        solution_category_ids = solutions.map { it.category.id }
+        expect(solution_category_ids).to all(eq category_id)
+      end
+    end
+  end
+
   describe ".search" do
     subject(:search) { described_class.search(query: query) }
 
