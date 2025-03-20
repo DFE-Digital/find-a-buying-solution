@@ -1,7 +1,7 @@
 class Solution
   include ActiveModel::Model
 
-  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :category, :subcategories
+  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :categories, :subcategories
 
   def initialize(entry)
     @id = entry.id
@@ -11,8 +11,18 @@ class Solution
     @slug = entry.fields[:slug]
     @provider_name = entry.fields[:provider_name]
     @url = entry.fields[:url]
-    @category = entry.fields[:category]
+    @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
+  end
+
+  def self.all(category_id: nil)
+    params = {
+      content_type: "solution",
+      select: "sys.id, fields.title, fields.description, fields.slug, fields.categories, fields.subcategories",
+      order: "fields.title",
+      "fields.categories.sys.id[in]": category_id,
+    }.compact
+    ContentfulClient.entries(params).map { new(it) }
   end
 
   def self.search(query: "")
@@ -41,5 +51,10 @@ class Solution
     raise ContentfulRecordNotFoundError, "Solution: '#{slug}' not found" unless entry
 
     new(entry)
+  end
+
+  def ==(other)
+    super ||
+      other.instance_of?(self.class) && other.id == id
   end
 end
