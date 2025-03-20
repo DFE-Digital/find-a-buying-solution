@@ -1,60 +1,25 @@
 <footer class="gem-c-layout-footer govuk-footer gem-c-layout-footer--border">
   <div class="dfe-width-container">
-    <div class="govuk-footer__navigation">
-      <div class="govuk-grid-column-one-third govuk-!-display-none-print">
-        <h2 class="govuk-footer__heading govuk-heading-m"><%= t(".service_and_information") %></h2>
-        <ul class="govuk-footer__list govuk-footer__list--columns-1">
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".get_help_dfe") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".get_help_other") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".about_dfe_approved") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".about_us") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".contact_us") %></a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="govuk-grid-column-one-third govuk-!-display-none-print">
-        <h2 class="govuk-footer__heading govuk-heading-m"><%= t(".give_feedback") %></h2>
-        <ul class="govuk-footer__list govuk-footer__list--columns-1">
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".give_feedback") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".report_issue") %></a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="govuk-grid-column-one-third govuk-!-display-none-print">
-        <h2 class="govuk-footer__heading govuk-heading-m"><%= t(".site_information") %></h2>
-        <ul class="govuk-footer__list govuk-footer__list--columns-1">
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".accessibility_statement") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".privacy_notice") %></a>
-          </li>
-          <li class="govuk-footer__list-item">
-            <a class="govuk-footer__link" href="/TODO"><%= t(".terms_and_conditions") %></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <hr class="govuk-footer__section-break govuk-!-display-none-print">
-
     <div class="govuk-footer__meta">
       <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-        <h2 class="govuk-visually-hidden"><%= t(".give_feedback") %></h2>
+        <h2 class="govuk-visually-hidden"><%= t(".feedback") %></h2>
+        <ul class="govuk-footer__list govuk-footer__list--inline govuk-!-margin-bottom-6">
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="https://www.get-help-buying-for-schools.service.gov.uk/procurement-support" target="_blank"><%= t(".procurement_support") %></a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="#"><%= t(".feedback") %></a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="/accessibility-statement"><%= t(".accessibility_statement") %></a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="/privacy-notice"><%= t(".privacy_notice") %></a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="/terms-and-conditions"><%= t(".terms_and_conditions") %></a>
+          </li>
+        </ul>
         <%= govuk_footer_licence_logo %>
         <span class="govuk-footer__licence-description">
           <%= t(".licensing_html",
@@ -70,4 +35,3 @@
     </div>
   </div>
 </footer>
-
