@@ -42,8 +42,10 @@ RSpec.describe Solution, :vcr, type: :model do
       let(:solutions) { described_class.all(category_id: category_id) }
 
       it "returns only solutions from the specified category" do
-        solution_category_ids = solutions.map { it.category.id }
-        expect(solution_category_ids).to all(eq category_id)
+        solutions.each do |solution|
+          solution_category_ids = solution.categories.map(&:id)
+          expect(solution_category_ids).to include(category_id)
+        end
       end
     end
   end
