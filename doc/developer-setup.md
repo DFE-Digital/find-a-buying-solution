@@ -18,7 +18,7 @@ consistent interface.
 Refer to `.tool-versions` in the root of the project for the version of Ruby
 currently used.
 
-## Install dfe-frontend
+## Install dfe-frontend and moj
 
 Refer to the following links for the latest documentation and version of the 'dfe-frontend'.
 Run the following commend at the root of the project directory.
@@ -26,10 +26,20 @@ Run the following commend at the root of the project directory.
 https://design.education.gov.uk/design-system/dfe-frontend
 https://www.npmjs.com/package/dfe-frontend
 
+- Install dfe-frontend
+
 ```
 $ npm i dfe-frontend
 ```
 Ensure that the folders: /node_modules/dfe-frontend and  /node_modules/govuk-frontend are created
+
+- Install moj
+
+```
+$ npm install @ministryofjustice/frontend govuk-frontend jquery moment --save
+```
+Ensure that the folder: /node_modules/@ministryofjustice is created
+For more information refer to the moj documentation: https://design-patterns.service.justice.gov.uk/production/installing-with-npm/
 
 ## Initialise the application
 

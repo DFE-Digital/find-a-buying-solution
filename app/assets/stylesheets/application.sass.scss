@@ -5,10 +5,8 @@ $govuk-assets-path: "/";
 
 @use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
+@use "../node_modules/@ministryofjustice/frontend/moj/moj-frontend.min" as moj;
 
-.dfe-page-hero {
-  color: #fff;
-}
 .header_description {
   color: #ccd8e1;
 }
@@ -185,6 +183,10 @@ footer {
 
 .search-button:hover {
   background: #003078;
+}
+
+.dfe-page-hero {
+   color: #fff;
 }
 
 .dfe-grid-container {
