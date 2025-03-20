@@ -190,7 +190,7 @@ footer {
 .dfe-grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  gap: 30px;
   padding: 16px 0;
 }
 
@@ -198,7 +198,6 @@ footer {
   overflow: hidden;
   display: flex;
   align-items: center;
-  height: 300px;
 
   .title {
     height: 50px;
