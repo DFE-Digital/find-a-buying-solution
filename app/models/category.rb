@@ -1,15 +1,16 @@
 class Category
   include ActiveModel::Model
+  include HasRelatedContent
 
-  attr_reader :id, :title, :description, :slug, :subcategories, :related_content
+  attr_reader :id, :title, :description, :slug, :subcategories
 
   def initialize(entry)
+    super(entry)
     @id = entry.id
     @title = entry.fields[:title]
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
     @subcategories = entry.fields.fetch(:subcategories, []).map { Subcategory.new(it) }
-    @related_content = entry.fields.fetch(:related_content, []).map { RelatedContent.new(it) }
   end
 
   def solutions
@@ -40,7 +41,7 @@ class Category
     entry = ContentfulClient.entries(
       content_type: "category",
       'fields.slug': slug,
-      select: "sys.id,fields.title,fields.description,fields.slug,fields.subcategories"
+      select: "sys.id,fields.title,fields.description,fields.slug,fields.subcategories,fields.related_content"
     ).first
     raise ContentfulRecordNotFoundError, "Category: '#{slug}' not found" unless entry
 

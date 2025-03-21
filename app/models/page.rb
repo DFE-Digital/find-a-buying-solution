@@ -1,9 +1,11 @@
 class Page
   include ActiveModel::Model
+  include HasRelatedContent
 
-  attr_reader :id, :title, :body, :description, :slug, :sidebar, :breadcrumbs, :related_content
+  attr_reader :id, :title, :body, :description, :slug, :sidebar, :breadcrumbs
 
   def initialize(entry)
+    super(entry)
     @id = entry.id
     @title = entry.fields[:title]
     @body = entry.fields[:body]
@@ -11,7 +13,6 @@ class Page
     @slug = entry.fields[:slug]
     @sidebar = entry.fields[:sidebar]
     @breadcrumbs = entry.fields[:breadcrumbs]
-    @related_content = entry.fields.fetch(:related_content, []).map { RelatedContent.new(it) }
   end
 
   def self.find_by_slug!(slug)
