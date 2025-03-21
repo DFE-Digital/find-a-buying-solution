@@ -1,7 +1,7 @@
 class Solution
   include ActiveModel::Model
 
-  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :categories, :subcategories
+  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :categories, :subcategories, :related_content
 
   def initialize(entry)
     @id = entry.id
@@ -13,6 +13,7 @@ class Solution
     @url = entry.fields[:url]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
+    @related_content = entry.fields.fetch(:related_content, []).map { RelatedContent.new(it) }
   end
 
   def self.all(category_id: nil)

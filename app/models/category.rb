@@ -1,7 +1,7 @@
 class Category
   include ActiveModel::Model
 
-  attr_reader :id, :title, :description, :slug, :subcategories
+  attr_reader :id, :title, :description, :slug, :subcategories, :related_content
 
   def initialize(entry)
     @id = entry.id
@@ -9,6 +9,7 @@ class Category
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
     @subcategories = entry.fields.fetch(:subcategories, []).map { Subcategory.new(it) }
+    @related_content = entry.fields.fetch(:related_content, []).map { RelatedContent.new(it) }
   end
 
   def solutions

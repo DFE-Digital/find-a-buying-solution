@@ -56,5 +56,5 @@
 <% end %>
 
 <% content_for :sidebar do %>
-  <%= render "shared/related_actions" %>
+  <%= render partial: "shared/related_content", locals: { related_content: @category.related_content } %>
 <% end %>
