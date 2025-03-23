@@ -12,29 +12,34 @@
       <div class="sidebar govuk-grid-column-one-third">
         <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
         <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
-        <nav class="moj-side-navigation" aria-label="Side navigation">
-          <ul class="moj-side-navigation__list">
-            <% @categories.each_with_index do |category, index| %>
-              <% active_class = index.zero? ? "moj-side-navigation__item moj-side-navigation__item--active" : "moj-side-navigation__item" %>
-              <li class="<%= active_class %>">
-                <%= link_to category.title, "##{category.slug.parameterize}", class: "dfe-side-navigation__link" %>
-              </li>
-            <% end %>
-          </ul>
-        </nav>
+          <nav class="moj-side-navigation" aria-label="Side navigation">
+            <%
+              grouped_solutions_by_category = @solutions.each_with_object({}) do |solution, hash|
+                solution.categories.each do |category|
+                  hash[category.title] ||= { slug: category.title, description: category.description, solutions: [] }
+                  hash[category.title][:solutions] << solution
+                end
+              end
+            %>
+            <ul class="moj-side-navigation__list">
+              <% grouped_solutions_by_category.sort_by { |category_slug, category_data| category_slug }.each_with_index do |(category_slug, category_data), index| %>
+                <% active_class = index.zero? ? "moj-side-navigation__item moj-side-navigation__item--active" : "moj-side-navigation__item" %>
+                <li class="<%= active_class %>">
+                  <%= link_to category_data[:slug], "##{category_slug.parameterize}", class: "dfe-side-navigation__link" %>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
         </div>
       </div>
 
       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
         <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_frameworks_header") %></div>
-        <% @categories.each do |category| %>
-          <%
-           category = Category.find_by_slug!(category.slug)
-           solutions = category.solutions
-          %>
-          <h4 id=<%= category.slug.parameterize %>> <%= category.title%></h4>
-          <p><%= category.description %></p>
-          <% solutions.each do |solution| %>
+        <% grouped_solutions_by_category.sort_by { |category_slug, category_data| category_slug }.each do |category_slug, category_data| %>
+          <h4 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h4>
+          <p><%= category_data[:description] %></p>
+
+          <% category_data[:solutions].each do |solution| %>
             <div class="solution">
               <p>
                 <%= govuk_link_to solution.title, solution_path(solution.slug) %>
@@ -44,7 +49,8 @@
               </p>
             </div>
           <% end %>
-       <% end %>
+
+        <% end %>
       </div>
     </div>
   </div>

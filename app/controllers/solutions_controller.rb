@@ -2,7 +2,7 @@ class SolutionsController < ApplicationController
   before_action :enable_search_in_header, except: :index
 
   def index
-    @categories = Category.all
+    @solutions = Solution.all
     render layout: "all_frameworks"
   end
 
