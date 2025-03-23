@@ -25,7 +25,7 @@
               <% grouped_solutions_by_category.sort_by { |category_slug, category_data| category_slug }.each_with_index do |(category_slug, category_data), index| %>
                 <% active_class = index.zero? ? "moj-side-navigation__item moj-side-navigation__item--active" : "moj-side-navigation__item" %>
                 <li class="<%= active_class %>">
-                  <%= link_to category_data[:slug], "##{category_slug.parameterize}", class: "dfe-side-navigation__link" %>
+                  <%= link_to category_slug, "##{category_slug.parameterize}", class: "dfe-side-navigation__link" %>
                 </li>
               <% end %>
             </ul>
