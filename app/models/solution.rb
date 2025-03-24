@@ -1,7 +1,7 @@
 class Solution
   include ActiveModel::Model
 
-  attr_reader :id, :title, :description, :summary, :slug, :provider_name, :url, :categories, :subcategories
+  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories
 
   def initialize(entry)
     @id = entry.id
@@ -11,6 +11,7 @@ class Solution
     @slug = entry.fields[:slug]
     @provider_name = entry.fields[:provider_name]
     @url = entry.fields[:url]
+    @expiry = entry.fields[:expiry]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
   end
@@ -18,7 +19,7 @@ class Solution
   def self.all(category_id: nil)
     params = {
       content_type: "solution",
-      select: "sys.id, fields.title, fields.description, fields.slug, fields.categories, fields.subcategories",
+      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories",
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
     }.compact
@@ -42,6 +43,7 @@ class Solution
         sys.id
         fields.title
         fields.description
+        fields.expiry
         fields.summary
         fields.slug
         fields.provider_name
