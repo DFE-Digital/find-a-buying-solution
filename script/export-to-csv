@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+require File.expand_path("../config/environment", __dir__)
+require "csv"
+
+solutions = Solution.all
+
+output = CSV.generate do |csv|
+  csv << %w[solution subcategories categories]
+
+  solutions.sort_by(&:title).each do |solution|
+    cols = [
+      [solution.title],
+      solution.subcategories.map(&:title),
+      solution.categories.map(&:title),
+    ]
+
+    cols.map(&:length).max.times do |i|
+      csv << cols.map { it[i] }
+    end
+  end
+end
+
+puts output
