@@ -37,7 +37,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
   describe "GET /categories/:slug" do
     before do
-      get category_path("ict")
+      get category_path("it")
     end
 
     it "returns a successful response" do
@@ -45,7 +45,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays the category title" do
-      expect(response.body).to include("IT services")
+      expect(response.body).to include("IT")
     end
 
     it "displays the category description" do
@@ -56,12 +56,27 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       expect(response.body).to include("IT Hardware")
       expect(response.body).to include("Everything ICT")
     end
+
+    it "displays related content" do
+      expect(response.body).to include("Related content")
+      expect(response.body).to match(%r{<a[^>]*>Things to consider when buying IT</a>})
+    end
+  end
+
+  describe "GET /categories/:slug with no related content" do
+    before do
+      get category_path("risk-protection-and-insurance")
+    end
+
+    it "does not display related content" do
+      expect(response.body).not_to include("Related content")
+    end
   end
 
   describe "GET /categories/:slug with subcategory filters" do
     context "with empty subcategory_slugs parameter" do
       before do
-        get category_path("ict", subcategory_slugs: [])
+        get category_path("it", subcategory_slugs: [])
       end
 
       it "returns a successful response" do
@@ -80,7 +95,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     context "with specific subcategory_slugs parameters" do
       before do
-        get category_path("ict", subcategory_slugs: %w[hardware])
+        get category_path("it", subcategory_slugs: %w[software])
       end
 
       it "returns a successful response" do
@@ -88,29 +103,29 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "only displays solutions with matching subcategories" do
-        expect(response.body).to include("IT Hardware")
-        expect(response.body).to include("Multifunctional devices and digital transformation solutions")
+        expect(response.body).to include("Corporate software and related products and services")
+        expect(response.body).to include("Everything ICT")
         expect(response.body).not_to include("G-Cloud 14")
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("2 results")
+        expect(response.body).to include("7 results")
       end
     end
 
     context "when form is submitted with selected subcategories" do
       before do
-        get category_path("ict", subcategory_slugs: %w[hardware software])
+        get category_path("it", subcategory_slugs: %w[computers-and-other-hardware software])
       end
 
       it "keeps the checkboxes selected after form submission" do
-        expect(response.body).to include('value="hardware" checked')
+        expect(response.body).to include('value="computers-and-other-hardware" checked')
         expect(response.body).to include('value="software" checked')
-        expect(response.body).not_to include('value="networking" checked')
+        expect(response.body).not_to include('value="cyber-security" checked')
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("3 results")
+        expect(response.body).to include("8 results")
       end
     end
   end

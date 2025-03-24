@@ -1,7 +1,9 @@
-<h3> <%= t("shared.dfe_sidebar.related_content") %> </h3>
+<% if related_content.present? %>
+  <h3><%= t("shared.dfe_sidebar.related_content") %></h3>
 
-<% related_content.each do |link| %>
-  <p>
-    <%= govuk_link_to link.link_text, link.url, class: "govuk-!-font-weight-bold" %>
-  </p>
+  <% related_content.each do |link| %>
+    <p>
+      <%= govuk_link_to link.link_text, link.url, class: "govuk-!-font-weight-bold" %>
+    </p>
+  <% end %>
 <% end %>
