@@ -1,7 +1,7 @@
 <%
-  @page_section_title = t(".all_frameworks_section_title")
-  @page_title = t(".all_frameworks_title")
-  @page_description = t(".all_frameworks_description")
+  @page_section_title = t(".all_buying_options_section_title")
+  @page_title = t(".all_buying_options_title")
+  @page_description = t(".all_buying_options_description")
   @page_back_link = request.referer
 %>
 
@@ -11,7 +11,7 @@
     <div class="govuk-grid-row">
       <div class="sidebar govuk-grid-column-one-third">
         <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-        <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_categories_header") %></div>
+        <div class="govuk-!-margin-bottom-4"><%= t(".all_buying_options_categories_header") %></div>
           <nav class="moj-side-navigation" aria-label="Side navigation">
             <%
               grouped_solutions_by_category = @solutions.each_with_object({}) do |solution, hash|
@@ -34,7 +34,7 @@
       </div>
 
       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-        <div class="govuk-!-margin-bottom-4"><%= t(".all_frameworks_frameworks_header") %></div>
+        <div class="govuk-!-margin-bottom-4"><%= t(".all_buying_options_header") %></div>
         <% grouped_solutions_by_category.sort_by { |category_slug, category_data| category_slug }.each do |category_slug, category_data| %>
           <h4 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h4>
           <p><%= category_data[:description] %></p>

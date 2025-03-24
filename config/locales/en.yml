@@ -82,13 +82,13 @@ en:
       related_actions: Related actions
   solutions:
     index:
-      all_frameworks_categories_header: Procurement categories
-      all_frameworks_description: "This is a list of all DfE approved buying options.\nUse
+      all_buying_options_section_title: DfE approved
+      all_buying_options_title: All buying options
+      all_buying_options_description: "This is a list of all DfE approved buying options.\nUse
         one to ensure your procurement is compliant. \nWe'll continue to review and
         update this list.\n"
-      all_frameworks_frameworks_header: Buying options
-      all_frameworks_section_title: DfE approved
-      all_frameworks_title: All buying options
+      all_buying_options_categories_header: Procurement categories
+      all_buying_options_header: Buying options
     show:
       cta: Visit the %{title} website
       section_title: Framework

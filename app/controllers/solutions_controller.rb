@@ -3,7 +3,7 @@ class SolutionsController < ApplicationController
 
   def index
     @solutions = Solution.all
-    render layout: "all_frameworks"
+    render layout: "all_buying_options"
   end
 
   def show
