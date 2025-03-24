@@ -29,6 +29,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
         expect(response.body).to include(description)
       end
     end
+
+    it "includes the procurement support link with correct text" do
+      expect(response.body).to match(%r{<a[^>]*href="https://www.get-help-buying-for-schools.service.gov.uk/procurement-support"[^>]*>I need something else</a>})
+    end
   end
 
   describe "GET /categories/:slug" do
