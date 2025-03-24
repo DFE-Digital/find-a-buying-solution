@@ -1,7 +1,7 @@
 class Subcategory
   include ActiveModel::Model
 
-  attr_reader :id, :title, :slug, :category
+  attr_reader :id, :title, :slug
 
   def initialize(entry)
     @id = entry.id
