@@ -17,8 +17,7 @@ RSpec.describe Category, :vcr, type: :model do
         title: be_present,
         description: be_present,
         slug: be_present,
-        subcategories: be_an(Array),
-        related_content: be_an(Array)
+        subcategories: be_an(Array)
       )
     end
   end
@@ -153,22 +152,6 @@ RSpec.describe Category, :vcr, type: :model do
         description: be_present,
         slug: be_present
       )
-    end
-  end
-
-  describe "#related_content" do
-    subject(:category) { described_class.new(entry) }
-
-    let(:entry) do
-      ContentfulClient.entries(
-        content_type: "category",
-        "fields.slug": "ict",
-        include: 2
-      ).first
-    end
-
-    it "returns an array of RelatedContent objects" do
-      expect(category.related_content).to all(be_a(RelatedContent))
     end
   end
 end
