@@ -37,7 +37,7 @@
             <div class="solution">
               <p><%= govuk_link_to solution.title, solution_path(solution.slug) %></p>
               <p><%= solution.description %></p>
-              <p><%= t(".all_buying_options_expires") %>: <%= format_date(solution.expiry) %></p>
+              <p><%= t(".all_buying_options_expires") %> <%= format_date(solution.expiry) %></p>
             </div>
           <% end %>
         <% end %>
