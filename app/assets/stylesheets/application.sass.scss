@@ -1,4 +1,3 @@
-
 $govuk-global-styles: true;
 $govuk-new-link-styles: true;
 $govuk-assets-path: "/";
@@ -232,4 +231,10 @@ footer {
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+.govuk-footer__list--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
