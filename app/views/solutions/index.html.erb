@@ -5,26 +5,21 @@
   @page_back_link = request.referer
 %>
 
+
 <div class="page-with-sidebar">
+
   <div class="dfe-width-container">
+
     <div class="blue-line"></div>
+
     <div class="govuk-grid-row">
       <div class="sidebar govuk-grid-column-one-third">
         <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-        <div class="govuk-!-margin-bottom-4"><%= t(".all_buying_options_categories_header") %></div>
+          <div class="govuk-!-margin-bottom-4"><%= t(".all_buying_options_categories_header") %></div>
           <nav class="moj-side-navigation" aria-label="Side navigation">
-            <%
-              grouped_solutions_by_category = @solutions.each_with_object({}) do |solution, hash|
-                solution.categories.each do |category|
-                  hash[category.title] ||= { slug: category.title, description: category.description, solutions: [] }
-                  hash[category.title][:solutions] << solution
-                end
-              end
-            %>
             <ul class="moj-side-navigation__list">
-              <% grouped_solutions_by_category.sort_by { |category_slug, category_data| category_slug }.each_with_index do |(category_slug, category_data), index| %>
-                <% active_class = index.zero? ? "moj-side-navigation__item moj-side-navigation__item--active" : "moj-side-navigation__item" %>
-                <li class="<%= active_class %>">
+              <% @sorted_categories.each_with_index do |(category_slug, category_data), index| %>
+                <li class="moj-side-navigation__item <%= "moj-side-navigation__item--active" if index.zero? %>">
                   <%= link_to category_slug, "##{category_slug.parameterize}", class: "dfe-side-navigation__link" %>
                 </li>
               <% end %>
@@ -35,23 +30,19 @@
 
       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
         <div class="govuk-!-margin-bottom-4"><%= t(".all_buying_options_header") %></div>
-        <% grouped_solutions_by_category.sort_by { |category_slug, category_data| category_slug }.each do |category_slug, category_data| %>
+        <% @sorted_categories.each do |category_slug, category_data| %>
           <h4 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h4>
           <p><%= category_data[:description] %></p>
-
           <% category_data[:solutions].each do |solution| %>
             <div class="solution">
-              <p>
-                <%= govuk_link_to solution.title, solution_path(solution.slug) %>
-              </p>
-              <p>
-                <%= solution.description %>
-              </p>
+              <p><%= govuk_link_to solution.title, solution_path(solution.slug) %></p>
+              <p><%= solution.description %></p>
             </div>
           <% end %>
-
         <% end %>
       </div>
     </div>
+
   </div>
+
 </div>

@@ -3,6 +3,12 @@ class SolutionsController < ApplicationController
 
   def index
     @solutions = Solution.all
+    @sorted_categories = @solutions.each_with_object({}) do |solution, hash|
+      solution.categories.each do |category|
+        hash[category.title] ||= { slug: category.title, description: category.description, solutions: [] }
+        hash[category.title][:solutions] << solution
+      end
+    end.sort_by { |category_slug, category_data| category_slug }.to_h
     render layout: "all_buying_options"
   end
 
