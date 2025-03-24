@@ -83,6 +83,7 @@ en:
       all_buying_options_header: Buying options
       all_buying_options_section_title: DfE approved
       all_buying_options_title: All buying options
+      all_buying_options_expires: Expires
     show:
       cta: Visit the %{title} website
       section_title: Framework
