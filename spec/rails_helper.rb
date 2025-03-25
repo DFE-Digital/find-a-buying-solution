@@ -24,3 +24,7 @@ require "rspec/rails"
 Rails.root.glob("spec/support/**/*.rb").sort_by(&:to_s).each { |f| require f }
 
 RSpec.configure(&:filter_rails_from_backtrace!)
+
+RSpec.configure do |config|
+  config.include Capybara::RSpecMatchers, type: :request
+end

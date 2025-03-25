@@ -7,7 +7,7 @@ RSpec.describe Page, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "page",
-        "fields.slug": "devtest"
+        "fields.slug": "dynamic-purchasing-systems"
       ).first
     end
 
@@ -18,20 +18,24 @@ RSpec.describe Page, :vcr, type: :model do
         body: be_present,
         description: be_present,
         slug: be_present,
-        sidebar: be_present
+        related_content: be_present
       )
     end
   end
 
   describe ".find_by_slug!" do
-    subject(:find_page) { described_class.find_by_slug!(slug) }
+    subject(:page) { described_class.find_by_slug!(slug) }
 
     context "when page exists" do
-      let(:slug) { "devtest" }
+      let(:slug) { "dynamic-purchasing-systems" }
 
       it "returns the page" do
-        expect(find_page).to be_a(described_class)
-        expect(find_page.slug).to eq(slug)
+        expect(page).to be_a(described_class)
+        expect(page.slug).to eq(slug)
+      end
+
+      it "has related content" do
+        expect(page.related_content).to be_present
       end
     end
 
@@ -39,7 +43,7 @@ RSpec.describe Page, :vcr, type: :model do
       let(:slug) { "non-existent" }
 
       it "raises ContentfulRecordNotFoundError" do
-        expect { find_page }.to raise_error(ContentfulRecordNotFoundError)
+        expect { page }.to raise_error(ContentfulRecordNotFoundError)
       end
     end
   end

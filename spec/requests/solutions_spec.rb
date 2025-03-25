@@ -26,5 +26,20 @@ RSpec.describe "Solutions pages", :vcr, type: :request do
     it "displays the call to action button" do
       expect(response.body).to include('<a class="govuk-button" href="https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware">Visit the IT Hardware website</a>')
     end
+
+    it "displays related content section" do
+      expect(response.body).to include("Related content")
+      expect(response.body).to match(%r{<a[^>]*>Things to consider when buying IT</a>})
+    end
+  end
+
+  context "when solution has no related content" do
+    before do
+      get solution_path("ict-procurement")
+    end
+
+    it "does not display related content section" do
+      expect(response.body).not_to include("Related content")
+    end
   end
 end

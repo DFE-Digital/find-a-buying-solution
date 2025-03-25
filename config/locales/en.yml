@@ -73,7 +73,7 @@ en:
       search: Search
       search_this_website: Search this website
     dfe_sidebar:
-      related_actions: Related actions
+      related_content: Related content
   solutions:
     show:
       cta: Visit the %{title} website

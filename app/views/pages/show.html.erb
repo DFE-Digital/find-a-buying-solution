@@ -10,5 +10,5 @@
 </div>
 
 <% content_for :sidebar do %>
-  <%= render_markdown_to_html(@page.sidebar) %>
+  <%= render partial: "shared/related_content", locals: { related_content: @page.related_content } %>
 <% end %>
