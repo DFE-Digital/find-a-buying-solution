@@ -31,7 +31,11 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "includes the procurement support link with correct text" do
-      expect(response.body).to match(%r{<a[^>]*href="https://www.get-help-buying-for-schools.service.gov.uk/procurement-support"[^>]*>I need something else</a>})
+      expect(response.body)
+        .to have_link(
+          "I need something else",
+          href: "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support"
+        )
     end
   end
 
@@ -59,7 +63,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     it "displays related content" do
       expect(response.body).to include("Related content")
-      expect(response.body).to match(%r{<a[^>]*>Things to consider when buying IT</a>})
+      expect(response.body).to have_link("Things to consider when buying IT")
     end
   end
 
@@ -119,9 +123,9 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "keeps the checkboxes selected after form submission" do
-        expect(response.body).to include('value="computers-and-other-hardware" checked')
-        expect(response.body).to include('value="software" checked')
-        expect(response.body).not_to include('value="cyber-security" checked')
+        expect(response.body).to have_css("input[value='computers-and-other-hardware'][checked]")
+        expect(response.body).to have_css("input[value='software'][checked]")
+        expect(response.body).to have_css("input[value='cyber-security']:not([checked])")
       end
 
       it "displays the correct results count text" do

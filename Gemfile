@@ -31,3 +31,7 @@ end
 group :development do
   gem "rladr"
 end
+
+group :test do
+  gem "capybara"
+end
