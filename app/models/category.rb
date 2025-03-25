@@ -1,5 +1,6 @@
 class Category
   include ActiveModel::Model
+  include HasRelatedContent
 
   attr_reader :id, :title, :description, :slug, :subcategories
 
@@ -9,6 +10,7 @@ class Category
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
     @subcategories = entry.fields.fetch(:subcategories, []).map { Subcategory.new(it) }
+    super
   end
 
   def solutions
@@ -38,8 +40,7 @@ class Category
   def self.find_by_slug!(slug)
     entry = ContentfulClient.entries(
       content_type: "category",
-      'fields.slug': slug,
-      select: "sys.id,fields.title,fields.description,fields.slug,fields.subcategories"
+      'fields.slug': slug
     ).first
     raise ContentfulRecordNotFoundError, "Category: '#{slug}' not found" unless entry
 

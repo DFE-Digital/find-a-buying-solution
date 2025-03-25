@@ -7,7 +7,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict"
+        "fields.slug": "it"
       ).first
     end
 
@@ -17,7 +17,8 @@ RSpec.describe Category, :vcr, type: :model do
         title: be_present,
         description: be_present,
         slug: be_present,
-        subcategories: be_an(Array)
+        subcategories: be_an(Array),
+        related_content: be_an(Array)
       )
     end
   end
@@ -28,7 +29,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict"
+        "fields.slug": "it"
       ).first
     end
 
@@ -57,14 +58,14 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict",
+        "fields.slug": "it",
         include: 1
       ).first
     end
 
     it "orders solutions alphabetically by title" do
       solution_titles = category.solutions.map(&:title)
-      expect(solution_titles).to eq(solution_titles.sort)
+      expect(solution_titles).to eq(solution_titles.sort_by(&:downcase))
     end
   end
 
@@ -74,7 +75,7 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict",
+        "fields.slug": "it",
         include: 2
       ).first
     end
@@ -82,8 +83,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "filters solutions by subcategory slugs" do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-      expected_solution_slugs = %w[it-hardware mfd-digi-transform g-cloud]
-
+      expected_solution_slugs = %w[corporate-software ict-procurement microsoft-shape-the-future printing-services software-licenses technology-products-and-associated-services technology-products-and-associated-services-2]
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
       expect(filtered.map(&:slug)).to match_array(expected_solution_slugs)
@@ -110,10 +110,10 @@ RSpec.describe Category, :vcr, type: :model do
 
   describe ".find_by_slug!" do
     it "fetches a category by its slug from Contentful" do
-      category = described_class.find_by_slug!("ict")
+      category = described_class.find_by_slug!("it")
       expect(category).to be_present
       expect(category).to be_a(described_class)
-      expect(category.slug).to eq("ict")
+      expect(category.slug).to eq("it")
     end
 
     it "raises ContentfulRecordNotFoundError if no category is found by the given slug" do
@@ -127,13 +127,24 @@ RSpec.describe Category, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "category",
-        "fields.slug": "ict",
+        "fields.slug": "it",
         include: 2
       ).first
     end
 
     it "returns an array of Subcategory objects with correct titles" do
-      expected_titles = ["Hardware", "Software", "Networking", "Audio and visual"]
+      expected_titles = [
+        "Broadband and wifi",
+        "Cloud storage",
+        "Cyber security",
+        "IT end-to-end service",
+        "IT consultancy",
+        "Computers and other hardware",
+        "Print copy and scan",
+        "Software",
+        "Information management systems",
+      ]
+
       expect(category.subcategories).to all(be_a(Subcategory))
       expect(category.subcategories.map(&:title)).to match_array(expected_titles)
     end
@@ -152,6 +163,22 @@ RSpec.describe Category, :vcr, type: :model do
         description: be_present,
         slug: be_present
       )
+    end
+  end
+
+  describe "#related_content" do
+    subject(:category) { described_class.new(entry) }
+
+    let(:entry) do
+      ContentfulClient.entries(
+        content_type: "category",
+        "fields.slug": "it",
+        include: 2
+      ).first
+    end
+
+    it "returns an array of RelatedContent objects" do
+      expect(category.related_content).to all(be_a(RelatedContent))
     end
   end
 end

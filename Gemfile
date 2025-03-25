@@ -4,6 +4,7 @@ ruby file: ".tool-versions"
 gem "bootsnap", require: false
 gem "contentful"
 gem "cssbundling-rails"
+gem "csv", require: false
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
@@ -29,4 +30,8 @@ end
 
 group :development do
   gem "rladr"
+end
+
+group :test do
+  gem "capybara"
 end

@@ -37,7 +37,7 @@ RSpec.describe Solution, :vcr, type: :model do
     end
 
     context "when filtering by category_id" do
-      let(:category) { Category.find_by_slug!("ict") }
+      let(:category) { Category.find_by_slug!("it") }
       let(:category_id) { category.id }
       let(:solutions) { described_class.all(category_id: category_id) }
 

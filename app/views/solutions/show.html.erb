@@ -10,6 +10,5 @@
 <%= link_to t(".cta", title: h(@solution.title)), safe_url(@solution.url), class: "govuk-button" %>
 
 <% content_for :sidebar do %>
-  <%= render "shared/related_actions" %>
+  <%= render partial: "shared/related_content", locals: { related_content: @solution.related_content } %>
 <% end %>
-

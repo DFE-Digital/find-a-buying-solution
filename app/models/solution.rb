@@ -1,5 +1,6 @@
 class Solution
   include ActiveModel::Model
+  include HasRelatedContent
 
   attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories
 
@@ -14,6 +15,7 @@ class Solution
     @expiry = entry.fields[:expiry]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
+    super
   end
 
   def self.all(category_id: nil)
@@ -44,6 +46,7 @@ class Solution
         fields.title
         fields.description
         fields.expiry
+        fields.related_content
         fields.summary
         fields.slug
         fields.provider_name
