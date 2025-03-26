@@ -15,8 +15,8 @@ en:
       apply: Apply
       filter: Filter
       section_title: Buying category
-      standfirst: All frameworks are DfE approved and listed alphabetically.
-      title: Frameworks
+      standfirst: All buying options are DfE approved and listed alphabetically.
+      title: Buying options
   errors:
     not_found:
       check_pasted: If you pasted the web address, check you copied the entire address.
@@ -39,7 +39,7 @@ en:
       title:
         type:
           category: Categories
-          solution: Matching frameworks
+          solution: Buying options
   search:
     title: Search Get Help Buying for Schools
   service:
@@ -61,7 +61,7 @@ en:
       procurement_support: Request help and support for your procurement
       terms_and_conditions: Terms and conditions
     dfe_homepage_header:
-      home_link: View list of all DfE approved frameworks
+      home_link: View list of all DfE approved buying options
     dfe_logo_and_menu:
       close_menu: Close menu
       guidance: Guidance
@@ -76,4 +76,4 @@ en:
   solutions:
     show:
       cta: Visit the %{title} website
-      section_title: Framework
+      section_title: Buying option
