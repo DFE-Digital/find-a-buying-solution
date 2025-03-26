@@ -19,6 +19,19 @@ $govuk-assets-path: "/";
   flex-direction: column;
 }
 
+h1.govuk-heading {
+  margin-bottom: 30px;
+}
+
+.page-description {
+  padding-bottom: 10px;
+  font-size: 24px;
+}
+
+.sidebar {
+  margin-top: 60px;
+}
+
 .sidebar > ul {
   list-style: none;
   padding: 0;
@@ -146,6 +159,11 @@ footer {
   }
 }
 
+.section-title {
+  color: #525c61;
+  padding: 10px 0;
+  font-size: 18px;
+}
 .search-results-section{
   border-bottom: 1px solid #b1b4b6;
   margin-top: 10px;
