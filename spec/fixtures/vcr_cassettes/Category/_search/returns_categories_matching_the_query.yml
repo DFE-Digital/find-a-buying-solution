@@ -153,24 +153,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 26 Mar 2025 12:21:55 GMT
+      - Wed, 26 Mar 2025 21:17:52 GMT
       Age:
-      - '60160'
+      - '92317'
       X-Served-By:
-      - cache-ewr-kewr1740087-EWR, cache-lhr-egll1980057-LHR
+      - cache-ewr-kewr1740087-EWR, cache-lhr-egll1980041-LHR
       X-Cache-Hits:
-      - 0, 1
+      - 0, 2
       X-Timer:
-      - S1742991715.149761,VS0,VE1
+      - S1743023872.240951,VS0,VE0
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - a44fc6ef-3216-49f7-835d-521e2ec87acb
+      - bb3d4a04-dcba-477a-a80f-4ff9f1a7993e
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
         food, drink and catering services from DfE-approved suppliers","slug":"catering-goods-and-supplies"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-03-21T13:27:12.604Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":28,"revision":9,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
 
         '
-  recorded_at: Wed, 26 Mar 2025 12:21:55 GMT
+  recorded_at: Wed, 26 Mar 2025 21:17:52 GMT
 recorded_with: VCR 6.3.1

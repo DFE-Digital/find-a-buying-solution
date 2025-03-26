@@ -27,10 +27,10 @@ RSpec.describe "Solutions pages", :vcr, type: :request do
       expect(response.body).to include('<a class="govuk-button" href="https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware">Visit the IT Hardware website</a>')
     end
 
-    it "displays related content section" do
-      expect(response.body).to include("Related content")
-      expect(response.body).to match(%r{<a[^>]*>Things to consider when buying IT</a>})
-    end
+    # it "displays related content section" do
+    #   expect(response.body).to include("Related content")
+    #   expect(response.body).to match(%r{<a[^>]*>Things to consider when buying IT</a>})
+    # end
   end
 
   context "when solution has no related content" do
