@@ -115,7 +115,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '488'
+      - '627'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -129,13 +129,11 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"17515927382848719716"
+      - '"2049145992682223690"'
       X-Content-Type-Options:
       - nosniff
       Contentful-Api:
       - cda
-      Content-Encoding:
-      - gzip
       Server:
       - Contentful
       X-Contentful-Region:
@@ -155,22 +153,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 18 Mar 2025 07:58:33 GMT
+      - Wed, 26 Mar 2025 12:21:55 GMT
       Age:
-      - '13'
+      - '60160'
       X-Served-By:
-      - cache-ewr-kewr1740087-EWR, cache-lon4276-LON
+      - cache-ewr-kewr1740087-EWR, cache-lhr-egll1980057-LHR
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1742284714.692885,VS0,VE1
+      - S1742991715.149761,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 3c5eb560-fcc6-4542-9955-a5a0577ce370
+      - a44fc6ef-3216-49f7-835d-521e2ec87acb
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA72STW/bMAyG7/sVgs52YMkfqXVLuwDD0MOGeF3RYQfPVlw1tqRKcgIjyH8f5bhN0ALdduhOtiiK5Pvy2WM7WMz22A2aY4YXxpQDPgTYKVe2mNEA243QmEUBbkUnHGYkgn/heAfvfuzxWvC2PpYQrvU1rkrHjZANDnDNbWWEdkJJuLjsB1RNl4g/9kJ3XLrgFLPcbEXFkTJorVSNbK91K7hFa6M69HG9DEutjdry5ytjoYtt+wbKP5X240+qrC4rGGn/QuW1kBt418KnOOpejYmgq4ZCKqvsPYmzB/Jg8AGqjdHs+jbt7/rh+67Y0d3i0uafhPAiJ+uW0pkBjpXhoLFegFWYRjQNIxpGaUEIS3IWR7OIxneQ1uv6RVocknlBMpam4PEsTy58GpdbYZT0Rp3pGAfqSgtGnwZ4rWp59tjr0P2vVth7Xt9wY8edENil4VtxPMUwvZIOeh1t+bNvV2fpk09+DY0CK3zHVlXlCAWX4beVD71FDGpg6xaV8rR6kPcaIg9HgGqAbDMmP0M1AfSPwIRj2xAqhU/EvRNDZHHTV92K5039+fYxIZuMdF+//A1DAEdWUMpoymgyi3P6FkMJS+eMzmc0Tf8HQxfnDKXvz9DPw4ffMf7LOLgEAAA=
-  recorded_at: Tue, 18 Mar 2025 07:58:33 GMT
+      string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
+        food, drink and catering services from DfE-approved suppliers","slug":"catering-goods-and-supplies"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-03-21T13:27:12.604Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":28,"revision":9,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
+
+        '
+  recorded_at: Wed, 26 Mar 2025 12:21:55 GMT
 recorded_with: VCR 6.3.1
