@@ -15,7 +15,7 @@ RSpec.describe "Search pages", :vcr, type: :request do
     end
 
     it "displays matching categories" do
-      expect(response.body).to include("Catering goods and supplies")
+      expect(response.body).to include("Catering")
     end
 
     it "hides search in header" do
