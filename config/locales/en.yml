@@ -32,6 +32,10 @@ en:
           category: Categories
           solution: Buying options
   search:
+    no_results:
+      cta: Visit Get Help Buying Home page
+      description: It looks like there are no results for your search keyword.
+      title: No search results
     title: Search Get Help Buying for Schools
   service:
     name: Get Help Buying for Schools
