@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def record_not_found(exception)
-    render file: Rails.root.join('public', '404.html'), status: :not_found, layout: false
+  def record_not_found
+    render file: Rails.root.join("public/404.html"), status: :not_found, layout: false
   end
 
   def enable_search_in_header

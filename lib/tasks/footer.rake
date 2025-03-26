@@ -7,14 +7,14 @@ namespace :footer do
     ).gsub(/<!--.*?-->/m, "")
     %w[404 500].each do |page|
       file_path = Rails.public_path.join("#{page}.html")
-      if File.exist?(file_path)
-        content = File.read(file_path)
-        updated_content = content.gsub(
-          %r{<footer.*?</footer>}m,
-          footer_content
-        )
-        File.write(file_path, updated_content)
-      end
+      next unless File.exist?(file_path)
+
+      content = File.read(file_path)
+      updated_content = content.gsub(
+        %r{<footer.*?</footer>}m,
+        footer_content
+      )
+      File.write(file_path, updated_content)
     end
   end
 end

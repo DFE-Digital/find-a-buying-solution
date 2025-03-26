@@ -11,7 +11,7 @@ RSpec.describe "Error pages" do
   let(:error_pages) do
     {
       "404" => File.read(Rails.root.join("public/404.html")),
-      "500" => File.read(Rails.root.join("public/500.html"))
+      "500" => File.read(Rails.root.join("public/500.html")),
     }
   end
 
