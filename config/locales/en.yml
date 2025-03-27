@@ -74,9 +74,9 @@ en:
   solutions:
     index:
       all_buying_options_categories_header: Procurement categories
-      all_buying_options_description: "This is a list of all DfE approved buying options.\nUse
-        one to ensure your procurement is compliant. We'll continue to review and
-        update this list."
+      all_buying_options_description: |-
+        This is a list of all DfE approved buying options.
+        Use one to ensure your procurement is compliant. We'll continue to review and update this list.
       all_buying_options_expires: 'Expires:'
       all_buying_options_header: Buying options
       all_buying_options_section_title: DfE approved
