@@ -17,6 +17,9 @@ en:
       section_title: Buying category
       standfirst: All buying options are DfE-approved and listed alphabetically.
       title: Buying options
+  date:
+    formats:
+      standard: "%e %B %Y"
   header_description: |
     A procurement hub to help you buy for your school, academy or trust and
     ensure compliance, save time and get value for money.
@@ -72,8 +75,8 @@ en:
     index:
       all_buying_options_categories_header: Procurement categories
       all_buying_options_description: "This is a list of all DfE approved buying options.\nUse
-        one to ensure your procurement is compliant. \nWe'll continue to review and
-        update this list.\n"
+        one to ensure your procurement is compliant. We'll continue to review and
+        update this list."
       all_buying_options_expires: 'Expires:'
       all_buying_options_header: Buying options
       all_buying_options_section_title: DfE approved
