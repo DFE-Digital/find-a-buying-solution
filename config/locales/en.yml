@@ -15,21 +15,12 @@ en:
       apply: Apply
       filter: Filter
       section_title: Buying category
-      standfirst: All frameworks are DfE approved and listed alphabetically.
-      title: Frameworks
-  errors:
-    not_found:
-      check_pasted: If you pasted the web address, check you copied the entire address.
-      check_typed: If you entered a web address, check it is correct.
-      contact: |
-        If the web address is correct or you selected a link or button and you
-        need to speak to someone about this problem, contact the %{service_name}
-        team.
-      title: Page not found
+      standfirst: All buying options are DfE-approved and listed alphabetically.
+      title: Buying options
   header_description: |
     A procurement hub to help you buy for your school, academy or trust and
     ensure compliance, save time and get value for money.
-  header_title: Get help buying for schools
+  header_title: Get Help Buying for Schools
   results:
     count:
       one: 1 result
@@ -39,8 +30,12 @@ en:
       title:
         type:
           category: Categories
-          solution: Matching frameworks
+          solution: Buying options
   search:
+    no_results:
+      cta: Visit Get Help Buying Home page
+      description: It looks like there are no results for your search keyword.
+      title: No search results
     title: Search Get Help Buying for Schools
   service:
     name: Get Help Buying for Schools
@@ -61,7 +56,7 @@ en:
       procurement_support: Request help and support for your procurement
       terms_and_conditions: Terms and conditions
     dfe_homepage_header:
-      home_link: View list of all DfE approved frameworks
+      view_all_buying_options: View list of all DfE-approved buying options
     dfe_logo_and_menu:
       close_menu: Close menu
       guidance: Guidance
@@ -85,4 +80,4 @@ en:
       all_buying_options_title: All buying options
     show:
       cta: Visit the %{title} website
-      section_title: Framework
+      section_title: Buying option

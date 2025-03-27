@@ -2,7 +2,7 @@ class Solution
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories
+  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories, :call_to_action
 
   def initialize(entry)
     @id = entry.id
@@ -13,6 +13,7 @@ class Solution
     @provider_name = entry.fields[:provider_name]
     @url = entry.fields[:url]
     @expiry = entry.fields[:expiry]
+    @call_to_action = entry.fields[:call_to_action]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
     super
@@ -50,10 +51,11 @@ class Solution
         fields.summary
         fields.slug
         fields.provider_name
+        fields.call_to_action
         fields.url
       ].join(",")
     ).find { |solution| solution.fields[:slug] == slug }
-    raise ContentfulRecordNotFoundError, "Solution: '#{slug}' not found" unless entry
+    raise ContentfulRecordNotFoundError unless entry
 
     new(entry)
   end
