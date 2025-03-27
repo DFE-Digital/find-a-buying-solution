@@ -18,6 +18,7 @@ RSpec.describe Solution, :vcr, type: :model do
         summary: be_present,
         description: be_present,
         slug: be_present,
+        call_to_action: be_present,
         provider_name: be_present
       )
     end
