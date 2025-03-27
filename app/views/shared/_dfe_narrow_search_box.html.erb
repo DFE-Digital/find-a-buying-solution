@@ -3,23 +3,23 @@
     <svg class="dfe-icon dfe-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
       <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
     </svg>
-    <span class="govuk-visually-hidden"><%= t(".search") %></span>
+    <span class="govuk-visually-hidden"><%= t("shared.dfe_search.search") %></span>
   </button>
   <div class="dfe-header__search-wrap" id="wrap-search">
     <form class="dfe-header__search-form" id="search" action="/search" method="get" role="search">
-      <label class="govuk-visually-hidden" for="search-field"><%= t(".search_this_website") %></label>
+      <label class="govuk-visually-hidden" for="search-field"><%= t("shared.dfe_search.search_this_website") %></label>
       <input class="dfe-search__input" id="search-field" name="query" placeholder="Search" type="search" autocomplete="off" required value="<%= params[:query] %>">
       <button class="dfe-search__submit" type="submit">
         <svg class="dfe-icon dfe-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
           <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
         </svg>
-        <span class="govuk-visually-hidden"><%= t(".search") %></span>
+        <span class="govuk-visually-hidden"><%= t("shared.dfe_search.search") %></span>
       </button>
       <button class="dfe-search__close" id="close-search">
         <svg class="dfe-icon dfe-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
           <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
         </svg>
-        <span class="govuk-visually-hidden"><%= t(".close_search") %></span>
+        <span class="govuk-visually-hidden"><%= t("shared.dfe_search.close_search") %></span>
       </button>
     </form>
   </div>
