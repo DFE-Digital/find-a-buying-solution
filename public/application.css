@@ -986,7 +986,7 @@
 .govuk-grid-column-two-thirds {
   box-sizing: border-box;
   width: 100%;
-  padding: 0 15px;
+  padding: 0;
 }
 @media (min-width: 40.0625em) {
   .govuk-grid-column-two-thirds {
@@ -3413,6 +3413,7 @@
   line-height: 1.1428571429;
   padding-top: 25px;
   padding-bottom: 15px;
+  margin-bottom: 0;
   border-top: 1px solid #b1b4b6;
   color: #0b0c0c;
   background: #f3f2f1;
@@ -3550,7 +3551,7 @@
   display: inline-block;
   min-width: 125px;
   padding-top: 112px;
-  background-image: url("govuk-crest.png");
+  background-image: url("/govuk-crest.png");
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: 125px 102px;
@@ -7401,6 +7402,9 @@ textarea {
  * 4. Ensure the page always fills at least the entire height of the viewport.
  */
 html {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
   overflow-y: scroll; /* [1] */
   font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Sans-serif;
@@ -7415,6 +7419,9 @@ body {
   line-height: 1.33333;
   margin: 0; /* [3] */
   min-height: 100%; /* [4] */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /* ==========================================================================
@@ -7628,27 +7635,6 @@ caption {
   }
 }
 
-/* ==========================================================================
-   OBJECTS / #MAIN-WRAPPER
-   ========================================================================== */
-/**
- * Page wrapper for the grid system
- *
- * Usage:
- * <div class="dfe-width-container">
- *   <div class="dfe-main-wrapper">
- *    <!-- Wrapper for the main content of your page which applies padding
- *         to the top / bottom -->
- *   </div>
- * </div>
- *
- * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/govuk-frontend
- *
- * 1. In IE11 the `main` element can be used, but is not recognized  –
- *    meaning it's not defined in IE's default style sheet,
- *    so it uses CSS initial value, which is inline.
- */
 .dfe-main-wrapper {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -9403,6 +9389,11 @@ p,
   padding: 12px 15px;
   text-decoration: none;
 }
+
+.dfe-header__navigation-item:first-child .dfe-header__navigation-link {
+  padding: 12px 0;
+}
+
 @media (min-width: 40.0625em) {
   .dfe-header__navigation-link {
     font-size: 16px;
@@ -9748,6 +9739,7 @@ a.dfe-header__link--service:focus {
 }
 
 .page-with-sidebar {
+  flex: 1 0 auto;
   background-color: #fff !important;
   flex-direction: column;
 }
@@ -9758,19 +9750,30 @@ a.dfe-header__link--service:focus {
   margin: 0;
 }
 
+.sidebar a {
+  color: #1d70b8;
+}
+.sidebar a:hover, .sidebar a:active, .sidebar a:focus {
+  color: #003078;
+}
+
 .govuk-footer__copyright-logo {
-  background-image: url("govuk-crest.svg");
+  background-image: url("/govuk-crest.svg");
+}
+
+.beta-banner-container {
+  background: #ffffff;
 }
 
 .beta-banner {
-  background-color: #f6f6f6;
-  padding: 10px;
+  padding: 20px 0;
+  border-bottom: solid 1px #b7b9ba;
 }
 
 .beta {
   color: #fff;
   background-color: #347CA9;
-  padding: 0px 5px;
+  padding: 4px 10px;
 }
 
 .page-header {
@@ -9799,8 +9802,76 @@ a.dfe-header__link--service:focus {
   padding: 15px 0;
 }
 
+.subcategory-filters-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+.filters-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.subcategory-filters {
+  flex: 1;
+}
+
+.solutions-count {
+  color: #505a5f;
+}
+
 footer {
   clear: both;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.filters-remove {
+  padding-top: 10px;
+  border-top: 1px solid #b1b4b6;
+}
+
+.filters-remove-tags {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 5px 0;
+}
+
+.filters-remove-tags li {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.filters-remove-tag {
+  background-color: #f3f2f1;
+  border: 2px solid #d8d8d8;
+  color: #181919;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 8px 10px 8px 35px;
+  position: relative;
+  text-decoration: none;
+}
+.filters-remove-tag::before {
+  content: "×";
+  color: #191a1a;
+  position: absolute;
+  left: 12px;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: bold;
+}
+.filters-remove-tag:hover {
+  background-color: #f3f2f1;
 }
 
 .search-results-section {
@@ -9844,4 +9915,53 @@ footer {
 
 .search-button:hover {
   background: #003078;
+}
+
+.dfe-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 16px 0;
+}
+
+.dfe-card {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.dfe-card .title {
+  height: 50px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-clamp: 2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.dfe-card .description {
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-clamp: 5;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.dfe-card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.govuk-footer__list--inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }

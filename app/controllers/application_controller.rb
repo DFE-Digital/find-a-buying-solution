@@ -5,9 +5,8 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def record_not_found(exception)
-    @message = exception.message || "Record not found"
-    render template: "errors/not_found", status: :not_found
+  def record_not_found
+    render file: Rails.root.join("public/404.html"), status: :not_found, layout: false
   end
 
   def enable_search_in_header

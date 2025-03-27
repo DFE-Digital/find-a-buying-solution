@@ -3,11 +3,12 @@
 
 <head>
   <title>Sorry, there is a problem with the service - Get help buying for schools</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
 
-  <link rel="stylesheet" href="application.css" />
+  <link rel="stylesheet" href="/application.css" />
 
 </head>
 
@@ -17,9 +18,8 @@
     <div class="dfe-width-container dfe-header__container">
       <div class="dfe-header__logo">
         <a class="dfe-header__link" href="/" aria-label="DfE homepage">
-          <img class="dfe-logo" alt="Department for Education" src="dfe-logo.png" />
-          <img class="dfe-logo-hover" alt="Department for Education"
-            src="dfe-logo-alt.png" />
+          <img class="dfe-logo" alt="Department for Education" src="/dfe-logo.png" />
+          <img class="dfe-logo-hover" alt="Department for Education" src="/dfe-logo-alt.png" />
         </a>
       </div>
       <div class="dfe-header__content" id="content-header">
@@ -85,10 +85,34 @@
             <span class="govuk-visually-hidden">Close menu</span>
           </button>
         </p>
+        <ul class="dfe-header__navigation-list">
+          <li class="dfe-header__navigation-item dfe-header__navigation-item--current">
+            <a class="dfe-header__navigation-link" href="/">
+              Home
+              <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                aria-hidden="true" width="34" height="34">
+                <path
+                  d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z">
+                </path>
+              </svg>
+            </a>
+          </li>
+          <li class="dfe-header__navigation-item ">
+            <a class="dfe-header__navigation-link" href="/find-a-dfe-approved-buying-solution">
+              Guidance
+              <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                aria-hidden="true" width="34" height="34">
+                <path
+                  d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z">
+                </path>
+              </svg>
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
-    <div class="beta-banner manual-promo-strip govuk-!-margin-top-7">
-      <div class="dfe-width-container">
+    <div class="beta-banner-container manual-promo-strip govuk-!-margin-top-4">
+      <div class="beta-banner dfe-width-container">
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <strong class="beta">BETA</strong>
@@ -102,105 +126,59 @@
 
   <div class="page-with-sidebar">
     <div class="dfe-width-container">
-      <div class="blue-line"></div>
       <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
         <div class="dfe-width-container">
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
-              <a class="govuk-back-link" href="/">Back</a>
               <h1 class="govuk-heading">Sorry, there is a problem with the service</h1>
               <p class="govuk-body">
                 Please try again later.
               </p>
-              <p class="govuk-body">
-                Contact the Get Help Buying for Schools Team if you need to speak to someone about your procurement needs.
-              </p>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
 
   <footer class="gem-c-layout-footer govuk-footer gem-c-layout-footer--border">
-    <div class="dfe-width-container">
-      <div class="govuk-footer__navigation">
-        <div class="govuk-grid-column-one-third govuk-!-display-none-print">
-          <h2 class="govuk-footer__heading govuk-heading-m">Service and information</h2>
-          <ul class="govuk-footer__list govuk-footer__list--columns-1">
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Get help from DfE procurement experts</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Get help from other schools or trusts</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">About ‘DfE-approved’</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">About us</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Contact us</a>
-            </li>
-          </ul>
-        </div>
+  <div class="dfe-width-container">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <h2 class="govuk-visually-hidden">Feedback</h2>
+        <ul class="govuk-footer__list govuk-footer__list--inline govuk-!-margin-bottom-6">
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="https://www.get-help-buying-for-schools.service.gov.uk/procurement-support" target="_blank">Request help and support for your procurement</a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="#">Feedback</a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="/accessibility-statement">Accessibility statement</a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="/privacy-notice">Privacy notice</a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="/terms-and-conditions">Terms and conditions</a>
+          </li>
+        </ul>
+            <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
+    <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"></path>
+    </svg>
 
-        <div class="govuk-grid-column-one-third govuk-!-display-none-print">
-          <h2 class="govuk-footer__heading govuk-heading-m">Give feedback</h2>
-          <ul class="govuk-footer__list govuk-footer__list--columns-1">
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Give feedback</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Report a technical issue</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="govuk-grid-column-one-third govuk-!-display-none-print">
-          <h2 class="govuk-footer__heading govuk-heading-m">Site information</h2>
-          <ul class="govuk-footer__list govuk-footer__list--columns-1">
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Accessibility statement</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Privacy notice</a>
-            </li>
-            <li class="govuk-footer__list-item">
-              <a class="govuk-footer__link" href="/TODO">Terms and Conditions</a>
-            </li>
-          </ul>
-        </div>
+        <span class="govuk-footer__licence-description">
+          All content is available under the <a class="govuk-footer__link" rel="license" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except where otherwise stated.
+        </span>
       </div>
-
-      <hr class="govuk-footer__section-break govuk-!-display-none-print">
-
-      <div class="govuk-footer__meta">
-        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
-          <h2 class="govuk-visually-hidden">Give feedback</h2>
-          <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo"
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
-            <path fill="currentColor"
-              d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145">
-            </path>
-          </svg>
-
-          <span class="govuk-footer__licence-description">
-            All content is available under the <a class="govuk-footer__link" rel="license"
-              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence
-              v3.0</a>, except where otherwise stated.
-          </span>
-        </div>
-        <div class="govuk-footer__meta-item">
-          <a class="govuk-footer__link govuk-footer__copyright-logo"
-            href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">©
-            Crown copyright</a>
-        </div>
+      <div class="govuk-footer__meta-item">
+        <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© Crown copyright</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
+
 
 
 </body>
