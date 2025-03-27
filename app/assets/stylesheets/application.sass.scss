@@ -5,8 +5,17 @@ $govuk-assets-path: "/";
 @use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
 
+.dfe-header {
+  color: #fff;
+}
+
 .dfe-page-hero {
   color: #fff;
+}
+
+.dfe-header__navigation.js-show .dfe-header__navigation-item.dfe-header__navigation-item--current a {
+  color: #003a69;
+  font-weight: 700;
 }
 
 .dfe-header__navigation-item {
@@ -66,6 +75,7 @@ h1.govuk-heading {
 }
 
 .beta-banner {
+  color: #0b0c0c;
   background-color: #f6f6f6;
   padding: 10px;
 }
@@ -181,6 +191,16 @@ footer {
 
 .dfe-header__search {
   text-align: left;
+}
+
+.dfe-header__search_narrow  {
+  .dfe-search__input {
+  width: 300px;
+  }
+
+  .dfe-search__submit {
+    background: #f0f4f5;
+  }
 }
 
 @media (min-width: 53em) {
