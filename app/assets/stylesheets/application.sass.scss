@@ -308,7 +308,13 @@ footer {
 }
 
 .govuk-footer__list--inline {
+  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+}
+
+.govuk-footer__licence-description {
+  margin-top: 10px;
+  max-width: 500px;
 }
