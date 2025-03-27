@@ -15,6 +15,5 @@ class CategoriesController < ApplicationController
     @page_title = @category.title
     @page_description = @category.description
     @page_back_link = root_path
-
   end
 end
