@@ -2,18 +2,18 @@
   @page_back_link = root_path
 %>
 
-<%= render "shared/dfe_base" do %>
   <div class="dfe-width-container">
     <main class="govuk-main-wrapper">      
       <h1 class="govuk-heading-l"><%= t("search.title") %></h1>
-
-      <div>
-        <div class="dfe-grid-row">
-          <div class="dfe-grid-column-full-width">
-            <%= render "search/full_width_search_box" %>
-          </div>
-        </div>
+      <div class="dfe-grid-column-full-width">
+        <%= render "search/full_width_search_box" %>
       </div>
+
+      <% if !@solutions.any? && !@categories.any? %>
+        <h2><%=t("search.no_results.title") %></h2>
+        <p class="govuk-body"><%=t("search.no_results.description") %></p>
+        <h5><%= govuk_link_to t("search.no_results.cta"), root_path %></h5>
+      <% end %>
 
       <% if @solutions.any? %>
         <div class="search-results-section" %>
@@ -68,4 +68,3 @@
       <% end %>
     </main>
   </div>
-<% end %>

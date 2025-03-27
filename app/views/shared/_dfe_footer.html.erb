@@ -20,14 +20,14 @@
             <a class="govuk-footer__link" href="/terms-and-conditions"><%= t(".terms_and_conditions") %></a>
           </li>
         </ul>
-        <%= govuk_footer_licence_logo %>
-        <span class="govuk-footer__licence-description">
+        <div><%= govuk_footer_licence_logo %></div>
+        <div class="govuk-footer__licence-description">
           <%= t(".licensing_html",
                 ogl3: link_to(t(".ogl3"),
                               "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
                               class: "govuk-footer__link",
                               rel: "license")) %>
-        </span>
+        </div>
       </div>
       <div class="govuk-footer__meta-item">
         <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"><%= t(".crown_copyright") %></a>
