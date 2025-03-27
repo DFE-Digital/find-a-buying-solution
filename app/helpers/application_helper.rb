@@ -14,6 +14,7 @@ module ApplicationHelper
 
   def format_date(date_string)
     return "" if date_string.blank?
+
     I18n.l(Date.parse(date_string), format: :standard)
   end
 end
