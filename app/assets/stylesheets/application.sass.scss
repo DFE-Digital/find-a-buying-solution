@@ -18,6 +18,10 @@ $govuk-assets-path: "/";
   }
 }
 
+a.underlined {
+  text-decoration: underline;
+}
+
 .header_description {
   color: #ccd8e1;
   font-weight: 700;
@@ -174,6 +178,27 @@ footer {
   padding: 10px 0;
   font-size: 18px;
 }
+
+.dfe-header__search {
+  text-align: left;
+}
+
+@media (min-width: 53em) {
+  .dfe-search__input {
+    width: 450px;
+  }
+}
+
+@media (min-width: 75em) {
+  .dfe-search__input {
+    width: 650px;
+  }
+}
+
+.dfe-search__submit {
+  background: #a2d5f5;
+}
+
 .search-results-section{
   border-bottom: 1px solid #b1b4b6;
   margin-top: 10px;
