@@ -57,4 +57,4 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
                                 class: "govuk-button")
     end
   end
-end 
+end
