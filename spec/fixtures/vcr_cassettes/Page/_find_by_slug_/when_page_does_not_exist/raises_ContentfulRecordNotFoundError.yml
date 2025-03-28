@@ -67,23 +67,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '60165'
+      - '0'
       Date:
-      - Wed, 26 Mar 2025 12:21:55 GMT
+      - Thu, 27 Mar 2025 17:23:12 GMT
       X-Served-By:
-      - cache-ewr-kewr1740040-EWR, cache-lhr-egll1980063-LHR
+      - cache-ewr-kewr1740040-EWR, cache-man4124-MAN
       X-Cache-Hits:
-      - 0, 0
+      - 1, 0
       X-Timer:
-      - S1742991716.746789,VS0,VE1
+      - S1743096193.575185,VS0,VE142
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - e4c32a3a-234c-41c4-b57a-aac959941bbb
+      - 8318aec4-e7cb-4ce0-9e06-954eb16939ca
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Wed, 26 Mar 2025 12:21:55 GMT
+  recorded_at: Thu, 27 Mar 2025 17:23:12 GMT
 recorded_with: VCR 6.3.1

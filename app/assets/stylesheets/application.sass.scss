@@ -4,28 +4,7 @@ $govuk-assets-path: "/";
 
 @use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
-
-.dfe-header {
-  color: #fff;
-}
-
-.dfe-page-hero {
-  color: #fff;
-}
-
-.dfe-header__navigation.js-show .dfe-header__navigation-item.dfe-header__navigation-item--current a {
-  color: #003a69;
-  font-weight: 700;
-}
-
-.dfe-header__navigation-item {
-  padding: 12px 0;
-  margin: 0 30px 0 0;
-  a {
-    padding: 0;
-    margin: 0;
-  }
-}
+@use "../node_modules/@ministryofjustice/frontend/moj/moj-frontend.min" as moj;
 
 a.underlined {
   text-decoration: underline;
@@ -189,6 +168,23 @@ footer {
   font-size: 18px;
 }
 
+.dfe-header {
+  color: #fff;
+}
+
+.dfe-header__navigation.js-show .dfe-header__navigation-item.dfe-header__navigation-item--current a {
+  color: #003a69;
+  font-weight: 700;
+}
+
+.dfe-header__navigation-item {
+  padding: 12px 0;
+  margin: 0 30px 0 0;
+  a {
+    padding: 0;
+    margin: 0;
+  }
+}
 .dfe-header__search {
   text-align: left;
 }
@@ -260,6 +256,10 @@ footer {
 
 .search-button:hover {
   background: #003078;
+}
+
+.dfe-page-hero {
+   color: #fff;
 }
 
 .dfe-grid-container {

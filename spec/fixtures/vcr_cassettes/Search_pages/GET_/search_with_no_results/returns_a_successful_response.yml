@@ -67,25 +67,25 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '60156'
+      - '0'
       Date:
-      - Wed, 26 Mar 2025 12:21:53 GMT
+      - Thu, 27 Mar 2025 17:23:12 GMT
       X-Served-By:
-      - cache-ewr-kewr1740060-EWR, cache-lhr-egll1980061-LHR
+      - cache-ewr-kewr1740060-EWR, cache-man4170-MAN
       X-Cache-Hits:
-      - 0, 0
+      - 1, 0
       X-Timer:
-      - S1742991713.107847,VS0,VE1
+      - S1743096192.943976,VS0,VE173
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 266528ce-1854-4da9-b7c7-47fa445facbe
+      - 65491a1e-ca65-4aba-90b2-43f8ee0d5118
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Wed, 26 Mar 2025 12:21:53 GMT
+  recorded_at: Thu, 27 Mar 2025 17:23:12 GMT
 - request:
     method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=nonexistent&select=fields.title,fields.description,fields.slug,sys
@@ -153,23 +153,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '60155'
+      - '0'
       Date:
-      - Wed, 26 Mar 2025 12:21:53 GMT
+      - Thu, 27 Mar 2025 17:23:12 GMT
       X-Served-By:
-      - cache-ewr-kewr1740069-EWR, cache-lhr-egll1980057-LHR
+      - cache-ewr-kewr1740069-EWR, cache-man4124-MAN
       X-Cache-Hits:
       - 5, 0
       X-Timer:
-      - S1742991713.188847,VS0,VE1
+      - S1743096192.198782,VS0,VE165
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 63399e8c-6e32-49bd-a950-48724a386294
+      - 61f4d24b-a7ea-4130-8696-c6af74148529
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Wed, 26 Mar 2025 12:21:53 GMT
+  recorded_at: Thu, 27 Mar 2025 17:23:12 GMT
 recorded_with: VCR 6.3.1
