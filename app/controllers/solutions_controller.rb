@@ -1,5 +1,5 @@
 class SolutionsController < ApplicationController
-  before_action :enable_search_in_header, except: :index
+  before_action :enable_search_in_header
 
   def index
     @solutions = Solution.all
