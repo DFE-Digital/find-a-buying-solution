@@ -6,6 +6,14 @@ $govuk-assets-path: "/";
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
 @use "../node_modules/@ministryofjustice/frontend/moj/moj-frontend.min" as moj;
 
+@import url('https://rsms.me/inter/inter.css');
+$govuk-font-family: 'Inter', sans-serif;
+$dfefrontend-font-family: 'Inter', sans-serif;
+
+html, body {
+  font-family: 'Inter', sans-serif !important;
+}
+
 a.underlined {
   text-decoration: underline;
 }
