@@ -11,7 +11,7 @@ namespace :contentful do
     space = client.spaces.find(ENV["CONTENTFUL_SPACE_ID"])
     environment = space.environments.find("master")
 
-    categories = create_cats(environment, json_data)
+    categories = create_categories(environment, json_data)
     json_data.each do |item|
       puts "solution #{item['title']}"
       category = categories[item["cat"]["ref"]]
@@ -25,17 +25,17 @@ namespace :contentful do
   end
 end
 
-def unique_cats(json_data)
+def unique_categories(json_data)
   json_data.map { it["cat"] }.uniq
 end
 
-def create_cats(environment, json_data)
+def create_categories(environment, json_data)
   categories = {}
-  unique_cats(json_data).each { |item| categories[item["ref"]] = create_category(environment, item) }
+  unique_categories(json_data).each { |item| categories[item["ref"]] = create_category(environment, item) }
   categories
 end
 
-def create_solution(environment, item, cat)
+def create_solution(environment, item, category)
   puts "Starting solution #{item['title']}"
   solution_type = environment.content_types.find("solution")
   entries = environment.entries.all(content_type: "solution", "fields.slug" => item["ref"])
@@ -50,7 +50,7 @@ def create_solution(environment, item, cat)
       provider_name: item["provider"]["title"],
       url: item["url"],
       expiry: item["expiry"],
-      categories: (Array(entry.categories) + [cat]).uniq,
+      categories: (Array(entry.categories) + [category]).uniq,
       _metadata: {
         tags: [{ sys: { type: "Link", linkType: "Tag", id: "faf" } }],
       }
@@ -65,7 +65,7 @@ def create_solution(environment, item, cat)
       provider_name: item["provider"]["title"],
       url: item["url"],
       expiry: item["expiry"],
-      categories: (Array(entry.categories) + [cat]).uniq,
+      categories: (Array(entry.categories) + [category]).uniq,
       _metadata: {
         tags: [{ sys: { type: "Link", linkType: "Tag", id: "faf" } }],
       }
@@ -88,8 +88,8 @@ def create_category(environment, item)
                  })
   else
     puts "Creating category: #{item['title']} with slug #{item['ref']} "
-    cat_type = environment.content_types.find("category")
-    entry = cat_type.entries.create(
+    category_type = environment.content_types.find("category")
+    entry = category_type.entries.create(
       title: item["title"],
       slug: item["ref"],
       description: "x",
