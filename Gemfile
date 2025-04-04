@@ -3,6 +3,7 @@ ruby file: ".tool-versions"
 
 gem "bootsnap", require: false
 gem "contentful"
+gem "contentful-management", require: false
 gem "cssbundling-rails"
 gem "csv", require: false
 gem "dotenv"
