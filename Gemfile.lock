@@ -80,7 +80,7 @@ GEM
     bigdecimal (3.1.9)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (7.0.0)
+    brakeman (7.0.1)
       racc
     builder (3.3.0)
     capybara (3.40.0)
@@ -96,6 +96,10 @@ GEM
     connection_pool (2.5.0)
     contentful (2.17.1)
       http (> 0.8, < 6.0)
+      multi_json (~> 1)
+    contentful-management (3.10.0)
+      http (~> 5.0)
+      json (>= 1.8, < 3.0)
       multi_json (~> 1)
     crack (1.0.0)
       bigdecimal
@@ -402,6 +406,7 @@ DEPENDENCIES
   brakeman
   capybara
   contentful
+  contentful-management
   cssbundling-rails
   csv
   debug
