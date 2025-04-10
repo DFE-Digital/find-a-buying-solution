@@ -7,7 +7,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "includes buying options section heading" do
-      expect(response.body).to include("Buying options, by category")
+      expect(response.body).to include("DfE-approved buying options by category")
     end
 
     it "displays category titles" do
