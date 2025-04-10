@@ -17,9 +17,8 @@ en:
   date:
     formats:
       standard: "%e %B %Y"
-  header_description: |
-    A procurement hub to help you buy for schools, academies, and trusts. 
-    Ensure compliance, save time, and get value for money
+  header_description: "A procurement hub to help you buy for schools, academies, and
+    trusts. \nEnsure compliance, save time, and get value for money\n"
   header_title: Get help buying for schools
   results:
     count:
