@@ -7,10 +7,7 @@ en:
       remove_filter: Remove filter
     index:
       procurement_support: I need something else
-      standfirst: |
-        Find DfE-approved buying options such as frameworks, which are lists of
-        pre-checked suppliers.
-      title: Buying options, by category
+      title: DfE-approved buying options by category
     show:
       apply: Apply
       filter: Filter
@@ -20,10 +17,10 @@ en:
   date:
     formats:
       standard: "%e %B %Y"
-  header_description: |
-    A procurement hub to help you buy for your school, academy or trust and
-    ensure compliance, save time and get value for money.
-  header_title: Get Help Buying for Schools
+  header_description: |-
+    A procurement hub to help you buy for schools, academies, and
+    trusts. Ensure compliance, save time, and get value for money.
+  header_title: Get help buying for schools
   results:
     count:
       one: 1 result
@@ -59,7 +56,7 @@ en:
       procurement_support: Request help and support for your procurement
       terms_and_conditions: Terms and conditions
     dfe_homepage_header:
-      view_all_buying_options: View list of all DfE-approved buying options
+      view_all_buying_options: Browse a list of all DfE-approved buying options
     dfe_logo_and_menu:
       close_menu: Close menu
       guidance: Guidance
