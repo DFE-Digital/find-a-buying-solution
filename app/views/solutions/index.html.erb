@@ -17,18 +17,20 @@
           </nav>
       </div>
 
-      <div class="govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
-        <div class="govuk-!-margin-bottom-4"><%= t(".all_buying_options_header") %></div>
+      <div class="all-buying-options govuk-grid-column-two-thirds govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+        <div class="govuk-!-margin-bottom-3"><%= t(".all_buying_options_header") %></div>
         <% @sorted_categories.each do |category_slug, category_data| %>
-          <h4 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h4>
-          <p><%= category_data[:description] %></p>
-          <% category_data[:solutions].each do |solution| %>
-            <div class="solution">
-              <p><%= govuk_link_to solution.title, solution_path(solution.slug) %></p>
-              <p><%= solution.description %></p>
-              <p><%= t(".all_buying_options_expires") %> <%= format_date(solution.expiry) %></p>
-            </div>
-          <% end %>
+          <div class="all-buying-options-category">
+            <h3 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h3>
+            <p><%= category_data[:description] %></p>
+            <% category_data[:solutions].each do |solution| %>
+              <div class="all-buying-options-solution ">
+                <h4><%= govuk_link_to solution.title, solution_path(solution.slug) %></h4>
+                <p><%= solution.description %></p>
+                <p class="govuk-secondary-text-colour"><%= t(".all_buying_options_expires") %> <%= format_date(solution.expiry) %></p>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
