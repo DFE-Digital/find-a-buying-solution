@@ -6,6 +6,7 @@ require_relative "../config/environment"
 # that will avoid rails generators crashing because migrations haven't been run yet
 # return unless Rails.env.test?
 require "rspec/rails"
+require "sidekiq/testing"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -28,3 +29,5 @@ RSpec.configure(&:filter_rails_from_backtrace!)
 RSpec.configure do |config|
   config.include Capybara::RSpecMatchers, type: :request
 end
+
+Sidekiq::Testing.fake!
