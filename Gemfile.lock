@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/hrmtl/dfe-analytics.git
-  revision: 93346651656aaaf01faebd05a8c0e3c062b889da
+  revision: 3acbed0cb89c80bff65415b08110d16f5601ad0c
   branch: make-activerecord-optional
   specs:
     dfe-analytics (1.15.5)
