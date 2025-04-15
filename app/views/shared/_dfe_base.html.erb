@@ -11,6 +11,10 @@
   <%= stylesheet_link_tag "application" %>
 
   <%= javascript_include_tag "application", defer: true %>
+
+  <% if Rails.env.production? %>
+    <%= render "shared/ms_clarity" %>
+  <% end %>
 </head>
 
 <body class="govuk-template__body">
