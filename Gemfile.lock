@@ -358,6 +358,8 @@ GEM
     rake (13.2.1)
     rdoc (6.12.0)
       psych (>= 4.0.0)
+    redis-client (0.24.0)
+      connection_pool
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -433,6 +435,12 @@ GEM
       rubocop (~> 1.72, >= 1.72.1)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    sidekiq (8.0.2)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
     signet (0.19.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -508,6 +516,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-govuk
   rubocop-performance
+  sidekiq (~> 8.0)
   vcr
   webmock
 
