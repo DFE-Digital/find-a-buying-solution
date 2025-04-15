@@ -1,4 +1,15 @@
 DfE::Analytics.configure do |config|
+  # A proc which returns true or false depending on whether you want to
+  # enable analytics. You might want to hook this up to a feature flag or
+  # environment variable.
+  #
+  config.enable_analytics = proc { ENV.fetch("ENABLE_DFE_ANALYTICS", nil) == "TRUE" }
+
+  # The environment we’re running in. This value will be attached
+  # to all events we send to BigQuery.
+  #
+  config.environment = ENV.fetch("RAILS_ENV", "development")
+
   # Whether to log events instead of sending them to BigQuery.
   #
   # config.log_only = true
@@ -35,17 +46,6 @@ DfE::Analytics.configure do |config|
   # Passed directly to the timeout: option on the BigQuery client
   #
   # config.bigquery_timeout = 120
-
-  # A proc which returns true or false depending on whether you want to
-  # enable analytics. You might want to hook this up to a feature flag or
-  # environment variable.
-  #
-  # config.enable_analytics = proc { true }
-
-  # The environment we’re running in. This value will be attached
-  # to all events we send to BigQuery.
-  #
-  # config.environment = ENV.fetch('RAILS_ENV', 'development')
 
   # A proc which will be called with the user object, and which should
   # return the identifier for the user. This is useful for systems with
