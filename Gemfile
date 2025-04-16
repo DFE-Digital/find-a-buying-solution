@@ -6,6 +6,7 @@ gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
 gem "csv", require: false
+gem "dfe-analytics", github: "hrmtl/dfe-analytics", branch: "make-activerecord-optional"
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
@@ -15,6 +16,7 @@ gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.2"
+gem "sidekiq", "~> 8.0"
 
 group :development, :test do
   gem "brakeman", require: false

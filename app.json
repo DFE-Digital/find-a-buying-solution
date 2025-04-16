@@ -1,4 +1,9 @@
 {
+  "addons": [
+    {
+      "plan": "heroku-redis:mini"
+    }
+  ],
   "buildpacks": [
     { "url": "heroku/nodejs" },
     { "url": "heroku/ruby" }
