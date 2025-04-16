@@ -11,16 +11,18 @@ class ContentfulClient
     instance.client.entries(*args, **kwargs)
   end
 
-  def configure(space:, access_token:)
+  def configure(space:, access_token:, environment:)
     @space = space
     @access_token = access_token
+    @environment = environment
     @client = nil
   end
 
   def client
     @client ||= Contentful::Client.new(
       space: @space,
-      access_token: @access_token
+      access_token: @access_token,
+      environment: @environment
     )
   end
 end
