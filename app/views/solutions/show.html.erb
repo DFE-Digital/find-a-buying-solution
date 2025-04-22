@@ -1,5 +1,9 @@
 <%= render_markdown_to_html(@solution.summary) %>
 
+<% if @solution.suffix&.description.present? %>
+  <%= render_markdown_to_html(@solution.suffix.description) %>
+<% end %>
+
 <%= link_to h(solution_cta(@solution)), safe_url(@solution.url), class: "govuk-button" %>
 
 <% content_for :sidebar do %>

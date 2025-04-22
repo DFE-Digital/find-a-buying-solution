@@ -2,7 +2,7 @@ class Solution
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories, :call_to_action
+  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories, :suffix, :call_to_action
 
   def initialize(entry)
     @id = entry.id
@@ -13,6 +13,7 @@ class Solution
     @provider_name = entry.fields[:provider_name]
     @url = entry.fields[:url]
     @expiry = entry.fields[:expiry]
+    @suffix= entry.fields[:suffix]
     @call_to_action = entry.fields[:call_to_action]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
@@ -50,6 +51,7 @@ class Solution
         fields.related_content
         fields.summary
         fields.slug
+        fields.suffix
         fields.provider_name
         fields.call_to_action
         fields.url
