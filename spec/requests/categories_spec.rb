@@ -109,7 +109,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       it "only displays solutions with matching subcategories" do
         expect(response.body).to include("Corporate software and related products and services")
         expect(response.body).to include("Everything ICT")
-        #sexpect(response.body).not_to include("G-Cloud 14")
+        # expect(response.body).not_to include("G-Cloud 14")
       end
 
       it "displays the correct results count text" do
