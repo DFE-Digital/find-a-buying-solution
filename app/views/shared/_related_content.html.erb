@@ -3,7 +3,7 @@
 
   <% related_content.each do |link| %>
     <p>
-      <%= govuk_link_to link.link_text, link.url, class: "govuk-!-font-weight-bold" %>
+      <%= govuk_link_to link.link_text, safe_url(link.url), class: "govuk-!-font-weight-bold", **external_link_attributes(link.url) %>
     </p>
   <% end %>
 <% end %>

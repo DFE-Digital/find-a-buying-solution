@@ -1,6 +1,6 @@
 <%= render_markdown_to_html(@solution.summary) %>
 
-<%= link_to h(solution_cta(@solution)), safe_url(@solution.url), class: "govuk-button" %>
+<%= link_to h(solution_cta(@solution)), safe_url(@solution.url), class: "govuk-button", **external_link_attributes(@solution.url) %>
 
 <% content_for :sidebar do %>
   <%= render partial: "shared/related_content", locals: { related_content: @solution.related_content } %>
