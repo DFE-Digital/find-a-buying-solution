@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=page&fields.slug=cookies
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '829'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - '"11631204974421023946"'
+      X-Contentful-Upstream-Request-Time:
+      - '0.659'
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '14004'
+      Date:
+      - Tue, 22 Apr 2025 17:10:05 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740083-EWR, cache-lcy-eglc8600025-LCY
+      X-Cache-Hits:
+      - 1, 0
+      X-Timer:
+      - S1745341805.321519,VS0,VE2
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - 6e7bbdb7-912a-477a-8d5e-fb7aedd64c7d
+    body:
+      encoding: ASCII-8BIT
+      string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"metadata":{"tags":[],"concepts":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"6GTvAlPHGV8qnpD7pD3vhm","type":"Entry","createdAt":"2025-03-12T10:52:59.212Z","updatedAt":"2025-03-21T13:10:28.163Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":19,"revision":5,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"page"}},"locale":"en-US"},"fields":{"title":"Cookies","description":"
+        Cookies are small files saved on your phone, tablet or computer when you visit
+        a website.","body":"We use an essential cookie to keep your data secure while
+        you use DfE Find a Buying Solution.\n\nWe do not need to ask permission to
+        use essential cookies.","slug":"cookies"}}]}
+
+        '
+  recorded_at: Tue, 22 Apr 2025 17:10:05 GMT
+recorded_with: VCR 6.3.1
