@@ -45,16 +45,20 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
   context "when displaying call to action button" do
     it "displays the default CTA text when no custom CTA is provided" do
       visit solution_path("it-hardware")
-      expect(page).to have_link("Visit the IT Hardware website",
-                                href: "https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware",
-                                class: "govuk-button")
+      expect(page).to have_link(
+        "Visit the IT Hardware website",
+        href: "/external-redirect?url=#{CGI.escape('https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware')}",
+        class: "govuk-button"
+      )
     end
 
     it "displays the custom CTA text when provided" do
       visit solution_path("ict-procurement")
-      expect(page).to have_link("Go to site",
-                                href: "https://www.everythingict.org/",
-                                class: "govuk-button")
+      expect(page).to have_link(
+        "Go to site",
+        href: "/external-redirect?url=#{CGI.escape('https://www.everythingict.org/')}",
+        class: "govuk-button"
+      )
     end
   end
 end
