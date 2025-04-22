@@ -1,4 +1,5 @@
 require_relative "boot"
+require_relative "../lib/real_ip"
 
 require "rails"
 # Pick the frameworks you want:
@@ -22,6 +23,8 @@ module FindABuyingSolution
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+
+    config.middleware.use RealIp
 
     # Configuration for the application, engines, and railties goes here.
     #
