@@ -44,14 +44,16 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"11631204974421023946"'
+      X-Contentful-Upstream-Request-Time:
+      - '0.659'
       X-Content-Type-Options:
       - nosniff
-      Contentful-Api:
-      - cda
       Server:
       - Contentful
       X-Contentful-Region:
       - us-east-1
+      Contentful-Api:
+      - cda
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -66,20 +68,20 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Age:
-      - '254876'
       Date:
-      - Thu, 27 Mar 2025 17:23:23 GMT
+      - Tue, 22 Apr 2025 14:27:42 GMT
+      Age:
+      - '4261'
       X-Served-By:
-      - cache-ewr-kewr1740083-EWR, cache-man4134-MAN
+      - cache-ewr-kewr1740083-EWR, cache-man4160-MAN
       X-Cache-Hits:
-      - 6, 0
+      - 2, 1
       X-Timer:
-      - S1743096203.986402,VS0,VE79
+      - S1745332062.192403,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - caec62ad-9edd-4eda-80f8-eed405d1cdef
+      - c9cb65db-7411-4ba0-808a-46cb10e27553
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"metadata":{"tags":[],"concepts":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"6GTvAlPHGV8qnpD7pD3vhm","type":"Entry","createdAt":"2025-03-12T10:52:59.212Z","updatedAt":"2025-03-21T13:10:28.163Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":19,"revision":5,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"page"}},"locale":"en-US"},"fields":{"title":"Cookies","description":"
@@ -89,5 +91,5 @@ http_interactions:
         use essential cookies.","slug":"cookies"}}]}
 
         '
-  recorded_at: Thu, 27 Mar 2025 17:23:23 GMT
+  recorded_at: Tue, 22 Apr 2025 14:27:42 GMT
 recorded_with: VCR 6.3.1
