@@ -13,7 +13,7 @@ class Solution
     @provider_name = entry.fields[:provider_name]
     @url = entry.fields[:url]
     @expiry = entry.fields[:expiry]
-    @suffix= entry.fields[:suffix]
+    @suffix = entry.fields[:suffix]
     @call_to_action = entry.fields[:call_to_action]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
