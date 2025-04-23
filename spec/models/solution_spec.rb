@@ -4,13 +4,13 @@ RSpec.describe Solution, :vcr, type: :model do
   describe "#initialize" do
     subject(:solution) { described_class.new(entry) }
 
-    let(:suffix_object) { double("Suffix", title: "Suffix_Sample" ,desc: "Sample: All frameworks also offer compliance") }
-    let(:solution) { Solution.new(entry) }
+    let(:suffix_object) { double("Suffix", title: "Suffix_Sample", desc: "Sample: All frameworks also offer compliance") }
+    let(:solution) { described_class.new(entry) }
 
     let(:entry) do
       original_entry = ContentfulClient.entries(
         content_type: "solution",
-        "fields.slug": "technology-products-and-associated-services-2",
+        "fields.slug": "technology-products-and-associated-services-2"
       ).first
 
       # Injecting some non-mandatory fields for testing.
@@ -35,11 +35,9 @@ RSpec.describe Solution, :vcr, type: :model do
       )
     end
 
-    it "does not include the injected suffix description before it is injected " do
+    it "does not include the injected suffix description before it is injected" do
       expect(solution.description).not_to include("Sample: All frameworks also offer compliance")
     end
-
-
   end
 
   describe ".all" do
