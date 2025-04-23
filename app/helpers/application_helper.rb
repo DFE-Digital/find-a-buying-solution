@@ -13,7 +13,8 @@ module ApplicationHelper
     # in dfe-analytics automatically without having to write custom JavaScript.
     # Even with custom JS, we'd still need to redirect the user after tracking
     # the event. So this is a cleaner approach with less code.
-    "/external-redirect?url=#{CGI.escape(url)}"
+    token = REDIRECT_VERIFIER.generate(url)
+    external_redirect_path(token: token)
   rescue URI::InvalidURIError
     "#"
   end

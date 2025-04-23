@@ -29,19 +29,9 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     context "with external URLs" do
-      it "returns redirect URL for different host" do
+      it "returns redirect URL token for different host" do
         expect(helper.safe_url("https://external.com/path"))
-          .to eq("/external-redirect?url=https%3A%2F%2Fexternal.com%2Fpath")
-      end
-
-      it "properly escapes URLs in redirect path" do
-        expect(helper.safe_url("https://external.com/path?q=1&t=2"))
-          .to eq("/external-redirect?url=https%3A%2F%2Fexternal.com%2Fpath%3Fq%3D1%26t%3D2")
-      end
-
-      it "handles URLs with existing query params and special chars" do
-        expect(helper.safe_url("https://external.com/path?q=hello world&t=test+this"))
-          .to eq("/external-redirect?url=https%3A%2F%2Fexternal.com%2Fpath%3Fq%3Dhello+world%26t%3Dtest%2Bthis")
+          .to eq("/external-redirect?token=BAhJIh5odHRwczovL2V4dGVybmFsLmNvbS9wYXRoBjoGRVQ%3D--0ccbfe4b58df97e2ec4821d6a7eb302998ac4231ee0283bceb95d50db9087303")
       end
     end
   end
