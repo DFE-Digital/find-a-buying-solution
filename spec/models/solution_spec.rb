@@ -2,10 +2,8 @@ require "rails_helper"
 
 RSpec.describe Solution, :vcr, type: :model do
   describe "#initialize" do
-    subject(:solution) { described_class.new(entry) }
-
-    let(:suffix_object) { instance_double(OpenStruct, title: "Suffix_Sample", desc: "Sample: All frameworks also offer compliance") }
-
+    let(:solution) { described_class.new(entry) }
+    let(:suffix_object) { instance_double(Suffix, title: "Suffix_Sample", description: "Sample: All frameworks also offer compliance") }
     let(:entry) do
       original_entry = ContentfulClient.entries(
         content_type: "solution",
