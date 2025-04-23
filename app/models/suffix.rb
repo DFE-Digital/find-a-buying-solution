@@ -8,5 +8,4 @@ class Suffix
     @description = entry.fields[:description]
     super
   end
-
 end
