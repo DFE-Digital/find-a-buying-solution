@@ -75,15 +75,15 @@ http_interactions:
       Age:
       - '104388'
       X-Served-By:
-      - cache-ewr-kewr1740074-EWR, cache-lhr-egll1980084-LHR
+      - cache-ewr-kewr1740074-EWR, cache-lhr-egll1980061-LHR
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1745432191.778027,VS0,VE11
+      - S1745432191.649855,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 5d6e0946-1061-47b0-bcdb-a94862b963f0
+      - ce8025f2-6777-4812-8fd4-e3ad16435902
     body:
       encoding: ASCII-8BIT
       string: !binary |-
