@@ -2,22 +2,13 @@ require "rails_helper"
 
 RSpec.describe Solution, :vcr, type: :model do
   describe "#initialize" do
-    let(:solution) { described_class.new(entry) }
-    let(:suffix_object) { instance_double(Suffix, title: "Suffix_Sample", description: "Sample: All frameworks also offer compliance") }
+    subject(:solution) { described_class.new(entry) }
+
     let(:entry) do
       original_entry = ContentfulClient.entries(
         content_type: "solution",
-        "fields.slug": "technology-products-and-associated-services-2"
+        "fields.slug": "technology-products-and-associated-services"
       ).first
-
-      # Injecting some non-mandatory fields for testing.
-      allow(original_entry).to receive(:fields).and_return(
-        original_entry.fields.merge(
-          suffix: suffix_object,
-          call_to_action: "Sample call to action text"
-        )
-      )
-      original_entry
     end
 
     it "sets the attributes" do
@@ -27,13 +18,10 @@ RSpec.describe Solution, :vcr, type: :model do
         summary: be_present,
         description: be_present,
         slug: be_present,
+        suffix: be_present,
         call_to_action: be_present,
         provider_name: be_present
       )
-    end
-
-    it "does not include the injected suffix description before it is injected" do
-      expect(solution.description).not_to include("Sample: All frameworks also offer compliance")
     end
   end
 
