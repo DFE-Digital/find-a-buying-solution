@@ -44,14 +44,16 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"7787070206043126912"'
+      X-Contentful-Upstream-Request-Time:
+      - '0.050'
       X-Content-Type-Options:
       - nosniff
-      Contentful-Api:
-      - cda
       Server:
       - Contentful
       X-Contentful-Region:
       - us-east-1
+      Contentful-Api:
+      - cda
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -67,25 +69,25 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '14005'
       Date:
-      - Thu, 27 Mar 2025 17:23:12 GMT
+      - Tue, 22 Apr 2025 17:09:58 GMT
       X-Served-By:
-      - cache-ewr-kewr1740060-EWR, cache-man4170-MAN
+      - cache-ewr-kewr1740060-EWR, cache-lcy-eglc8600086-LCY
       X-Cache-Hits:
       - 1, 0
       X-Timer:
-      - S1743096192.943976,VS0,VE173
+      - S1745341799.992247,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 65491a1e-ca65-4aba-90b2-43f8ee0d5118
+      - e82838a3-3e91-4d52-a6c4-1d52308a97fc
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 27 Mar 2025 17:23:12 GMT
+  recorded_at: Tue, 22 Apr 2025 17:09:58 GMT
 - request:
     method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=nonexistent&select=fields.title,fields.description,fields.slug,sys
@@ -130,14 +132,16 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"7787070206043126912"'
+      X-Contentful-Upstream-Request-Time:
+      - '0.053'
       X-Content-Type-Options:
       - nosniff
-      Contentful-Api:
-      - cda
       Server:
       - Contentful
       X-Contentful-Region:
       - us-east-1
+      Contentful-Api:
+      - cda
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -153,23 +157,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '14005'
       Date:
-      - Thu, 27 Mar 2025 17:23:12 GMT
+      - Tue, 22 Apr 2025 17:09:59 GMT
       X-Served-By:
-      - cache-ewr-kewr1740069-EWR, cache-man4124-MAN
+      - cache-ewr-kewr1740069-EWR, cache-lcy-eglc8600020-LCY
       X-Cache-Hits:
-      - 5, 0
+      - 1, 0
       X-Timer:
-      - S1743096192.198782,VS0,VE165
+      - S1745341799.071011,VS0,VE3
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 61f4d24b-a7ea-4130-8696-c6af74148529
+      - 9cfab5c6-1387-4c41-b97a-3c411a2c50d2
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 27 Mar 2025 17:23:12 GMT
+  recorded_at: Tue, 22 Apr 2025 17:09:59 GMT
 recorded_with: VCR 6.3.1

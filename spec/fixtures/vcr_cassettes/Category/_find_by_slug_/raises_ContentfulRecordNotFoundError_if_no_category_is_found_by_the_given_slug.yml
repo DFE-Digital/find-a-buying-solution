@@ -2,92 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=non-existent-slug&select=fields.title,fields.description,fields.slug,fields.subcategories,sys
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
-      Authorization:
-      - Bearer FAKE_API_KEY
-      Content-Type:
-      - application/vnd.contentful.delivery.v1+json
-      Accept-Encoding:
-      - gzip
-      Connection:
-      - close
-      Host:
-      - cdn.contentful.com
-      User-Agent:
-      - http.rb/5.2.0
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - close
-      Content-Length:
-      - '67'
-      Content-Type:
-      - application/vnd.contentful.delivery.v1+json
-      Cf-Space-Id:
-      - FAKE_SPACE_ID
-      Cf-Environment-Id:
-      - master
-      Cf-Environment-Uuid:
-      - 5000f121-eab1-4104-bb61-8a4a790af674
-      Cf-Organization-Id:
-      - 3rJUUGhKriWCHZ1AQcdoV6
-      X-Contentful-Route:
-      - "/spaces/:space/environments/:environment/entries"
-      Etag:
-      - '"2194105350430811168"'
-      X-Content-Type-Options:
-      - nosniff
-      Contentful-Api:
-      - cda
-      Server:
-      - Contentful
-      X-Contentful-Region:
-      - us-east-1
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
-      Access-Control-Expose-Headers:
-      - Etag
-      Access-Control-Max-Age:
-      - '86400'
-      Access-Control-Allow-Methods:
-      - GET,HEAD,OPTIONS
-      Via:
-      - 1.1 varnish, 1.1 varnish
-      Accept-Ranges:
-      - bytes
-      Age:
-      - '0'
-      Date:
-      - Wed, 19 Mar 2025 11:28:46 GMT
-      X-Served-By:
-      - cache-ewr-kewr1740076-EWR, cache-lcy-eglc8600086-LCY
-      X-Cache-Hits:
-      - 0, 0
-      X-Timer:
-      - S1742383727.773047,VS0,VE163
-      X-Cache:
-      - MISS
-      X-Contentful-Request-Id:
-      - 127d0b3b-0ae6-49d9-b3ee-d5a5cbe3627b
-    body:
-      encoding: ASCII-8BIT
-      string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
-
-        '
-  recorded_at: Wed, 19 Mar 2025 11:28:46 GMT
-- request:
-    method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=non-existent-slug
     body:
       encoding: ASCII-8BIT
@@ -130,14 +44,16 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"7787070206043126912"'
+      X-Contentful-Upstream-Request-Time:
+      - '0.069'
       X-Content-Type-Options:
       - nosniff
-      Contentful-Api:
-      - cda
       Server:
       - Contentful
       X-Contentful-Region:
       - us-east-1
+      Contentful-Api:
+      - cda
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -153,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '14358'
       Date:
-      - Thu, 27 Mar 2025 17:23:20 GMT
+      - Tue, 22 Apr 2025 17:10:07 GMT
       X-Served-By:
-      - cache-ewr-kewr1740041-EWR, cache-man4163-MAN
+      - cache-ewr-kewr1740041-EWR, cache-lcy-eglc8600083-LCY
       X-Cache-Hits:
-      - 3, 0
+      - 1, 0
       X-Timer:
-      - S1743096200.166876,VS0,VE287
+      - S1745341808.814047,VS0,VE2
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - ee2bb675-4e33-4c2e-a7f4-0bb2cc9dac02
+      - 1008721c-9286-45d8-84c6-baaba05698d7
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 27 Mar 2025 17:23:20 GMT
+  recorded_at: Tue, 22 Apr 2025 17:10:07 GMT
 recorded_with: VCR 6.3.1

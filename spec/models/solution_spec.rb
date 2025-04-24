@@ -7,7 +7,7 @@ RSpec.describe Solution, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "solution",
-        "fields.slug": "technology-products-and-associated-services-2"
+        "fields.slug": "technology-products-and-associated-services"
       ).first
     end
 
@@ -18,6 +18,7 @@ RSpec.describe Solution, :vcr, type: :model do
         summary: be_present,
         description: be_present,
         slug: be_present,
+        suffix: be_present,
         call_to_action: be_present,
         provider_name: be_present
       )

@@ -44,14 +44,16 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"7787070206043126912"'
+      X-Contentful-Upstream-Request-Time:
+      - '0.086'
       X-Content-Type-Options:
       - nosniff
-      Contentful-Api:
-      - cda
       Server:
       - Contentful
       X-Contentful-Region:
       - us-east-1
+      Contentful-Api:
+      - cda
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -67,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '14002'
       Date:
-      - Thu, 27 Mar 2025 17:23:12 GMT
+      - Tue, 22 Apr 2025 17:10:03 GMT
       X-Served-By:
-      - cache-ewr-kewr1740040-EWR, cache-man4124-MAN
+      - cache-ewr-kewr1740040-EWR, cache-lcy-eglc8600084-LCY
       X-Cache-Hits:
       - 1, 0
       X-Timer:
-      - S1743096193.575185,VS0,VE142
+      - S1745341803.999889,VS0,VE2
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 8318aec4-e7cb-4ce0-9e06-954eb16939ca
+      - 72478355-0184-4fdd-80b9-35084f1feb6a
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 27 Mar 2025 17:23:12 GMT
+  recorded_at: Tue, 22 Apr 2025 17:10:02 GMT
 recorded_with: VCR 6.3.1

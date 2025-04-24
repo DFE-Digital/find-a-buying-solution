@@ -83,7 +83,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "filters solutions by subcategory slugs" do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-      expected_solution_slugs = %w[corporate-software ict-procurement microsoft-shape-the-future printing-services software-licenses technology-products-and-associated-services technology-products-and-associated-services-2]
+      expected_solution_slugs = %w[corporate-software g-cloud-14 ict-procurement microsoft-shape-the-future printing-services software-licenses technology-products-and-associated-services technology-products-and-associated-services-2]
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
       expect(filtered.map(&:slug)).to match_array(expected_solution_slugs)

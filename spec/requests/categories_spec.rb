@@ -20,9 +20,9 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     it "displays category descriptions" do
       expected_descriptions = [
-        "Buy professional services from DfE-approved suppliers",
-        "Buy financial services from DfE-approved suppliers",
-        "Buy food, drink and catering services from DfE-approved suppliers",
+        "Buy professional services",
+        "Buy financial services",
+        "Buy food, drink and catering services",
       ]
 
       expected_descriptions.each do |description|
@@ -53,7 +53,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays the category description" do
-      expect(response.body).to include("Buy IT and ICT equipment and services from DfE-approved suppliers")
+      expect(response.body).to include("Buy IT and ICT equipment and services")
     end
 
     it "displays solutions in the category" do
@@ -93,7 +93,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("5 results")
+        expect(response.body).to include("6 results")
       end
     end
 
@@ -109,11 +109,11 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       it "only displays solutions with matching subcategories" do
         expect(response.body).to include("Corporate software and related products and services")
         expect(response.body).to include("Everything ICT")
-        expect(response.body).not_to include("G-Cloud 14")
+        expect(response.body).not_to include("Cyber security services 4")
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("7 results")
+        expect(response.body).to include("8 results")
       end
     end
 
@@ -129,7 +129,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("8 results")
+        expect(response.body).to include("9 results")
       end
     end
   end
