@@ -57,6 +57,8 @@ en:
       terms_and_conditions: Terms and conditions
     dfe_homepage_header:
       view_all_buying_options: Browse a list of all DfE-approved buying options
+    dfe_logo_and_menu:
+      menu: Menu
     dfe_search:
       close_search: Close search
       search: Search
