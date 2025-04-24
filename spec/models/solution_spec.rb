@@ -5,7 +5,7 @@ RSpec.describe Solution, :vcr, type: :model do
     subject(:solution) { described_class.new(entry) }
 
     let(:entry) do
-      original_entry = ContentfulClient.entries(
+      ContentfulClient.entries(
         content_type: "solution",
         "fields.slug": "technology-products-and-associated-services"
       ).first
