@@ -180,6 +180,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hotwired/stimulus@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@hotwired/stimulus@npm:3.2.2"
+  checksum: 10c0/3793919e353d28424f57d07e6b634bf6e8821c227acfa2a608aaa8bdfe7e80479acef12705168ca866f3c231399f4a939fb0cd089aaae04c406b3d885a3b35ea
+  languageName: node
+  linkType: hard
+
+"@hotwired/turbo-rails@npm:^7.3.0":
+  version: 7.3.0
+  resolution: "@hotwired/turbo-rails@npm:7.3.0"
+  dependencies:
+    "@hotwired/turbo": "npm:^7.3.0"
+    "@rails/actioncable": "npm:^7.0"
+  checksum: 10c0/1b2a5bc8767f0366c91a80a6bac178b8b02ca607add5b14b637f128d9ff08629bf3761931cc892acd46175782649ebdffa76dd45fc7e23f44bff8c06ca452d0b
+  languageName: node
+  linkType: hard
+
+"@hotwired/turbo@npm:^7.3.0":
+  version: 7.3.0
+  resolution: "@hotwired/turbo@npm:7.3.0"
+  checksum: 10c0/be7d273808d64e06682f413ea007b555ecc0077cfd846754fe3b1bca06ca1b9473184d95528f7de0f3002bbc7895d58a067845ba363c549229c3bc5870c981e2
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -387,6 +411,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rails/actioncable@npm:^7.0":
+  version: 7.2.201
+  resolution: "@rails/actioncable@npm:7.2.201"
+  checksum: 10c0/65463467f1473f810273432b85a272798c8fbe6c8a200be4f8ecbced152deac7bc3f159cd3db7ce7ab05b34cce25582d384cf51f0028c3c2baf303186e0f24f5
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^3.0.0":
   version: 3.0.0
   resolution: "abbrev@npm:3.0.0"
@@ -435,6 +466,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "app@workspace:."
   dependencies:
+    "@hotwired/stimulus": "npm:^3.2.2"
+    "@hotwired/turbo-rails": "npm:^7.3.0"
     "@ministryofjustice/frontend": "npm:^4.0.1"
     dfe-frontend: "npm:^2.0.1"
     esbuild: "npm:^0.25.0"
