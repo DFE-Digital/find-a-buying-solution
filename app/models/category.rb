@@ -42,7 +42,8 @@ class Category
       content_type: "category",
       'fields.slug': slug
     ).first
-    raise ContentfulRecordNotFoundError unless entry
+
+    raise ContentfulRecordNotFoundError.new("Category not found", slug: slug) unless entry
 
     new(entry)
   end

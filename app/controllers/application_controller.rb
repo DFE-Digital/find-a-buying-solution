@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 private
 
   def handle_contentful_record_not_found(exception)
-    Rollbar.error(exception)
+    details = {
+      message: exception.message,
+      slug: exception.slug,
+    }
+    Rollbar.error(exception, details)
     record_not_found
   end
 

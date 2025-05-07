@@ -18,7 +18,7 @@ class Page
       content_type: "page",
       'fields.slug': slug
     ).first
-    raise ContentfulRecordNotFoundError unless entry
+    raise ContentfulRecordNotFoundError.new("Page not found", slug: slug) unless entry
 
     new(entry)
   end

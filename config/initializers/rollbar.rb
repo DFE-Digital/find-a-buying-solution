@@ -6,7 +6,7 @@ Rollbar.configure do |config|
 
   # Here we'll disable in 'test' and 'development':
   unless Rails.env.production?
-    config.enabled = false
+    config.enabled = ENV["ROLLBAR_ACCESS_TOKEN"].present?
   end
 
   # Enable delayed reporting (using Sidekiq)

@@ -57,7 +57,8 @@ class Solution
         fields.url
       ].join(",")
     ).find { |solution| solution.fields[:slug] == slug }
-    raise ContentfulRecordNotFoundError unless entry
+
+    raise ContentfulRecordNotFoundError.new("Solution not found", slug: slug) unless entry
 
     new(entry)
   end
