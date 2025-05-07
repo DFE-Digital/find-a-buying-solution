@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def usability_survey_url(url)
-    base_url = "https://get-help-buying-for-schools.service.gov.uk/usability_surveys/new"
+    base_url = "https://www.get-help-buying-for-schools.service.gov.uk/usability_surveys/new"
     safe_url = safe_url(url)
     return_url = safe_url == "#" ? request.original_url : safe_url
 
