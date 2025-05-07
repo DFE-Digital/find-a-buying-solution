@@ -16,6 +16,7 @@ gem "pg", "~> 1.1"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.2"
+gem "rollbar"
 gem "sidekiq", "~> 8.0"
 
 group :development, :test do
