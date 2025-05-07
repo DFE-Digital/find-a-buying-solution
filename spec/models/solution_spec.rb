@@ -68,4 +68,25 @@ RSpec.describe Solution, :vcr, type: :model do
       )
     end
   end
+
+  describe ".find_by_slug!" do
+    subject(:solution) { described_class.find_by_slug!(slug) }
+
+    context "when solution exists" do
+      let(:slug) { "it-hardware" }
+
+      it "returns the solution" do
+        expect(solution).to be_a(described_class)
+        expect(solution.slug).to eq(slug)
+      end
+    end
+
+    context "when solution does not exist" do
+      let(:slug) { "non-existent" }
+
+      it "raises ContentfulRecordNotFoundError" do
+        expect { solution }.to raise_error(ContentfulRecordNotFoundError, "Solution not found")
+      end
+    end
+  end
 end
