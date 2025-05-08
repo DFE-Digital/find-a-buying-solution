@@ -43,7 +43,7 @@ RSpec.describe Page, :vcr, type: :model do
       let(:slug) { "non-existent" }
 
       it "raises ContentfulRecordNotFoundError" do
-        expect { page }.to raise_error(ContentfulRecordNotFoundError)
+        expect { page }.to raise_error(ContentfulRecordNotFoundError, "Page not found")
       end
     end
   end

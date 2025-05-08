@@ -117,7 +117,7 @@ RSpec.describe Category, :vcr, type: :model do
     end
 
     it "raises ContentfulRecordNotFoundError if no category is found by the given slug" do
-      expect { described_class.find_by_slug!("non-existent-slug") }.to raise_error(ContentfulRecordNotFoundError)
+      expect { described_class.find_by_slug!("non-existent-slug") }.to raise_error(ContentfulRecordNotFoundError, "Category not found")
     end
   end
 
