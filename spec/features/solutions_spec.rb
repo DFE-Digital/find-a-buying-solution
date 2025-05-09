@@ -56,5 +56,16 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
                                 href: "https://www.everythingict.org/",
                                 class: "govuk-button")
     end
+
+    it "includes the usability survey URL with service and return_url params" do
+      visit solution_path("it-hardware")
+      link = find("a.govuk-button[data-survey-url]", match: :first)
+      survey_url = link["data-survey-url"]
+      uri = URI.parse(survey_url)
+
+      expect(uri.host).to eq("www.get-help-buying-for-schools.service.gov.uk")
+      expect(survey_url).to include("service=find_a_buying_solution")
+      expect(survey_url).to match(/return_url=[^&]+/)
+    end
   end
 end

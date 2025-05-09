@@ -4,7 +4,7 @@
   <%= render_markdown_to_html(@solution.suffix.description) %>
 <% end %>
 
-<%= link_to h(solution_cta(@solution)), safe_url(@solution.url), class: "govuk-button" %>
+<%= link_to h(solution_cta(@solution)), safe_url(@solution.url), class: "govuk-button", data: { survey_url: usability_survey_url(@solution.url) } %>
 
 <% content_for :sidebar do %>
   <%= render partial: "shared/related_content", locals: { related_content: @solution.related_content } %>

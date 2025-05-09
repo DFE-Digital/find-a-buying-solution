@@ -23,6 +23,7 @@ export default class extends Controller {
     const link = event.currentTarget
     const href = link.href
     const text = link.textContent.trim()
+    const surveyUrl = link.dataset.surveyUrl
 
     try {
       await fetch('/events', {
@@ -42,7 +43,7 @@ export default class extends Controller {
         })
       })
     } finally {
-      window.open(href, '_blank', 'noopener,noreferrer');
+      window.open(surveyUrl || href, '_blank', 'noopener,noreferrer');
     }
   }
 }
