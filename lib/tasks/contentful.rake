@@ -7,58 +7,10 @@ require "uri"
 namespace :contentful do
   desc "Promote content from master to a new date-based environment"
   task promote: :environment do
-    SPACE_ID = ENV.fetch("CONTENTFUL_SPACE_ID")
-    TOKEN = ENV.fetch("CONTENTFUL_CMA_TOKEN")
-    ALIAS_ID = 'production'
-    SOURCE_ENV = 'master'
-    NEW_ENV = "prod-#{Time.now.strftime("%d-%m-%Y")}"
-
-    # Get current production environment
-    uri = URI("https://api.contentful.com/spaces/#{SPACE_ID}/environment_aliases/#{ALIAS_ID}")
-    req = Net::HTTP::Get.new(uri)
-    req['Authorization'] = "Bearer #{TOKEN}"
-    response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-      http.request(req)
-    end
-    current_prod_env = JSON.parse(response.body)['environment']['sys']['id']
-
-    client = Contentful::Management::Client.new(TOKEN)
-    space = client.spaces.find(SPACE_ID)
-
-    puts "Cloning #{SOURCE_ENV} → #{NEW_ENV}..."
-    clone = space.environments.create(id: NEW_ENV, name: NEW_ENV, source_environment_id: SOURCE_ENV)
-    puts "Environment created successfully"
-
-    puts "Switching alias #{ALIAS_ID} → #{NEW_ENV}..."
-    uri = URI("https://api.contentful.com/spaces/#{SPACE_ID}/environment_aliases/#{ALIAS_ID}")
-    req = Net::HTTP::Put.new(uri)
-    req['Authorization'] = "Bearer #{TOKEN}"
-    req['Content-Type'] = 'application/vnd.contentful.management.v1+json'
-    req['X-Contentful-Version'] = version.to_s
-    req.body = {
-      environment: {
-        sys: {
-          type: 'Link',
-          linkType: 'Environment',
-          id: NEW_ENV
-        }
-      }
-    }.to_json
-
-    response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-      http.request(req)
-    end
-
-    puts "✅ Promotion complete: #{ALIAS_ID} now points to #{NEW_ENV}."
-
-    # Delete old production environment
-    puts "Deleting old production environment: #{current_prod_env}"
-    delete_uri = URI("https://api.contentful.com/spaces/#{SPACE_ID}/environments/#{current_prod_env}")
-    delete_req = Net::HTTP::Delete.new(delete_uri)
-    delete_req['Authorization'] = "Bearer #{TOKEN}"
-    Net::HTTP.start(delete_uri.hostname, delete_uri.port, use_ssl: true) do |http|
-      http.request(delete_req)
-    end
+    ContentfulService.new(
+      space_id: ENV.fetch("CONTENTFUL_SPACE_ID"),
+      token: ENV.fetch("CONTENTFUL_CMA_TOKEN")
+    ).promote
   end
 
   desc "Import Find a Framework data into Contentful"
