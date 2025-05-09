@@ -7,7 +7,7 @@ class ContentfulService
     @token = token
     @source_env = source_env
     @alias_id = alias_id
-    @new_env = "prod-#{Time.now.strftime("%d-%m-%Y")}"
+    @new_env = "production-#{Time.now.strftime("%Y-%m-%d-%H%M")}"
   end
 
   def promote
