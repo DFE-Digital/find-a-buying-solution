@@ -32,6 +32,13 @@ en:
           category: Categories
           solution: Buying options
   search:
+    errors:
+      contentful_error: We couldn't process your search. Please try again with a different
+        query.
+      empty: Please enter a search term.
+      too_long: Your search query is too long. Please use less than 2000 characters.
+      too_many_words: Your search query has too many words. Please use less than 25
+        words.
     no_results:
       cta: Visit Get Help Buying Home page
       description: It looks like there are no results for your search keyword.
