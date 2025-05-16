@@ -6,7 +6,7 @@ gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
 gem "csv", require: false
-gem "dfe-analytics", github: "hrmtl/dfe-analytics", branch: "make-activerecord-optional"
+gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: "v1.15.6"
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
