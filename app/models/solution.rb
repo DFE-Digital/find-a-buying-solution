@@ -23,7 +23,7 @@ class Solution
   def self.all(category_id: nil)
     params = {
       content_type: "solution",
-      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories",
+      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories, fields.url, fields.provider_name, fields.summary",
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
     }.compact
@@ -66,5 +66,37 @@ class Solution
   def ==(other)
     super ||
       other.instance_of?(self.class) && other.id == id
+  end
+
+  def as_json(_options = {})
+    {
+      provider: {
+        initials: provider_initials,
+        title: provider_name,
+      },
+      cat: {
+        title: categories.first&.title,
+        ref: categories.first&.slug,
+      },
+      links: related_content&.map do |content|
+        {
+          _id: content.id,
+          text: content.fields[:title],
+          url: content.fields[:url],
+        }
+      end || [],
+      ref: slug,
+      title: title,
+      url: url,
+      descr: description,
+      expiry: expiry,
+      body: summary,
+    }
+  end
+
+private
+
+  def provider_initials
+    provider_name&.split(/\s+/)&.map(&:first)&.join&.upcase
   end
 end
