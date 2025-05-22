@@ -80,12 +80,12 @@ class Solution
         title: categories.first&.title,
         ref: categories.first&.slug,
       },
-      links: related_content&.map do |content|
+      links: Array(related_content).map do |content|
         {
           text: content.link_text,
           url: content.url,
         }
-      end || [],
+      end,
       ref: slug,
       title: title,
       url: url,
