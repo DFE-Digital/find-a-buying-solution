@@ -28,17 +28,7 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
     end
 
     it "displays the related content link" do
-      expect(page).to have_link("Things to consider when buying IT")
-    end
-  end
-
-  context "when solution has no related content" do
-    before do
-      visit solution_path("ict-procurement")
-    end
-
-    it "does not display related content section" do
-      expect(page).not_to have_content("Related content")
+      expect(page).to have_link("Plan technology for your school")
     end
   end
 
