@@ -66,11 +66,11 @@ en:
       view_all_buying_options: Browse a list of all DfE-approved buying options
     dfe_logo_and_menu:
       menu: Menu
-    dfe_search_homepage:
+    dfe_search:
       close_search: Close search
       search: Search
       search_this_website: Search this website
-    dfe_search:
+    dfe_search_homepage:
       close_search: Close search
       search: Search
       search_this_website: Search this website
