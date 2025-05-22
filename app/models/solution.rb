@@ -24,7 +24,7 @@ class Solution
   def self.all(category_id: nil)
     params = {
       content_type: "solution",
-      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories, fields.url, fields.provider_name, fields.provider_initials, fields.summary",
+      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories, fields.url, fields.provider_name, fields.provider_initials,fields.related_content, fields.summary",
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
     }.compact
@@ -82,9 +82,8 @@ class Solution
       },
       links: related_content&.map do |content|
         {
-          _id: content.id,
-          text: content.fields[:title],
-          url: content.fields[:url],
+          text: content.link_text,
+          url: content.url,
         }
       end || [],
       ref: slug,
