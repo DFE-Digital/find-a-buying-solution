@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&query=technology&select=fields.title,fields.summary,fields.description,fields.slug,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&query=technology&select=fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.provider_initials,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '1639'
+      - '1856'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -37,15 +37,15 @@ http_interactions:
       Cf-Environment-Id:
       - master
       Cf-Environment-Uuid:
-      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
       - 3za11RVJBwLIPn20QJ67Gq
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"4984146065090822172"
+      - W/"10529937276072753995"
       X-Contentful-Upstream-Request-Time:
-      - '0.088'
+      - '0.049'
       X-Content-Type-Options:
       - nosniff
       Server:
@@ -71,22 +71,22 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '104388'
+      - '0'
       Date:
-      - Wed, 23 Apr 2025 18:16:30 GMT
+      - Thu, 22 May 2025 10:19:24 GMT
       X-Served-By:
-      - cache-ewr-kewr1740088-EWR, cache-lhr-egll1980094-LHR
+      - cache-ewr-kewr1740052-EWR, cache-lcy-eglc8600070-LCY
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1745432191.550075,VS0,VE2
+      - S1747909164.398469,VS0,VE136
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - 8e64c831-6e70-4137-9d6f-a6bd23d2e114
+      - 8d677990-d7db-44f3-88d9-a43ca348ab73
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-  recorded_at: Wed, 23 Apr 2025 18:16:30 GMT
+        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
+  recorded_at: Thu, 22 May 2025 10:19:24 GMT
 recorded_with: VCR 6.3.1
