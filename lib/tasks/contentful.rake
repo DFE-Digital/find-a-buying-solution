@@ -23,6 +23,27 @@ namespace :contentful do
       puts e
     end
   end
+
+  desc "Add provider initials to solutions (use with CONFIRM=yes to apply changes)"
+  task add_provider_initials: :environment do
+    json_data = JSON.parse(File.read("frameworks.json")).sort_by { |hash| hash["title"] }
+
+    client = Contentful::Management::Client.new(ENV["CONTENTFUL_CMA_TOKEN"])
+    space = client.spaces.find(ENV["CONTENTFUL_SPACE_ID"])
+    environment = space.environments.find("master")
+
+    json_data.each do |item|
+      environment.content_types.find("solution")
+      entries = environment.entries.all(content_type: "solution", "fields.slug" => item["ref"])
+      if (entry = entries&.first)
+        entry.update(provider_initials: item["provider"]["initials"])
+        entry.publish
+        puts "Updated solution #{item['title']} ref: #{item['ref']}"
+      else
+        puts "No entry found for #{item['title']} ref: #{item['ref']}"
+      end
+    end
+  end
 end
 
 def unique_categories(json_data)
@@ -48,6 +69,7 @@ def create_solution(environment, item, category)
       description: item["descr"],
       summary: item["body"],
       provider_name: item["provider"]["title"],
+      provider_initials: item["provider"]["initials"],
       url: item["url"],
       expiry: item["expiry"],
       categories: (Array(entry.categories) + [category]).uniq,
@@ -63,6 +85,7 @@ def create_solution(environment, item, category)
       summary: item["body"],
       slug: item["ref"],
       provider_name: item["provider"]["title"],
+      provider_initials: item["provider"]["initials"],
       url: item["url"],
       expiry: item["expiry"],
       categories: (Array(entry.categories) + [category]).uniq,
