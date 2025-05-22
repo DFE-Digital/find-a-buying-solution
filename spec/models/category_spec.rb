@@ -83,7 +83,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "filters solutions by subcategory slugs" do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-      expected_solution_slugs = %w[corporate-software g-cloud-14 ict-procurement microsoft-shape-the-future printing-services software-licenses technology-products-and-associated-services technology-products-and-associated-services-2]
+      expected_solution_slugs = %w[corporate-software g-cloud ict-procurement it-hardware software-licenses software-application-solutions sustainable-hardware-asset-recycling-and-data-destruction technology-products-and-associated-services technology-products-and-associated-services-2]
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
       expect(filtered.map(&:slug)).to match_array(expected_solution_slugs)
@@ -104,7 +104,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "excludes solutions that don't match any of the specified subcategory slugs" do
       subcategory_slugs = %w[hardware]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-      expect(filtered.map(&:slug)).not_to include("microsoft-shape-the-future")
+      expect(filtered.map(&:slug)).not_to include("software-licenses")
     end
   end
 

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get "/search", to: "search#index"
   post "/events", to: "events#create"
 
+  namespace :bfys do
+    resources :solutions, only: [:index]
+  end
+
   # Keep this route at the bottom so that it doesn't override the other routes
   get "/:slug", to: "pages#show", as: :page
 end

@@ -2,7 +2,7 @@ class Solution
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :url, :categories, :subcategories, :suffix, :call_to_action
+  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :provider_initials, :url, :categories, :subcategories, :suffix, :call_to_action
 
   def initialize(entry)
     @id = entry.id
@@ -11,6 +11,7 @@ class Solution
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
     @provider_name = entry.fields[:provider_name]
+    @provider_initials = entry.fields[:provider_initials]
     @url = entry.fields[:url]
     @expiry = entry.fields[:expiry]
     @suffix = entry.fields[:suffix]
@@ -23,7 +24,7 @@ class Solution
   def self.all(category_id: nil)
     params = {
       content_type: "solution",
-      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories",
+      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories, fields.url, fields.provider_name, fields.provider_initials,fields.related_content, fields.summary",
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
     }.compact
@@ -34,7 +35,7 @@ class Solution
     ContentfulClient.entries(
       content_type: "solution",
       query: query,
-      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug"
+      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.provider_initials"
     ).map { new(it) }
   end
 
@@ -53,6 +54,7 @@ class Solution
         fields.slug
         fields.suffix
         fields.provider_name
+        fields.provider_initials
         fields.call_to_action
         fields.url
       ].join(",")
@@ -66,5 +68,30 @@ class Solution
   def ==(other)
     super ||
       other.instance_of?(self.class) && other.id == id
+  end
+
+  def as_json(_options = {})
+    {
+      provider: {
+        initials: provider_initials,
+        title: provider_name,
+      },
+      cat: {
+        title: categories.first&.title,
+        ref: categories.first&.slug,
+      },
+      links: Array(related_content).map do |content|
+        {
+          text: content.link_text,
+          url: content.url,
+        }
+      end,
+      ref: slug,
+      title: title,
+      url: url,
+      descr: description,
+      expiry: expiry,
+      body: summary,
+    }
   end
 end

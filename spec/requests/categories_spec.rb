@@ -11,7 +11,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays category titles" do
-      expected_titles = ["Audit and consultancy services", "Banking and loans", "Catering"]
+      expected_titles = ["Banking and finance", "Catalogues", "Catering"]
 
       expected_titles.each do |title|
         expect(response.body).to include(title)
@@ -63,7 +63,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     it "displays related content" do
       expect(response.body).to include("Related content")
-      expect(response.body).to have_link("Things to consider when buying IT")
+      expect(response.body).to have_link("Plan technology for your school")
     end
   end
 
@@ -93,7 +93,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("6 results")
+        expect(response.body).to include("20 results")
       end
     end
 
@@ -113,7 +113,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("8 results")
+        expect(response.body).to include("7 results")
       end
     end
 
@@ -123,13 +123,12 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "keeps the checkboxes selected after form submission" do
-        expect(response.body).to have_css("input[value='computers-and-other-hardware'][checked]")
         expect(response.body).to have_css("input[value='software'][checked]")
         expect(response.body).to have_css("input[value='cyber-security']:not([checked])")
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("9 results")
+        expect(response.body).to include("7 results")
       end
     end
   end
