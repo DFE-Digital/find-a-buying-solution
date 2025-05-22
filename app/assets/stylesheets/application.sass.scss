@@ -229,11 +229,22 @@ footer {
     width: 650px;
   }
 }
+div.homepage_search.dfe-header__search-wrap {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+}
 
 .dfe-search__submit {
   background: #a2d5f5;
 }
 
+.dfe-header__search-form {
+  background-color: #003a69;
+  padding: 0px;
+}
 .search-results-section{
   border-bottom: 1px solid #b1b4b6;
   margin-top: 10px;

@@ -1,4 +1,4 @@
-<div class="dfe-width-container dfe-header__container">
+<div class="dfe-width-container dfe-header__container clearfix">
   <div class="dfe-header__logo">
     <a class="dfe-header__link" href="/" aria-label="DfE homepage">
       <%= image_tag 'dfe-frontend/dfe-logo.png', class: 'dfe-logo', alt: 'Department for Education' %>
@@ -7,12 +7,9 @@
   </div>
   <div class="dfe-header__content" id="content-header">
     <%= render "shared/dfe_narrow_search_box" if @show_search_in_header %>
-    <div class="dfe-header__menu">
-      <button class="dfe-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false"><%= t(".menu") %></button>
-    </div>
   </div>
 </div>
 
-<div class="dfe-width-container dfe-header__service-name">
+<div class="dfe-width-container dfe-header__service-name clearfix">
   <a href="/" class="dfe-header__link--service"><%= t("header_title") %></a>
 </div>
