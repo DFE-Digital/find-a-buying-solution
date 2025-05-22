@@ -232,6 +232,20 @@ footer {
 div.homepage_search.dfe-header__search-wrap {
   display: block;
 }
+@media (max-width: 40.0525em) {
+  .dfe-header__search-wrap.js-show {
+    clear: both;
+    display: flex;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    text-align: left;
+  }
+}
+.dfe-header__content.js-show {
+   border-bottom: 0px;
+}
 
 .dfe-search__submit {
   background: #a2d5f5;
