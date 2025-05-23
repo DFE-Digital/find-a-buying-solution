@@ -246,6 +246,10 @@ div.homepage_search.dfe-header__search-wrap {
     padding-top: 0px;
     text-align: left;
   }
+  .dfe-header__search_narrow .dfe-search__submit {
+    background: #003a69;
+    fill: #ffffff;
+  }
 }
 .dfe-header__content.js-show {
    border-bottom: 0px;
@@ -256,7 +260,6 @@ div.homepage_search.dfe-header__search-wrap {
 }
 
 .dfe-header__search-form {
-  background-color: #003a69;
   padding: 0px;
 }
 .search-results-section{
