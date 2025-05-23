@@ -17,9 +17,8 @@ en:
   date:
     formats:
       standard: "%e %B %Y"
-  header_description: |-
-    A procurement hub to help you buy for your school, academy or
-    trust and ensure compliance, save time, and get value for money.
+  header_description: A free and compliant service to help you buy for your school,
+    trust or academy.
   header_title: Get help buying for schools
   results:
     count:
@@ -43,12 +42,12 @@ en:
       cta: Visit Get Help Buying Home page
       description: It looks like there are no results for your search keyword.
       title: No search results
-    title: Search Get Help Buying for Schools
+    title: Search Get help buying for schools
   service:
-    name: Get Help Buying for Schools
+    name: Get help buying for schools
   shared:
     dfe_beta_banner:
-      banner_text_html: This is a new service-your %{feedback} will help us to improve
+      banner_text_html: This is a new service - your %{feedback} will help us to improve
         it.
       beta: BETA
       feedback: feedback
