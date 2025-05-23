@@ -22,6 +22,7 @@ a.underlined {
   font-size: 24px;
   line-height: 1.33333;
 }
+
 .page-with-sidebar {
   background-color: #fff !important;
   flex-direction: column;
@@ -31,6 +32,9 @@ h1.govuk-heading {
   margin-bottom: 30px;
 }
 
+.main-container {
+  border-top: 1px solid #b1b4b6;
+}
 .homepage-heading {
   margin-bottom: 10px;
 }
