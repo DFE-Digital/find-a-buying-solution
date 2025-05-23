@@ -22,6 +22,7 @@ a.underlined {
   font-size: 24px;
   line-height: 1.33333;
 }
+
 .page-with-sidebar {
   background-color: #fff !important;
   flex-direction: column;
@@ -31,6 +32,9 @@ h1.govuk-heading {
   margin-bottom: 30px;
 }
 
+.main-container {
+  border-top: 1px solid #b1b4b6;
+}
 .homepage-heading {
   margin-bottom: 10px;
 }
@@ -232,15 +236,36 @@ footer {
 div.homepage_search.dfe-header__search-wrap {
   display: block;
 }
+@media (max-width: 40.0525em) {
+  .dfe-header__search-wrap.js-show {
+    margin-bottom: -22px;
+  }
+  .dfe-header__search_narrow .dfe-search__submit {
+    background: #003a69;
+    fill: #ffffff;
+  }
+  .dfe-search__close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+}
+.dfe-header__content.js-show {
+   border-bottom: 0px;
+}
 
 .dfe-search__submit {
   background: #a2d5f5;
 }
 
 .dfe-header__search-form {
-  background-color: #003a69;
   padding: 0px;
 }
+
+.narrow-search {
+  padding: 16px;
+}
+
 .search-results-section{
   border-bottom: 1px solid #b1b4b6;
   margin-top: 10px;

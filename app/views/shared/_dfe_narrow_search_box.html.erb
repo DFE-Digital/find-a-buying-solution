@@ -6,7 +6,7 @@
     <span class="govuk-visually-hidden"><%= t("shared.dfe_search.search") %></span>
   </button>
   <div class="dfe-header__search-wrap" id="wrap-search">
-    <form class="dfe-header__search-form" id="search" action="/search" method="get" role="search">
+    <form class="narrow-search dfe-header__search-form" id="search" action="/search" method="get" role="search">
       <label class="govuk-visually-hidden" for="search-field"><%= t("shared.dfe_search.search_this_website") %></label>
       <input class="dfe-search__input" id="search-field" name="query" placeholder="Search" type="search" autocomplete="off" value="<%= params[:query] %>">
       <button class="dfe-search__submit" type="submit">
