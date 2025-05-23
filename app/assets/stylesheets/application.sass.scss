@@ -238,17 +238,16 @@ div.homepage_search.dfe-header__search-wrap {
 }
 @media (max-width: 40.0525em) {
   .dfe-header__search-wrap.js-show {
-    clear: both;
-    display: flex;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    padding-top: 0px;
-    text-align: left;
+    margin-bottom: -22px;
   }
   .dfe-header__search_narrow .dfe-search__submit {
     background: #003a69;
     fill: #ffffff;
+  }
+  .dfe-search__close {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
   }
 }
 .dfe-header__content.js-show {
@@ -262,6 +261,11 @@ div.homepage_search.dfe-header__search-wrap {
 .dfe-header__search-form {
   padding: 0px;
 }
+
+.narrow-search {
+  padding: 16px;
+}
+
 .search-results-section{
   border-bottom: 1px solid #b1b4b6;
   margin-top: 10px;
