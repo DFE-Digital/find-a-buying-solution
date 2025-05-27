@@ -28,6 +28,8 @@ module FindABuyingSolution
     config.middleware.use RealIp
     config.middleware.use FafDomainRedirect
 
+    config.hosts << ENV["FAF_DOMAIN"] if ENV["FAF_DOMAIN"].present?
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
