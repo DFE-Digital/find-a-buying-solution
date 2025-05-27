@@ -7,7 +7,8 @@ class FafDomainRedirect
   def call(env)
     request = Rack::Request.new(env)
     if request.host == ENV.fetch("FAF_DOMAIN", nil)
-      [301, { "Location" => "/" }, []]
+      uri = URI::HTTPS.build(host: ENV["APP_DOMAIN"], path: "/", query: URI.encode_www_form(source: request.url))
+      [301, { "Location" => uri.to_s }, []]
     else
       @app.call(env)
     end
