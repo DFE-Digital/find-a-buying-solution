@@ -8,5 +8,5 @@
   <p>
     <%= govuk_link_to t(".procurement_support"), "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support", target: "_blank", class: "govuk-!-font-weight-bold" %>
   </p>
-  <%= render 'energy_banner' %>
+  <%= render partial: 'energy_banner', locals: { banner: @energy_banner } %>
 </div>
