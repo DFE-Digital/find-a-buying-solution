@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=banner&fields.slug=energy-for-schools
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '820'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"401901199139602715"
+      X-Contentful-Upstream-Request-Time:
+      - '0.050'
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Content-Encoding:
+      - gzip
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '0'
+      Date:
+      - Wed, 28 May 2025 16:40:19 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740070-EWR, cache-lon4225-LON
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1748450419.076312,VS0,VE145
+      X-Cache:
+      - MISS
+      X-Contentful-Request-Id:
+      - 05f87c20-329c-4bc3-8474-4010194e4d4e
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8VVWW/cNhB+768gCARtgdWt1R5P9YnCSW0gjmM0aRBwqZHEtUQKJLWOvNj/3qG0cbaJc/Sh6IvAYzjfN8c32lLTG7rcUtu3QJf0SGvW092EWmVZTZfRhJo70dJlOKG1aITFoxDXwkKD795uaQOW5cyywQkr3eG7CeVKcmjtsENvexDTMo4o289AXwh5R51/efdqpHE9GCJMjpxUxk0VJdk6Wmu6Q2/DaRzadfbh/Ob57+mfLwqT3r+8aFSMb/aRnEmre9xyDcxCfoTM8U089cKpF89fRdkyTJdJ5IdR+gbNuhaDeNIsTpdx4keLqTMDuRFayQYk+nuMYyDUMGNBfyLwZVRnB49dHG23qoWpIH8N2gglMbeYbw0bMe7iIY8Wsca0fD9vJwfm+zytmJRIy+HVirPaVRmkd3PtqlwIqPOx/sIOV2doXPakUJpc80qp2mBEORiuRWsHjnR/Trjq6pwYtgHStcQqkmTPiJLEViA0gdHRStS1mZAVM5C7y9Pi7GdDwFjRYL6N7yrE6vq9Ve8Z3wNcKCHJk0Q6jT1JK2tbswwC062wI33k2hjfgN4IDn6pNn53F7jDYBbPo0BDKVxlvF512hOYT43wuPBGih6aemaMNYhnYRgiJ1N35ZAol41DC7xD5uUPdfGRMWDdA9ce04fji3yuP6QQzW4vXk+viu7h4QTrstuhXoTkdYdpdk01Pvs/tfUVro/a+hjYN7UVh/4sjL6tLZTgJ7P/WlvJobZQaD8ih9sKJx2BGrjVgpN7IfMGO5p4T/QnOR6kRk7UBr9jl3yuna/5Y5a8ZE2LAiNXRWEqpYHcIhg5Z7qZkBuJNHLyXMgyVw1Z9eRSYMfWzJBTVYG2PfnlN6nzcf3rXxK7rhBO0Fs6aiYIBkLG57Zgri+NL8EGh7M1eLrsQZStIF7MZotkCklYLDKexTmfsWyeTlkSQSD3XLw9vtdeXR5Xp/3VufrD66RpkWflr9tyGCWWCRwqbniKByQYz5MsxtI8qupe5LbCUbiI8T+Do6Ss3E8nTlM3wlxQl6xxk+rfoP5jjI5QwbqF0snv3W7309/p6xCgBwcAAA==
+  recorded_at: Wed, 28 May 2025 16:40:19 GMT
+recorded_with: VCR 6.3.1
