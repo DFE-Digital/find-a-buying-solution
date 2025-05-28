@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @energy_banner = Banner.find_by_slug!("energy-for-schools")
     render layout: "homepage"
   end
 
