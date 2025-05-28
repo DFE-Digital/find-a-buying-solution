@@ -27,7 +27,12 @@
               <div class="all-buying-options-solution ">
                 <h4><%= govuk_link_to solution.title, solution_path(solution.slug) %></h4>
                 <p><%= solution.description %></p>
-                <p class="govuk-secondary-text-colour"><%= t(".all_buying_options_expires") %> <%= format_date(solution.expiry) %></p>
+                <p class="govuk-secondary-text-colour">
+                  <%= t(".all_buying_options_provider") %> <%= solution.provider_name %>
+                </p>
+                <p class="govuk-secondary-text-colour">
+                  <%= t(".all_buying_options_expires") %> <%= format_date(solution.expiry) %>
+                </p>
               </div>
             <% end %>
           </div>

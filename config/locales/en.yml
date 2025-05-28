@@ -80,6 +80,7 @@ en:
         Use one to ensure your procurement is compliant. We'll continue to review and update this list.
       all_buying_options_expires: 'Expires:'
       all_buying_options_header: Buying options
+      all_buying_options_provider: 'Provider:'
       all_buying_options_section_title: DfE-approved
       all_buying_options_title: All buying options
     show:
