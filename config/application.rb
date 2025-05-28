@@ -1,5 +1,6 @@
 require_relative "boot"
 require_relative "../lib/real_ip"
+require_relative "../lib/faf_domain_redirect"
 
 require "rails"
 # Pick the frameworks you want:
@@ -25,6 +26,10 @@ module FindABuyingSolution
     config.autoload_lib(ignore: %w[assets tasks])
 
     config.middleware.use RealIp
+    config.middleware.use FafDomainRedirect
+
+    heroku_domain = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" if ENV["HEROKU_APP_NAME"].present?
+    config.hosts = [heroku_domain, ENV["APP_DOMAIN"], ENV["FAF_DOMAIN"]].compact
 
     # Configuration for the application, engines, and railties goes here.
     #
