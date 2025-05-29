@@ -25,5 +25,3 @@ The Basic tier is sufficient for our expected load, keeping costs minimal. The s
 Heroku's marketplace provides many add-ons at low or no cost, such as Rollbar for error tracking, which we are already using.
 
 While we have limited control over infrastructure configuration compared to Microsoft Azure or Amazon Web Services, this trade-off is acceptable given our needs. The platform allows horizontal scaling through additional dynos if needed.
-
-We will rely on Heroku's Redis add-on for background jobs and session management.
