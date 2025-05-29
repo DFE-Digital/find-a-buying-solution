@@ -24,16 +24,17 @@ RSpec.describe Banner, :vcr, type: :model do
     end
   end
 
-  describe ".find_by_slug!" do
+  describe ".find_by_slug" do
     it "fetches a banner by its slug from Contentful" do
-      banner = described_class.find_by_slug!("energy-for-schools")
+      banner = described_class.find_by_slug("energy-for-schools")
       expect(banner).to be_present
       expect(banner).to be_a(described_class)
       expect(banner.slug).to eq("energy-for-schools")
     end
 
-    it "raises ContentfulRecordNotFoundError if no banner is found by the given slug" do
-      expect { described_class.find_by_slug!("non-existent-slug") }.to raise_error(ContentfulRecordNotFoundError, "Banner not found")
+    it "returns nil if no banner is found by the given slug" do
+      banner = described_class.find_by_slug("non-existent-slug")
+      expect(banner).to be_nil
     end
   end
 end
