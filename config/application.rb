@@ -28,9 +28,6 @@ module FindABuyingSolution
     config.middleware.use RealIp
     config.middleware.use FafDomainRedirect
 
-    heroku_domain = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" if ENV["HEROKU_APP_NAME"].present?
-    config.hosts = [heroku_domain, ENV["APP_DOMAIN"], ENV["FAF_DOMAIN"]].compact
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
