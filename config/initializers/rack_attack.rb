@@ -39,7 +39,6 @@ class Rack::Attack
     sql
     db
     xml
-    json
     yaml
     txt
     doc
