@@ -13,14 +13,15 @@ class Banner
     @image = entry.fields[:image]
   end
 
-  def self.find_by_slug!(slug)
+  def self.find_by_slug(slug)
     entry = ContentfulClient.entries(
       content_type: "banner",
       'fields.slug': slug,
       limit: 1
     ).first
-    raise ContentfulRecordNotFoundError.new("Banner not found", slug: slug) unless entry
-
-    new(entry)
+    entry ? new(entry) : nil
+  rescue ContentfulRecordNotFoundError => e
+    Rollbar.error(e, slug: slug)
+    nil
   end
 end
