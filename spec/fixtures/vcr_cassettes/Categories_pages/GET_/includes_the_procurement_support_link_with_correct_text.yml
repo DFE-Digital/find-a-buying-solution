@@ -45,7 +45,7 @@ http_interactions:
       Etag:
       - W/"3728253542192137695"
       X-Contentful-Upstream-Request-Time:
-      - '0.059'
+      - '0.066'
       X-Content-Type-Options:
       - nosniff
       Server:
@@ -71,22 +71,113 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 22 May 2025 10:23:20 GMT
+      - Wed, 28 May 2025 16:47:51 GMT
       Age:
-      - '63315'
+      - '521955'
       X-Served-By:
-      - cache-ewr-kewr1740085-EWR, cache-lcy-eglc8600061-LCY
+      - cache-ewr-kewr1740085-EWR, cache-lcy-eglc8600087-LCY
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1747909401.910449,VS0,VE1
+      - S1748450871.370041,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 2538c6e2-75c2-4118-a549-e830e2067adc
+      - f1923fc8-ffa1-4d62-b82e-b3ad070d9617
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         H4sIAAAAAAAAA81YXXeiOhR9v7+CxbOwSCCgvPVr+uVMP7Qdx3vvQ4SIUQSaBLtsV//7nKBt9eqM3gd1ngRyckhytnvvw6spp9IMX001LZgZmkdC0Kn5VjNVrmhqhsipmXLECzOEi5SPudLP4JorNoaJf7+afc7SeJaDq1QnOabZiGeJQbPY6POMZhEza2bMZCR4oXie6ZhyOh/jNDUkExMeMQlhMi0TGJ+wAY9SZg24YBYksopSRAMqmV7cfM2yoJAZFr+8hybPRpAohZ/2bFetKhAWHUPm3I/kALn+EA2F+QbZqqfB9dMFc5r4S7fn9acPR/ndd94LYM78YM4yJaZwGwlGFYuP4BxM7GBiOdhySBuh0GuELrIdl3QhrCzi/4QRC6M2IqGHQ4fYDYJ0GMsmXOTZmGWQ72Mf1YLGVComPhewuquzhcl6H0XZS7kcsPiRCVmdMq7XTMEmfHaHMCw/zxS8bHYumw/uZCF8flAR7CvJ4Sz0K9M8olXJWWY9tPSjdXg4oYClPCmr+i7D4EEyAzLOhw2VGz0ARpo/GxOalsxI8jyW/2Qwb46Lz+AdAYGIF5TcXfln34vTm86tGOIk8/rbAIFYyGsjHEKREbYdx9sIBFy3iRvsAQgoWASCdzgcMAHEsIKCigyg0jUjhvFRRRwaZzp4DTe8D1kVOip2kGVRpBwAtht2QEePZTRusUYSX3WePDTy0fjudhtQuBby2xiHmITYs90G3gAKFGLf9nBjD6BwAQd/AjvkmSxTBSoxXaz1qlwUIu8zqblsrWIAtb3n2REKuoQXEX5Szrfr5njY/jFq1JvX/xMELrGDoKruryXCbYSkYfv1vYCgsQQCciBqOMuYSLS+rpadpSxSgkdcTWtGQmWtoodcDZgw+iVLF0wDm2XZDQf4F5e03+1y3nKb3zxJepNWPuhsU/4FhwB/btKopP+35feQjT13DxzgLQnDwRzCFxrxlCsgcGNMM5ow7YiqOjOpQAhWjUMlGWtnrXrJRORlBkIxply7H+1HK9F4z70bvOCrQTw8jlN8f378VJy/DJ9vvRdtTDc6ykXNQDbynd/jxXNC17MJqYznjh0lAev/B2jGZXstVVy2K8xcnrQN9lTy4gNFq5iARmY3ZfcJjgbkKzn6Rs/TwXFOej/qw9Ptyq47BCckvvYAQbChkSBBpRJ78Y+eu1R2uDtII9FkCTSl60Qi1SNrrGL1fEeVJu6Nc3lbtqnqDt1x33lIpzf1aJtKe5br6F4QBSEObDfwN/7BUWDXnX34gSU9wAeq802/D18DZvwfl2D3wfMZHxZ/Xf2pUHLWNgjah8v34Jqh9QOmMzFd8A0f7ADVem8sUyqlyPPxrnuJgMS942dy54zOJ8HjJGr5kxN1tQ1sFn1Ew3bQBhvpwTeJuu3i+h50wV22kYciiHsWiZIrzfs14+K+qrgSIPu/6joBHYA13WXmaalxIo1PSFQgmlqK0QjMprSq4Mo5DODL0U4+Q/mZl3XOejedqPXc+9o59TzRcXvbgGPRNNRtZwvTQMBkNvbBKe7eP0P9+/bXT6jm/QTaFAAA
-  recorded_at: Thu, 22 May 2025 10:23:20 GMT
+  recorded_at: Wed, 28 May 2025 16:47:51 GMT
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=banner&fields.slug=energy-for-schools&limit=1
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.2.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '819'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"3341010577007958803"
+      X-Contentful-Upstream-Request-Time:
+      - '0.049'
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Content-Encoding:
+      - gzip
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 28 May 2025 16:47:51 GMT
+      Age:
+      - '1297'
+      X-Served-By:
+      - cache-ewr-kewr1740049-EWR, cache-lcy-eglc8600066-LCY
+      X-Cache-Hits:
+      - 1, 1
+      X-Timer:
+      - S1748450871.455905,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - c5240a20-4b1e-405d-9491-aee3da15e791
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8VV227cNhB971cQBIK2wOqu1V6e6isKJ7WBOI7RpEHApUYS1xIpkNQ68mL/vUNp42wT59KHoi+CRM7MOXM5oy01vaHLLbV9C3RJj7RmPd1NqFWW1XQZTai5Ey1dhhNai0bY4UhYaNDr7ZY2YFnOLBtCsNIdvptQriSH1g5fGGsPYVrGEWP7GeQLIe+oiy7vXo0krgdDhMmRkcq4qaIkW0drTXcYbTiNQ7vOPpzfPP89/fNFYdL7lxeNitFnn8eZtLrHT66BWciPkDf6xFMvnHrx/FWULcN0mUR+GKVv0KxrMYknzeJ0GSd+tJg6M5AboZVsQGK8xzwGQg0zFvQnAl9mdXbg7PJou1UtTAX5a9BGKImVxdJq2IjxKx7qaBFrLMv363ZyYL6v04pJibQcXq04q12PQXo3167HhYA6H7sv7HB1hsZlTwqlyTWvlKoNZpSD4Vq0duBI9+eEq67OiWEbIF1LrCJJ9owoSWwFQhMYA61EXZsJWTEDubs8Lc5+NgSMFQ3W2/iuQ6yu31v1nvE9wIUSkjxJpNM4kbSytjXLIDDdCufRR66N8Q3ojeDgl2rjd3eBOwxm8TwKNJTCdcbrVac9gfXUCI8v3kjRQ1PPjLkG8SwMQ+Rk6q4cCuWqcWiBd8i8/KEpPjIGrHNw4zF9OL7I5/pDCtHs9uL19KroHh5OsC+7HepFSF53WGY3VKPb/6mtr3B91NbHxL6prTj0Z2H0bW2hBD+Z/dfaSg61hUL7ETncVrjpCNTArRac3AuZNzjRxHtiPsnxIDVyojb4HKfkc+18LR6z5CVrWhQYuSoKUykN5BbByDnTzYTcSKSRk+dClrlqyKonlwIntmaGnKoKtO3JL79JnY/vv/4lceoK4QS9paNmgmAgZHxuC+bm0vgSbHC4W4On2x5E2QrixWy2SKaQhMUi41mc8xnL5umUJREEcs/F2+N77dXlcXXaX52rP7xOmhZ5Vv66LYdVYpnApeKWp3hAgvE8yWJszaOq7kVuK1yFixj/OLhKysr9cuI0dSvMJXXJGrep/g3qP9boCBWsWyid/N7tdj/9DaMxY9sFBwAA
+  recorded_at: Wed, 28 May 2025 16:47:51 GMT
 recorded_with: VCR 6.3.1

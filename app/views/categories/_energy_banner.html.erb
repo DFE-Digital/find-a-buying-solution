@@ -1,0 +1,12 @@
+<div class="energy-banner govuk-grid-row govuk-!-margin-0 govuk-!-margin-bottom-8 govuk-!-margin-top-8">
+  <div class="govuk-grid-column-one-half energy-banner__content">
+    <p class="govuk-heading-l"><%= banner.title %></p>
+    <p class="govuk-body-l energy-banner__description"><%= banner.description %></p>
+    <%= govuk_link_to banner.call_to_action, banner.url, class: "govuk-button govuk-button--success energy-banner__call_to_action govuk-!-margin-top-1" %>
+  </div>
+  <div class="govuk-grid-column-one-half energy-banner__image">
+    <% if banner.image.url %>
+      <img src="<%= banner.image.url %>" alt="<%= banner.title %>" />
+    <% end %>
+  </div>
+</div>

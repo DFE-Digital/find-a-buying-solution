@@ -385,3 +385,43 @@ div.homepage_search.dfe-header__search-wrap {
 .govuk-secondary-text-colour {
   color: #505a5f;
 }
+
+.energy-banner {
+  display: flex;
+  background: #e8f1f8;
+
+  &.govuk-grid-row {
+    flex-direction: row;
+  }
+
+  &__content {
+    padding: 40px 60px;
+  }
+
+  &__description {
+    padding: 0;
+  }
+
+  &__call_to_action {
+    width: auto;
+  }
+
+  &__image {
+    padding: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  @media (max-width: 640px) {
+    &.govuk-grid-row {
+      flex-direction: column-reverse;
+    }
+    &__content {
+      padding: 1.5rem;
+    }
+  }
+}
