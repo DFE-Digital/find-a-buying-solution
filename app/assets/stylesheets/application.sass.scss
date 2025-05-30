@@ -311,6 +311,11 @@ div.homepage_search.dfe-header__search-wrap {
 
 .dfe-page-hero {
    color: #fff;
+   .hero-text-container{
+      @media (max-width: 640px) {
+        margin-left: 0px;
+      }
+    }
 }
 
 .dfe-grid-container {
