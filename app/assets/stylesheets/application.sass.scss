@@ -83,10 +83,17 @@ h1.govuk-heading {
   background-color: #f6f6f6;
 }
 
-.blue-line {
-  border-top: 4px solid #1d70b8; /* GOV.UK blue */
-  width: 100%; /* Adjust width */
+
+.related-content {
+  border-top: 2px solid #1d70b8;
+  padding-top: 10px;
+  margin-top: 10px;
 }
+
+// .blue-line {
+//   border-top: 4px solid #1d70b8; /* GOV.UK blue */
+//   width: 100%; /* Adjust width */
+// }
 
 .govuk-details {
   padding-bottom: 0;
@@ -286,7 +293,7 @@ div.homepage_search.dfe-header__search-wrap {
   padding: 10px;
   border: none;
   font-size: 1.1rem;
-  height: 50px;
+  height: 60px;
 }
 
 .search-input:focus {
