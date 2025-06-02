@@ -6,10 +6,10 @@ class SearchController < ApplicationController
   before_action :disable_search_in_header
 
   def index
-    query = params[:query].strip
     @solutions = []
     @categories = []
-    unless invalid_query?(query)
+    unless invalid_query?(params[:query])
+      query = params[:query].strip
       @solutions = Solution.search(query: query)
       @categories = Category.search(query: query)
     end
@@ -24,7 +24,7 @@ private
   end
 
   def invalid_query?(query)
-    if query.empty?
+    if query.blank?
       @validation_error = :empty
       true
     elsif query.length > MAX_QUERY_LENGTH
