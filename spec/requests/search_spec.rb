@@ -41,6 +41,12 @@ RSpec.describe "Search pages", :vcr, type: :request do
       expect(response.body).to include(t("search.errors.empty"))
     end
 
+    it "shows search page with error message for nil query" do
+      get search_path
+      expect(response).to be_successful
+      expect(response.body).to include(t("search.errors.empty"))
+    end
+
     it "shows error for query exceeding max length" do
       get search_path(query: "a" * 2001)
       expect(response.body).to include(t("search.errors.too_long"))
