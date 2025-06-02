@@ -6,7 +6,7 @@ en:
       clear_all_filters: Clear all filters
       remove_filter: Remove filter
     index:
-      procurement_support: I need something else
+      procurement_support: I need something else (opens in new tab)
       title: DfE-approved buying options by category
     show:
       apply: Apply
@@ -76,7 +76,7 @@ en:
     index:
       all_buying_options_categories_header: Procurement categories
       all_buying_options_description: |-
-        This is a list of all DfE approved buying options.
+        This is a list of all DfE-approved buying options.
         Use one to ensure your procurement is compliant. We'll continue to review and update this list.
       all_buying_options_expires: 'Expires:'
       all_buying_options_header: Buying options
