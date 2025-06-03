@@ -296,7 +296,6 @@ GEM
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.9)
     polyglot (0.3.5)
     pp (0.6.2)
       prettyprint
@@ -510,7 +509,6 @@ DEPENDENCIES
   jsbundling-rails
   kramdown
   l10nizer
-  pg (~> 1.1)
   propshaft
   puma (>= 5.0)
   rack-attack (~> 6.7)
