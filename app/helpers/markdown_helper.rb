@@ -3,9 +3,10 @@ module MarkdownHelper
     return "" if markdown_content.blank?
 
     html = Kramdown::Document.new(markdown_content).to_html
-    doc = Nokogiri::HTML.fragment(html)
+    return html.html_safe unless html.include?("href")
 
-    doc.css("a").each do |link|
+    doc = Nokogiri::HTML.fragment(html)
+    doc.css("a[href]").each do |link|
       external_link_attributes(link["href"]).each do |key, value|
         link[key] = value
       end
