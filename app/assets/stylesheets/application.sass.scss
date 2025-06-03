@@ -83,9 +83,11 @@ h1.govuk-heading {
   background-color: #f6f6f6;
 }
 
-.blue-line {
-  border-top: 4px solid #1d70b8; /* GOV.UK blue */
-  width: 100%; /* Adjust width */
+
+.related-content {
+  border-top: 2px solid #1d70b8;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .govuk-details {
