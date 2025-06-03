@@ -3,6 +3,29 @@ module ApplicationHelper
   include SvgHelper
   require "date"
 
+  def fabs_govuk_link_to(text, url, **options)
+    safe_url = safe_url(url)
+    external_attrs = external_link_attributes(url)
+    govuk_link_to(text, safe_url, **options.merge(external_attrs))
+  end
+
+  def is_external_link?(url)
+    return false unless url.is_a?(String)
+
+    begin
+      uri = URI.parse(url)
+      return false unless uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)
+
+      uri.host != request.host
+    rescue URI::InvalidURIError
+      false
+    end
+  end
+
+  def external_link_attributes(url)
+    is_external_link?(url) ? { target: "_blank", rel: "noopener noreferrer" } : {}
+  end
+
   def safe_url(url)
     return "#" unless url.is_a?(String)
 
