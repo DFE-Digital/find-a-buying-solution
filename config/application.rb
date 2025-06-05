@@ -26,7 +26,7 @@ module FindABuyingSolution
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
-    config.middleware.use ForceSSL
+    config.middleware.use ForceSsl
     config.middleware.use RealIp
     config.middleware.use FafDomainRedirect
 

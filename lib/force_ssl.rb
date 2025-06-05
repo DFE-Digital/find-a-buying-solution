@@ -1,4 +1,4 @@
-class ForceSSL
+class ForceSsl
   def initialize(app)
     @app = app
   end
