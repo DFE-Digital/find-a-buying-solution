@@ -5,22 +5,8 @@ class ForceSsl
 
   def call(env)
     request = Rack::Request.new(env)
+    dump = request.env.map { |k, v| "#{k}: #{v}" }.join("\n")
 
-    if enforce_ssl?(request)
-      redirect_to_ssl(request)
-    else
-      @app.call(env)
-    end
-  end
-
-private
-
-  def enforce_ssl?(request)
-    Rails.env.production? && request.env["HTTP_X_FORWARDED_PROTO"] != "https"
-  end
-
-  # Redirect to HTTPS
-  def redirect_to_ssl(request)
-    [301, { "Location" => request.url.sub(/^http:/, "https:") }, []]
+    [200, { "Content-Type" => "text/plain" }, [dump]]
   end
 end
