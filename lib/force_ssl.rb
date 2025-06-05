@@ -16,7 +16,7 @@ class ForceSsl
 private
 
   def enforce_ssl?(request)
-    Rails.env.production? && !request.ssl?
+    Rails.env.production? && request.env["HTTP_X_FORWARDED_PROTO"] != "https"
   end
 
   # Redirect to HTTPS
