@@ -13,7 +13,7 @@ class ForceSsl
     end
   end
 
-  private
+private
 
   def enforce_ssl?(request)
     Rails.env.production? && !request.ssl?
