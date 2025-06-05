@@ -13,7 +13,7 @@ class ForceSsl
     end
   end
 
-  private
+private
 
   def insecure_request?(request)
     request.env["HTTP_X_FORWARDED_PROTO"] == "http"
