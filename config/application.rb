@@ -1,4 +1,5 @@
 require_relative "boot"
+require_relative "../lib/force_ssl"
 require_relative "../lib/real_ip"
 require_relative "../lib/faf_domain_redirect"
 
@@ -25,6 +26,7 @@ module FindABuyingSolution
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    config.middleware.use ForceSsl
     config.middleware.use RealIp
     config.middleware.use FafDomainRedirect
 
