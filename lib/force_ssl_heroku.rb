@@ -1,4 +1,4 @@
-class ForceSSLHeroku
+class ForceSSlHeroku
   def initialize(app)
     @app = app
   end
