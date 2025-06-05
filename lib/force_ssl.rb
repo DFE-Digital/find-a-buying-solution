@@ -13,13 +13,14 @@ class ForceSsl
     end
   end
 
-private
+  private
 
   def insecure_request?(request)
     request.env["HTTP_X_FORWARDED_PROTO"] == "http"
   end
 
   def redirect_to_ssl(request)
-    [301, { "Location" => request.url.sub(/^http:/, "https:") }, []]
+    secure_url = request.url.sub(/^http:/, "https:")
+    [301, { "Location" => secure_url, "Content-Type" => "text/plain" }, []]
   end
 end
