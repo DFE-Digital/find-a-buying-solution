@@ -30,6 +30,16 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
     it "displays the related content link" do
       expect(page).to have_link("Plan technology for your school")
     end
+
+    it "displays provider and expires when the solution has them" do
+      expect(page).to have_content(/Provider:\s*[A-Za-z]+/)
+      expect(page).to have_content(/Expires:\s*[A-Za-z0-9]+/)
+    end
+
+    it "When the solution has no expires" do
+      visit solution_path("musical-instruments-equipment-and-technology")
+      expect(page).to have_no_content("Expires:")
+    end
   end
 
   context "when displaying call to action button" do
