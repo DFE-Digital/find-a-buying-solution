@@ -1,11 +1,11 @@
 <% if related_content.present? %>
-<div class="related-content govuk-!-margin-top-7">
-  <h3 class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-2"><%= t("shared.dfe_sidebar.related_content") %></h3>
+  <div class="related-content govuk-!-margin-top-0">
+    <h3 class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-2"><%= t("shared.dfe_sidebar.related_content") %></h3>
 
-  <% related_content.each do |link| %>
-    <p class="govuk-!-margin-bottom-2">
-      <%= fabs_govuk_link_to link.link_text, link.url, class: "govuk-body-s" %>
-    </p>
-  <% end %>
-</div>
+    <% related_content.each do |link| %>
+      <p class="govuk-!-margin-bottom-2">
+        <%= fabs_govuk_link_to link.link_text, link.url, class: "govuk-body-s" %>
+      </p>
+    <% end %>
+  </div>
 <% end %>
