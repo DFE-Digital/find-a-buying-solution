@@ -44,6 +44,42 @@ namespace :contentful do
       end
     end
   end
+
+  desc "Fetches all solutions and checks if their URLs are working"
+  task check_solution_urls: :environment do
+    puts "Fetching all solutions and checking URLs..."
+
+    solutions = Solution.all
+
+    if solutions.empty?
+      puts "No solutions found."
+    else
+      solutions.each do |solution|
+        if solution.url.blank?
+          puts "Solution '#{solution.title}' (ID: #{solution.id}, Slug: #{solution.slug}) has no URL."
+          next
+        end
+
+        begin
+          uri = URI.parse(solution.url)
+          response = Net::HTTP.get_response(uri)
+          status_code = response.code.to_i
+
+          unless (200..299).cover?(status_code) || (300..399).cover?(status_code)
+            puts "  ERROR: Status #{status_code} for '#{solution.title}' (ID: #{solution.id}, Slug: #{solution.slug}, URL: #{solution.url})"
+          end
+        rescue SocketError => e
+          puts "  ERROR: Could not connect to '#{solution.title}' (ID: #{solution.id}, Slug: #{solution.slug}, URL: #{solution.url}) (SocketError: #{e.message})"
+        rescue URI::InvalidURIError => e
+          puts "  ERROR: Invalid URL for '#{solution.title}' (ID: #{solution.id}, Slug: #{solution.slug}, URL: #{solution.url}) (URI::InvalidURIError: #{e.message})"
+        rescue StandardError => e
+          puts "  ERROR: An unexpected error occurred for '#{solution.title}' (ID: #{solution.id}, Slug: #{solution.slug}, URL: #{solution.url}) (#{e.class}: #{e.message})"
+        end
+      end
+    end
+
+    puts "URL check complete."
+  end
 end
 
 def unique_categories(json_data)
