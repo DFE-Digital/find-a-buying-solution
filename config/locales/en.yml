@@ -85,6 +85,6 @@ en:
       all_buying_options_title: All buying options
     show:
       cta: Visit the %{title} website
-      section_title: Buying option
       expires: 'Expires:'
       provider: 'Provider:'
+      section_title: Buying option
