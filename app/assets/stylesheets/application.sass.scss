@@ -32,9 +32,6 @@ h1.govuk-heading {
   margin-bottom: 30px;
 }
 
-.main-container {
-  border-top: 1px solid #b1b4b6;
-}
 .homepage-heading {
   margin-bottom: 10px;
 }
@@ -83,9 +80,11 @@ h1.govuk-heading {
   background-color: #f6f6f6;
 }
 
-.blue-line {
-  border-top: 4px solid #1d70b8; /* GOV.UK blue */
-  width: 100%; /* Adjust width */
+
+.related-content {
+  border-top: 2px solid #1d70b8;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .govuk-details {
@@ -233,8 +232,16 @@ footer {
     width: 650px;
   }
 }
-div.homepage_search.dfe-header__search-wrap {
+
+.homepage_search.dfe-header__search-wrap {
   display: block;
+  .dfe-search__input {
+    height: 60px;
+  }
+  .dfe-search__submit {
+    height: 60px;
+    width: 60px;
+  }
 }
 @media (max-width: 40.0525em) {
   .dfe-header__search-wrap.js-show {
@@ -309,8 +316,17 @@ div.homepage_search.dfe-header__search-wrap {
   background: #003078;
 }
 
+a.all-buying-options-link {
+  color: #ffffff;
+}
+
 .dfe-page-hero {
    color: #fff;
+   .hero-text-container{
+      @media (max-width: 640px) {
+        margin-left: 0px;
+      }
+    }
 }
 
 .dfe-grid-container {

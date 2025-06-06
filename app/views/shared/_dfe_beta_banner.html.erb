@@ -1,15 +1,17 @@
-<div class="beta-banner manual-promo-strip">
-  <div class="dfe-width-container">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        <strong class="beta"><%= t(".beta") %></strong>
+<div class="dfe-width-container">
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        <%= t(".beta") %>
+      </strong>
+      <span class="govuk-phase-banner__text">
         <%= t(".banner_text_html",
               feedback: link_to(t(".feedback"),
                               "/TODO",
-                              class: "govuk-link govuk-!-font-weight-bold",
+                              class: "govuk-link",
                               target: "_blank",
                               rel: "noopener noreferrer")) %>
-      </div>
-    </div>
+      </span>
+    </p>
   </div>
 </div>
