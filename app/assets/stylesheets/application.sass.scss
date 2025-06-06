@@ -232,8 +232,16 @@ footer {
     width: 650px;
   }
 }
-div.homepage_search.dfe-header__search-wrap {
+
+.homepage_search.dfe-header__search-wrap {
   display: block;
+  .dfe-search__input {
+    height: 60px;
+  }
+  .dfe-search__submit {
+    height: 60px;
+    width: 60px;
+  }
 }
 @media (max-width: 40.0525em) {
   .dfe-header__search-wrap.js-show {
