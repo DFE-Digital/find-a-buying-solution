@@ -56,4 +56,8 @@ module ApplicationHelper
     Rollbar.error(e, date_string: date_string)
     ""
   end
+
+  def page_title(page_title = nil)
+    page_title.present? ? "#{h(page_title.strip)} - #{t('service.name')}" : t("service.name")
+  end
 end

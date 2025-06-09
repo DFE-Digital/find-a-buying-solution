@@ -14,6 +14,10 @@ RSpec.describe "Pages", :vcr, type: :request do
       expect(response.body).to include("Dynamic purchasing systems")
     end
 
+    it "sets correct HTML title tag" do
+      expect(response.body).to include("<title>Dynamic purchasing systems - Get help buying for schools</title>")
+    end
+
     it "displays related content section" do
       expect(response.body).to include("Related content")
       expect(response.body).to match(%r{<a[^>]*>Framework agreements</a>})

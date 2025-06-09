@@ -19,4 +19,24 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(result).to include('class="govuk-link custom-class"')
     end
   end
+
+  describe "#page_title" do
+    context "when page_title is nil" do
+      it "returns just the service name" do
+        expect(helper.page_title(nil)).to eq(I18n.t("service.name"))
+      end
+    end
+
+    context "when page_title is blank" do
+      it "returns just the service name" do
+        expect(helper.page_title("")).to eq(I18n.t("service.name"))
+      end
+    end
+
+    context "when page_title is present" do
+      it "returns page title with service name" do
+        expect(helper.page_title("Custom Page")).to eq("Custom Page - #{I18n.t('service.name')}")
+      end
+    end
+  end
 end
