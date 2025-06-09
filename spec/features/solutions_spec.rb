@@ -32,8 +32,8 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
     end
 
     it "displays provider and expires when the solution has them" do
-      expect(page).to have_content(/Provider:\s*[A-Za-z]+/)
-      expect(page).to have_content(/Expires:\s*[A-Za-z0-9]+/)
+      expect(page).to have_content("Provider: Procurement Services")
+      expect(page).to have_content("Expires: 31 August 2025")
     end
 
     it "When the solution has no expires" do
