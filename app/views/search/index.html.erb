@@ -28,48 +28,48 @@
           <h2 class="govuk-heading-m">
             <%= t("results.section.title.type.solution") %>
           </h2>
-          <div class="govuk-grid-row">
-            <% @solutions.each_slice(2) do |solution_pair| %>
-              <% solution_pair.each do |solution| %>
-                <div class="govuk-grid-column-one-half">
+          <div class="gem-c-cards__list gem-c-cards__list--one-column">
+            <% @solutions.each do |solution| %>
+              <div class="gem-c-cards__list-item">
+                <div class="gem-c-cards__list-item-wrapper">
                   <ul class="govuk-list">
                     <li>
-                      <h3>
+                      <h3 class="gem-c-cards__sub-heading govuk-heading-s">
                           <%= govuk_link_to solution.title, solution_path(solution.slug) %>
                       </h3>
-                      <p>
+                      <p class="govuk-body gem-c-cards__description">
                         <%= solution.description %>
                       </p>
                     </li>
                   </ul>
                 </div>
-              <% end %>
+              </div>
             <% end %>
           </div>
         </div>
       <% end %>
 
       <% if @categories.any? %>
-      <div class="search-results-section" %>
+        <div class="search-results-section govuk-!-margin-top-6" %>
           <h2 class="govuk-heading-m">
             <%= t("results.section.title.type.category") %>
           </h2>
-          <div class="govuk-grid-row">
-            <% @categories.each_slice(2) do |category_pair| %>
-              <% category_pair.each do |category| %>
-                <div class="govuk-grid-column-one-half">
+          <div class="gem-c-cards__list gem-c-cards__list--one-column">
+            <% @categories.each do |category| %>
+                <div class="gem-c-cards__list-item">
+                  <div class="gem-c-cards__list-item-wrapper">
                   <ul class="govuk-list">
                     <li class="category-search-result">
-                      <h3 class="govuk-heading-m">
+                      <h3 class="gem-c-cards__sub-heading govuk-heading-s">
                         <%= govuk_link_to category.title, category_path(category) %>
                       </h3>
-                      <p>
+                      <p class="govuk-body gem-c-cards__description">
                         <%= category.description %>
                       </p>
                     </li>
                   </ul>
                 </div>
-              <% end %>
+              </div>
             <% end %>
           </div>
         </div>
