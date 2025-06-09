@@ -9,6 +9,15 @@
         <%= render "search/full_width_search_box" %>
       </div>
 
+      <div class="govuk-!-margin-top-6">
+        <div class="filters-top-row">
+          <div class="filters"></div>
+          <div class="results-count">
+            <%= t("results.count", count: @results_count) %>
+          </div>
+        </div>
+      </div>
+
       <% if !@solutions.any? && !@categories.any? %>
         <div class="govuk-!-margin-top-6">
           <h2 class="govuk-heading-m"><%= t("search.no_results.title") %></h2>

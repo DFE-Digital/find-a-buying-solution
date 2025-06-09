@@ -8,10 +8,13 @@ class SearchController < ApplicationController
   def index
     @solutions = []
     @categories = []
+    @results_count = 0
+
     unless invalid_query?(params[:query])
       query = params[:query].strip
       @solutions = Solution.search(query: query)
       @categories = Category.search(query: query)
+      @results_count = @solutions.count + @categories.count
     end
   rescue Contentful::BadRequest
     @validation_error = :contentful_error
