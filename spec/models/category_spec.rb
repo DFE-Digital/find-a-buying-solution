@@ -132,21 +132,21 @@ RSpec.describe Category, :vcr, type: :model do
       ).first
     end
 
-    it "returns an array of Subcategory objects with correct titles" do
+    it "returns an array of Subcategory objects with titles in alphabetical order" do
       expected_titles = [
         "Broadband and wifi",
-        "Cloud storage",
+        "Cloud-based solutions",
         "Cyber security",
-        "IT end-to-end service",
+        "Hardware",
         "IT consultancy",
-        "Computers and other hardware",
-        "Print copy and scan",
+        "Management information systems",
+        "Networking and end-to-end services",
+        "Print, copy, and scan",
         "Software",
-        "Information management systems",
       ]
 
       expect(category.subcategories).to all(be_a(Subcategory))
-      expect(category.subcategories.map(&:title)).to match_array(expected_titles)
+      expect(category.subcategories.map(&:title)).to eq(expected_titles)
     end
   end
 
