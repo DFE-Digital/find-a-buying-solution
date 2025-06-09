@@ -37,16 +37,20 @@
 <h2><%= t(".title") %></h2>
 <p><%= t(".standfirst") %></p>
 
-<% @solutions.each do |solution| %>
-  <div class="solution">
-    <h3>
-      <%= govuk_link_to solution.title, solution_path(solution.slug) %>
-    </h3>
-    <p>
-      <%= solution.description %>
-    </p>
-  </div>
-<% end %>
+<ul class="gem-c-cards__list gem-c-cards__list--one-column govuk-!-margin-top-9">
+  <% @solutions.each do |solution| %>
+    <li class="gem-c-cards__list-item">
+      <div class="gem-c-cards__list-item-wrapper">
+        <h3 class="gem-c-cards__sub-heading govuk-heading-s">
+          <%= govuk_link_to solution.title, solution_path(solution.slug), class: "govuk-link gem-c-cards__link gem-c-force-print-link-styles" %>
+        </h3>
+        <p class="govuk-body gem-c-cards__description">
+          <%= solution.description %>
+        </p>
+      </div>
+    </li>
+  <% end %>
+</ul>
 
 <% content_for :sidebar do %>
   <%= render partial: "shared/related_content", locals: { related_content: @category.related_content } %>
