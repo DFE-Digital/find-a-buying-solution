@@ -38,22 +38,20 @@
             <%= t("results.section.title.type.solution") %>
           </h2>
           <div class="gem-c-cards__list gem-c-cards__list--one-column">
-            <% @solutions.each do |solution| %>
-              <div class="gem-c-cards__list-item">
-                <div class="gem-c-cards__list-item-wrapper">
-                  <ul class="govuk-list">
-                    <li>
-                      <h3 class="gem-c-cards__sub-heading govuk-heading-s">
-                          <%= govuk_link_to solution.title, solution_path(solution.slug) %>
-                      </h3>
-                      <p class="govuk-body gem-c-cards__description">
-                        <%= solution.description %>
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            <% end %>
+            <ul class="govuk-list">
+              <% @solutions.each do |solution| %>
+                <li class="gem-c-cards__list-item">
+                  <div class="gem-c-cards__list-item-wrapper">
+                    <h3 class="gem-c-cards__sub-heading govuk-heading-s">
+                        <%= govuk_link_to solution.title, solution_path(solution.slug) %>
+                    </h3>
+                    <p class="govuk-body gem-c-cards__description">
+                      <%= solution.description %>
+                    </p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           </div>
         </div>
       <% end %>
