@@ -6,6 +6,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       get root_path
     end
 
+    it "sets default HTML title tag" do
+      expect(response.body).to include("<title>#{I18n.t('service.name')}</title>")
+    end
+
     it "includes buying options section heading" do
       expect(response.body).to include("DfE-approved buying options by category")
     end
@@ -50,6 +54,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     it "displays the category title" do
       expect(response.body).to include("IT")
+    end
+
+    it "sets correct HTML title tag" do
+      expect(response.body).to include("<title>IT - #{I18n.t('service.name')}</title>")
     end
 
     it "displays the category description" do

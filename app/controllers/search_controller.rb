@@ -9,7 +9,7 @@ class SearchController < ApplicationController
     @solutions = []
     @categories = []
     @results_count = 0
-
+    @page_title = "Search results - #{helpers.strip_tags(params[:query])}"
     unless invalid_query?(params[:query])
       query = params[:query].strip
       @solutions = Solution.search(query: query)
