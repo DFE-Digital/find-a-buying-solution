@@ -4,17 +4,7 @@
   <%= render_markdown_to_html(@solution.suffix.description) %>
 <% end %>
 
-<% if @solution.provider_name.present? %>
-  <p class="govuk-secondary-text-colour">
-    <%= t(".provider") %> <%= @solution.provider_name %>
-  </p>
-<% end %>
-
-<% if @solution.expiry.present? %>
-  <p class="govuk-secondary-text-colour">
-    <%= t(".expires") %> <%= format_date(@solution.expiry) %>
-  </p>
-<% end %>
+<%= render partial: "shared/provider_and_expires", locals: { solution: @solution } %>
 
 <%= fabs_govuk_link_to h(solution_cta(@solution)), @solution.url, class: "govuk-button", data: { survey_url: usability_survey_url(@solution.url) } %>
 

@@ -385,15 +385,16 @@ a.all-buying-options-link {
   max-width: 500px;
 }
 
-.all-buying-options  h3 {
-  margin-bottom: 0;
-}
-
 .all-buying-options-solution h4 {
   margin-bottom: 0;
 }
 
 .all-buying-options  p {
+  margin-top: 0;
+  margin-bottom: 0
+}
+
+.provider-expires p {
   margin-top: 0;
   margin-bottom: 0
 }
