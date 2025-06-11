@@ -12,6 +12,10 @@ RSpec.describe "Search pages", :vcr, type: :request do
       expect(response).to be_successful
     end
 
+    it "sets correct HTML title tag" do
+      expect(response.body).to include("<title>Search results - catering - #{I18n.t('service.name')}</title>")
+    end
+
     it "displays matching solutions" do
       expect(response.body).to include("Commercial catering equipment")
     end
