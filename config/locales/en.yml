@@ -70,11 +70,11 @@ en:
       search_this_website: Search this website
     dfe_sidebar:
       related_content: Related content
+    external_link:
+      opens_in_new_tab: "(opens in new tab)"
     provider_and_expires:
       expires: 'Expires:'
       provider: 'Provider:'
-    external_link:
-      opens_in_new_tab: "(opens in new tab)"
   solutions:
     index:
       all_buying_options_description: |-
