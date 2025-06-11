@@ -70,17 +70,16 @@ en:
       search_this_website: Search this website
     dfe_sidebar:
       related_content: Related content
+    provider_and_expires:
+      expires: 'Expires:'
+      provider: 'Provider:'
   solutions:
     index:
       all_buying_options_description: |-
         This is a list of all DfE-approved buying options.
         Use one to ensure your procurement is compliant. We'll continue to review and update this list.
-      all_buying_options_expires: 'Expires:'
-      all_buying_options_provider: 'Provider:'
       all_buying_options_section_title: DfE-approved
       all_buying_options_title: All buying options
     show:
       cta: Visit the %{title} website
-      expires: 'Expires:'
-      provider: 'Provider:'
       section_title: Buying option

@@ -4,7 +4,6 @@ $govuk-assets-path: "/";
 
 @use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
-@use "../node_modules/@ministryofjustice/frontend/moj/moj-frontend.min" as moj;
 
 @import url('https://rsms.me/inter/inter.css');
 
@@ -14,6 +13,21 @@ $govuk-assets-path: "/";
 
 a.underlined {
   text-decoration: underline;
+}
+
+.govuk-list--dash li {
+  margin-left: 30px;
+  position: relative;
+}
+
+.govuk-list--dash li:before {
+  position: absolute;
+  content: "—";
+  left: -30px
+}
+
+.govuk-markdown ul>li,.govuk-markdown ol>li,.govuk-list>li {
+  margin-bottom:10px;
 }
 
 .header_description {
@@ -60,6 +74,17 @@ h1.govuk-heading {
   }
 }
 
+.provider {
+  margin: 10px 0 0;
+}
+
+.expires {
+  margin: 0;
+}
+
+.cta {
+  margin-top: 20px;
+}
 .govuk-footer__copyright-logo {
   background-image: url("govuk-frontend/govuk-crest.svg");
 }
@@ -107,10 +132,6 @@ h1.govuk-heading {
 .all-buying-options-solution {
   border-bottom: 1px solid #b1b4b6;
   padding: 15px 0;
-}
-
-.all-buying-options-category {
-  padding-top: 35px;
 }
 
 .subcategory-filters-container {
@@ -385,17 +406,8 @@ a.all-buying-options-link {
   max-width: 500px;
 }
 
-.all-buying-options  h3 {
-  margin-bottom: 0;
-}
-
 .all-buying-options-solution h4 {
   margin-bottom: 0;
-}
-
-.all-buying-options  p {
-  margin-top: 0;
-  margin-bottom: 0
 }
 
 .govuk-secondary-text-colour {
