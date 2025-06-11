@@ -6,8 +6,9 @@ module ApplicationHelper
   def fabs_govuk_link_to(link_text, url, **options)
     safe_url = safe_url(url)
     external_attrs = external_link_attributes(url)
+    link_text = link_text.html_safe
     if is_external_link?(url)
-      link_text = "#{link_text}<span class=\"govuk-visually-hidden\"> (opens in new tab)</span>".html_safe
+      link_text += "<span class=\"govuk-visually-hidden\"> #{t('shared.external_link.opens_in_new_tab')}</span>".html_safe
     end
 
     govuk_link_to(link_text, safe_url, **options.merge(external_attrs))

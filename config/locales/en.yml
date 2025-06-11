@@ -48,7 +48,7 @@ en:
     dfe_beta_banner:
       banner_text_html: This is a new service. Help us improve it and %{feedback}.
       beta: Beta
-      feedback: give your feedback (opens in new tab)
+      feedback: give your feedback
     dfe_footer:
       accessibility_statement: Accessibility statement
       crown_copyright: "© Crown copyright"
@@ -73,6 +73,8 @@ en:
     provider_and_expires:
       expires: 'Expires:'
       provider: 'Provider:'
+    external_link:
+      opens_in_new_tab: "(opens in new tab)"
   solutions:
     index:
       all_buying_options_description: |-

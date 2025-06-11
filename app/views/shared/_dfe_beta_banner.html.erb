@@ -6,11 +6,7 @@
       </strong>
       <span class="govuk-phase-banner__text">
         <%= t(".banner_text_html",
-              feedback: link_to(t(".feedback"),
-                              "/TODO",
-                              class: "govuk-link",
-                              target: "_blank",
-                              rel: "noopener noreferrer")) %>
+              feedback: fabs_govuk_link_to(t('.feedback'), "/TODO")) %>
       </span>
     </p>
   </div>
