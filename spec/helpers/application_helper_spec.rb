@@ -2,16 +2,38 @@ require "rails_helper"
 
 RSpec.describe ApplicationHelper, type: :helper do
   describe "#fabs_govuk_link_to" do
-    it "adds external link attributes for external URLs" do
-      result = helper.fabs_govuk_link_to("External", "https://example.com")
-      expect(result).to include('rel="noopener noreferrer"')
-      expect(result).to include('target="_blank"')
+    context "with external URLs" do
+      it "adds rel noopener noreferrer attribute" do
+        result = helper.fabs_govuk_link_to("External", "https://example.com")
+        expect(result).to include('rel="noopener noreferrer"')
+      end
+
+      it "adds target blank attribute" do
+        result = helper.fabs_govuk_link_to("External", "https://example.com")
+        expect(result).to include('target="_blank"')
+      end
+
+      it "adds visually hidden text for screen readers" do
+        result = helper.fabs_govuk_link_to("External", "https://example.com")
+        expect(result).to include('<span class="govuk-visually-hidden"> (opens in new tab)</span>')
+      end
     end
 
-    it "does not add external link attributes for internal URLs" do
-      result = helper.fabs_govuk_link_to("Internal", "/internal-path")
-      expect(result).not_to include('rel="noopener noreferrer"')
-      expect(result).not_to include('target="_blank"')
+    context "with internal URLs" do
+      it "does not add rel noopener noreferrer attribute" do
+        result = helper.fabs_govuk_link_to("Internal", "/internal-path")
+        expect(result).not_to include('rel="noopener noreferrer"')
+      end
+
+      it "does not add target blank attribute" do
+        result = helper.fabs_govuk_link_to("Internal", "/internal-path")
+        expect(result).not_to include('target="_blank"')
+      end
+
+      it "does not add visually hidden text" do
+        result = helper.fabs_govuk_link_to("Internal", "/internal-path")
+        expect(result).not_to include('<span class="govuk-visually-hidden"> (opens in new tab)</span>')
+      end
     end
 
     it "preserves additional options" do
