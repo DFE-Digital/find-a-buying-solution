@@ -1,10 +1,10 @@
 <% if solution.provider_name.present? %>
-  <p class="govuk-secondary-text-colour">
+  <p class="provider govuk-secondary-text-colour">
     <%= t(".provider") %> <%= solution.provider_name %>
   </p>
 <% end %>
 <% if solution.expiry.present? %>
-  <p class="govuk-secondary-text-colour">
+  <p class="expires govuk-secondary-text-colour">
     <%= t(".expires") %> <%= format_date(solution.expiry) %>
   </p>
 <% end %>

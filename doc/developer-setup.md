@@ -31,15 +31,6 @@ https://www.npmjs.com/package/dfe-frontend
 ```
 $ npm i dfe-frontend
 ```
-Ensure that the folders: /node_modules/dfe-frontend and  /node_modules/govuk-frontend are created
-
-- Install moj
-
-```
-$ npm install @ministryofjustice/frontend govuk-frontend jquery moment --save
-```
-Ensure that the folder: /node_modules/@ministryofjustice is created
-For more information refer to the moj documentation: https://design-patterns.service.justice.gov.uk/production/installing-with-npm/
 
 ## Initialise the application
 
