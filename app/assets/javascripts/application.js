@@ -1,5 +1,6 @@
 import { Application } from "@hotwired/stimulus"
 import ExternalLinkTrackingController from "../../javascript/controllers/external_link_tracking_controller"
+import EngagementTrackingController from "../../javascript/controllers/engagement_tracking_controller"
 
 import 'dfe-frontend/packages/dfefrontend';
 
@@ -9,3 +10,4 @@ govukFrontend.initAll();
 const application = Application.start();
 window.Stimulus = application;
 Stimulus.register("external-link-tracking", ExternalLinkTrackingController);
+Stimulus.register("engagement-tracking", EngagementTrackingController);

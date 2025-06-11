@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   EVENT_ALLOWLIST = {
     external_link_clicked: %i[text href],
+    page_engagement: %i[engaged_time_ms page_path page_title session_duration_ms timestamp],
   }.freeze
 
   def create
