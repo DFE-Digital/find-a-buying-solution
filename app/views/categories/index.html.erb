@@ -6,7 +6,7 @@
     <% end %>
   </div>
   <p>
-    <%= fabs_govuk_link_to t(".procurement_support"), "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support" %>
+    <%= govuk_link_to t(".procurement_support"), "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support", target: "_blank", rel: "noopener noreferrer" %>
   </p>
   <% if @energy_banner %>
     <%= render partial: 'energy_banner', locals: { banner: @energy_banner } %>
