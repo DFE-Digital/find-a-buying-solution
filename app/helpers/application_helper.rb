@@ -52,6 +52,15 @@ module ApplicationHelper
     "#{base_url}?#{params.to_query}"
   end
 
+  def customer_satisfaction_survey_url(source)
+    uri = URI.join(ENV["GHBS_SERVER_URL"], "/customer_satisfaction_surveys/new")
+    uri.query = {
+      service: "find_a_buying_solution",
+      source: source,
+    }.to_query
+    safe_url(uri.to_s)
+  end
+
   def format_date(date_string)
     return "" if date_string.blank?
 
