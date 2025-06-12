@@ -1,7 +1,7 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 export default class extends Controller {
-  connect() {
+  connect () {
     document.querySelectorAll('a').forEach(link => {
       if (this.isExternalLink(link.href)) {
         link.addEventListener('click', this.trackClick.bind(this))
@@ -9,7 +9,7 @@ export default class extends Controller {
     })
   }
 
-  isExternalLink(href) {
+  isExternalLink (href) {
     try {
       const url = new URL(href)
       return url.hostname !== window.location.hostname
@@ -18,8 +18,8 @@ export default class extends Controller {
     }
   }
 
-  async trackClick(event) {
-    event.preventDefault();
+  async trackClick (event) {
+    event.preventDefault()
     const link = event.currentTarget
     const href = link.href
     const text = link.textContent.trim()
@@ -37,13 +37,13 @@ export default class extends Controller {
             type: 'external_link_clicked',
             data: {
               href,
-              text,
+              text
             }
           }
         })
       })
     } finally {
-      window.open(surveyUrl || href, '_blank', 'noopener,noreferrer');
+      window.open(surveyUrl || href, '_blank', 'noopener,noreferrer')
     }
   }
 }

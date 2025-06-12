@@ -34,8 +34,25 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Lint code for consistent style
+      - name: Enable Corepack & Set Correct Yarn Version
+        run: |
+          corepack enable
+          corepack prepare yarn@4.6.0 --activate
+
+      - name: Install Node.js and Yarn
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint Ruby code for consistent style
         run: bin/rubocop -f github
+
+      - name: Lint JavaScript code for consistent style
+        run: yarn lint
 
       - name: Check that there is no unlocalised text in templates
         run: bundler exec l10nizer
