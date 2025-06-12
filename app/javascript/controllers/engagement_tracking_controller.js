@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from '@hotwired/stimulus'
 
 const EVENTS = ['mousedown', 'mousemove', 'keypress', 'keydown', 'input', 'scroll', 'touchstart', 'click', 'wheel', 'pointermove']
 const ACTIVITY_WINDOW_MS = 30000
@@ -6,8 +6,7 @@ const SEND_INTERVAL_MS = 60000
 const CHECK_INTERVAL_MS = 10000
 
 export default class extends Controller {
-
-  connect() {
+  connect () {
     this.startTime = Date.now()
     this.lastActivity = this.startTime
     this.lastCheckTime = this.startTime
@@ -15,7 +14,7 @@ export default class extends Controller {
     this.lastSentEngagedTime = 0
     this.isVisible = !document.hidden
     this.checkInterval = CHECK_INTERVAL_MS
-    
+
     this.boundHandleActivity = this.handleActivity.bind(this)
     this.boundHandleVisibilityChange = this.handleVisibilityChange.bind(this)
     this.boundHandleBeforeUnload = this.handleBeforeUnload.bind(this)
@@ -24,37 +23,37 @@ export default class extends Controller {
     this.startPeriodicCheck()
   }
 
-  disconnect() {
+  disconnect () {
     this.removeEventListeners()
     this.clearPeriodicCheck()
     this.sendEngagementData()
   }
 
-  addEventListeners() {
+  addEventListeners () {
     EVENTS.forEach(event => {
       document.addEventListener(event, this.boundHandleActivity, { passive: true })
     })
-    
+
     document.addEventListener('visibilitychange', this.boundHandleVisibilityChange)
     window.addEventListener('beforeunload', this.boundHandleBeforeUnload)
   }
 
-  removeEventListeners() {
+  removeEventListeners () {
     EVENTS.forEach(event => {
       document.removeEventListener(event, this.boundHandleActivity)
     })
-    
+
     document.removeEventListener('visibilitychange', this.boundHandleVisibilityChange)
     window.removeEventListener('beforeunload', this.boundHandleBeforeUnload)
   }
 
-  handleActivity() {
+  handleActivity () {
     this.lastActivity = Date.now()
   }
 
-  handleVisibilityChange() {
+  handleVisibilityChange () {
     const now = Date.now()
-    
+
     if (document.hidden && this.isVisible) {
       this.updateEngagedTime(now)
       this.isVisible = false
@@ -64,24 +63,24 @@ export default class extends Controller {
     }
   }
 
-  handleBeforeUnload() {
+  handleBeforeUnload () {
     this.sendEngagementData()
   }
 
-  startPeriodicCheck() {
+  startPeriodicCheck () {
     this.intervalId = setInterval(() => {
       this.checkEngagement()
     }, this.checkInterval)
   }
 
-  clearPeriodicCheck() {
+  clearPeriodicCheck () {
     clearInterval(this.intervalId)
   }
 
-  checkEngagement() {
+  checkEngagement () {
     const now = Date.now()
     this.updateEngagedTime(now)
-    
+
     if (
       this.totalEngagedTime > 0 &&
       this.totalEngagedTime - this.lastSentEngagedTime >= SEND_INTERVAL_MS
@@ -91,7 +90,7 @@ export default class extends Controller {
     }
   }
 
-  updateEngagedTime(now) {
+  updateEngagedTime (now) {
     if (this.isVisible && this.isRecentlyActive(now)) {
       const timeSinceLastCheck = now - (this.lastCheckTime || this.startTime)
       this.totalEngagedTime += Math.min(timeSinceLastCheck, this.checkInterval)
@@ -99,13 +98,13 @@ export default class extends Controller {
     this.lastCheckTime = now
   }
 
-  isRecentlyActive(now) {
+  isRecentlyActive (now) {
     return (now - this.lastActivity) < ACTIVITY_WINDOW_MS
   }
 
-  async sendEngagementData() {
+  async sendEngagementData () {
     if (this.totalEngagedTime === 0) return
-    
+
     const engagementData = {
       engaged_time_ms: this.totalEngagedTime,
       page_path: window.location.pathname,
