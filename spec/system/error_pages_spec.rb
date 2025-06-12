@@ -2,7 +2,9 @@ require "rails_helper"
 
 RSpec.describe "Error pages" do
   let(:rendered_footer) do
-    ApplicationController.new.render_to_string(
+    controller = ApplicationController.new
+    controller.request = ActionDispatch::TestRequest.create
+    controller.render_to_string(
       partial: "shared/dfe_footer",
       layout: false
     ).squish

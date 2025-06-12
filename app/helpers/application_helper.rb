@@ -3,10 +3,14 @@ module ApplicationHelper
   include SvgHelper
   require "date"
 
-  def fabs_govuk_link_to(text, url, **options)
+  def fabs_govuk_link_to(link_text, url, **options)
     safe_url = safe_url(url)
     external_attrs = external_link_attributes(url)
-    govuk_link_to(text, safe_url, **options.merge(external_attrs))
+    if is_external_link?(url)
+      link_text = "#{h(link_text)}<span class=\"govuk-visually-hidden\"> #{h(t('shared.external_link.opens_in_new_tab'))}</span>".html_safe
+    end
+
+    govuk_link_to(link_text, safe_url, **options.merge(external_attrs))
   end
 
   def is_external_link?(url)
