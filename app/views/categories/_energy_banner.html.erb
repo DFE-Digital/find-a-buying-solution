@@ -4,9 +4,6 @@
     <p class="govuk-body-l energy-banner__description"><%= banner.description %></p>
     <%= fabs_govuk_link_to banner.call_to_action, banner.url, class: "govuk-button govuk-button--success energy-banner__call_to_action govuk-!-margin-top-1" %>
   </div>
-  <div class="govuk-grid-column-one-half energy-banner__image">
-    <% if banner.image.url %>
-      <img src="<%= banner.image.url %>" alt="<%= banner.title %>" />
-    <% end %>
+  <div class="govuk-grid-column-one-half energy-banner__image" data-image-url="<%= banner.image.url %>">
   </div>
 </div>
