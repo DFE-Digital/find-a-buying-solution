@@ -77,8 +77,8 @@ en:
       provider: 'Provider:'
   solutions:
     index:
-      all_buying_options_description: |-
-        Use a DfE-approved buying option to make sure your procurement is compliant
+      all_buying_options_description: Use a DfE-approved buying option to make sure
+        your procurement is compliant
       all_buying_options_section_title: DfE-approved
       all_buying_options_title: All buying options
     show:
