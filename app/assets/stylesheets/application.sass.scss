@@ -439,9 +439,7 @@ a.all-buying-options-link {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    &[data-image-url] {
-      background-image: url(attr(data-image-url));
-    }
+    background-image: var(--bg-image);
   }
 
   @media (max-width: 640px) {
