@@ -1,6 +1,5 @@
 module ApplicationHelper
   include MarkdownHelper
-  include SvgHelper
   require "date"
 
   def fabs_govuk_link_to(link_text, url, **options)
