@@ -445,6 +445,7 @@ a.all-buying-options-link {
     background-position: center;
     background-repeat: no-repeat;
     background-image: var(--bg-image);
+    min-height: 200px;
   }
 
   @media (max-width: 640px) {
