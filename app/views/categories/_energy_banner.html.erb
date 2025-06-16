@@ -4,6 +4,6 @@
     <p class="govuk-body-l energy-banner__description"><%= banner.description %></p>
     <%= fabs_govuk_link_to banner.call_to_action, banner.url, class: "govuk-button govuk-button--success energy-banner__call_to_action govuk-!-margin-top-1" %>
   </div>
-  <div class="govuk-grid-column-one-half energy-banner__image" style="--bg-image: url('<%= banner.image.url %>')">
+  <div class="govuk-grid-column-one-half energy-banner__image" style="min-height: 200px; --bg-image: url('<%= banner.image.url %>')">
   </div>
 </div>
