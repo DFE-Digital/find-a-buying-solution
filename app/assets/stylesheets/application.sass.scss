@@ -363,6 +363,12 @@ a:focus {
   background: #003078;
 }
 
+.all-buying-options-link-container {
+  @media (max-width: 640px) {
+    margin-left: 0px;
+  }
+}
+
 a.all-buying-options-link {
   color: #ffffff;
 }
