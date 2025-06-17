@@ -407,9 +407,10 @@ a.all-buying-options-link {
 .govuk-footer {
   border-top: 1px solid #b1b4b6;
 }
-
-.govuk-footer__list--inline {
+.govuk-footer__inline-list{
   max-width: 800px;
+}
+.govuk-footer__list--inline {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -418,6 +419,7 @@ a.all-buying-options-link {
 .govuk-footer__licence-description {
   margin-top: 10px;
   max-width: 500px;
+  text-wrap: auto;
 }
 
 .all-buying-options-solution h4 {
