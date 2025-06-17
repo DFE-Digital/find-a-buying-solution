@@ -77,9 +77,8 @@ en:
       provider: 'Provider:'
   solutions:
     index:
-      all_buying_options_description: |-
-        This is a list of all DfE-approved buying options.
-        Use one to ensure your procurement is compliant. We'll continue to review and update this list.
+      all_buying_options_description: Use a DfE-approved buying option to make sure
+        your procurement is compliant
       all_buying_options_section_title: DfE-approved
       all_buying_options_title: All buying options
     show:
