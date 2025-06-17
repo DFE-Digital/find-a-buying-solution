@@ -15,7 +15,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
       it "adds visually hidden text for screen readers" do
         result = helper.fabs_govuk_link_to("External", "https://example.com")
-        expect(result).to include('<span class="govuk-visually-hidden"> (opens in new tab)</span>')
+        expect(result).to include('<span class="govuk-visually-hidden"> opens in new tab</span>')
       end
     end
 

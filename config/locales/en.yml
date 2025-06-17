@@ -71,7 +71,7 @@ en:
     dfe_sidebar:
       related_content: Related content
     external_link:
-      opens_in_new_tab: "(opens in new tab)"
+      opens_in_new_tab: opens in new tab
     provider_and_expires:
       expires: 'Expires:'
       provider: 'Provider:'

@@ -1,7 +1,7 @@
-<div class="subcategory-filters-container">
-  <div class="filters-top-row">
-    <div class="subcategory-filters">
-      <% unless @subcategories.empty? %>
+<% unless @subcategories.empty? %>
+  <div class="subcategory-filters-container">
+    <div class="filters-top-row">
+      <div class="subcategory-filters">
         <%= govuk_details(summary_text: t(".filter"), open: params[:subcategory_slugs].presence) do %>
           <%= form_with url: category_path(@category), method: :get  do |f| %>
             <fieldset class="govuk-fieldset">
@@ -22,21 +22,21 @@
             </button>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <div class="results-count">
+        <%= t("results.count", count: @solutions.count) %>
+      </div>
     </div>
-    <div class="results-count">
-      <%= t("results.count", count: @solutions.count) %>
-    </div>
+
+    <% unless params.fetch(:subcategory_slugs, []).compact_blank.blank? %>
+      <%= render "categories/filter_labels" %>
+    <% end %>
   </div>
-
-  <% unless params.fetch(:subcategory_slugs, []).compact_blank.blank? %>
-    <%= render "categories/filter_labels" %>
-  <% end %>
-</div>
+<% end %>
 
 
-<h2><%= t(".title") %></h2>
-<p><%= t(".standfirst") %></p>
+<h2 class="govuk-!-margin-top-6 govuk-!-margin-bottom-2"><%= t(".title") %></h2>
+<p class="govuk-body-l"><%= t(".standfirst") %></p>
 
 <%= render partial: "shared/solutions", locals: { solutions: @solutions } %>
 

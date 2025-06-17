@@ -35,6 +35,7 @@ a.underlined {
   font-weight: 700;
   font-size: 24px;
   line-height: 1.33333;
+  max-width: 720px;
 }
 
 .page-with-sidebar {
@@ -57,6 +58,10 @@ h1.govuk-heading {
 
 .sidebar {
   margin-top: 60px;
+  @media (max-width: 640px) {
+    margin-top: 0px;
+    padding: 0;
+  }
 }
 
 .sidebar > ul {
@@ -85,8 +90,20 @@ h1.govuk-heading {
 .cta {
   margin-top: 20px;
 }
+
 .govuk-footer__copyright-logo {
   background-image: url("govuk-frontend/govuk-crest.svg");
+  display: inline-block;
+  min-width: 125px;
+  padding-top: 112px;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: 125px 102px;
+  text-align: center;
+  white-space: nowrap;
+  &::before {
+    padding-top: 0px;
+  }
 }
 
 .beta-banner {
@@ -138,7 +155,7 @@ h1.govuk-heading {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  padding: 20px 0;
+  padding: 30px 0;
   border-bottom: 1px solid #b1b4b6;
 }
 
@@ -146,8 +163,8 @@ h1.govuk-heading {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
 }
+
 .subcategory-filters {
   flex: 1;
 }
@@ -213,6 +230,15 @@ footer {
 
 .dfe-header {
   color: #fff;
+}
+
+.dfe-header__link:focus,
+a:focus {
+  outline: 3px solid transparent;
+  color: #0b0c0c;
+  background-color: #fd0;
+  box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+  text-decoration: none;
 }
 
 .dfe-header__navigation.js-show .dfe-header__navigation-item.dfe-header__navigation-item--current a {
@@ -337,6 +363,12 @@ footer {
   background: #003078;
 }
 
+.all-buying-options-link-container {
+  @media (max-width: 640px) {
+    margin-left: 0px;
+  }
+}
+
 a.all-buying-options-link {
   color: #ffffff;
 }
@@ -394,8 +426,13 @@ a.all-buying-options-link {
     height: 100%;
 }
 
-.govuk-footer__list--inline {
+.govuk-footer {
+  border-top: 1px solid #b1b4b6;
+}
+.govuk-footer__inline-list{
   max-width: 800px;
+}
+.govuk-footer__list--inline {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -404,6 +441,7 @@ a.all-buying-options-link {
 .govuk-footer__licence-description {
   margin-top: 10px;
   max-width: 500px;
+  text-wrap: auto;
 }
 
 .all-buying-options-solution h4 {
@@ -436,12 +474,11 @@ a.all-buying-options-link {
 
   &__image {
     padding: 0;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: var(--bg-image);
+    min-height: 200px;
   }
 
   @media (max-width: 640px) {
