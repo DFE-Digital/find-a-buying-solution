@@ -45,22 +45,18 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
   context "when displaying call to action button" do
     it "displays the default CTA text when no custom CTA is provided" do
       visit solution_path("it-hardware")
-      expect(page).to have_link("Visit the IT Hardware website",
-                                href: "https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware",
-                                class: "govuk-button")
+      expect(page).to have_link("Visit the IT Hardware website", class: "govuk-button")
     end
 
     it "displays the custom CTA text when provided" do
       visit solution_path("ict-procurement")
-      expect(page).to have_link("Go to site",
-                                href: "https://www.everythingict.org/",
-                                class: "govuk-button")
+      expect(page).to have_link("Go to site", class: "govuk-button")
     end
 
     it "includes the usability survey URL with service and return_url params" do
       visit solution_path("it-hardware")
-      link = find("a.govuk-button[data-survey-url]", match: :first)
-      survey_url = link["data-survey-url"]
+      link = find("a.govuk-button[href]", match: :first)
+      survey_url = link["href"]
       uri = URI.parse(survey_url)
 
       expect(uri.host).to eq("www.get-help-buying-for-schools.service.gov.uk")
