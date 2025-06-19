@@ -7,7 +7,7 @@
 
   <%= render partial: "shared/provider_and_expires", locals: { solution: @solution } %>
 
-  <%= fabs_govuk_link_to h(solution_cta(@solution)), @solution.url, class: "cta govuk-button", data: { survey_url: usability_survey_url(@solution.url) } %>
+  <%= fabs_govuk_link_to h(solution_cta(@solution)), usability_survey_url(@solution.url), class: "cta govuk-button" %>
 
   <% content_for :sidebar do %>
     <%= render partial: "shared/related_content", locals: { related_content: @solution.related_content } %>

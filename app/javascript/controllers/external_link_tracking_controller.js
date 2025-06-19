@@ -19,31 +19,25 @@ export default class extends Controller {
   }
 
   async trackClick (event) {
-    event.preventDefault()
     const link = event.currentTarget
     const href = link.href
     const text = link.textContent.trim()
-    const surveyUrl = link.dataset.surveyUrl
 
-    try {
-      await fetch('/events', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-        },
-        body: JSON.stringify({
-          event: {
-            type: 'external_link_clicked',
-            data: {
-              href,
-              text
-            }
+    await fetch('/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({
+        event: {
+          type: 'external_link_clicked',
+          data: {
+            href,
+            text
           }
-        })
+        }
       })
-    } finally {
-      window.open(surveyUrl || href, '_blank', 'noopener,noreferrer')
-    }
+    })
   }
 }
