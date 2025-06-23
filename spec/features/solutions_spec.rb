@@ -53,7 +53,7 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
       expect(page).to have_link("Go to site", class: "govuk-button")
     end
 
-    it "includes the usability survey URL with service and return_url params" do
+    it "includes the usability survey URL with service and return_url params", skip: "Survey link temporarily removed to allow time to create an improved design solution" do
       visit solution_path("it-hardware")
       link = find("a.govuk-button[href]", match: :first)
       survey_url = link["href"]
@@ -62,6 +62,12 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
       expect(uri.host).to eq("www.get-help-buying-for-schools.service.gov.uk")
       expect(survey_url).to include("service=find_a_buying_solution")
       expect(survey_url).to match(/return_url=[^&]+/)
+    end
+
+    it "sets the CTA button href to the solution url" do
+      visit solution_path("it-hardware")
+      link = find("a.govuk-button[href]", match: :first)
+      expect(link[:href]).to eq("https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware")
     end
   end
 end
