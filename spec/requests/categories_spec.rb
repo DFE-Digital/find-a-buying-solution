@@ -41,6 +41,10 @@ RSpec.describe "Categories pages", :vcr, type: :request do
           href: "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support"
         )
     end
+
+    it "does not display categories without solutions" do
+      expect(response.body).not_to include("category-no-solutions")
+    end
   end
 
   describe "GET /categories/:slug" do
