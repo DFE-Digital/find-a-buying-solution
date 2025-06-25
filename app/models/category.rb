@@ -19,6 +19,7 @@ class Category
 
   def self.all
     category_ids = Solution.unique_category_ids
+    return [] if category_ids.blank?
 
     params = {
       content_type: "category",
