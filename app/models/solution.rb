@@ -65,6 +65,13 @@ class Solution
     new(entry)
   end
 
+  def self.unique_category_ids
+    ContentfulClient.entries(
+      content_type: "solution",
+      select: "fields.categories"
+    ).flat_map { |solution| solution.fields[:categories]&.map(&:id) }.compact.uniq
+  end
+
   def ==(other)
     super ||
       other.instance_of?(self.class) && other.id == id

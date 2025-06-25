@@ -50,6 +50,12 @@ RSpec.describe Category, :vcr, type: :model do
       categories = described_class.all
       expect(categories.map(&:title)).to eq(categories.map(&:title).sort_by(&:downcase))
     end
+
+    it "does not include categories without solutions" do
+      categories = described_class.all
+      category_slugs = categories.map(&:slug)
+      expect(category_slugs).not_to include("category-no-solutions")
+    end
   end
 
   describe "solutions ordering" do

@@ -18,11 +18,16 @@ class Category
   end
 
   def self.all
-    ContentfulClient.entries(
+    category_ids = Solution.unique_category_ids
+
+    params = {
       content_type: "category",
       select: "sys.id,fields.title,fields.description,fields.slug",
-      order: "fields.title"
-    ).map { new(it) }
+      order: "fields.title",
+      "sys.id[in]" => category_ids.join(","),
+    }
+
+    ContentfulClient.entries(params).map { new(it) }
   end
 
   def self.search(query: "")
