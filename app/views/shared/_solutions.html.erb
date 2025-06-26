@@ -1,12 +1,12 @@
 <% if solutions.present? %>
-  <ul class="provider-expires gem-c-cards__list gem-c-cards__list--one-column">
+  <ul class="provider-expires chevron-card-list">
     <% solutions.each do |solution| %>
-      <li class="gem-c-cards__list-item">
-        <div class="gem-c-cards__list-item-wrapper">
-          <h3 class="gem-c-cards__sub-heading govuk-heading-s">
-            <%= govuk_link_to solution.title, solution_path(solution.slug), class: "govuk-link gem-c-cards__link gem-c-force-print-link-styles" %>
-          </h3>
-          <p class="govuk-body gem-c-cards__description">
+      <li class="chevron-card">
+        <div class="chevron-card__wrapper">
+          <p class="govuk-body-m  govuk-!-margin-bottom-1 govuk-!-font-weight-bold">
+            <%= govuk_link_to solution.title, solution_path(solution.slug), class: "govuk-link chevron-card__link" %>
+          </p>
+          <p class="govuk-body-m chevron-card__description" style="margin-top: 10px;">
             <%= solution.description %>
           </p>
           <%= render partial: "shared/provider_and_expires", locals: { solution: solution } %>
