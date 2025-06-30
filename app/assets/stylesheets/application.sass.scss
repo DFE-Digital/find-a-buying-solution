@@ -173,8 +173,6 @@ h1.govuk-heading {
   &::before {
     padding-top: 0px;
     background-image: url("#{$govuk-assets-path}govuk-crest.svg");
-  };
-  &::before {
     -webkit-mask-image: url("#{$govuk-assets-path}govuk-crest.svg");
     mask-image: url("#{$govuk-assets-path}govuk-crest.svg");
   }
