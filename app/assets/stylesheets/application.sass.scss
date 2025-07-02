@@ -5,7 +5,9 @@ $govuk-assets-path: "/govuk-frontend/";
 @use "../node_modules/govuk-frontend/dist/govuk/all" as govuk;
 @use "../node_modules/dfe-frontend/packages/dfefrontend" as dfefrontend;
 
+
 @import url('https://rsms.me/inter/inter.css');
+$govuk-font-family: 'Inter', sans-serif;
 
 * {
   font-family: 'Inter', sans-serif !important;
