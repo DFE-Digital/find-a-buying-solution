@@ -13,10 +13,10 @@ module MarkdownHelper
     doc.css("a[href]").each do |link|
       external_link_attributes(link["href"]).each do |key, value|
         link[key] = value
-        link["class"] = [link["class"], "govuk-body-s"].compact.join(" ")
       end
     end
 
+    doc = update_class(doc, "a[href]", "govuk-body-s")
     doc.to_html.html_safe
   end
 
