@@ -12,7 +12,7 @@ RSpec.describe MarkdownHelper, type: :helper do
     it "add the correct css class for h2 and paragraph tags" do
       markdown = "## This a heading\nThis is a random paragraph"
       html = helper.render_markdown_to_html(markdown)
-      expect(html).to include('<h2 id="this-a-heading" class="govuk-heading-s">This a heading</h2>')
+      expect(html).to include('<h2 id="this-a-heading" class="govuk-heading-m">This a heading</h2>')
       expect(html).to include('<p class="govuk-body">This is a random paragraph</p>')
     end
 
