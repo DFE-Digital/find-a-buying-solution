@@ -13,6 +13,11 @@ RSpec.describe "Solutions", :vcr, type: :request do
     it "sets correct HTML title tag" do
       expect(response.body).to include("<title>IT Hardware - #{I18n.t('service.name')}</title>")
     end
+
+    it "set correct breadcrumb" do
+      expect(response.body).to include('<a class="govuk-breadcrumbs__link" href="/">Home</a>')
+      expect(response.body).to include('<a class="govuk-breadcrumbs__link" href="/categories/it">IT</a>')
+    end
   end
 
   describe "GET /solutions" do
