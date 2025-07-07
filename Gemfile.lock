@@ -360,8 +360,11 @@ GEM
     rdoc (6.14.1)
       erb
       psych (>= 4.0.0)
+    redis (5.4.0)
+      redis-client (>= 0.22.0)
     redis-client (0.24.0)
       connection_pool
+    redis-rails (0.0.0)
     regexp_parser (2.10.0)
     reline (0.6.1)
       io-console (~> 0.5)
@@ -506,6 +509,7 @@ DEPENDENCIES
   dotenv
   govuk-components
   govuk_design_system_formbuilder
+  i18n (~> 1.14)
   i18n-tasks
   jsbundling-rails
   kramdown
@@ -514,6 +518,8 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-attack (~> 6.7)
   rails (~> 8.0.2)
+  redis (~> 5.0)
+  redis-rails
   rladr
   rollbar
   rspec

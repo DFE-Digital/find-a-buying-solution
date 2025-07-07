@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require_relative '../../lib/i18n/backend/contentful'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -43,8 +44,13 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Replace the default in-process memory cache store with a durable alternative.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_cache_store, {
+    url: ENV['REDIS_URL'],
+    ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE },
+    pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 },
+    pool_timeout: 5,
+    expires_in: 24.hours,
+  }
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
   # config.active_job.queue_adapter = :resque

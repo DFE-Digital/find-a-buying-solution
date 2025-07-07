@@ -10,12 +10,15 @@ gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: "v1.15.6"
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
+gem "i18n", "~> 1.14"
 gem "jsbundling-rails"
 gem "kramdown"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rack-attack", "~> 6.7"
 gem "rails", "~> 8.0.2"
+gem "redis", "~> 5.0", require: false
+gem "redis-rails", require: false
 gem "rollbar"
 gem "sidekiq", "~> 8.0"
 
