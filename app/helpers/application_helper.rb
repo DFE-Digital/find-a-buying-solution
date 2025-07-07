@@ -6,7 +6,7 @@ module ApplicationHelper
     safe_url = safe_url(url)
     external_attrs = external_link_attributes(url)
     if is_external_link?(url)
-      link_text = "#{h(link_text)}<span class=\"govuk-visually-hidden\"> #{h(t('shared.external_link.opens_in_new_tab'))}</span>".html_safe
+      link_text = "#{h(link_text)}<span class=\"govuk-visually-hidden\"> #{h(ct('shared.external_link.opens_in_new_tab'))}</span>".html_safe
     end
 
     govuk_link_to(link_text, safe_url, **options.merge(external_attrs))
@@ -70,6 +70,11 @@ module ApplicationHelper
   end
 
   def page_title(page_title = nil)
-    page_title.present? ? "#{h(page_title.strip)} - #{t('service.name')}" : t("service.name")
+    page_title.present? ? "#{h(page_title.strip)} - #{ct('service.name')}" : ct("service.name")
+  end
+
+  def ct(key, options = {})
+    @translation_service ||= ContentfulTranslationService.new
+    @translation_service.translate(key, options)
   end
 end

@@ -2,7 +2,7 @@
   <div class="subcategory-filters-container">
     <div class="filters-top-row">
       <div class="subcategory-filters">
-        <%= govuk_details(summary_text: t(".filter"), open: params[:subcategory_slugs].presence) do %>
+        <%= govuk_details(summary_text: ct("categories.show.filter"), open: params[:subcategory_slugs].presence) do %>
           <%= form_with url: category_path(@category), method: :get  do |f| %>
             <fieldset class="govuk-fieldset">
               <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes" checked="checked">
@@ -18,13 +18,13 @@
               </div>
             </fieldset>
             <button type="submit" class="govuk-button" data-module="govuk-button">
-              <%= t(".apply") %>
+              <%= ct("categories.show.apply") %>
             </button>
           <% end %>
         <% end %>
       </div>
       <div class="results-count">
-        <%= t("results.count", count: @solutions.count) %>
+        <%= ct("results.count", count: @solutions.count) %>
       </div>
     </div>
 
@@ -35,8 +35,8 @@
 <% end %>
 
 
-<h2 class="govuk-!-margin-top-6 govuk-!-margin-bottom-2"><%= t(".title") %></h2>
-<p class="govuk-body-l"><%= t(".standfirst") %></p>
+<h2 class="govuk-!-margin-top-6 govuk-!-margin-bottom-2 govuk-heading-m"><%= ct("categories.show.title") %></h2>
+<p class="govuk-body"><%= ct("categories.show.standfirst") %></p>
 
 <%= render partial: "shared/solutions", locals: { solutions: @solutions } %>
 

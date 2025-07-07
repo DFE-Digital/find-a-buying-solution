@@ -4,7 +4,7 @@
 
   <div class="dfe-width-container">
     <main class="govuk-main-wrapper">      
-      <h1 class="govuk-heading-l"><%= t("search.title") %> <%= t("service.name") %></h1>
+      <h1 class="govuk-heading-l"><%= ct("search.title") %> <%= ct("service.name") %></h1>
       <div class="dfe-grid-column-full-width">
         <%= render "search/full_width_search_box" %>
       </div>
@@ -13,18 +13,18 @@
         <div class="filters-top-row">
           <div class="filters"></div>
           <div class="results-count">
-            <%= t("results.count", count: @results_count) %>
+            <%= ct("results.count", count: @results_count) %>
           </div>
         </div>
       </div>
 
       <% if !@solutions.any? && !@categories.any? %>
         <div class="govuk-!-margin-top-6">
-          <h2 class="govuk-heading-m"><%= t("search.no_results.title") %></h2>
+          <h2 class="govuk-heading-m"><%= ct("search.no_results.title") %></h2>
           <% if @validation_error %>
-            <p class="govuk-body"><%= t("search.errors.#{@validation_error}") %></p>
+            <p class="govuk-body"><%= ct("search.errors.#{@validation_error}") %></p>
           <% else %>
-          <p class="govuk-body"><%= t("search.no_results.description") %></p>
+          <p class="govuk-body"><%= ct("search.no_results.description") %></p>
           <% end %>
           <p class="govuk-body">
             <%= govuk_link_to t("search.no_results.cta"), root_path %>
@@ -35,7 +35,7 @@
       <% if @solutions.any? %>
         <div class="search-results-section" %>
           <h2 class="govuk-heading-m">
-            <%= t("results.section.title.type.solution") %>
+            <%= ct("results.section.title.type.solution") %>
           </h2>
           <div class="gem-c-cards__list gem-c-cards__list--one-column">
             <ul class="govuk-list">
@@ -59,7 +59,7 @@
       <% if @categories.any? %>
         <div class="search-results-section govuk-!-margin-top-6" %>
           <h2 class="govuk-heading-m">
-            <%= t("results.section.title.type.category") %>
+            <%= ct("results.section.title.type.category") %>
           </h2>
           <div class="gem-c-cards__list gem-c-cards__list--one-column">
             <% @categories.each do |category| %>

@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   rescue_from ContentfulRecordNotFoundError, with: :record_not_found
   before_action :enable_search_in_header, :set_default_back_link
 
+  helper_method :ct
+
 private
 
   def record_not_found
@@ -19,4 +21,9 @@ private
     @page_back_link ||= root_path
   end
   # rubocop:enable Naming/MemoizedInstanceVariableName
+
+  def ct(key, options = {})
+    @translation_service ||= ContentfulTranslationService.new
+    @translation_service.translate(key, options)
+  end
 end
