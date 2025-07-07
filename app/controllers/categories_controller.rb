@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :enable_search_in_header, except: :index
 
+
   def index
     @categories = Category.all
     @energy_banner = Banner.find_by_slug("energy-for-schools")
@@ -8,6 +9,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    add_breadcrumb :home_breadcrumb_name, :root_path
+
     @category = Category.find_by_slug!(params[:slug])
     @subcategories = @category.subcategories
     @selected_subcategories = @subcategories.select { params[:subcategory_slugs]&.include?(it.slug) }
