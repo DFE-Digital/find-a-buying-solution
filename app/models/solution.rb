@@ -2,7 +2,10 @@ class Solution
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :description, :expiry, :summary, :slug, :provider_name, :provider_initials, :url, :categories, :subcategories, :suffix, :call_to_action
+  attr_reader :id, :title, :description, :expiry, :summary,
+              :slug, :provider_name, :provider_initials, :url,
+              :categories, :subcategories, :suffix, :call_to_action,
+              :primary_category
 
   def initialize(entry)
     @id = entry.id
@@ -18,13 +21,26 @@ class Solution
     @call_to_action = entry.fields[:call_to_action]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
+    @primary_category = entry.fields[:primary_category]
     super
   end
 
   def self.all(category_id: nil)
     params = {
       content_type: "solution",
-      select: "sys.id, fields.title, fields.description, fields.expiry, fields.slug, fields.categories, fields.subcategories, fields.url, fields.provider_name, fields.provider_initials,fields.related_content, fields.summary",
+      select: %w[sys.id
+                 fields.title
+                 fields.description
+                 fields.expiry
+                 fields.slug
+                 fields.categories
+                 fields.subcategories
+                 fields.url
+                 fields.provider_name
+                 fields.provider_initials
+                 fields.related_content
+                 fields.summary
+                 fields.primary_category].join(","),
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
     }.compact
