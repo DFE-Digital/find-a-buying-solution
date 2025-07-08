@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :enable_search_in_header, except: :index
 
-
   def index
     @categories = Category.all
     @energy_banner = Banner.find_by_slug("energy-for-schools")
@@ -18,6 +17,5 @@ class CategoriesController < ApplicationController
     @page_section_title = t(".section_title")
     @page_title = @category.title
     @page_description = @category.description
-    @page_back_link = root_path
   end
 end

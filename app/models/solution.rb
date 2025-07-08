@@ -73,6 +73,7 @@ class Solution
         fields.provider_initials
         fields.call_to_action
         fields.url
+        fields.primary_category
       ].join(",")
     ).find { |solution| solution.fields[:slug] == slug }
 
@@ -115,6 +116,11 @@ class Solution
       descr: description,
       expiry: expiry,
       body: summary,
+      primary_category: {
+        title: primary_category&.title,
+        ref: primary_category&.slug,
+      },
+
     }
   end
 end

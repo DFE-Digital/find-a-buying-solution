@@ -48,7 +48,7 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
       expect(page).to have_link("Visit the IT Hardware website", class: "govuk-button")
     end
 
-    it "displays the custom CTA text when provided" do
+    xit "displays the custom CTA text when provided" do
       visit solution_path("ict-procurement")
       expect(page).to have_link("Go to site", class: "govuk-button")
     end

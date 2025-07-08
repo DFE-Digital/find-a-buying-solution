@@ -3,11 +3,9 @@
   <div>
     <%= render "shared/dfe_beta_banner" %>
     <div class="dfe-width-container">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-full">
-          <%= govuk_back_link(href: @page_back_link ) %>
-        </div>
-      </div>
+       <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+        <%= render_breadcrumbs(builder: govuk_breadcrumb_builder) %>
+      </nav>
     </div>
   </div>
 

@@ -20,7 +20,6 @@ gem "rails", "~> 8.0.2"
 gem "rollbar"
 gem "sidekiq", "~> 8.0"
 
-
 group :development, :test do
   gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"

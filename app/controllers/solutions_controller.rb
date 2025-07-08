@@ -13,18 +13,19 @@ class SolutionsController < ApplicationController
     @page_title = t(".all_buying_options_title")
     @page_description = t(".all_buying_options_description")
     @page_back_link = request.referer
+    add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
     render layout: "all_buying_options"
   end
 
   def show
     @solution = Solution.find_by_slug!(params[:slug])
     @category = Category.find_by_slug!(params[:category_slug])
+    @primary_category = @solution.primary_category
+
     @page_section_title = t(".section_title")
     @page_title = @solution.title
     @page_description = @solution.description
-    @page_back_link = request.referer || category_path(@category)
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
-    add_breadcrumb :category_breadcrumb_name, :category_breadcrumb_path
-    # add_breadcrumb :solution_breadcrumb_name, :solution_breadcrumb_path
+    add_breadcrumb :primary_category_breadcrumb_name, :primary_category_breadcrumb_path unless @primary_category.nil?
   end
 end

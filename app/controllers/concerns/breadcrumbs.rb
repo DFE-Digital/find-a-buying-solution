@@ -12,24 +12,14 @@ module Breadcrumbs
     end
     helper_method :home_breadcrumb_path
 
-    def category_breadcrumb_name
-      @category.title
+    def primary_category_breadcrumb_name
+      @primary_category&.title
     end
-    helper_method :category_breadcrumb_name
+    helper_method :primary_category_breadcrumb_name
 
-    def category_breadcrumb_path
-      category_path(@category)
+    def primary_category_breadcrumb_path
+      category_path(slug: @primary_category&.slug)
     end
-    helper_method :category_breadcrumb_path
-
-    def solution_breadcrumb_path
-      solution_path(slug: @solution.slug)
-    end
-    helper_method :solution_breadcrumb_path
-
-    def solution_breadcrumb_name
-      @solution.title
-    end
-    helper_method :solution_breadcrumb_name
+    helper_method :primary_category_breadcrumb_path
   end
 end
