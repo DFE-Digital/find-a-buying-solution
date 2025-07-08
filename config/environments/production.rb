@@ -46,10 +46,8 @@ Rails.application.configure do
 
   config.cache_store = :redis_cache_store,
                        {
-                         url: ENV["REDIS_URL"],
+                         url: ENV.fetch("REDIS_URL"),
                          ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE },
-                         pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 },
-                         pool_timeout: 5,
                          expires_in: 24.hours,
                        }
 

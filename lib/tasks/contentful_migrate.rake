@@ -1,20 +1,22 @@
+module ContentfulMigrationHelper
+  def self.flatten_hash(hash, prefix = "")
+    hash.each_with_object({}) do |(key, value), result|
+      current_key = prefix.empty? ? key.to_s : "#{prefix}.#{key}"
+      if value.is_a?(Hash)
+        result.merge!(flatten_hash(value, current_key))
+      else
+        result[current_key] = value.to_s
+      end
+    end
+  end
+end
+
 namespace :contentful do
   desc "Migrate translations to Contentful"
   task migrate: :environment do
     require "net/http"
     require "uri"
     require "json"
-
-    def flatten_hash(hash, prefix = "")
-      hash.each_with_object({}) do |(key, value), result|
-        current_key = prefix.empty? ? key.to_s : "#{prefix}.#{key}"
-        if value.is_a?(Hash)
-          result.merge!(flatten_hash(value, current_key))
-        else
-          result[current_key] = value.to_s
-        end
-      end
-    end
 
     space_id = ENV["CONTENTFUL_SPACE_ID"]
     token = ENV["CONTENTFUL_MANAGEMENT_TOKEN"]
@@ -23,7 +25,7 @@ namespace :contentful do
     yaml_content = YAML.load_file("config/locales/en.yml")
     translations = yaml_content["en"]
 
-    flat_translations = flatten_hash(translations)
+    flat_translations = ContentfulMigrationHelper.flatten_hash(translations)
 
     flat_translations.each do |key, value|
       # Create entry using direct HTTP request

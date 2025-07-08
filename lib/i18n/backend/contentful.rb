@@ -1,4 +1,4 @@
-require_relative '../../../app/models/contentful_client'
+require_relative "../../../app/models/contentful_client"
 
 module I18n
   module Backend
@@ -8,9 +8,9 @@ module I18n
 
       def initialize
         ::ContentfulClient.configure(
-          space: ENV['CONTENTFUL_SPACE_ID'],
-          access_token: ENV['CONTENTFUL_ACCESS_TOKEN'],
-          environment: ENV['CONTENTFUL_ENVIRONMENT'] || 'master'
+          space: ENV["CONTENTFUL_SPACE_ID"],
+          access_token: ENV["CONTENTFUL_ACCESS_TOKEN"],
+          environment: ENV["CONTENTFUL_ENVIRONMENT"] || "master"
         )
       end
 
@@ -33,23 +33,23 @@ module I18n
 
       def translate(locale, key, options = EMPTY_HASH)
         split_keys = I18n.normalize_keys(locale, key, options[:scope], options[:separator])
-        
+
         if split_keys[0] == split_keys[1]
           split_keys.delete_at(1)
         end
-        
-        flat_key = split_keys[1..-1].join('.')
+
+        flat_key = split_keys[1..].join(".")
         val = translations[split_keys[0]]&.[](flat_key.to_sym)
-        
+
         # If contentful translations not found then, yaml fallback is enabled
         if val.blank? && options[:fallback] && I18n.locale != I18n.default_locale
           val = translations[I18n.default_locale]&.[](flat_key.to_sym)
         end
-        
+
         val.presence
       end
 
-      protected
+    protected
 
       def set_translations
         @translations = Concurrent::Hash.new
@@ -60,14 +60,14 @@ module I18n
         if cached_translations.nil?
           # If not in cache, fetch from Contentful
           entries = ::ContentfulClient.entries(
-            content_type: 'translation',
+            content_type: "translation",
             limit: 1000
           )
 
           cached_translations = entries.each_with_object({}) do |entry, hash|
-            next unless entry.fields[:key].present?
+            next if entry.fields[:key].blank?
 
-            key_parts = entry.fields[:key].split('.')
+            key_parts = entry.fields[:key].split(".")
             next if key_parts.empty?
 
             locale = key_parts.shift.to_sym
@@ -75,8 +75,9 @@ module I18n
             hash[locale] ||= {}
             current = hash[locale]
 
-            key_parts[0..-2].each do |part|
-              next unless part.present?
+            key_parts[..-2].each do |part|
+              next if part.blank?
+
               current[part.to_sym] ||= {}
               current = current[part.to_sym]
             end
