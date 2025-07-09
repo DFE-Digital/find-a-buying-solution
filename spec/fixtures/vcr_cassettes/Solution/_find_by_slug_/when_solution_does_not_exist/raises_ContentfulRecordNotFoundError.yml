@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&fields.slug=non-existent&include=1&select=fields.title,fields.description,fields.expiry,fields.related_content,fields.summary,fields.slug,fields.suffix,fields.provider_name,fields.provider_initials,fields.call_to_action,fields.url,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&fields.slug=non-existent&include=1&select=fields.title,fields.description,fields.expiry,fields.related_content,fields.summary,fields.slug,fields.suffix,fields.provider_name,fields.provider_initials,fields.call_to_action,fields.url,fields.primary_category,sys
     body:
       encoding: ASCII-8BIT
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -20,7 +20,7 @@ http_interactions:
       Host:
       - cdn.contentful.com
       User-Agent:
-      - http.rb/5.2.0
+      - http.rb/5.3.1
   response:
     status:
       code: 200
@@ -44,8 +44,8 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"13397941486963817118"'
-      X-Contentful-Upstream-Request-Time:
-      - '0.046'
+      Strict-Transport-Security:
+      - max-age=15768000
       X-Content-Type-Options:
       - nosniff
       Server:
@@ -68,24 +68,24 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Date:
-      - Thu, 22 May 2025 10:19:25 GMT
       Age:
       - '0'
+      Date:
+      - Wed, 09 Jul 2025 09:36:41 GMT
       X-Served-By:
-      - cache-ewr-kewr1740072-EWR, cache-lcy-eglc8600094-LCY
+      - cache-ewr-kewr1740067-EWR, cache-lcy-eglc8600020-LCY
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1747909166.605664,VS0,VE142
+      - S1752053801.147003,VS0,VE131
       X-Cache:
       - MISS
       X-Contentful-Request-Id:
-      - b6d1721c-3bc2-4e41-99ef-0b2d08aca169
+      - c9bfd992-b297-4f25-b32b-8a9489bec0eb
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 22 May 2025 10:19:25 GMT
+  recorded_at: Wed, 09 Jul 2025 09:36:41 GMT
 recorded_with: VCR 6.3.1
