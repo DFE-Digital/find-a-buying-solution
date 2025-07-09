@@ -1,6 +1,5 @@
 require "json"
 require "contentful/management"
-require "pry"
 
 # rubocop:disable Rails/SaveBang
 namespace :contentful do

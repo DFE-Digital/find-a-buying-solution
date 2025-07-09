@@ -25,7 +25,6 @@ group :development, :test do
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
   gem "i18n-tasks"
   gem "l10nizer", require: false
-  gem "pry"
   gem "rspec"
   gem "rspec-rails"
   gem "rubocop-govuk", require: false
