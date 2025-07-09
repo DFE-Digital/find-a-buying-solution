@@ -1,15 +1,4 @@
-module ContentfulMigrationHelper
-  def self.flatten_hash(hash, prefix = "")
-    hash.each_with_object({}) do |(key, value), result|
-      current_key = prefix.empty? ? key.to_s : "#{prefix}.#{key}"
-      if value.is_a?(Hash)
-        result.merge!(flatten_hash(value, current_key))
-      else
-        result[current_key] = value.to_s
-      end
-    end
-  end
-end
+require_relative "../i18n/utils"
 
 namespace :contentful do
   desc "Migrate translations to Contentful"
@@ -25,7 +14,7 @@ namespace :contentful do
     yaml_content = YAML.load_file("config/locales/en.yml")
     translations = yaml_content["en"]
 
-    flat_translations = ContentfulMigrationHelper.flatten_hash(translations)
+    flat_translations = I18n::Utils.flatten_translations(translations)
 
     flat_translations.each do |key, value|
       # Create entry using direct HTTP request

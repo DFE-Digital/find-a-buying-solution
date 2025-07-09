@@ -1,4 +1,4 @@
-require_relative "../../../app/models/contentful_client"
+require_relative "../utils"
 
 module I18n
   module Backend
@@ -10,15 +10,17 @@ module I18n
       CACHE_EXPIRY = 1.hour
 
       def initialize
+        @translations = Concurrent::Hash.new
         ::ContentfulClient.configure(
           space: ENV["CONTENTFUL_SPACE_ID"],
           access_token: ENV["CONTENTFUL_ACCESS_TOKEN"],
           environment: ENV["CONTENTFUL_ENVIRONMENT"] || "master"
         )
+        load_translations
       end
 
       def translations
-        @translations || set_translations
+        @translations || load_translations
       end
 
       def available_locales
@@ -26,7 +28,7 @@ module I18n
       end
 
       def reload!
-        set_translations
+        load_translations
         true
       end
 
@@ -48,13 +50,11 @@ module I18n
         val.presence
       end
 
-    protected
+      private
 
-      def set_translations
-        @translations = Concurrent::Hash.new
-
+      def load_translations
         # Fetch from Redis first
-        cached_translations = Rails.cache.read("contentful_translations")
+        cached_translations = Rails.cache.read(CACHE_KEY)
 
         if cached_translations.nil?
           # If not in cache, fetch from Contentful
@@ -63,29 +63,8 @@ module I18n
             limit: 1000
           )
 
-          cached_translations = entries.each_with_object({}) do |entry, hash|
-            next if entry.fields[:key].blank?
-
-            key_parts = entry.fields[:key].split(".")
-            next if key_parts.empty?
-
-            locale = key_parts.shift.to_sym
-
-            hash[locale] ||= {}
-            current = hash[locale]
-
-            key_parts[..-2].each do |part|
-              next if part.blank?
-
-              current[part.to_sym] ||= {}
-              current = current[part.to_sym]
-            end
-
-            if key_parts.last.present?
-              current[key_parts.last.to_sym] = entry.fields[:value]
-            end
-          end
-
+          cached_translations = I18n::Utils.unflatten_translations(entries)
+          
           Rails.cache.write(CACHE_KEY, cached_translations, expires_in: CACHE_EXPIRY)
         end
 
