@@ -6,6 +6,9 @@ module I18n
       include Base
       include Flatten
 
+      CACHE_KEY = "contentful_translations".freeze
+      CACHE_EXPIRY = 1.hour
+
       def initialize
         ::ContentfulClient.configure(
           space: ENV["CONTENTFUL_SPACE_ID"],
@@ -22,10 +25,6 @@ module I18n
         @available_locales || set_available_locales
       end
 
-      def initialized?
-        !@translations.nil?
-      end
-
       def reload!
         set_translations
         true
@@ -39,7 +38,7 @@ module I18n
         end
 
         flat_key = split_keys[1..].join(".")
-        val = translations[split_keys[0]]&.[](flat_key.to_sym)
+        val = translations.dig(split_keys[0], flat_key.to_sym)
 
         # If contentful translations not found then, yaml fallback is enabled
         if val.blank? && options[:fallback] && I18n.locale != I18n.default_locale
@@ -87,7 +86,7 @@ module I18n
             end
           end
 
-          Rails.cache.write("contentful_translations", cached_translations, expires_in: 1.hour)
+          Rails.cache.write(CACHE_KEY, cached_translations, expires_in: CACHE_EXPIRY)
         end
 
         @translations = @translations.deep_merge(cached_translations)

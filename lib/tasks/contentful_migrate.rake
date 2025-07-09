@@ -70,7 +70,7 @@ namespace :contentful do
       else
         puts "Failed to create the '#{key}': #{response.body}"
       end
-      # Adding tiny delay between requests to account for race conditions
+      # Adding tiny delay between requests to Contentful API owing to the API rate-limits
       sleep(0.5)
     rescue StandardError => e
       puts "Error with '#{key}': #{e.message}"
