@@ -16,14 +16,15 @@ class GdsDesignSystemBreadcrumbBuilder < BreadcrumbsOnRails::Breadcrumbs::Builde
   end
 
   def render_element(element, last: false)
-    content = if element.path.nil?
-                compute_name(element)
-              else
-                name = compute_name(element)
+    name = compute_name(element)
+
+    content = if element.path
                 path = compute_path(element)
                 options = element.options.merge(class: "govuk-breadcrumbs__link")
                 is_current = @context.current_page?(path) || last
                 @context.link_to_unless(false, name, path, options)
+              else
+                name
               end
 
     tag_options = {}

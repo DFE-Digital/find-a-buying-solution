@@ -26,6 +26,6 @@ class SolutionsController < ApplicationController
     @page_title = @solution.title
     @page_description = @solution.description
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
-    add_breadcrumb :primary_category_breadcrumb_name, :primary_category_breadcrumb_path unless @primary_category.nil?
+    add_breadcrumb :primary_category_breadcrumb_name, :primary_category_breadcrumb_path if @primary_category
   end
 end

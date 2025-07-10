@@ -7,6 +7,8 @@ class Solution
               :categories, :subcategories, :suffix, :call_to_action,
               :primary_category
 
+  delegate :slug, to: :primary_category, prefix: true, allow_nil: true
+
   def initialize(entry)
     @id = entry.id
     @title = entry.fields[:title]
