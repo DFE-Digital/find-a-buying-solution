@@ -20,12 +20,10 @@ module I18n
 
         locale = key_parts.shift.to_sym
         hash[locale] ||= {}
-        
+
         build_nested_hash(hash[locale], key_parts, entry.fields[:value])
       end
     end
-
-    private
 
     def self.build_nested_hash(hash, key_parts, value)
       return if key_parts.empty?
@@ -35,6 +33,7 @@ module I18n
 
       path.each do |part|
         next if part.blank?
+
         current[part.to_sym] ||= {}
         current = current[part.to_sym]
       end

@@ -50,7 +50,7 @@ module I18n
         val.presence
       end
 
-      private
+    private
 
       def load_translations
         # Fetch from Redis first
@@ -64,7 +64,7 @@ module I18n
           )
 
           cached_translations = I18n::Utils.unflatten_translations(entries)
-          
+
           Rails.cache.write(CACHE_KEY, cached_translations, expires_in: CACHE_EXPIRY)
         end
 
