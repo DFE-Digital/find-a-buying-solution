@@ -80,6 +80,59 @@ namespace :contentful do
 
     puts "URL check complete."
   end
+
+  desc "Update solution with primary category"
+  task update_solution_with_primary_category: :environment do
+    client = Contentful::Management::Client.new(ENV["CONTENTFUL_CMA_TOKEN"])
+    space = client.spaces.find(ENV["CONTENTFUL_SPACE_ID"])
+    environment = space.environments.find("master")
+    entries = environment.entries.all(content_type: "solution")
+
+    all_categories = Category.all.map { |cat|
+      [cat.title, cat.id]
+    }.to_h
+
+    primary_categories = {
+      "Energy cost recovery services" => "Energy",
+      "Education decarbonisation" => "Energy",
+      "Building in use - support services" => "Facilities management and estates",
+      "Estates and facilities professional services" => "Primary is Facilities management and estates",
+      "Specialist professional services" => "Consultancy services",
+      "Debt resolution services" => "Consultancy services",
+      "LED lighting" => "Energy",
+      "Audiovisual solutions" => "IT",
+    }
+
+    entries.each do |entry|
+      puts "Solution: #{entry.title}"
+      next unless entry.primary_category.nil?
+
+      categories = entry.categories
+
+      next if categories.nil?
+
+      if categories.count == 1
+        puts "Update primary_category"
+        entry.update(primary_category: categories.first)
+      else
+
+        cat_name = primary_categories[entry.title.strip]
+        next if cat_name.nil?
+
+        puts "primary_category #{cat_name}"
+
+        id = all_categories[cat_name]
+        next if id.nil?
+
+        data = { "sys" => { "type" => "Link", "linkType" => "Entry", "id" => id } }
+        entry.update(primary_category: data)
+
+        puts "Update multi primary_category"
+      end
+
+      entry.publish
+    end
+  end
 end
 
 def unique_categories(json_data)

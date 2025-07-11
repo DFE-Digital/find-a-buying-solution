@@ -105,7 +105,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("20 results")
+        expect(response.body).to include("21 results")
       end
     end
 
@@ -125,7 +125,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("7 results")
+        expect(response.body).to include("9 results")
       end
     end
 
@@ -140,7 +140,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("7 results")
+        expect(response.body).to include("9 results")
       end
     end
   end

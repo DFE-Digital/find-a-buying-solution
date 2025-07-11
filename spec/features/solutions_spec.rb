@@ -70,4 +70,19 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
       expect(link[:href]).to eq("https://www.procurementservices.co.uk/our-solutions/frameworks/technology/it-hardware")
     end
   end
+
+  context "when displaying breadcrumbs" do
+    it "display only home breadcrumb with no primary category" do
+      visit solution_path("it-hardware")
+      expect(page).to have_link("Home", class: "govuk-breadcrumbs__link")
+      expect(page).to have_css(".govuk-breadcrumbs__link", count: 1)
+    end
+
+    it "display primary category" do
+      visit solution_path("software-application-solutions")
+      expect(page).to have_css(".govuk-breadcrumbs__link", count: 2)
+      expect(page).to have_link("Home", class: "govuk-breadcrumbs__link")
+      expect(page).to have_link("IT", class: "govuk-breadcrumbs__link")
+    end
+  end
 end
