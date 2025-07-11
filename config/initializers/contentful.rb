@@ -24,7 +24,7 @@ def refresh_contentful_cache
       cached_translations,
       expires_in: I18n::Backend::Contentful::CACHE_EXPIRY
     )
-    Rails.logger.info "✓ Contentful translations cache has been refreshed!"
+    Rails.logger.info "Contentful translations cache has been refreshed!"
   rescue => e
     Rails.logger.error "Error refreshing Contentful translations: #{e.message}"
   end

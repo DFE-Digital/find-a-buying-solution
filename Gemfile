@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby file: ".tool-versions"
 
-gem "bootsnap", require: false
+gem 'bootsnap', '~> 1.18.6'
 gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"

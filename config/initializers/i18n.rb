@@ -30,9 +30,11 @@ Rails.application.config.before_initialize do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
 
   # Configure en-only fallbacks
-  I18n.default_locale = :en
-  I18n.available_locales = [:en]
-  I18n.fallbacks.map(en: [:en])
+  if Rails.env.production?
+    I18n.default_locale = :en
+    I18n.available_locales = [:en]
+    I18n.fallbacks.map(en: [:en])
+  end
 
   if Rails.env.development?
     module I18n
