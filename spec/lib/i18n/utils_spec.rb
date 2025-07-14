@@ -118,4 +118,45 @@ RSpec.describe I18n::Utils do
       end
     end
   end
+
+  describe "deep_merge!" do
+    it "merges two hashes deeply" do
+      target = { a: 1, b: { c: 2, d: 3 } }
+      input = { b: { c: 10, e: 4 }, f: 5 }
+      result = described_class.deep_merge!(target, input)
+
+      expect(result).to eq({
+        a: 1,
+        b: { c: 10, d: 3, e: 4 },
+        f: 5,
+      })
+    end
+  end
+
+  describe "deep_symbolize_keys" do
+    it "converts all string keys to symbols in a nested hash" do
+      input = {
+        "a" => 1,
+        "b" => {
+          "c" => 2,
+          "d" => { "e" => 3 },
+        },
+      }
+      result = described_class.deep_symbolize_keys(input)
+
+      expect(result).to eq({
+        a: 1,
+        b: { c: 2, d: { e: 3 } },
+      })
+    end
+  end
+
+  describe "except" do
+    it "removes specified keys from a hash" do
+      input = { a: 1, b: 2, c: 3 }
+      result = described_class.except(input, :b, :c)
+
+      expect(result).to eq({ a: 1 })
+    end
+  end
 end

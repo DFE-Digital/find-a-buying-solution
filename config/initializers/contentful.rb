@@ -3,8 +3,6 @@ Rails.configuration.to_prepare do
   refresh_contentful_cache if Rails.env.production? && defined?(Rails.cache)
 end
 
-private
-
 def configure_contentful
   ContentfulClient.configure(
     space: ENV.fetch("CONTENTFUL_SPACE_ID") { "FAKE_SPACE_ID" },
@@ -25,7 +23,7 @@ def refresh_contentful_cache
       expires_in: I18n::Backend::Contentful::CACHE_EXPIRY
     )
     Rails.logger.info "Contentful translations cache has been refreshed!"
-  rescue => e
+  rescue StandardError => e
     Rails.logger.error "Error refreshing Contentful translations: #{e.message}"
   end
 end

@@ -58,5 +58,24 @@ module I18n
 
       current[final_key.to_sym] = value if final_key.present?
     end
+
+    # Deep merges the second hash into the first one
+    def self.deep_merge!(target, input_hash)
+      target = target.dup if target.frozen?
+      target.merge!(input_hash) do |_key, old_val, new_val|
+        old_val.is_a?(Hash) && new_val.is_a?(Hash) ? deep_merge!(old_val, new_val) : new_val
+      end
+    end
+
+    def self.deep_symbolize_keys(input_hash)
+      input_hash.each_with_object({}) do |(key, value), result|
+        key = key.to_sym if key.respond_to?(:to_sym)
+        result[key] = value.is_a?(Hash) ? deep_symbolize_keys(value) : value
+      end
+    end
+
+    def self.except(input_hash, *keys)
+      input_hash.reject { |key, _| keys.flatten.include?(key) }
+    end
   end
 end

@@ -92,7 +92,7 @@ module I18n
           Rails.cache.write(CACHE_KEY, cached_translations, expires_in: CACHE_EXPIRY)
         end
 
-        @translations = @translations.deep_merge(cached_translations)
+        @translations = I18n::Utils.deep_merge!(@translations, cached_translations)
         set_available_locales
 
         @translations
