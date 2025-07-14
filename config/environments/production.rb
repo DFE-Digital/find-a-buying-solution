@@ -46,8 +46,6 @@ Rails.application.configure do
 
   config.cache_store = :redis_cache_store,
                        {
-                         url: ENV.fetch("REDIS_URL"),
-                         ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE },
                          expires_in: 24.hours,
                        }
 
