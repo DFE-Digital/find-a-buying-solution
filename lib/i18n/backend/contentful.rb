@@ -12,9 +12,9 @@ module I18n
       def initialize
         @translations = Concurrent::Hash.new
         ::ContentfulClient.configure(
-          space: ENV["CONTENTFUL_SPACE_ID"],
-          access_token: ENV["CONTENTFUL_ACCESS_TOKEN"],
-          environment: ENV["CONTENTFUL_ENVIRONMENT"] || "master"
+          space: ENV.fetch("CONTENTFUL_SPACE_ID") { "FAKE_SPACE_ID" },
+          access_token: ENV.fetch("CONTENTFUL_ACCESS_TOKEN") { "FAKE_API_KEY" },
+          environment: ENV.fetch("CONTENTFUL_ENVIRONMENT", "master")
         )
         load_translations
       end
