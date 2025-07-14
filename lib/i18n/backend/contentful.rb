@@ -35,7 +35,7 @@ module I18n
       def translate(locale, key, options = EMPTY_HASH)
         # Handling date format lookups
         if key.to_s == "date.formats.standard" || (key.to_s == "formats.standard" && options[:scope] == %w[date])
-          date_format = translations.dig(:'en.date.formats.standard')&.delete_prefix('"')&.delete_suffix('"')
+          date_format = translations[:'en.date.formats.standard']&.delete_prefix('"')&.delete_suffix('"')
           Rails.logger.debug "Found date format: #{date_format}" if date_format.present?
           return date_format if date_format.present?
         end
@@ -57,7 +57,7 @@ module I18n
         lookup_hierarchy = [
           -> { interpolate_if_string(locale, translations[key.to_sym], options) },
           -> { interpolate_if_string(locale, translations.dig(locale, split_keys[1..].join(".").to_sym), options) },
-          -> { interpolate_if_string(locale, translations[split_keys.join(".").to_sym], options) }
+          -> { interpolate_if_string(locale, translations[split_keys.join(".").to_sym], options) },
         ]
 
         lookup_hierarchy.each do |lookup|
@@ -105,6 +105,7 @@ module I18n
       def interpolate_if_string(locale, value, options)
         return unless value
         return interpolate(locale, value, options) if value.is_a?(String)
+
         value
       end
     end
