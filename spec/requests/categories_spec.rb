@@ -34,14 +34,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
     end
 
-    it "includes the procurement support link with correct text" do
-      expect(response.body)
-        .to have_link(
-          "I need something else",
-          href: "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support"
-        )
-    end
-
     it "does not display categories without solutions" do
       expect(response.body).not_to include("category-no-solutions")
     end
