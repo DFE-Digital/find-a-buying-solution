@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
     @selected_subcategories = @subcategories.select { params[:subcategory_slugs]&.include?(it.slug) }
     @solutions = @category.filtered_solutions(subcategory_slugs: params[:subcategory_slugs]&.compact_blank)
     @page_section_title = t(".section_title")
+    @page_header_class = "category-header"
     @page_title = @category.title
     @page_description = @category.description
   end
