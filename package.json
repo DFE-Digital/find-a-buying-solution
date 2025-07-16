@@ -1,23 +1,27 @@
 {
-  "name": "app",
-  "dependencies": {
-    "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^7.3.0",
-    "dfe-frontend": "^2.0.1",
-    "govuk-frontend": "^5.9.0",
-    "sass": "^1.84.0"
-  },
-  "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --quiet-deps",
-    "build": "esbuild app/assets/javascripts/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-    "lint": "bin/eslint 'app/**/*.js'"
-  },
-  "devDependencies": {
-    "esbuild": "^0.25.0",
-    "eslint": "^8.57.1"
-  },
-  "resolutions": {
-    "brace-expansion": "^2.0.2"
-  },
-  "packageManager": "yarn@4.6.0"
+    "name": "app",
+    "dependencies":
+    {
+        "@hotwired/stimulus": "^3.2.2",
+        "@hotwired/turbo-rails": "^7.3.0",
+        "dfe-frontend": "^2.0.1",
+        "govuk-frontend": "^5.9.0",
+        "sass": "^1.84.0"
+    },
+    "scripts":
+    {
+        "build:css": "sass ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --quiet-deps",
+        "build": "esbuild app/assets/javascripts/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+        "lint": "bin/eslint 'app/**/*.js'"
+    },
+    "devDependencies":
+    {
+        "esbuild": "^0.25.0",
+        "eslint": "^8.57.1"
+    },
+    "resolutions":
+    {
+        "brace-expansion": "^2.0.2"
+    },
+    "packageManager": "yarn@4.6.0"
 }

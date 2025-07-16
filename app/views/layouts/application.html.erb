@@ -1,5 +1,8 @@
 <%= render "shared/dfe_base" do %>
   <%= render "shared/dfe_header" %>
+  <div class="dfe-width-container dfe-header__service-name  govuk-!-margin-bottom-6">
+    <a href="/"><%= t("header_title") %></a>
+  </div>
   <div class="page-header <%= @page_header_class %>">
     <%= render "shared/dfe_beta_banner" %>
 

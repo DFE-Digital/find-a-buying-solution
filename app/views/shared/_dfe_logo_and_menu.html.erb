@@ -1,15 +1,10 @@
 <div class="dfe-width-container dfe-header__container">
-  <div class="dfe-header__logo">
-    <a class="dfe-header__link" href="/" aria-label="DfE homepage">
-      <%= image_tag 'dfe-frontend/dfe-logo.png', class: 'dfe-logo', alt: 'Department for Education' %>
-      <%= image_tag 'dfe-frontend/dfe-logo-alt.png', class: "dfe-logo-hover", alt: "Department for Education" %>
+  <div class="govuk-header__logo">
+    <a class="govuk-header__link govuk-header__link--homepage" href="/" aria-label="DfE homepage">
+      <%= image_tag 'dfe-frontend/dfe-logo.png', class: 'govuk-header__logotype', alt: 'Department for Education' %>
     </a>
   </div>
   <div class="dfe-header__content" id="content-header">
     <%= render "shared/dfe_narrow_search_box" if @show_search_in_header %>
   </div>
-</div>
-
-<div class="dfe-width-container dfe-header__service-name  govuk-!-margin-bottom-6">
-  <a href="/" class="dfe-header__link--service"><%= t("header_title") %></a>
 </div>
