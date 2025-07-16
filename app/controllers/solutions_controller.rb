@@ -25,6 +25,7 @@ class SolutionsController < ApplicationController
     @page_section_title = t(".section_title")
     @page_title = @solution.title
     @page_description = @solution.description
+    @page_header_class = "details-header"
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
     add_breadcrumb :primary_category_breadcrumb_name, :primary_category_breadcrumb_path if @primary_category
   end

@@ -502,6 +502,11 @@ a.all-buying-options-link {
     height: 100%;
 }
 
+.dfe-card:hover,
+.dfe-card:focus-within {
+  background-color: govuk.$govuk-brand-colour;
+}
+
 .govuk-footer {
   border-top: 1px solid #b1b4b6;
 }
@@ -726,4 +731,12 @@ a.all-buying-options-link {
   .gem-c-cards__link::after {
     position: static
   }
+}
+
+.category-header {
+  background-color: #d2e2f1;
+}
+
+.details-header {
+  background-color: #f4f8fb;
 }
