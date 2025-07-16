@@ -1,4 +1,6 @@
 require "active_support/core_ext/integer/time"
+require_relative "../../app/models/contentful_client"
+require_relative "../../lib/i18n/backend/contentful"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -43,8 +45,10 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  # Replace the default in-process memory cache store with a durable alternative.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_cache_store,
+                       {
+                         expires_in: 24.hours,
+                       }
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
   # config.active_job.queue_adapter = :resque
@@ -58,4 +62,37 @@ Rails.application.configure do
 
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.before_initialize do
+    # Setting I18n backend with Contentful & YAML fallback and exception handler
+
+    # Setting I18n backend with YAML and exception handler
+    yaml_backend = I18n::Backend::Simple.new
+
+    backend_chain =
+      begin
+        # Use Contentful with YAML fallback
+        contentful_backend = I18n::Backend::Contentful.new
+        Rails.logger.info "I18n: Using Contentful backend with YAML fallback"
+        [contentful_backend, yaml_backend]
+      rescue StandardError => e
+        Rails.logger.warn "Failed to initialize Contentful I18n backend: #{e.message}. Falling back to YAML translations."
+        [yaml_backend]
+      end
+
+    # Chained backend creation
+    I18n.backend = I18n::Backend::Chain.new(*backend_chain)
+
+    # Enable fallbacks
+    require "i18n/backend/fallbacks"
+    I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
+
+    # Configure en-only fallbacks
+    I18n.default_locale = :en
+    I18n.available_locales = [:en]
+    I18n.fallbacks.map(en: [:en])
+
+    # Logging which backends are active
+    Rails.logger.info "I18n backends initialized: #{backend_chain.map(&:class).join(', ')}"
+  end
 end
