@@ -1,8 +1,18 @@
 <%= render "shared/dfe_base" do %>
   <%= render "shared/dfe_header" %>
-  <div class="dfe-width-container dfe-header__service-name  govuk-!-margin-bottom-6">
-    <a href="/"><%= t("header_title") %></a>
-  </div>
+
+  <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
+    <div class="dfe-width-container">
+      <div class="govuk-service-navigation__container">
+        <span class="govuk-service-navigation__service-name">
+          <a href="/" class="govuk-service-navigation__link">
+           <%= t("header_title") %>
+          </a>
+        </span>
+      </div>
+    </div>
+ </section>
+
   <div class="page-header <%= @page_header_class %>">
     <%= render "shared/dfe_beta_banner" %>
 
