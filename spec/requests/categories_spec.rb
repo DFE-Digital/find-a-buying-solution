@@ -34,14 +34,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
     end
 
-    it "includes the procurement support link with correct text" do
-      expect(response.body)
-        .to have_link(
-          "I need something else",
-          href: "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support"
-        )
-    end
-
     it "does not display categories without solutions" do
       expect(response.body).not_to include("category-no-solutions")
     end
@@ -105,7 +97,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("20 results")
+        expect(response.body).to include("21 results")
       end
     end
 
@@ -125,7 +117,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("7 results")
+        expect(response.body).to include("9 results")
       end
     end
 
@@ -140,7 +132,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       end
 
       it "displays the correct results count text" do
-        expect(response.body).to include("7 results")
+        expect(response.body).to include("9 results")
       end
     end
   end

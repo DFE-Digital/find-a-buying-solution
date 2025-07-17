@@ -80,6 +80,102 @@ namespace :contentful do
 
     puts "URL check complete."
   end
+
+  desc "Update solutions with a primary category, \
+    Run a dry run: rake contentful:update_solution_with_primary_category['dry_run'] \
+    publish_all with out confirming: rake contentful:update_solution_with_primary_category['publish_all']"
+  task :update_solution_with_primary_category, [:action] => :environment do |_t, args|
+    publish_all = false
+    dry_run = false
+
+    if args[:action]
+      publish_all = true if args[:action] == "publish_all"
+      dry_run = true if args[:action] == "dry_run"
+    end
+
+    client = Contentful::Management::Client.new(ENV["CONTENTFUL_CMA_TOKEN"])
+    space = client.spaces.find(ENV["CONTENTFUL_SPACE_ID"])
+    environment = space.environments.find("master")
+
+    # Get all solution without a primary category
+    entries = environment.entries.all(content_type: "solution", "fields.primary_category" => nil)
+
+    all_categories = Category.all.map { [it.title, it.id] }.to_h
+
+    categories_by_id = Category.all.map { [it.id, it.title] }.to_h
+
+    primary_categories = {
+      "Energy cost recovery services" => "Energy",
+      "Education decarbonisation" => "Energy",
+      "Building in use - support services" => "Facilities management and estates",
+      "Estates and facilities professional services" => "Primary is Facilities management and estates",
+      "Specialist professional services" => "Consultancy services",
+      "Debt resolution services" => "Consultancy",
+      "LED lighting" => "Energy",
+      "Audiovisual solutions" => "IT",
+    }
+
+    entries.each do |entry|
+      categories = entry.categories
+      puts "Solution: #{entry.title}"
+      cat_name = ""
+      if categories.count == 1
+        id = categories.first["sys"]["id"]
+        cat_name = categories_by_id[id]
+
+        if cat_name.nil?
+          skip_entry("Skipping because is missing a category")
+          next
+        end
+
+        if dry_run == false
+          entry.update(primary_category: categories.first)
+        else
+          puts "DRY RUN updating #{entry.title} with primary_category: #{cat_name}"
+        end
+      else
+        cat_name = primary_categories[entry.title.strip]
+
+        if cat_name.nil?
+          skip_entry("Skipping because is missing a category")
+          next
+        end
+
+        id = all_categories[cat_name]
+
+        if id.nil?
+          skip_entry("Skipping because is missing a category id")
+          next
+        end
+
+        data = { "sys" => { "type" => "Link", "linkType" => "Entry", "id" => id } }
+        if dry_run == false
+          entry.update(primary_category: data)
+        else
+          puts "DRY RUN updating #{entry.title} with primary_category: #{cat_name}"
+        end
+      end
+
+      if dry_run == true
+        puts "DRY RUN: #{entry.title} has not been publish"
+      elsif publish_all == true && dry_run == false
+        entry.publish
+        puts "#{entry.title} has been publish"
+      else
+        puts "Do you want to publish solution #{entry.title} with primary category #{cat_name}?"
+        puts "Please type 'Yes' to publish or No to skip"
+        input = $stdin.gets.chomp
+
+        if input.downcase == "yes"
+          entry.publish
+          puts "#{entry.title} has been published"
+        else
+          puts "#{entry.title} has not been published"
+        end
+      end
+      puts "------------------"
+    end
+  end
 end
 
 def unique_categories(json_data)
@@ -93,7 +189,8 @@ def create_categories(environment, json_data)
 end
 
 def create_solution(environment, item, category)
-  puts "Starting solution #{item['title']}"
+  start_line
+  puts "-- Starting solution #{item['title']} --"
   solution_type = environment.content_types.find("solution")
   entries = environment.entries.all(content_type: "solution", "fields.slug" => item["ref"])
   entry = entries.first
@@ -160,5 +257,10 @@ def create_category(environment, item)
   end
   entry.publish
   entry
+end
+
+def skip_entry(msg)
+  puts msg
+  puts "------------------"
 end
 # rubocop:enable Rails/SaveBang

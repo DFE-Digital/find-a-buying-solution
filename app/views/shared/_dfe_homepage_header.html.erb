@@ -4,10 +4,10 @@
     <div class="dfe-width-container hero-text-container">
       <div class="dfe-grid-row">
         <div class="dfe-grid-column-two-thirds">
-          <h1 class="govuk-heading-xl">
+          <h1 class="dfe-heading-xl homepage-heading">
             <%= t('header_title') %>
           </h1>
-          <p class="govuk-body-l">
+          <p class="dfe-body-l header_description">
             <%= t('header_description') %>
           </p>
           <%= render "shared/dfe_search_homepage" %>
@@ -16,7 +16,9 @@
     </div>
   </section>
   <div class="dfe-width-container all-buying-options-link-container govuk-!-margin-top-4">
-    <%= link_to  t(".view_all_buying_options"), solutions_path, class:"all-buying-options-link govuk-body underlined" %>
+    <p class="govuk-body">
+      <%= link_to  t(".view_all_buying_options"), solutions_path, class:"all-buying-options-link govuk-body underlined" %>
+    </p>
   </div>
 </header>
 <%= render "shared/dfe_beta_banner" %>

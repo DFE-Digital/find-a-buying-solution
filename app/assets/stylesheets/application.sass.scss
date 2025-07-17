@@ -32,6 +32,14 @@ a.underlined {
   margin-bottom:10px;
 }
 
+header_description {
+  color: #ccd8e1;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.33333;
+  max-width: 720px;
+}
+
 
 .chevron-card-list {
   list-style: none;
@@ -109,6 +117,11 @@ a.underlined {
 
 h1.govuk-heading {
   margin-bottom: 30px;
+}
+
+
+.homepage-heading {
+  margin-bottom: 10px;
 }
 
 
@@ -489,6 +502,11 @@ a.all-buying-options-link {
     height: 100%;
 }
 
+.dfe-card:hover,
+.dfe-card:focus-within {
+  background-color: govuk.$govuk-brand-colour;
+}
+
 .govuk-footer {
   border-top: 10px solid #1d70b8;
   background-color: #f4f8fb;
@@ -721,4 +739,12 @@ a.all-buying-options-link {
   .gem-c-cards__link::after {
     position: static
   }
+}
+
+.category-header {
+  background-color: #d2e2f1;
+}
+
+.details-header {
+  background-color: #f4f8fb;
 }
