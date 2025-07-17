@@ -29,5 +29,4 @@ private
       I18n.backend.reload!
     end
   end
-
 end
