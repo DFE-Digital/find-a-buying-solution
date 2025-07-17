@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
   rescue_from ContentfulRecordNotFoundError, with: :record_not_found
   before_action :enable_search_in_header, :set_default_back_link
+  before_action :reload_translations
 
 private
 
@@ -20,4 +21,12 @@ private
     @page_back_link ||= root_path
   end
   # rubocop:enable Naming/MemoizedInstanceVariableName
+
+  def reload_translations
+    # Reload the backend if Contentful translations cache has expired
+    unless Rails.cache.exist?(I18n::Backend::Contentful::CACHE_KEY)
+      Rails.logger.info "Cache expired. Reloading translations..."
+      I18n.backend.reload!
+    end
+  end
 end

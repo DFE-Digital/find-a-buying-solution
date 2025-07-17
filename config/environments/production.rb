@@ -47,7 +47,7 @@ Rails.application.configure do
 
   config.cache_store = :redis_cache_store,
                        {
-                         expires_in: 24.hours,
+                         expires_in: I18n::Backend::Contentful::CACHE_EXPIRY,
                        }
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
