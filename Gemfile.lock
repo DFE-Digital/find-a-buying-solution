@@ -362,9 +362,9 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    redis (5.4.0)
+    redis (5.4.1)
       redis-client (>= 0.22.0)
-    redis-client (0.25.0)
+    redis-client (0.25.1)
       connection_pool
     redis-rails (0.0.0)
     regexp_parser (2.10.0)
@@ -521,7 +521,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-attack (~> 6.7)
   rails (~> 8.0.2)
-  redis (~> 5.0)
+  redis (~> 5.4)
   redis-rails
   rladr
   rollbar
