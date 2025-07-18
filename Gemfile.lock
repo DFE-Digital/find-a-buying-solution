@@ -130,7 +130,7 @@ GEM
     domain_name (0.6.20240107)
     dotenv (3.1.8)
     drb (2.2.3)
-    erb (5.0.1)
+    erb (5.0.2)
     erubi (1.13.1)
     faraday (2.13.2)
       faraday-net_http (>= 2.0, < 3.5)
@@ -226,7 +226,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
-    io-console (0.8.0)
+    io-console (0.8.1)
     irb (1.15.2)
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
@@ -303,11 +303,10 @@ GEM
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
-    propshaft (1.1.0)
+    propshaft (1.2.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
-      railties (>= 7.0.0)
     psych (5.2.6)
       date
       stringio
