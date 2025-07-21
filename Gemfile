@@ -18,7 +18,7 @@ gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rack-attack", "~> 6.7"
 gem "rails", "~> 8.0.2"
-gem "redis", "~> 5.0", require: false
+gem "redis", "~> 5.4", require: false
 gem "redis-rails", require: false
 gem "rollbar"
 gem "sidekiq", "~> 8.0"
