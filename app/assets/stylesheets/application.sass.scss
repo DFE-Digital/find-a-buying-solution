@@ -160,6 +160,10 @@ h1.govuk-heading {
   margin-top: 20px;
 }
 
+.govuk-crest {
+  fill: #000000;
+}
+
 .govuk-footer__copyright-logo {
   background-image: url("#{$govuk-assets-path}govuk-crest.svg");
   display: inline-block;
