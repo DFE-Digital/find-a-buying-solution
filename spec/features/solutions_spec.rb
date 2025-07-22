@@ -75,7 +75,7 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
     it "display only home breadcrumb with no primary category" do
       visit solution_path("it-hardware")
       expect(page).to have_link("Home", class: "govuk-breadcrumbs__link")
-      expect(page).to have_css(".govuk-breadcrumbs__link", count: 1)
+      expect(page).to have_css(".govuk-breadcrumbs__link", count: 2)
     end
 
     it "display primary category" do

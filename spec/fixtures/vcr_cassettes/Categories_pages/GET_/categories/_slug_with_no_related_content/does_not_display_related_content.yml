@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -20,7 +20,7 @@ http_interactions:
       Host:
       - cdn.contentful.com
       User-Agent:
-      - http.rb/5.2.0
+      - http.rb/5.3.1
   response:
     status:
       code: 200
@@ -44,8 +44,8 @@ http_interactions:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
       - '"13397941486963817118"'
-      X-Contentful-Upstream-Request-Time:
-      - '0.038'
+      Strict-Transport-Security:
+      - max-age=15768000
       X-Content-Type-Options:
       - nosniff
       Server:
@@ -69,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '1499'
       Date:
-      - Thu, 22 May 2025 10:23:21 GMT
+      - Thu, 24 Jul 2025 13:30:54 GMT
       X-Served-By:
-      - cache-ewr-kewr1740044-EWR, cache-lcy-eglc8600048-LCY
+      - cache-ewr-kewr1740044-EWR, cache-lcy-eglc8600093-LCY
       X-Cache-Hits:
-      - 0, 0
+      - 1, 0
       X-Timer:
-      - S1747909401.008040,VS0,VE123
+      - S1753363854.127059,VS0,VE1
       X-Cache:
-      - MISS
+      - HIT
       X-Contentful-Request-Id:
-      - a5cca86f-d36b-4a12-9ff4-97162683f0ad
+      - ff9a7607-146e-417a-8ef2-f286ca2174d0
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 22 May 2025 10:23:21 GMT
+  recorded_at: Thu, 24 Jul 2025 13:30:54 GMT
 recorded_with: VCR 6.3.1

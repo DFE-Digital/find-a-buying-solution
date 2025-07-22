@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -20,7 +20,7 @@ http_interactions:
       Host:
       - cdn.contentful.com
       User-Agent:
-      - http.rb/5.2.0
+      - http.rb/5.3.1
   response:
     status:
       code: 200
@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '819'
+      - '790'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -43,9 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"3341010577007958803"
-      X-Contentful-Upstream-Request-Time:
-      - '0.049'
+      - W/"10992942947112438784"
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -72,23 +70,23 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Age:
-      - '61904'
       Date:
-      - Thu, 29 May 2025 09:37:58 GMT
+      - Thu, 24 Jul 2025 13:31:07 GMT
+      Age:
+      - '72317'
       X-Served-By:
-      - cache-ewr-kewr1740049-EWR, cache-lhr-egll1980083-LHR
+      - cache-ewr-kewr1740049-EWR, cache-lcy-eglc8600085-LCY
       X-Cache-Hits:
-      - 2, 0
+      - 1, 1
       X-Timer:
-      - S1748511478.128905,VS0,VE2
+      - S1753363868.733548,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 7591f64b-9c90-441d-9557-fc0f566ad2d5
+      - 14029342-f082-47cb-80ed-1648d19f134c
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA8VV227cNhB971cQBIK2wOqu1V6e6isKJ7WBOI7RpEHApUYS1xIpkNQ68mL/vUNp42wT59KHoi+CRM7MOXM5oy01vaHLLbV9C3RJj7RmPd1NqFWW1XQZTai5Ey1dhhNai0bY4UhYaNDr7ZY2YFnOLBtCsNIdvptQriSH1g5fGGsPYVrGEWP7GeQLIe+oiy7vXo0krgdDhMmRkcq4qaIkW0drTXcYbTiNQ7vOPpzfPP89/fNFYdL7lxeNitFnn8eZtLrHT66BWciPkDf6xFMvnHrx/FWULcN0mUR+GKVv0KxrMYknzeJ0GSd+tJg6M5AboZVsQGK8xzwGQg0zFvQnAl9mdXbg7PJou1UtTAX5a9BGKImVxdJq2IjxKx7qaBFrLMv363ZyYL6v04pJibQcXq04q12PQXo3167HhYA6H7sv7HB1hsZlTwqlyTWvlKoNZpSD4Vq0duBI9+eEq67OiWEbIF1LrCJJ9owoSWwFQhMYA61EXZsJWTEDubs8Lc5+NgSMFQ3W2/iuQ6yu31v1nvE9wIUSkjxJpNM4kbSytjXLIDDdCufRR66N8Q3ojeDgl2rjd3eBOwxm8TwKNJTCdcbrVac9gfXUCI8v3kjRQ1PPjLkG8SwMQ+Rk6q4cCuWqcWiBd8i8/KEpPjIGrHNw4zF9OL7I5/pDCtHs9uL19KroHh5OsC+7HepFSF53WGY3VKPb/6mtr3B91NbHxL6prTj0Z2H0bW2hBD+Z/dfaSg61hUL7ETncVrjpCNTArRac3AuZNzjRxHtiPsnxIDVyojb4HKfkc+18LR6z5CVrWhQYuSoKUykN5BbByDnTzYTcSKSRk+dClrlqyKonlwIntmaGnKoKtO3JL79JnY/vv/4lceoK4QS9paNmgmAgZHxuC+bm0vgSbHC4W4On2x5E2QrixWy2SKaQhMUi41mc8xnL5umUJREEcs/F2+N77dXlcXXaX52rP7xOmhZ5Vv66LYdVYpnApeKWp3hAgvE8yWJszaOq7kVuK1yFixj/OLhKysr9cuI0dSvMJXXJGrep/g3qP9boCBWsWyid/N7tdj/9DaMxY9sFBwAA
-  recorded_at: Thu, 29 May 2025 09:37:58 GMT
+        H4sIAAAAAAAAA8VV227cNhB971cQfGqAlURqtauNnrox3IubC1A7KdKiWNDUrERbIgWSsiMvFuhv9Pf6JRlK62Td5vaUPNkiZ86cGZ4zu6NucLTYUT90QAu6tlYMdD+j3njR0ILPqLtWHS3YjDaqVX48Uh5azPpzR1vwohRejBCiCod/zag0WkLnxy/EOpRwnZBYY/efkk+VvqYBXV9fTCTOx0AsUyIjs5Su5vPlFb+ydI9o42nK/NXyzY8vf/05e/1067Lb385ak2LOoY9T7e2An9KC8FCukTfmpIuILaJ0dcGXBcuKOY8Zz/7AsL7DJh6ELSOWXfC0YLxIeZzl8xAG+kZZo1vQiPeuj5FQK5wH+57A/7s6PUoOfXT9ZaNcDeUrsE4ZTYt5NqMWbtT0lY9z9FhrGsvn53ZyFH6Y06XQGmmFeo2RoglvDDp6eR7eeKugKafXV368OsXgaiBbY8m5rI1pHHZUgpNWdX7kSNdEwy25FQPxhnTWyN4CGUxviRsz/v37H0dgwnF91zXjM4im2XizEfKAcmaUJh+s1luUHa2971yRJK6/RNHFSKh1sQN7oyTElbmJ++skHCZ5uuKJhUqF8UeBR6RwaBacx3+iiUiEodFEzyVpzhhDTq7pq3EaoeXjCLxTrai+SKpr58CHhKCBxd2Ts3Jl32TA89/PXi1ebPu7uxMc/n6PplBaNj3OMihnSvuWBvoI13cGum/skwZKWZwz/jEDcXbBWYEeyjiGLb6CgRbzYwM9/jLNr8noA2K2pBsaox1BaZ7U4GqFyu5qgzrHKZTKkx/QQNJ51TQwQDmEHfXQHKd4762Syg9HYIJUFkAf6jhvwcta6QoLIbavgZQoX4E7EwG3KjhxRycfJMkoRRdLvxVBay7W4JPjpZh8+CmTnK3mXLJVloo5g4XMU9T9nGdS4l+5SpNfnv20QfcsNxu+ia86qMZ2vFDo+rDd1B0Swft0eWSIW1X6mhbLDH8QalBVjZswS/OwYALz56INe+QemnzPH91DP1hmk8OSsWqwx37/3VvqrRYiiwYAAA==
+  recorded_at: Thu, 24 Jul 2025 13:31:07 GMT
 recorded_with: VCR 6.3.1

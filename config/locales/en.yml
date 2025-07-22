@@ -9,7 +9,11 @@ en:
       title: DfE-approved buying options by category
     show:
       apply: Apply
+      dfe_standfirst: These DfE buying options provide compliant, best value for schools
+      dfe_title: DfE buying options
       filter: Filter
+      other_standfirst: All these DfE-approved buying options are compliant
+      other_title: Other buying options
       section_title: Buying category
       standfirst: All buying options are DfE-approved and listed alphabetically.
       title: Buying options

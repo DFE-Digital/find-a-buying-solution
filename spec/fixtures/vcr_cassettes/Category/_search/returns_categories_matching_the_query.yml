@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.1; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -20,7 +20,7 @@ http_interactions:
       Host:
       - cdn.contentful.com
       User-Agent:
-      - http.rb/5.2.0
+      - http.rb/5.3.1
   response:
     status:
       code: 200
@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '600'
+      - '581'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -37,15 +37,15 @@ http_interactions:
       Cf-Environment-Id:
       - master
       Cf-Environment-Uuid:
-      - 1bae0c6c-9bf9-4c44-9420-7099ae5e9248
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
       - 3za11RVJBwLIPn20QJ67Gq
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"851928153116012273"'
-      X-Contentful-Upstream-Request-Time:
-      - '0.074'
+      - '"198877570008219517"'
+      Strict-Transport-Security:
+      - max-age=15768000
       X-Content-Type-Options:
       - nosniff
       Server:
@@ -68,25 +68,25 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Date:
-      - Tue, 22 Apr 2025 17:10:05 GMT
       Age:
-      - '14357'
+      - '72297'
+      Date:
+      - Thu, 24 Jul 2025 13:30:52 GMT
       X-Served-By:
-      - cache-ewr-kewr1740087-EWR, cache-lcy-eglc8600054-LCY
+      - cache-ewr-kewr1740087-EWR, cache-lcy-eglc8600061-LCY
       X-Cache-Hits:
-      - 1, 1
+      - 1, 0
       X-Timer:
-      - S1745341806.672242,VS0,VE3
+      - S1753363853.912607,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 50000074-88ed-406c-a545-b156b5b2d973
+      - 94800a84-d355-4987-ba01-afc5044bfed9
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
-        food, drink and catering services","slug":"catering-goods-and-supplies"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-03-31T08:37:31.147Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":30,"revision":10,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
+        food, drink and catering services","slug":"catering"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-06-02T13:07:04.784Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":36,"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
 
         '
-  recorded_at: Tue, 22 Apr 2025 17:10:05 GMT
+  recorded_at: Thu, 24 Jul 2025 13:30:52 GMT
 recorded_with: VCR 6.3.1
