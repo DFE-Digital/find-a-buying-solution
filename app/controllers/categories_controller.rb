@@ -19,5 +19,6 @@ class CategoriesController < ApplicationController
     @page_header_class = "category-header"
     @page_title = @category.title
     @page_description = @category.description
+    @category_slug = @category.slug
   end
 end
