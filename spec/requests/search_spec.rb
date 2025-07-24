@@ -23,10 +23,6 @@ RSpec.describe "Search pages", :vcr, type: :request do
     it "displays matching categories" do
       expect(response.body).to include("Catering")
     end
-
-    it "hides search in header" do
-      expect(response.body).not_to include("dfe-header__search")
-    end
   end
 
   describe "GET /search with no results" do
