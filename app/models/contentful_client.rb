@@ -2,7 +2,7 @@ class ContentfulClient
   include Singleton
 
   def self.configure(**kwargs)
-    instance.configure(**kwargs)
+    instance.configure(**defaults.merge(kwargs))
   end
 
   def self.entries(*args, **kwargs)
@@ -34,4 +34,14 @@ class ContentfulClient
       environment: @environment
     )
   end
+
+  def self.defaults
+    {
+      space: ENV.fetch("CONTENTFUL_SPACE_ID", "FAKE_SPACE_ID"),
+      access_token: ENV.fetch("CONTENTFUL_ACCESS_TOKEN", "FAKE_API_KEY"),
+      environment: ENV.fetch("CONTENTFUL_ENVIRONMENT", "master"),
+    }
+  end
+
+  private_class_method :defaults
 end

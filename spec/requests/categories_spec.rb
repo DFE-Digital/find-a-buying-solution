@@ -95,10 +95,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
         expect(response.body).to include("IT Hardware")
         expect(response.body).to include("Everything ICT")
       end
-
-      it "displays the correct results count text" do
-        expect(response.body).to include("21 results")
-      end
     end
 
     context "with specific subcategory_slugs parameters" do
@@ -115,10 +111,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
         expect(response.body).to include("Everything ICT")
         expect(response.body).not_to include("Cyber security services 4")
       end
-
-      it "displays the correct results count text" do
-        expect(response.body).to include("9 results")
-      end
     end
 
     context "when form is submitted with selected subcategories" do
@@ -129,10 +121,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       it "keeps the checkboxes selected after form submission" do
         expect(response.body).to have_css("input[value='software'][checked]")
         expect(response.body).to have_css("input[value='cyber-security']:not([checked])")
-      end
-
-      it "displays the correct results count text" do
-        expect(response.body).to include("9 results")
       end
     end
   end

@@ -5,7 +5,7 @@ class Solution
   attr_reader :id, :title, :description, :expiry, :summary,
               :slug, :provider_name, :provider_initials, :url,
               :categories, :subcategories, :suffix, :call_to_action,
-              :primary_category
+              :primary_category, :buying_option_type
 
   delegate :slug, to: :primary_category, prefix: true, allow_nil: true
 
@@ -24,6 +24,7 @@ class Solution
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
     @primary_category = entry.fields[:primary_category]
+    @buying_option_type = entry.fields[:buying_option_type]
     super
   end
 
@@ -42,6 +43,7 @@ class Solution
                  fields.provider_initials
                  fields.related_content
                  fields.summary
+                 fields.buying_option_type
                  fields.primary_category].join(","),
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
@@ -53,7 +55,7 @@ class Solution
     ContentfulClient.entries(
       content_type: "solution",
       query: query,
-      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.provider_initials"
+      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials"
     ).map { new(it) }
   end
 
@@ -75,6 +77,7 @@ class Solution
         fields.provider_initials
         fields.call_to_action
         fields.url
+        fields.buying_option_type
         fields.primary_category
       ].join(",")
     ).find { |solution| solution.fields[:slug] == slug }
