@@ -4,7 +4,7 @@
       <%= image_tag 'dfe-frontend/dfe-logo.png', class: 'govuk-header__logotype', alt: 'Department for Education' %>
     </a>
   </div>
-  <div class="dfe-header__content" id="content-header">
-    <%= render "shared/dfe_narrow_search_box" if @show_search_in_header %>
-  </div>
+
+  <%= render "shared/dfe_search_button" %>
+
 </div>

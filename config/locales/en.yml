@@ -40,6 +40,7 @@ en:
       empty: Enter a search term.
       too_long: Your search query is too long. Use less than 2000 characters.
       too_many_words: Your search query has too many words. Use less than 25 words.
+    header_title: Search Get help buying for schools
     no_results:
       cta: Visit Get Help Buying Home page
       description: It looks like there are no results for your search keyword.
@@ -66,6 +67,8 @@ en:
       view_all_buying_options: Browse a list of all DfE-approved buying options
     dfe_search:
       close_search: Close search
+      data_close: click->search-toggle#toggleClose
+      data_open: click->search-toggle#toggleOpen
       search: Search
       search_this_website: Search this website
     dfe_search_homepage:
