@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "categories#index"
   resources :categories, only: %i[show index], param: :slug do
-    resources :solutions, only: %i[show index], param: :slug
+    resources :solutions, only: %i[show index], param: :slug, path: ''
   end
 
   resources :solutions, only: %i[show index], param: :slug
