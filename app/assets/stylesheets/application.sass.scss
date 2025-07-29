@@ -813,11 +813,12 @@ a.all-buying-options-link {
   .dfe-header__search-wrap.js-show {
     clear: both;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 10px solid #F4F8FB;
     margin-left: -16px;
     margin-right: -16px;
     padding-top: 16px;
     text-align: left;
+    background-color: #F4F8FB;
   }
 }
 @media (min-width: 40000.0625em) {
@@ -878,6 +879,10 @@ a.all-buying-options-link {
   }
 }
 
+.search-area{
+  background-color: #F4F8FB;
+}
+
 @media (min-width: 40.0625em) {
   .dfe-search__close {
     display: none;
@@ -925,7 +930,7 @@ a.all-buying-options-link {
   height: 21px;
   /* [3] */
   width: 21px;
-  background-color: #ffffff;
+  background-color: #F4F8FB;
   /* underline close icon */
   text-decoration: underline;
   text-decoration-color: #005ea5;
@@ -933,7 +938,7 @@ a.all-buying-options-link {
 }
 
 .search_close {
-  background-color: white;
+  background-color: #F4F8FB;
   border: 0;
   cursor: pointer;
   height: 55px;
@@ -995,5 +1000,14 @@ a.all-buying-options-link {
   .dfe-search__submit_homepage:hover {
       background-color: #d2e2f1;
       border: 1px solid #ffffff;
+  }
+}
+
+@media (max-width: 40.0525em) {
+  .dfe-header__search-form {
+    background-color: #F4F8FB;
+    display: flex;
+    padding: 16px;
+    width: 100%;
   }
 }
