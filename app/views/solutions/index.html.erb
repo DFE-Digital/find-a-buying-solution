@@ -18,7 +18,7 @@
           <div class="all-buying-options-category govuk-!-margin-bottom-7">
             <h3 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h3>
             <p><%= category_data[:description] %></p>
-            <%= render partial: "shared/solutions", locals: { solutions: category_data[:solutions] } %>
+            <%= render partial: "shared/solutions", locals: { solutions: category_data[:solutions], category_slug: category_slug } %>
           </div>
         <% end %>
       </div>
