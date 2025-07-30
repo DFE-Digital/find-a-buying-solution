@@ -1,13 +1,10 @@
 class Solution
   include ActiveModel::Model
   include HasRelatedContent
-
   attr_reader :id, :title, :description, :expiry, :summary,
               :slug, :provider_name, :provider_initials, :url,
               :categories, :subcategories, :suffix, :call_to_action,
-              :primary_category, :buying_option_type
-
-  delegate :slug, to: :primary_category, prefix: true, allow_nil: true
+              :buying_option_type
 
   def initialize(entry)
     @id = entry.id
@@ -23,7 +20,6 @@ class Solution
     @call_to_action = entry.fields[:call_to_action]
     @categories = entry.fields[:categories]
     @subcategories = entry.fields[:subcategories]
-    @primary_category = entry.fields[:primary_category]
     @buying_option_type = entry.fields[:buying_option_type]
     super
   end
@@ -43,8 +39,7 @@ class Solution
                  fields.provider_initials
                  fields.related_content
                  fields.summary
-                 fields.buying_option_type
-                 fields.primary_category].join(","),
+                 fields.buying_option_type].join(","),
       order: "fields.title",
       "fields.categories.sys.id[in]": category_id,
     }.compact
@@ -78,7 +73,6 @@ class Solution
         fields.call_to_action
         fields.url
         fields.buying_option_type
-        fields.primary_category
       ].join(",")
     ).find { |solution| solution.fields[:slug] == slug }
 
@@ -121,11 +115,6 @@ class Solution
       descr: description,
       expiry: expiry,
       body: summary,
-      primary_category: {
-        title: primary_category&.title,
-        ref: primary_category&.slug,
-      },
-
     }
   end
 end

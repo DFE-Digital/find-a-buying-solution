@@ -75,15 +75,15 @@ http_interactions:
       Age:
       - '1223'
       X-Served-By:
-      - cache-ewr-kewr1740064-EWR, cache-lhr-egll1980033-LHR
+      - cache-ewr-kewr1740064-EWR, cache-lhr-egll1980071-LHR
       X-Cache-Hits:
-      - 0, 1
+      - 0, 2
       X-Timer:
-      - S1753893775.405099,VS0,VE1
+      - S1753893776.901042,VS0,VE0
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 64a7bb56-0689-4199-9bc9-8562772c7c84
+      - c4c7c9a3-a60d-440b-9892-22702d135aa4
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -164,15 +164,15 @@ http_interactions:
       Age:
       - '1223'
       X-Served-By:
-      - cache-ewr-kewr1740081-EWR, cache-lhr-egll1980043-LHR
+      - cache-ewr-kewr1740081-EWR, cache-lhr-egll1980029-LHR
       X-Cache-Hits:
-      - 1, 2
+      - 1, 1
       X-Timer:
-      - S1753893775.447160,VS0,VE0
+      - S1753893776.956138,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 7bfab41a-60a1-4e9c-8ea8-b7592c380ad3
+      - 02caa749-d33b-4275-bf77-18d8480d89ac
     body:
       encoding: ASCII-8BIT
       string: !binary |-

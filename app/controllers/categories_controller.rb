@@ -8,8 +8,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    add_breadcrumb :home_breadcrumb_name, :root_path
-
     @category = Category.find_by_slug!(params[:slug])
     @subcategories = @category.subcategories
     @selected_subcategories = @subcategories.select { params[:subcategory_slugs]&.include?(it.slug) }
@@ -19,5 +17,6 @@ class CategoriesController < ApplicationController
     @page_header_class = "category-header"
     @page_title = @category.title
     @page_description = @category.description
+    @page_back_link = root_path
   end
 end

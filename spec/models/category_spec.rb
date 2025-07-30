@@ -90,7 +90,6 @@ RSpec.describe Category, :vcr, type: :model do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
       expected_solution_slugs = %w[audio-visual-solutions corporate-software electronic-catering-management-and-payment-solutions ict-procurement g-cloud it-hardware microsoft-shape-the-future outsourced-ict software-application-solutions software-licenses sustainable-hardware-asset-recycling-and-data-destruction technology-products-and-associated-services-2 technology-products-and-associated-services]
-
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
       expect(filtered.map(&:slug)).to match_array(expected_solution_slugs)

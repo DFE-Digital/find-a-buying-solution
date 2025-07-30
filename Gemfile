@@ -2,7 +2,6 @@ source "https://rubygems.org"
 ruby file: ".tool-versions"
 
 gem "bootsnap", require: false
-gem "breadcrumbs_on_rails"
 gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
