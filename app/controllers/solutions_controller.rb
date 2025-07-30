@@ -27,6 +27,7 @@ class SolutionsController < ApplicationController
     @page_description = @solution.description
     @page_header_class = "details-header"
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
+    @canonical_url = category_solution_url(@primary_category.slug, @solution.slug)
 
     if params[:category_slug].present? && @category.present?
       add_breadcrumb :category_breadcrumb_name, :category_breadcrumb_path
