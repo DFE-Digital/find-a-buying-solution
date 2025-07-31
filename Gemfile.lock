@@ -93,8 +93,6 @@ GEM
       msgpack (~> 1.2)
     brakeman (7.1.0)
       racc
-    breadcrumbs_on_rails (4.1.0)
-      railties (>= 5.0)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -132,7 +130,7 @@ GEM
     drb (2.2.3)
     erb (5.0.2)
     erubi (1.13.1)
-    faraday (2.13.2)
+    faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -151,7 +149,7 @@ GEM
       rake
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-apis-bigquery_v2 (0.90.0)
+    google-apis-bigquery_v2 (0.91.0)
       google-apis-core (>= 0.15.0, < 2.a)
     google-apis-core (0.18.0)
       addressable (~> 2.5, >= 2.5.1)
@@ -314,7 +312,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.16)
+    rack (3.2.0)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-session (2.1.1)
@@ -500,7 +498,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
-  breadcrumbs_on_rails
   capybara
   contentful
   contentful-management
@@ -511,7 +508,6 @@ DEPENDENCIES
   dotenv
   govuk-components
   govuk_design_system_formbuilder
-  i18n (~> 1.14)
   i18n-tasks
   jsbundling-rails
   kramdown
@@ -520,7 +516,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-attack (~> 6.7)
   rails (~> 8.0.2)
-  redis (~> 5.4)
+  redis (~> 5.0)
   redis-rails
   rladr
   rollbar
@@ -536,4 +532,4 @@ RUBY VERSION
    ruby 3.4.1p0
 
 BUNDLED WITH
-   2.6.2
+   2.6.3
