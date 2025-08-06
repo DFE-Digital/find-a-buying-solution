@@ -6,6 +6,7 @@
   <% end %>
 
   <%= render partial: "shared/provider_and_expires", locals: { solution: @solution } %>
+  <%= render partial: "shared/provider_reference", locals: { solution: @solution } %>
 
   <%= fabs_govuk_link_to h(solution_cta(@solution)), @solution.url, class: "cta govuk-button" %>
 

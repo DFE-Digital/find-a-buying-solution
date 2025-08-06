@@ -77,6 +77,8 @@ en:
     provider_and_expires:
       expires: 'Expires:'
       provider: 'Provider:'
+    provider_reference:
+      provider_reference: 'Provider Reference:'
   solutions:
     index:
       all_buying_options_description: Use a DfE-approved buying option to make sure
