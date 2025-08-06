@@ -465,6 +465,15 @@ a:focus {
 
 .dfe-header__search-form {
   padding: 0px;
+  display: flex;
+}
+
+.dfe-search__input {
+  flex: 1;
+}
+
+.dfe-search__submit {
+  flex-shrink: 0;
 }
 
 .js-show .narrow-search {
