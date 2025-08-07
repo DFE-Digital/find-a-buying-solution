@@ -154,3 +154,5 @@ app/assets/builds
 specification*.docx
 
 *.env
+master.key
+config/credentials/*.key
