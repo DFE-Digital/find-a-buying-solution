@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&query=nonexistent&select=fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials,fields.primary_category,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&query=nonexistent&select=fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials,fields.primary_category,fields.provider_reference,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -69,25 +69,25 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '216'
       Date:
-      - Tue, 29 Jul 2025 15:24:40 GMT
+      - Thu, 07 Aug 2025 14:59:35 GMT
       X-Served-By:
-      - cache-ewr-kewr1740041-EWR, cache-lhr-egll1980075-LHR
+      - cache-ewr-kewr1740072-EWR, cache-lhr-egll1980028-LHR
       X-Cache-Hits:
-      - 0, 0
+      - 1, 0
       X-Timer:
-      - S1753802680.221379,VS0,VE129
+      - S1754578775.426707,VS0,VE72
       X-Cache:
-      - MISS
+      - HIT
       X-Contentful-Request-Id:
-      - d3773709-27aa-4d60-b83e-b1c212ab8d00
+      - b3e3d0cb-6a64-4e9f-94ca-d6cabe58b7e2
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Tue, 29 Jul 2025 15:24:40 GMT
+  recorded_at: Thu, 07 Aug 2025 14:59:35 GMT
 - request:
     method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=nonexistent&select=fields.title,fields.description,fields.slug,sys
@@ -157,23 +157,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '0'
+      - '67992'
       Date:
-      - Tue, 29 Jul 2025 15:24:40 GMT
+      - Thu, 07 Aug 2025 14:59:35 GMT
       X-Served-By:
-      - cache-ewr-kewr1740069-EWR, cache-lhr-egll1980076-LHR
+      - cache-ewr-kewr1740069-EWR, cache-lhr-egll1980040-LHR
       X-Cache-Hits:
-      - 0, 0
+      - 2, 0
       X-Timer:
-      - S1753802680.404402,VS0,VE133
+      - S1754578776.547781,VS0,VE73
       X-Cache:
-      - MISS
+      - HIT
       X-Contentful-Request-Id:
-      - 642bf7f1-f13e-41fa-9bad-0d466a7ce263
+      - 20bd3eaf-e99e-4f0b-bf7b-5c9edd4b7c26
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Tue, 29 Jul 2025 15:24:40 GMT
+  recorded_at: Thu, 07 Aug 2025 14:59:35 GMT
 recorded_with: VCR 6.3.1

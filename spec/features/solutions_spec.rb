@@ -40,6 +40,15 @@ RSpec.describe "Solutions pages", :vcr, type: :feature do
       visit solution_path("musical-instruments-equipment-and-technology")
       expect(page).to have_no_content("Expires:")
     end
+
+    it "When the solution has no provider reference" do
+      expect(page).to have_no_content("Provider Reference:")
+    end
+
+    it "display provider reference when provider reference is set" do
+      visit solution_path("debt-resolution-services")
+      expect(page).to have_content("what-uu")
+    end
   end
 
   context "when displaying call to action button" do
