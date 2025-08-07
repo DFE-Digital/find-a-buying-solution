@@ -35,10 +35,10 @@
 <% end %>
 
 <% if @dfe_solutions.present? %>
-  <%= render partial: "shared/solution_section", locals: { title_key: t(".dfe_title"), standfirst_key: t(".dfe_standfirst"), solutions: @dfe_solutions } %>
-  <%= render partial: "shared/solution_section", locals: { title_key: t(".other_title"), standfirst_key: t(".other_standfirst"), solutions: @other_solutions } %>
+  <%= render partial: "shared/solution_section", locals: { title_key: t(".dfe_title"), standfirst_key: t(".dfe_standfirst"), solutions: @dfe_solutions, category_slug: @category_slug  } %>
+  <%= render partial: "shared/solution_section", locals: { title_key: t(".other_title"), standfirst_key: t(".other_standfirst"), solutions: @other_solutions, category_slug: @category_slug  } %>
 <% else  %>
-  <%= render partial: "shared/solution_section", locals: { title_key: t(".title"), standfirst_key: t(".standfirst"), solutions: @solutions } %>
+  <%= render partial: "shared/solution_section", locals: { title_key: t(".title"), standfirst_key: t(".standfirst"), solutions: @solutions, category_slug: @category_slug  } %>
 <% end %>
 
 <% content_for :sidebar do %>

@@ -55,7 +55,7 @@ class Solution
     ContentfulClient.entries(
       content_type: "solution",
       query: query,
-      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials"
+      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials,fields.primary_category"
     ).map { new(it) }
   end
 

@@ -9,6 +9,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <%= tag :link, href: @canonical_url, rel: 'canonical' %>
+
   <%= stylesheet_link_tag "application" %>
 
   <%= javascript_include_tag "application", defer: true %>

@@ -4,7 +4,7 @@
       <li class="chevron-card">
         <div class="chevron-card__wrapper">
           <p class="govuk-body-m  govuk-!-margin-bottom-1 govuk-!-font-weight-bold">
-            <%= govuk_link_to solution.title, solution_path(slug: solution.slug, category_slug: solution.primary_category_slug), class: "govuk-link chevron-card__link" %>
+            <%= govuk_link_to solution.title, category_solution_path(slug: solution.slug, category_slug: category_slug), class: "govuk-link chevron-card__link" %>
           </p>
           <p class="govuk-body-m chevron-card__description" style="margin-top: 10px;">
             <%= solution.description %>

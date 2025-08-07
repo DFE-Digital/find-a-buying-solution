@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include Breadcrumbs
   default_form_builder GOVUKDesignSystemFormBuilder::FormBuilder
   rescue_from ContentfulRecordNotFoundError, with: :record_not_found
-  before_action :enable_search_in_header, :set_default_back_link
+  before_action :enable_search_in_header, :set_default_back_link, :canonical_url
   before_action :reload_translations
 
 private
@@ -28,5 +28,9 @@ private
       Rails.logger.info "Cache expired. Reloading translations..."
       I18n.backend.reload!
     end
+  end
+
+  def canonical_url
+    @canonical_url ||= request.url
   end
 end

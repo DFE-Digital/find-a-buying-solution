@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "categories#index"
-  resources :categories, only: %i[show index], param: :slug
+  resources :categories, only: %i[show], param: :slug do
+    resources :solutions, only: %i[show], param: :slug, path: ""
+  end
+
+  resources :categories, only: %i[index], param: :slug
   resources :solutions, only: %i[show index], param: :slug
   get "/search", to: "search#index"
   post "/events", to: "events#create"

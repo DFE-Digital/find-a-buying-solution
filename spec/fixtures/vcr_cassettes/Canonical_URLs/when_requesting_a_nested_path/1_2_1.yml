@@ -1,0 +1,181 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=solution&fields.slug=debt-resolution-services&include=1&select=fields.title,fields.description,fields.expiry,fields.related_content,fields.summary,fields.slug,fields.suffix,fields.provider_name,fields.provider_initials,fields.call_to_action,fields.url,fields.buying_option_type,fields.primary_category,sys
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '1635'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"13082701237062915813"
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Content-Encoding:
+      - gzip
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '20529'
+      Date:
+      - Wed, 06 Aug 2025 16:18:35 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740039-EWR, cache-lhr-egll1980088-LHR
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1754497115.409824,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - ebdf72a3-7e36-4083-8233-5395d44d88e3
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Wed, 06 Aug 2025 16:18:35 GMT
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=banking-finance
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '820'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"1290545503194667036"
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Content-Encoding:
+      - gzip
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '610775'
+      Date:
+      - Wed, 06 Aug 2025 16:18:35 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740070-EWR, cache-lhr-egll1980055-LHR
+      X-Cache-Hits:
+      - 1, 0
+      X-Timer:
+      - S1754497115.470687,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - 26ef9ba8-fa76-4016-a996-a6006b0f75d8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8WW3U/bMBDA3/dXRH6ukzhpKc1by2ATQ+KjBSYmhNzETU1TO9hOoUP87zsnKZSuDJjGKvWhtu/Dd/7dXe6RnmsU3SMzzxmKUFcpOkcPDWSkoRmKSAPpCc9R5DdQxqfcwJYP/7lhU9D7cY+mzNCEGloaoandvGygWIqY5aZcgbXaic5pDF7uV5wecDFB1r6YDKpr9EtBcJPAneRWrMck3Lom1wo9gLVyt/3t5ivzD4K9i2FzND/tyuNzPmyDTh3JrjBqDstYMWpY0oWbo8APWtgPsN8aEBI1O1FIXD9sXYBYkUMQz8S2QHJAwsjvREHT9UlgxZiYcSXFlAmw9xhHeaEp1Yappwv8HtXukrKNIy+GGddjlpwxpbkUKAqDBlJsxqsVaZaJNOCsysvridtZEq8TFUNcqYRcWJeZjGlmH5oJfNq3Dz3iLEsqBLgpj3pUTLhIHSoSZ8QFhZeEqBKmY8VzU94T9Yp5fcZp5mimZjxmGsR0VqRwPqxs4Cd9xTKb4Ks6oJKd5+ytS1j1hmV+z9j57VlrS+/v3lHVO2aj63iibVDvtBMe7wwCwuOz/v7hTv8k20v37g4+/4WhL0U4mB4djke9sWrz2fefZN8XYOcSfpB7EWcFJM1iUrG4yWp5Ieg3VEsLB2RAWpHfjIJtl3S211fLQgwkw6bb6pD/UC3t5WIJ/0WtrEL6WsnYlnVl2J1tLlAStmpGUjk6HkuZaScteFKXT6Ggm6KxMbmOPO/29tZN5cwtJt5CxhuW+hj0ca1fMbmpBrse7/cQ04pI4LZJ58/E+MtiH91fn7XXTRNzwlJuZ0bJDMMZo0osGi8XsDmltt06dCgL45gxc46UjAvF7PhxurFxYKCFdng9g6sCCdRrjNxhJtMFbqDR9AjxSMerRt4ycBhaPjaq0EZjKXD+5A3T2GDrDVPF8FwWGMZqMvc2i+j6kfAGRMOyqYXQqiK/7YbhC01trdgHIwozf+kLYNOIDsYApHaMdGBua54ArEMGaDEHaNUWVnZT8Lz8Hlrl8G1NDpvSBTYSL1zgykWJmTZUGa92hh+drbRJGLmffgGB7zuGywoAAA==
+  recorded_at: Wed, 06 Aug 2025 16:18:35 GMT
+recorded_with: VCR 6.3.1
