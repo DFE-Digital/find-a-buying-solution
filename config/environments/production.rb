@@ -45,10 +45,6 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  config.cache_store = :redis_cache_store,
-                       {  namespace: "fabs_cache_store",
-                          expires_in: I18n::Backend::Contentful::CACHE_EXPIRY }
-
   # Replace the default in-process and non-durable queuing backend for Active Job.
   # config.active_job.queue_adapter = :resque
 
