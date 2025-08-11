@@ -331,9 +331,6 @@ footer {
 
 
 @media (max-width: 40.0525em) {
-  .dfe-header {
-    padding: 1px;
-  }
   .dfe-header .dfe-header__service-name {
     margin-left: 0px;
   }
@@ -465,6 +462,15 @@ a:focus {
 
 .dfe-header__search-form {
   padding: 0px;
+  display: flex;
+}
+
+.dfe-search__input {
+  flex: 1;
+}
+
+.dfe-search__submit {
+  flex-shrink: 0;
 }
 
 .js-show .narrow-search {
@@ -821,12 +827,21 @@ a.all-buying-options-link {
 
 .category-header {
   background-color: #d2e2f1;
-  margin-top: -15px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .details-header {
   background-color: #f4f8fb;
-  margin-top: -15px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.govuk-service-navigation{
+  border-top: 1px solid #8eb8dc;
+  position: relative;
+  z-index: 10;
+
 }
 
 .govuk-header__link .govuk-header__logotype{
@@ -958,7 +973,6 @@ a.all-buying-options-link {
 
 @media (min-width: 40.0625em) {
   .dfe-header__search_narrow {
-    margin-right: 60px;
     margin-left: 0px;
   }
 }
@@ -976,9 +990,9 @@ a.all-buying-options-link {
 
 .dfe-icon__search {
   fill: #ffffff;
-  height: 21px;
+  height: 27px;
   /* [3] */
-  width: 21px;
+  width: 27px;
   background-color: govuk.$govuk-brand-colour;
 }
 
