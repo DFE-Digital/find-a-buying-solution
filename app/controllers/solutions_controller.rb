@@ -5,7 +5,7 @@ class SolutionsController < ApplicationController
     @solutions = Solution.all
     @sorted_categories = @solutions.each_with_object({}) { |solution, hash|
       solution.categories.each do |category|
-        hash[category.title] ||= { slug: category.title, description: category.description, solutions: [] }
+        hash[category.title] ||= { slug: category.title, description: category.description, solutions: [], cat_slug: category.slug }
         hash[category.title][:solutions] << solution
       end
     }.sort_by { |category_slug, _category_data| category_slug }.to_h
@@ -13,6 +13,7 @@ class SolutionsController < ApplicationController
     @page_title = t(".all_buying_options_title")
     @page_description = t(".all_buying_options_description")
     @page_back_link = request.referer
+
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
     render layout: "all_buying_options"
   end

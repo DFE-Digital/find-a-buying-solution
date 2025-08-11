@@ -32,5 +32,9 @@ RSpec.describe "Solutions", :vcr, type: :request do
     it "sets correct HTML title tag" do
       expect(response.body).to include("<title>#{I18n.t('solutions.index.all_buying_options_title')} - #{I18n.t('service.name')}</title>")
     end
+
+    it "set the correct solution url" do
+      expect(response.body).to include('<a class="govuk-link chevron-card__link" href="/categories/banking-finance/audit-and-financial-services">Audit and financial services</a>')
+    end
   end
 end
