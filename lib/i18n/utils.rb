@@ -12,35 +12,17 @@ module I18n
     end
 
     def self.unflatten_translations(entries)
-      result = { en: {} }
-
-      entries.each do |entry|
+      entries.each_with_object({}) do |entry, hash|
         next if entry.fields[:key].blank?
 
-        key = entry.fields[:key].to_s
-        value = entry.fields[:value].to_s
+        key_parts = entry.fields[:key].split(".")
+        next if key_parts.empty?
 
-        # Special handling for date format strings - removing extra quotes
-        value = value.gsub(/^"|"$/, "") if key.include?("date.formats")
+        locale = key_parts.shift.to_sym
+        hash[locale] ||= {}
 
-        result[key.to_sym] = value
-        parts = key.split(".")
-
-        if parts.first == "en"
-          # Removing 'en' if already prefixed with it
-          build_nested_hash(result[:en], parts[1..], value)
-        else
-          build_nested_hash(result[:en], parts, value)
-        end
+        build_nested_hash(hash[locale], key_parts, entry.fields[:value])
       end
-
-      # Ensuring date format is always available
-      result[:en][:date] ||= {}
-      result[:en][:date][:formats] ||= {}
-      result[:en][:date][:formats][:standard] ||= "%d %B %Y"
-      result[:'en.date.formats.standard'] ||= "%d %B %Y"
-
-      result
     end
 
     def self.build_nested_hash(hash, key_parts, value)
