@@ -7,3 +7,4 @@ A service to help school buying professionals create an end-to-end seamless jour
 
 Read [Setting up a development environment](doc/developer-setup.md) to learn
 how to configure your local environment and get access to required systems.
+
