@@ -46,15 +46,12 @@ Rails.application.configure do
   config.active_support.report_deprecations = false
 
   config.cache_store = :redis_cache_store,
-                       {  namespace: "fabs_cache_store",
-                          expires_in: I18n::Backend::Contentful::CACHE_EXPIRY }
+                       # Replace the default in-process and non-durable queuing backend for Active Job.
+                       # config.active_job.queue_adapter = :resque
 
-  # Replace the default in-process and non-durable queuing backend for Active Job.
-  # config.active_job.queue_adapter = :resque
-
-  # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
-  # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
+                       # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
+                       # the I18n.default_locale when a translation cannot be found).
+                       config.i18n.fallbacks = true
 
   heroku_domain = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" if ENV["HEROKU_APP_NAME"].present?
   config.hosts = [heroku_domain, ENV["APP_DOMAIN"], ENV["FAF_DOMAIN"]].reject(&:blank?)
