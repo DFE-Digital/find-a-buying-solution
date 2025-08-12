@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.1.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    # environment:
+    #   # This is critical for single-node development setup
+    #   - discovery.type=single-node
+    #   # Set up a password for the 'elastic' user
+    #   - ELASTIC_PASSWORD=password
+    #   # Allow requests from your Rails app's development server
+    #   - http.cors.enabled=true
+    #   - http.cors.allow-origin=*
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms96m -Xmx96m"
+      #   # Allow requests from your Rails app's development server
+      - http.cors.enabled=true
+      # - http.cors.allow-origin=*
+      - ELASTIC_PASSWORD=password
+    ulimits:
+      # Memory locked limit, essential for preventing swapping on disk
+      memlock:
+        soft: -1
+        hard: -1
+      # Maximum number of open files, also a common requirement
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      # This named volume will persist your Elasticsearch data
+      - esdata:/usr/share/elasticsearch/data
+volumes:
+  # Define the named volume for persistence
+  esdata:
+    driver: local
