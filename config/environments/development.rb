@@ -15,6 +15,7 @@ module I18n
 end
 
 Rails.application.configure do
+  config.hosts << ENV["CONTENTFUL_WEBHOOK_HOST"]
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Make code changes take effect immediately without server restart.
