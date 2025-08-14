@@ -2,6 +2,7 @@
 ELASTICSEARCH_CLIENT = Elasticsearch::Client.new(url: ENV["ELASTICSEARCH_URL"])
 
 # Create the index and its mapping
+# rubocop:disable Rails/SaveBang
 def create_index(index_name)
   return if ELASTICSEARCH_CLIENT.indices.exists?(index: index_name)
 
@@ -21,4 +22,5 @@ def create_index(index_name)
       },
     }
   )
+  # rubocop:enable Rails/SaveBang
 end

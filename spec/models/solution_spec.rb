@@ -88,4 +88,25 @@ RSpec.describe Solution, :vcr, type: :model do
       end
     end
   end
+
+  describe ".find_by_id!" do
+    subject(:solution) { described_class.find_by_id!(id) }
+
+    context "when solution exists" do
+      let(:id) { "1cFyWcuXyiTWce11GytE0C" }
+
+      it "returns the solution" do
+        expect(solution).to be_a(described_class)
+        expect(solution.id).to eq(id)
+      end
+    end
+
+    context "when solution does not exist" do
+      let(:id) { "non-existent" }
+
+      it "raises ContentfulRecordNotFoundError" do
+        expect { solution }.to raise_error(ContentfulRecordNotFoundError, "Solution not found")
+      end
+    end
+  end
 end
