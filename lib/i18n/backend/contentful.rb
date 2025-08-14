@@ -7,7 +7,7 @@ module I18n
       include Flatten
 
       CACHE_KEY = "contentful_translations".freeze
-      CACHE_EXPIRY = ENV.fetch("RAILS_CACHE_EXPIRY_IN_SECONDS", "86400").to_i
+      CACHE_EXPIRY = ENV.fetch("RAILS_CACHE_EXPIRY", "24.hours").to_i
 
       def initialize
         @translations = Concurrent::Hash.new
