@@ -45,9 +45,17 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
-  config.cache_store = :redis_cache_store,
-                       {  namespace: "fabs_cache_store",
-                          expires_in: I18n::Backend::Contentful::CACHE_EXPIRY }
+  # config.cache_store = :redis_cache_store,
+  #                      {  namespace: "fabs_cache_store",
+  #                         expires_in: I18n::Backend::Contentful::CACHE_EXPIRY }
+
+  config.cache_store = :redis_cache_store, {
+    url: ENV.fetch("REDIS_URL"),
+    ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE },
+    namespace: "myapp:cache",
+    expires_in: I18n::Backend::Contentful::CACHE_EXPIRY
+  }
+
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
   # config.active_job.queue_adapter = :resque
@@ -68,16 +76,19 @@ Rails.application.configure do
     # Setting I18n backend with YAML and exception handler
     yaml_backend = I18n::Backend::Simple.new
 
-    backend_chain =
-      begin
-        # Use Contentful with YAML fallback
-        contentful_backend = I18n::Backend::Contentful.new
-        Rails.logger.info "I18n: Using Contentful backend with YAML fallback"
-        [contentful_backend, yaml_backend]
-      rescue StandardError => e
-        Rails.logger.warn "Failed to initialize Contentful I18n backend: #{e.message}. Falling back to YAML translations."
-        [yaml_backend]
-      end
+    # TODO: Remove the following line when caching is made available through Contentful
+    #backend_chain = [yaml_backend]
+
+    # TODO: Uncomment the following block when caching is made available through Contentful
+    begin
+      # Use Contentful with YAML fallback
+      contentful_backend = I18n::Backend::Contentful.new
+      Rails.logger.info "I18n: Using Contentful backend with YAML fallback"
+      [contentful_backend, yaml_backend]
+    rescue StandardError => e
+      Rails.logger.warn "Failed to initialize Contentful I18n backend: #{e.message}. Falling back to YAML translations."
+      [yaml_backend]
+    end
 
     # Chained backend creation
     I18n.backend = I18n::Backend::Chain.new(*backend_chain)
