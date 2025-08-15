@@ -15,6 +15,7 @@ module I18n
 end
 
 Rails.application.configure do
+  config.hosts << "9bb4754ec620.ngrok-free.app"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Make code changes take effect immediately without server restart.

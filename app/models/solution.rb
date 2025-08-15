@@ -90,6 +90,35 @@ class Solution
     new(entry)
   end
 
+  def self.find_by_id!(id)
+    entry = ContentfulClient.entries(
+      content_type: "solution",
+      'sys.id': id,
+      include: 1,
+      select: %w[
+        sys.id
+        fields.title
+        fields.description
+        fields.expiry
+        fields.related_content
+        fields.summary
+        fields.slug
+        fields.suffix
+        fields.provider_name
+        fields.provider_initials
+        fields.call_to_action
+        fields.url
+        fields.buying_option_type
+        fields.provider_reference
+        fields.primary_category
+      ].join(",")
+    ).find { |solution| solution.sys[:id] == id }
+
+    raise ContentfulRecordNotFoundError.new("Solution not found", id: id) unless entry
+
+    new(entry)
+  end
+
   def self.unique_category_ids
     ContentfulClient.entries(
       content_type: "solution",
