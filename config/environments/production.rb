@@ -90,6 +90,8 @@ Rails.application.configure do
       [yaml_backend]
     end
 
+    backend_chain = [contentful_backend, yaml_backend]
+
     # Chained backend creation
     I18n.backend = I18n::Backend::Chain.new(*backend_chain)
 
