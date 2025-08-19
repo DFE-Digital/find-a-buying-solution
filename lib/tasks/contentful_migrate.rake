@@ -1,4 +1,7 @@
 require_relative "../i18n/utils"
+require_relative "../../app/helpers/contentful_helper"
+
+include ContentfulHelper
 
 namespace :contentful do
   desc "Migrate translations to Contentful"
@@ -7,64 +10,48 @@ namespace :contentful do
     require "uri"
     require "json"
 
-    space_id = ENV["CONTENTFUL_SPACE_ID"]
-    token = ENV["CONTENTFUL_MANAGEMENT_TOKEN"]
+    begin
+      validate_environment_variables(%w[CONTENTFUL_SPACE_ID CONTENTFUL_MANAGEMENT_TOKEN])
+      space_id = ENV["CONTENTFUL_SPACE_ID"]
+      token = ENV["CONTENTFUL_MANAGEMENT_TOKEN"]
 
-    # Loading translations
-    yaml_content = YAML.load_file("config/locales/en.yml")
-    translations = yaml_content["en"]
+      en_yml_path = Rails.root.join("config", "locales", "en.yml")
+      flat_translations = load_flattened_translations(en_yml_path)
 
-    flat_translations = I18n::Utils.flatten_translations(translations)
+      flat_translations.each do |key, value|
+        begin
+          uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries")
+          headers = {
+            "Authorization" => "Bearer #{token}",
+            "Content-Type" => "application/vnd.contentful.management.v1+json",
+            "X-Contentful-Content-Type" => "translation"
+          }
 
-    flat_translations.each do |key, value|
-      # Create entry using direct HTTP request
-      uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries")
-      request = Net::HTTP::Post.new(uri)
-      request["Authorization"] = "Bearer #{token}"
-      request["Content-Type"] = "application/vnd.contentful.management.v1+json"
-      request["X-Contentful-Content-Type"] = "translation"
+          body = {
+            fields: {
+              key: { "en-US" => key },
+              value: { "en-US" => value }
+            }
+          }.to_json
 
-      request.body = {
-        fields: {
-          key: { "en-US" => key },
-          value: { "en-US" => value },
-        },
-      }.to_json
+          response = send_request(uri, method: "POST", headers: headers, body: body)
 
-      response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-        http.request(request)
+          if response.code == "201"
+            entry_data = JSON.parse(response.body)
+            publish_entry(entry_data["sys"]["id"], entry_data["sys"]["version"], token, space_id)
+          else
+            puts "Failed to create translation: #{key}. Error: #{response.body}"
+          end
+
+          sleep(0.5)
+        rescue StandardError => e
+          puts "Error with '#{key}': #{e.message}"
+        end
       end
 
-      if response.code == "201"
-        entry_data = JSON.parse(response.body)
-        entry_id = entry_data["sys"]["id"]
-        version = entry_data["sys"]["version"]
-
-        # Publish the entry
-        publish_uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry_id}/published")
-        publish_request = Net::HTTP::Put.new(publish_uri)
-        publish_request["Authorization"] = "Bearer #{token}"
-        publish_request["Content-Type"] = "application/vnd.contentful.management.v1+json"
-        publish_request["X-Contentful-Version"] = version.to_s
-
-        publish_response = Net::HTTP.start(publish_uri.hostname, publish_uri.port, use_ssl: true) do |http|
-          http.request(publish_request)
-        end
-
-        if publish_response.code == "200"
-          puts "Created and published the: #{key}"
-        else
-          puts "Failed to publish the '#{key}': #{publish_response.body}"
-        end
-      else
-        puts "Failed to create the '#{key}': #{response.body}"
-      end
-      # Adding tiny delay between requests to Contentful API owing to the API rate-limits
-      sleep(0.5)
+      puts "Migration completed successfully!"
     rescue StandardError => e
-      puts "Error with '#{key}': #{e.message}"
+      puts "An error occurred: #{e.message}"
     end
-
-    puts "Migration completed successfully!"
   end
 end
