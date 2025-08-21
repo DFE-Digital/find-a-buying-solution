@@ -86,4 +86,3 @@ Now take the forwarding url and create a web hook in contentful like
 
 https://app.contentful.com/spaces/xdhmps7ck0lp/settings/webhooks/3abewvVCTpeftGHoSfY5U1/settings
 
-You will need to save the content secret in `CONTENTFUL_WEBHOOK_SECRET` environment variable.

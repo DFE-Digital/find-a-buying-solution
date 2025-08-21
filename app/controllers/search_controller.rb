@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   # These are the limits for the Contentful search API
-  MAX_QUERY_LENGTH = 2000
+  MAX_QUERY_LENGTH = 150
   MAX_WORDS = 25
 
   before_action :disable_search_in_header
@@ -14,7 +14,6 @@ class SearchController < ApplicationController
     unless invalid_query?(params[:query])
       query = params[:query].strip
       @solutions = Solution.search(query: query)
-
       @categories = Category.search(query: query)
       @results_count = @solutions.count + @categories.count
     end

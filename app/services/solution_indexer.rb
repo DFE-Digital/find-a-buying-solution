@@ -64,6 +64,15 @@ private
       summary: entry.summary,
       slug: entry.slug,
       provider_reference: entry.provider_reference,
+      primary_category: primary_category,
+    }
+  end
+
+  def primary_category
+    {
+      id: entry.primary_category.id,
+      title: entry.primary_category.title,
+      slug: entry.primary_category.slug,
     }
   end
 end
