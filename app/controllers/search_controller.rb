@@ -14,6 +14,7 @@ class SearchController < ApplicationController
     unless invalid_query?(params[:query])
       query = params[:query].strip
       @solutions = Solution.search(query: query)
+
       @categories = Category.search(query: query)
       @results_count = @solutions.count + @categories.count
     end
