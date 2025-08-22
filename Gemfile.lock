@@ -133,10 +133,10 @@ GEM
     elastic-transport (8.4.0)
       faraday (< 3)
       multi_json
-    elasticsearch (8.19.0)
+    elasticsearch (9.1.1)
       elastic-transport (~> 8.3)
-      elasticsearch-api (= 8.19.0)
-    elasticsearch-api (8.19.0)
+      elasticsearch-api (= 9.1.1)
+    elasticsearch-api (9.1.1)
       multi_json
     elasticsearch-transport (7.17.11)
       base64
@@ -144,7 +144,7 @@ GEM
       multi_json
     erb (5.0.2)
     erubi (1.13.1)
-    faraday (2.13.2)
+    faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -521,7 +521,7 @@ DEPENDENCIES
   debug
   dfe-analytics!
   dotenv
-  elasticsearch (~> 8.0)
+  elasticsearch (~> 9.1)
   elasticsearch-transport
   govuk-components
   govuk_design_system_formbuilder
