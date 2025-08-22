@@ -54,11 +54,17 @@ class Solution
   end
 
   def self.search(query: "")
-    ContentfulClient.entries(
-      content_type: "solution",
-      query: query,
-      select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials,fields.primary_category,fields.provider_reference"
-    ).map { new(it) }
+    # binding.break
+    use_elastic_search = ENV.fetch("USE_ELASTIC_SEARCH", false)
+    if use_elastic_search
+      SolutionSearcher.new(query: query).search
+    else
+      ContentfulClient.entries(
+        content_type: "solution",
+        query: query,
+        select: "sys.id,fields.title,fields.summary,fields.description,fields.slug,fields.provider_name,fields.buying_option_type,fields.provider_initials,fields.primary_category,fields.provider_reference"
+      ).map { new(it) }
+    end
   end
 
   def self.find_by_slug!(slug)
