@@ -7,6 +7,22 @@ RSpec.describe SolutionIndexer do
   let(:id) { "solution-123" }
 
   let(:es_client_mock) { instance_double(::Elasticsearch::Client) }
+  let(:primary_category) do
+    instance_double(
+      SolutionSearcher::PrimaryCategory,
+      id: "mock_id",
+      title: "mock title",
+      slug: " mock slug"
+    )
+  end
+
+  let(:primary_category_hash) do
+    {
+      id: "mock_id",
+      title: "mock title",
+      slug: " mock slug",
+    }
+  end
 
   let(:solution_entry) do
     instance_double(
@@ -16,7 +32,8 @@ RSpec.describe SolutionIndexer do
       description: "A description.",
       summary: "A summary.",
       slug: "test-solution",
-      provider_reference: "ref-123"
+      provider_reference: "ref-123",
+      primary_category: primary_category
     )
   end
 
@@ -38,6 +55,7 @@ RSpec.describe SolutionIndexer do
             summary: solution_entry.summary,
             slug: solution_entry.slug,
             provider_reference: solution_entry.provider_reference,
+            primary_category: primary_category_hash,
           }
         ).and_return("result" => "created")
         expect(indexer.index_document).to be true

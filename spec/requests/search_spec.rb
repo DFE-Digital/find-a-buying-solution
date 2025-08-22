@@ -3,6 +3,11 @@ require "rails_helper"
 RSpec.describe "Search pages", :vcr, type: :request do
   include ActionView::Helpers::TranslationHelper
 
+  before do
+    allow(ENV).to receive(:fetch).and_call_original
+    allow(ENV).to receive(:fetch).with("USE_ELASTIC_SEARCH", false).and_return(nil)
+  end
+
   describe "GET /search" do
     before do
       get search_path(query: "catering")
@@ -61,7 +66,6 @@ RSpec.describe "Search pages", :vcr, type: :request do
   describe "Elastic search" do
     describe "GET /search" do
       before do
-        allow(ENV).to receive(:fetch).and_call_original
         allow(ENV).to receive(:fetch).with("USE_ELASTIC_SEARCH", false).and_return("1")
 
         allow(ENV).to receive(:[]).and_call_original

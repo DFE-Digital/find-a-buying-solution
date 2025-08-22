@@ -54,6 +54,11 @@ RSpec.describe Solution, :vcr, type: :model do
   describe ".search" do
     subject(:search) { described_class.search(query: query) }
 
+    before do
+      allow(ENV).to receive(:fetch).and_call_original
+      allow(ENV).to receive(:fetch).with("USE_ELASTIC_SEARCH", false).and_return(nil)
+    end
+
     let(:query) { "technology" }
 
     it "returns solutions matching the query" do

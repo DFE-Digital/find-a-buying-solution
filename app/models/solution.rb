@@ -54,6 +54,7 @@ class Solution
   end
 
   def self.search(query: "")
+    # binding.break
     use_elastic_search = ENV.fetch("USE_ELASTIC_SEARCH", false)
     if use_elastic_search
       SolutionSearcher.new(query: query).search
