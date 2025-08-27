@@ -35,16 +35,16 @@ task sync_contentful_to_es: :environment do
   end
 
   # Perform the bulk indexing
-  elasticsearch_client.bulk(body: bulk_actions)
+  ElasticsearchClient.instance.bulk(body: bulk_actions)
   puts "Successfully indexed #{entries.size} entries into Elasticsearch."
 end
 
 # Create the index and its mapping
 # rubocop:disable Rails/SaveBang
 def create_index(index_name)
-  return if elasticsearch_client.indices.exists?(index: index_name)
+  return if ElasticsearchClient.instance.indices.exists?(index: index_name)
 
-  elasticsearch_client.indices.create(
+  ElasticsearchClient.instance.indices.create(
     index: index_name,
     body: {
       settings: { number_of_shards: 1, number_of_replicas: 0 },
@@ -62,9 +62,3 @@ def create_index(index_name)
   )
 end
 # rubocop:enable Rails/SaveBang
-
-def elasticsearch_client
-  @elasticsearch_client ||= Elasticsearch::Client.new(url: ENV["ELASTICSEARCH_URL"],
-                                                      api_key: ENV["ELASTICSEARCH_API_KEY"],
-                                                      verify_elasticsearch_product: false)
-end
