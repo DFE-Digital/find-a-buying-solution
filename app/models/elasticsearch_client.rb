@@ -2,7 +2,7 @@ class ElasticsearchClient
   include Singleton
   extend Forwardable
 
-  def_delegators :@client, :get, :delete, :index, :search
+  def_delegators :@client, :get, :delete, :index, :indices, :bulk, :search
 
   def initialize
     @client = build_client
@@ -28,6 +28,8 @@ private
     def get(*, **, &) = raise_not_configured
     def delete(*, **, &) = raise_not_configured
     def index(*, **, &) = raise_not_configured
+    def indices(*, **, &) = raise_not_configured
+    def bulk(*, **, &) = raise_not_configured
     def search(*, **, &) = raise_not_configured
 
   private
