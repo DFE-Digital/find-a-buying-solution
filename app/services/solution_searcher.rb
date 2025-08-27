@@ -9,11 +9,7 @@ class SolutionSearcher
   PrimaryCategory = Struct.new(:id, :title, :slug)
 
   def initialize(query:)
-    @client = ::Elasticsearch::Client.new(
-      url: ENV["ELASTICSEARCH_URL"],
-      api_key: ENV["ELASTICSEARCH_API_KEY"],
-      verify_elasticsearch_product: false
-    )
+    @client = ElasticsearchClient.instance
     @query = query
   end
 
