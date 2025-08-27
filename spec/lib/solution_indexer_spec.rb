@@ -38,7 +38,7 @@ RSpec.describe SolutionIndexer do
   end
 
   before do
-    allow(::Elasticsearch::Client).to receive(:new).and_return(es_client_mock)
+    allow(ElasticsearchClient).to receive(:instance).and_return(es_client_mock)
     allow(Solution).to receive(:find_by_id!).with(id).and_return(solution_entry)
   end
 

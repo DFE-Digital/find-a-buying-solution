@@ -6,11 +6,7 @@ class SolutionIndexer
   INDEX = "solution-data".freeze
 
   def initialize(id:)
-    @client = ::Elasticsearch::Client.new(
-      url: ENV["ELASTICSEARCH_URL"],
-      api_key: ENV["ELASTICSEARCH_API_KEY"],
-      verify_elasticsearch_product: false
-    )
+    @client = ElasticsearchClient.instance
     @id = id
   end
 
