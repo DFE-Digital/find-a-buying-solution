@@ -1,7 +1,7 @@
 {
   "addons": [
     { "plan": "heroku-redis:mini" },
-    { "plan": "bonsai:free" }
+    { "plan": "foundelasticsearch:dachs-standard" }
   ],
   "buildpacks": [
     { "url": "heroku/nodejs" },
