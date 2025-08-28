@@ -1,41 +1,52 @@
 namespace :contentful do
-  desc "List and/or delete any translations that are in Contentful but not in en.yml"
+  desc "Delete translations from Contentful"
   task en_to_contentful_translations_delete: :environment do
-    begin
-      validate_environment_variables(%w[CONTENTFUL_SPACE_ID CONTENTFUL_MANAGEMENT_TOKEN])
-      space_id = ENV["CONTENTFUL_SPACE_ID"]
-      token = ENV["CONTENTFUL_MANAGEMENT_TOKEN"]
+    space_id = ENV["CONTENTFUL_SPACE_ID"]
+    token = ENV["CONTENTFUL_MANAGEMENT_TOKEN"]
 
-      en_yml_path = Rails.root.join("config", "locales", "en.yml")
-      local_keys = load_flattened_translations(en_yml_path).keys
+    # Fetching local translation entries from en.yml
+    en_yml_path = Rails.root.join("config/locales/en.yml")
+    local_keys = load_flattened_translations(en_yml_path).keys
 
-      # Fetch translations in Contentful
-      contentful_entries = fetch_contentful_translations(space_id, token)
-      contentful_translations = transform_contentful_translations(contentful_entries)
+    client = Contentful::Management::Client.new(token)
+    space = client.spaces.find(space_id)
+    environment = space.environments.find("master")
 
-      # List translations to delete
-      translations_to_delete = contentful_translations.keys - local_keys
+    # Fetching translation entries from Contentful
+    contentful_translations = environment.entries.all(content_type: "translation")
+    contentful_translations_keys = contentful_translations.map { |x| x.fields[:key] }
 
-      # Delete the translations
-      if translations_to_delete.any?
-        puts "The following translations will be deleted from Contentful:"
-        translations_to_delete.each do |key|
-          entry = contentful_entries.find { |e| e["fields"]["key"]["en-US"] == key }
-          entry_id = entry["sys"]["id"]
+    puts "Fetching existing translations from Contentful..."
+    contentful_entries = ContentfulHelper.fetch_contentful_translations(space_id, token)
+    puts "Fetched Contentful entries: #{contentful_entries.map(&:fields).inspect}"
 
-          puts "- Deleting key: #{key} (entry_id: #{entry_id})"
-
-          # Unpublish and delete the entry in Contentful
-          unpublish_contentful_entry(entry_id, space_id, token)
-          delete_contentful_entry(entry_id, space_id, token)
-        end
-
-        puts "Deleted #{translations_to_delete.size} translation(s) from Contentful."
-      else
-        puts "No translations to delete. All Contentful translations match the en.yml file."
-      end
-    rescue StandardError => e
-      puts "An error occurred: #{e.message}"
+    # Listing translations to delete
+    translations_to_delete = contentful_translations_keys - local_keys
+    if translations_to_delete.present?
+      puts "The following translations will be deleted from Contentful:"
+      puts translations_to_delete
+    else
+      puts "No translationsto delete!"
     end
+
+    # Collecting the entries to delete
+    delete_entries = translations_to_delete.map { |delete_key|
+      contentful_translations.find { |entry| entry.fields[:key] == delete_key }
+    }.compact
+
+    # Proceeding to unpublish and then deleting each marked entry in Contentful
+    delete_entries.each do |entry|
+      if entry.published?
+        entry.unpublish
+        puts "Unpublished entry with key: #{entry.fields[:key]}..."
+      end
+
+      entry.destroy!
+      puts "Deleted entry with key: #{entry.fields[:key]}..."
+    rescue Contentful::Management::Error => e
+      puts "Failed to delete entry with key: #{entry.fields[:key]}. Error: #{e.message}"
+    end
+  rescue StandardError => e
+    puts "An error occurred: #{e.message}"
   end
 end

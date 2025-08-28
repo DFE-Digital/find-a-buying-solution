@@ -1,4 +1,6 @@
 module ContentfulHelper
+module_function
+
   # Load and flatten translations from a YAML file
   def load_flattened_translations(file_path)
     raise "Error: Translation file not found at #{file_path}" unless File.exist?(file_path)
@@ -9,41 +11,16 @@ module ContentfulHelper
     I18n::Utils.flatten_translations(translations["en"])
   end
 
-  # Helper to send HTTP requests
-  def send_request(uri, method:, headers: {}, body: nil)
-    request_class = case method.upcase
-                    when "GET" then Net::HTTP::Get
-                    when "POST" then Net::HTTP::Post
-                    when "PUT" then Net::HTTP::Put
-                    when "DELETE" then Net::HTTP::Delete
-                    else
-                      raise "Invalid HTTP method: #{method}"
-                    end
-
-    request = request_class.new(uri)
-    headers.each { |key, value| request[key] = value }
-    request.body = body if body
-
-    Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
-      http.request(request)
-    end
-  end
-
   # Publishes an entry in Contentful
-  def publish_entry(entry_id, version, token, space_id)
-    uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry_id}/published")
-    headers = {
-      "Authorization" => "Bearer #{token}",
-      "Content-Type" => "application/vnd.contentful.management.v1+json",
-      "X-Contentful-Version" => version.to_s
-    }
+  def publish_entry(entry_id, token, space_id)
+    client = contentful_management_client(token)
+    environment = fetch_environment(client, space_id)
 
-    response = send_request(uri, method: "PUT", headers: headers)
-    if response.code.to_i == 200
-      puts "Published entry: #{entry_id}"
-    else
-      puts "Failed to publish entry #{entry_id}. Error: #{response.body}"
-    end
+    entry = environment.entries.find(entry_id)
+    entry.publish
+    Rails.logger.debug "Published entry: #{entry_id}"
+  rescue Contentful::Management::Error => e
+    Rails.logger.debug "Failed to publish entry #{entry_id}. Error: #{e.message}"
   end
 
   # Validates required environment variables
@@ -52,111 +29,111 @@ module ContentfulHelper
     raise "Error: Missing environment variables: #{missing_vars.join(', ')}" if missing_vars.any?
   end
 
-  # Fetch translations from Contentful and parse the response
+  # Fetches translations from Contentful
   def fetch_contentful_translations(space_id, token)
-    uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries?content_type=translation")
-    headers = { "Authorization" => "Bearer #{token}" }
+    client = contentful_management_client(token)
+    environment = fetch_environment(client, space_id)
+    entries = environment.entries.all(content_type: "translation")
 
-    response = send_request(uri, method: "GET", headers: headers)
-    raise "Error fetching translations from Contentful: #{response.body}" if response.code != "200"
-
-    parsed_data = JSON.parse(response.body)
-
-    # Debug entire data structure
-    puts "Full response body:"
-    puts parsed_data.inspect
-
-    entries = parsed_data["items"]
-    puts "Fetched entries (first 5):"
-    entries.first(5).each_with_index { |entry, index| puts "Entry #{index + 1}: #{entry.inspect}" }
-
+    Rails.logger.debug "Fetched entries (total #{entries.size}):"
+    entries.each_with_index do |entry, index|
+      Rails.logger.debug "Entry #{index + 1}: #{entry.fields.inspect}"
+    end
     entries
+  rescue Contentful::Management::Error => e
+    raise "Error fetching translations from Contentful: #{e.message}"
   end
 
-  # Converts Contentful entries into a flat key-value hash
   def transform_contentful_translations(entries)
     entries.each_with_object({}) do |entry, hash|
-      # Skip entries that are not hashes
-      unless entry.is_a?(Hash)
-        puts "Skipping invalid entry (not a hash): #{entry.inspect}"
+      Rails.logger.debug "Entry Fields: #{entry.fields.inspect}"
+
+      key_field = entry.fields["key"] || entry.fields[:key]
+      value_field = entry.fields["value"] || entry.fields[:value]
+
+      Rails.logger.debug "Processing Entry: key_field=#{key_field.inspect}, value_field=#{value_field.inspect}"
+
+      # Normalizes the localized fields (if they are hashes)
+      key_field = key_field.is_a?(Hash) ? key_field["en-US"] || key_field[:en_US] : key_field
+      value_field = value_field.is_a?(Hash) ? value_field["en-US"] || value_field[:en_US] : value_field
+
+      Rails.logger.debug "Normalized Fields: key_field=#{key_field.inspect}, value_field=#{value_field.inspect}"
+
+      # Skipping if key_field or value_field is missing
+      if key_field.nil? || value_field.nil?
+        Rails.logger.warn "Skipping entry due to missing key or value: key_field=#{key_field.inspect}, value_field=#{value_field.inspect}"
         next
       end
 
-      # Skip entries without 'fields'
-      unless entry["fields"].is_a?(Hash)
-        puts "Skipping invalid entry (missing 'fields'): #{entry.inspect}"
-        next
-      end
-
-      # Skip entries missing both 'key' and 'value'
-      if entry["fields"]["key"].nil? || entry["fields"]["value"].nil?
-        puts "Skipping entry (missing key/value pair): #{entry.inspect}"
-        next
-      end
-
-      key = entry["fields"]["key"]["en-US"]
-      value = entry["fields"]["value"]["en-US"]
-      hash[key] = value
+      hash[key_field] = value_field
     end
+  end
+
+  # Creates/updates the translation entries in Contentful
+  def create_or_update_contentful_entry(key, value, existing_entry, space_id, token)
+    client = contentful_management_client(token)
+    environment = fetch_environment(client, space_id)
+    if existing_entry
+      Rails.logger.debug("Updating entry for key: #{key}")
+      existing_entry.fields["key"] = key
+      existing_entry.fields["value"] = value
+      existing_entry.save!
+      existing_entry.publish
+      Rails.logger.debug "Updated and published entry for key: #{key}."
+    else
+      Rails.logger.debug("Creating new entry for key: #{key}")
+      begin
+        translation_type = environment.content_types.find("translation")
+        new_entry = translation_type.entries.create!(
+          key: key,
+          value: value
+        )
+        new_entry.publish
+        Rails.logger.debug "Created and published new entry for key: #{key}."
+      rescue StandardError => e
+        Rails.logger.debug "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
+
+        Rails.logger.error "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
+      end
+    end
+  rescue StandardError => e
+    Rails.logger.debug "Failed to process translation for key: #{key}. Error: #{e.message}"
+
+    Rails.logger.error "Failed to process translation for key: #{key}. Error: #{e.message}"
   end
 
   # Unpublishes an entry in Contentful
   def unpublish_contentful_entry(entry_id, space_id, token)
-    uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry_id}/published")
-    headers = { "Authorization" => "Bearer #{token}" }
-    send_request(uri, method: "DELETE", headers: headers)
+    client = contentful_management_client(token)
+    environment = fetch_environment(client, space_id)
+
+    entry = environment.entries.find(entry_id)
+    entry.unpublish
+  rescue Contentful::Management::Error => e
+    Rails.logger.debug "Failed to unpublish entry #{entry_id}. Error: #{e.message}"
   end
 
   # Deletes an entry in Contentful
   def delete_contentful_entry(entry_id, space_id, token)
-    uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry_id}")
-    headers = { "Authorization" => "Bearer #{token}" }
-    send_request(uri, method: "DELETE", headers: headers)
+    client = contentful_management_client(token)
+    environment = fetch_environment(client, space_id)
+
+    entry = environment.entries.find(entry_id)
+    entry.destroy!
+  rescue Contentful::Management::Error => e
+    Rails.logger.debug "Failed to delete entry #{entry_id}. Error: #{e.message}"
   end
 
-  # Creates or updates a Contentful entry
-  def create_or_update_contentful_entry(key, value, entry, space_id, token)
-    begin
-      if entry
-        # Update existing entry
-        uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry['sys']['id']}")
-        method = "PUT"
-        headers = {
-          "Authorization" => "Bearer #{token}",
-          "X-Contentful-Version" => entry['sys']['version'].to_s # Ensure correct version
-        }
-        puts "Updating entry for key: #{key} with version #{entry['sys']['version']}"
-      else
-        # Create new entry
-        uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries")
-        method = "POST"
-        headers = {
-          "Authorization" => "Bearer #{token}",
-          "X-Contentful-Content-Type" => "translation"
-        }
-        puts "Creating new entry for key: #{key}"
-      end
+private
 
-      body = {
-        fields: {
-          key: { "en-US" => key },
-          value: { "en-US" => value }
-        }
-      }.to_json
+  # Initializes the Contentful management client
+  def contentful_management_client(token)
+    Contentful::Management::Client.new(token)
+  end
 
-      response = send_request(uri, method: method, headers: headers, body: body)
-
-      if response.code.to_i.between?(200, 299)
-        entry_data = JSON.parse(response.body)
-        puts "Successfully processed key: #{key}. Contentful response code: #{response.code}"
-
-        # Publish entry after creation or update
-        publish_entry(entry_data["sys"]["id"], entry_data["sys"]["version"], token, space_id)
-      else
-        puts "Failed to process key: #{key}. Response code: #{response.code}, Error: #{response.body}"
-      end
-    rescue StandardError => e
-      puts "Error while creating or updating entry for key: #{key}. Details: #{e.message}"
-    end
+  # Fetches the environment object from Contentful
+  def fetch_environment(client, space_id, environment_id = "master")
+    space = client.spaces.find(space_id)
+    space.environments.find(environment_id)
   end
 end
