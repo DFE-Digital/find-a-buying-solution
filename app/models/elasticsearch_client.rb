@@ -11,7 +11,7 @@ class ElasticsearchClient
 private
 
   def build_client
-    url = %w[ELASTICSEARCH_URL BONSAI_URL]
+    url = %w[ELASTICSEARCH_URL FOUNDELASTICSEARCH_URL]
       .map { ENV[it] }.find { it }
     return DummyClient.new unless url
 
