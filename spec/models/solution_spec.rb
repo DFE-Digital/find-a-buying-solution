@@ -54,6 +54,11 @@ RSpec.describe Solution, :vcr, type: :model do
   describe ".search" do
     subject(:search) { described_class.search(query: query) }
 
+    before do
+      allow(ENV).to receive(:fetch).and_call_original
+      allow(ENV).to receive(:fetch).with("USE_ELASTIC_SEARCH", false).and_return(nil)
+    end
+
     let(:query) { "technology" }
 
     it "returns solutions matching the query" do
@@ -82,6 +87,27 @@ RSpec.describe Solution, :vcr, type: :model do
 
     context "when solution does not exist" do
       let(:slug) { "non-existent" }
+
+      it "raises ContentfulRecordNotFoundError" do
+        expect { solution }.to raise_error(ContentfulRecordNotFoundError, "Solution not found")
+      end
+    end
+  end
+
+  describe ".find_by_id!" do
+    subject(:solution) { described_class.find_by_id!(id) }
+
+    context "when solution exists" do
+      let(:id) { "1cFyWcuXyiTWce11GytE0C" }
+
+      it "returns the solution" do
+        expect(solution).to be_a(described_class)
+        expect(solution.id).to eq(id)
+      end
+    end
+
+    context "when solution does not exist" do
+      let(:id) { "non-existent" }
 
       it "raises ContentfulRecordNotFoundError" do
         expect { solution }.to raise_error(ContentfulRecordNotFoundError, "Solution not found")
