@@ -1,70 +1,64 @@
+require_relative "../i18n/utils"
+require_relative "../../app/helpers/contentful_helper"
+require "yaml"
+
+# Converts flattened keys into a nested hash and writes them to a YAML file
+def write_flattened_translations_to_yml(translations, file_path)
+  # Convert the flattened hash into a nested hash
+  nested_translations = translations.each_with_object({}) do |(key, value), result|
+    keys = key.split(".")
+    leaf = keys.pop
+    current = result
+
+    keys.each do |k|
+      current[k] ||= {}
+      current = current[k]
+    end
+
+    current[leaf] = value
+  end
+
+  # Ensure to wrap in the root `en` namespace
+  nested_translations = { "en" => nested_translations }
+
+  # Write to the YAML file
+  File.open(file_path, "w") do |f|
+    f.write(nested_translations.to_yaml)
+  end
+
+  puts "Translations written to #{file_path}"
+end
+
 namespace :contentful do
-  desc "Update en.yml with any translations that have changed in Contentful"
+  include ContentfulHelper
+
+  desc "Download translations from Contentful and update en.yml"
   task contentful_to_en_translations_update: :environment do
-    require "yaml"
+    require "json"
 
     begin
-      validate_environment_variables(%w[CONTENTFUL_SPACE_ID CONTENTFUL_MANAGEMENT_TOKEN]) # Validates ENV vars
+      validate_environment_variables(%w[CONTENTFUL_SPACE_ID CONTENTFUL_MANAGEMENT_TOKEN])
       space_id = ENV["CONTENTFUL_SPACE_ID"]
       token = ENV["CONTENTFUL_MANAGEMENT_TOKEN"]
 
-      en_yml_path = Rails.root.join("config", "locales", "en.yml")
-      backup_path = Rails.root.join("config", "locales", "en_backup.yml")
-
-      puts "YAML file path: #{en_yml_path}"
-
-      # Loading current translations
-      puts "Loading current translations from en.yml..."
-      flat_local_translations = load_flattened_translations(en_yml_path)
-      puts "Loaded #{flat_local_translations.size} translations."
-
-      # Fetching translations from Contentful
-      puts "Fetching translations from Contentful..."
+      # Fetch translations from Contentful
+      puts "Fetching existing translations from Contentful..."
       contentful_entries = fetch_contentful_translations(space_id, token)
-      puts "Fetched #{contentful_entries.size} entries from Contentful."
-
-      # Transforming to an usable format
       contentful_translations = transform_contentful_translations(contentful_entries)
-      puts "Transformed Contentful translations: #{contentful_translations.inspect}"
 
-      # Comparing and updating
-      puts "Comparing Contentful with local translations..."
-      updated_translations = flat_local_translations.dup
-      contentful_translations.each do |key, value|
-        if flat_local_translations[key] != value
-          puts "Updating key: #{key} | Value: #{value}"
-          updated_translations[key] = value
-        end
-      end
+      # Load the existing en.yml
+      en_yml_path = Rails.root.join("config/locales/en.yml")
+      existing_translations = load_flattened_translations(en_yml_path)
 
-      if updated_translations == flat_local_translations
-        puts "No changes detected; en.yml is already up-to-date."
-        return
-      end
+      # Merge the translations
+      merged_translations = existing_translations.merge(contentful_translations)
+      puts "Merged translations, preparing to write to en.yml..."
 
-      # Backing-up existing en.yml
-      FileUtils.cp(en_yml_path, backup_path)
-      puts "Backup created at #{backup_path}"
-
-      # De-normalizing and writing back to YAML file
-      begin
-        puts "De-normalizing the translations ..." + updated_translations.inspect
-        structured_translations = I18n::Utils.convert_to_nested_translations(updated_translations)
-
-        puts "Writing the updated translations to en.yml..."
-        File.open(en_yml_path, "w") do |file|
-          # Ensure keys are strings before writing to YAML
-          file.write({ "en" => structured_translations }.to_yaml)
-        end
-
-        puts "en.yml successfully updated!"
-      rescue StandardError => e
-        puts "Error during unflattening or writing YAML: #{e.message}"
-        FileUtils.cp(backup_path, en_yml_path) # Restore backup on failure
-        puts "Restored backup from #{backup_path}"
-      end
+      # Write the merged translations back to en.yml
+      write_flattened_translations_to_yml(merged_translations, en_yml_path)
+      puts "en.yml updated successfully!"
     rescue StandardError => e
-      puts "An error occurred during task execution: #{e.message}"
+      puts "An error occurred: #{e.message}"
     end
   end
 end

@@ -35,14 +35,14 @@ module ContentfulHelper
     headers = {
       "Authorization" => "Bearer #{token}",
       "Content-Type" => "application/vnd.contentful.management.v1+json",
-      "X-Contentful-Version" => version.to_s
+      "X-Contentful-Version" => version.to_s,
     }
 
     response = send_request(uri, method: "PUT", headers: headers)
     if response.code.to_i == 200
-      puts "Published entry: #{entry_id}"
+      Rails.logger.debug "Published entry: #{entry_id}"
     else
-      puts "Failed to publish entry #{entry_id}. Error: #{response.body}"
+      Rails.logger.debug "Failed to publish entry #{entry_id}. Error: #{response.body}"
     end
   end
 
@@ -63,12 +63,12 @@ module ContentfulHelper
     parsed_data = JSON.parse(response.body)
 
     # Debug entire data structure
-    puts "Full response body:"
-    puts parsed_data.inspect
+    Rails.logger.debug "Full response body:"
+    Rails.logger.debug parsed_data.inspect
 
     entries = parsed_data["items"]
-    puts "Fetched entries (first 5):"
-    entries.first(5).each_with_index { |entry, index| puts "Entry #{index + 1}: #{entry.inspect}" }
+    Rails.logger.debug "Fetched entries (first 5):"
+    entries.first(5).each_with_index { |entry, index| Rails.logger.debug "Entry #{index + 1}: #{entry.inspect}" }
 
     entries
   end
@@ -78,19 +78,19 @@ module ContentfulHelper
     entries.each_with_object({}) do |entry, hash|
       # Skip entries that are not hashes
       unless entry.is_a?(Hash)
-        puts "Skipping invalid entry (not a hash): #{entry.inspect}"
+        Rails.logger.debug "Skipping invalid entry (not a hash): #{entry.inspect}"
         next
       end
 
       # Skip entries without 'fields'
       unless entry["fields"].is_a?(Hash)
-        puts "Skipping invalid entry (missing 'fields'): #{entry.inspect}"
+        Rails.logger.debug "Skipping invalid entry (missing 'fields'): #{entry.inspect}"
         next
       end
 
       # Skip entries missing both 'key' and 'value'
       if entry["fields"]["key"].nil? || entry["fields"]["value"].nil?
-        puts "Skipping entry (missing key/value pair): #{entry.inspect}"
+        Rails.logger.debug "Skipping entry (missing key/value pair): #{entry.inspect}"
         next
       end
 
@@ -116,47 +116,45 @@ module ContentfulHelper
 
   # Creates or updates a Contentful entry
   def create_or_update_contentful_entry(key, value, entry, space_id, token)
-    begin
-      if entry
-        # Update existing entry
-        uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry['sys']['id']}")
-        method = "PUT"
-        headers = {
-          "Authorization" => "Bearer #{token}",
-          "X-Contentful-Version" => entry['sys']['version'].to_s # Ensure correct version
-        }
-        puts "Updating entry for key: #{key} with version #{entry['sys']['version']}"
-      else
-        # Create new entry
-        uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries")
-        method = "POST"
-        headers = {
-          "Authorization" => "Bearer #{token}",
-          "X-Contentful-Content-Type" => "translation"
-        }
-        puts "Creating new entry for key: #{key}"
-      end
-
-      body = {
-        fields: {
-          key: { "en-US" => key },
-          value: { "en-US" => value }
-        }
-      }.to_json
-
-      response = send_request(uri, method: method, headers: headers, body: body)
-
-      if response.code.to_i.between?(200, 299)
-        entry_data = JSON.parse(response.body)
-        puts "Successfully processed key: #{key}. Contentful response code: #{response.code}"
-
-        # Publish entry after creation or update
-        publish_entry(entry_data["sys"]["id"], entry_data["sys"]["version"], token, space_id)
-      else
-        puts "Failed to process key: #{key}. Response code: #{response.code}, Error: #{response.body}"
-      end
-    rescue StandardError => e
-      puts "Error while creating or updating entry for key: #{key}. Details: #{e.message}"
+    if entry
+      # Update existing entry
+      uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries/#{entry['sys']['id']}")
+      method = "PUT"
+      headers = {
+        "Authorization" => "Bearer #{token}",
+        "X-Contentful-Version" => entry["sys"]["version"].to_s, # Ensure correct version
+      }
+      Rails.logger.debug "Updating entry for key: #{key} with version #{entry['sys']['version']}"
+    else
+      # Create new entry
+      uri = URI("https://api.contentful.com/spaces/#{space_id}/environments/master/entries")
+      method = "POST"
+      headers = {
+        "Authorization" => "Bearer #{token}",
+        "X-Contentful-Content-Type" => "translation",
+      }
+      Rails.logger.debug "Creating new entry for key: #{key}"
     end
+
+    body = {
+      fields: {
+        key: { "en-US" => key },
+        value: { "en-US" => value },
+      },
+    }.to_json
+
+    response = send_request(uri, method: method, headers: headers, body: body)
+
+    if response.code.to_i.between?(200, 299)
+      entry_data = JSON.parse(response.body)
+      Rails.logger.debug "Successfully processed key: #{key}. Contentful response code: #{response.code}"
+
+      # Publish entry after creation or update
+      publish_entry(entry_data["sys"]["id"], entry_data["sys"]["version"], token, space_id)
+    else
+      Rails.logger.debug "Failed to process key: #{key}. Response code: #{response.code}, Error: #{response.body}"
+    end
+  rescue StandardError => e
+    Rails.logger.debug "Error while creating or updating entry for key: #{key}. Details: #{e.message}"
   end
 end
