@@ -303,6 +303,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
+    opensearch-ruby (3.4.0)
+      faraday (>= 1.0, < 3)
+      multi_json (>= 1.0)
     os (1.1.4)
     pagy (9.4.0)
     parallel (1.27.0)
@@ -519,8 +522,6 @@ DEPENDENCIES
   debug
   dfe-analytics!
   dotenv
-  elasticsearch (~> 9.1)
-  elasticsearch-transport
   govuk-components
   govuk_design_system_formbuilder
   i18n (~> 1.14)
@@ -528,6 +529,7 @@ DEPENDENCIES
   jsbundling-rails
   kramdown
   l10nizer
+  opensearch-ruby
   propshaft
   puma (>= 5.0)
   rack-attack (~> 6.7)

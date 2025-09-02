@@ -1,4 +1,4 @@
-require "elasticsearch/transport"
+require "opensearch/transport"
 
 class SolutionSearcher
   attr_reader :query, :client
@@ -9,7 +9,7 @@ class SolutionSearcher
   PrimaryCategory = Struct.new(:id, :title, :slug)
 
   def initialize(query:)
-    @client = ElasticsearchClient.instance
+    @client = SearchClient.instance
     @query = query
   end
 
