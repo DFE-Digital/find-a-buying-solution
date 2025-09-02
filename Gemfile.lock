@@ -292,7 +292,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
-    opensearch (0.0.1)
+    opensearch-ruby (3.4.0)
+      faraday (>= 1.0, < 3)
+      multi_json (>= 1.0)
     os (1.1.4)
     pagy (9.3.5)
     parallel (1.27.0)
@@ -517,7 +519,7 @@ DEPENDENCIES
   jsbundling-rails
   kramdown
   l10nizer
-  opensearch
+  opensearch-ruby
   propshaft
   puma (>= 5.0)
   rack-attack (~> 6.7)

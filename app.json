@@ -1,13 +1,13 @@
 {
   "addons": [
     { "plan": "heroku-redis:mini" },
-    { "plan": "foundelasticsearch:dachs-standard" }
+    { "plan": "bonsai:free" }
   ],
   "buildpacks": [
     { "url": "heroku/nodejs" },
     { "url": "heroku/ruby" }
   ],
   "env": {
-    "USE_ELASTIC_SEARCH": "true"
+    "USE_OPENSEARCH": "true"
   }
 }
