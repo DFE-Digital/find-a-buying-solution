@@ -130,18 +130,6 @@ GEM
     domain_name (0.6.20240107)
     dotenv (3.1.8)
     drb (2.2.3)
-    elastic-transport (8.4.0)
-      faraday (< 3)
-      multi_json
-    elasticsearch (9.1.1)
-      elastic-transport (~> 8.3)
-      elasticsearch-api (= 9.1.1)
-    elasticsearch-api (9.1.1)
-      multi_json
-    elasticsearch-transport (7.17.11)
-      base64
-      faraday (>= 1, < 3)
-      multi_json
     erb (5.0.2)
     erubi (1.13.1)
     faraday (2.13.4)
@@ -304,6 +292,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.9-x86_64-linux-musl)
       racc (~> 1.4)
+    opensearch (0.0.1)
     os (1.1.4)
     pagy (9.3.5)
     parallel (1.27.0)
@@ -521,8 +510,6 @@ DEPENDENCIES
   debug
   dfe-analytics!
   dotenv
-  elasticsearch (~> 9.1)
-  elasticsearch-transport
   govuk-components
   govuk_design_system_formbuilder
   i18n (~> 1.14)
@@ -530,6 +517,7 @@ DEPENDENCIES
   jsbundling-rails
   kramdown
   l10nizer
+  opensearch
   propshaft
   puma (>= 5.0)
   rack-attack (~> 6.7)
