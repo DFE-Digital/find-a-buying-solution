@@ -34,11 +34,32 @@ module I18n
         end
       end
 
-      # Ensuring date format is always available
+      # Ensuring that the date format is always available
       result[:en][:date] ||= {}
       result[:en][:date][:formats] ||= {}
       result[:en][:date][:formats][:standard] ||= "%d %B %Y"
       result[:'en.date.formats.standard'] ||= "%d %B %Y"
+
+      result
+    end
+
+    def self.convert_to_nested_translations(flat_translations)
+      result = {}
+
+      flat_translations.each do |key, value|
+        # Splitting the keys into hierarchical parts
+        parts = key.split(".")
+        current = result
+
+        parts.each_with_index do |part, index|
+          if index == parts.length - 1
+            current[part] = value
+          else
+            current[part] ||= {}
+            current = current[part]
+          end
+        end
+      end
 
       result
     end

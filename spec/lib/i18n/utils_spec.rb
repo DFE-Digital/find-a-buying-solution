@@ -159,4 +159,55 @@ RSpec.describe I18n::Utils do
       expect(result).to eq({ a: 1 })
     end
   end
+
+  describe "convert_to_nested_translations" do
+    context "when given a flat hash with translations" do
+      it "converts a simple flat hash to a nested structure" do
+        flat_translations = {
+          "en.service_name" => "FABS",
+          "en.date.formats.standard" => "%d %B %Y",
+        }
+        expected_nested_hash = {
+          "en" => {
+            "service_name" => "FABS",
+            "date" => {
+              "formats" => {
+                "standard" => "%d %B %Y",
+              },
+            },
+          },
+        }
+
+        result = described_class.convert_to_nested_translations(flat_translations)
+        expect(result).to eq(expected_nested_hash)
+      end
+
+      it "handles deeply nested keys" do
+        flat_translations = {
+          "en.date.formats.standard" => "%d %B %Y",
+          "en.date.formats.short" => "%d/%m/%y",
+        }
+        expected_nested_hash = {
+          "en" => {
+            "date" => {
+              "formats" => {
+                "standard" => "%d %B %Y",
+                "short" => "%d/%m/%y",
+              },
+            },
+          },
+        }
+
+        result = described_class.convert_to_nested_translations(flat_translations)
+        expect(result).to eq(expected_nested_hash)
+      end
+    end
+
+    context "when given an empty flat hash" do
+      it "returns an empty hash" do
+        result = described_class.convert_to_nested_translations({})
+        expect(result).to eq({})
+      end
+    end
+  end
 end
