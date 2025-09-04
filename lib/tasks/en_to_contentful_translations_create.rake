@@ -14,14 +14,14 @@ namespace :contentful do
 
       puts "Fetching existing translations from Contentful..."
       contentful_entries = ContentfulHelper.fetch_contentful_translations(space_id, token)
-      puts "Fetched Contentful entries: #{contentful_entries.map(&:fields).inspect}"
+      # puts "Fetched Contentful entries: #{contentful_entries.map(&:fields).inspect}"
 
       client = Contentful::Management::Client.new(token)
       space = client.spaces.find(space_id)
       space.environments.find("master")
 
       contentful_translations = ContentfulHelper.transform_contentful_translations(contentful_entries)
-      puts "Transformed Contentful translations: #{contentful_translations.inspect}"
+      # puts "Transformed Contentful translations: #{contentful_translations.inspect}"
 
       # Identify new translations
       new_translations = flat_translations.reject { |key, _| contentful_translations.key?(key) }

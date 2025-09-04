@@ -74,23 +74,17 @@ module_function
     client = contentful_management_client(token)
     environment = fetch_environment(client, space_id)
     Rails.logger.debug("Creating new entry for key: #{key}")
-    begin
-      translation_type = environment.content_types.find("translation")
-      new_entry = translation_type.entries.create(
-        key: key,
-        value: value
-      )
-      new_entry.publish
-      Rails.logger.debug "Created and published new entry for key: #{key}."
-    rescue StandardError => e
-      Rails.logger.debug "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
-
-      Rails.logger.error "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
-    end
+    translation_type = environment.content_types.find("translation")
+    # rubocop:disable Rails/SaveBang
+    new_entry = translation_type.entries.create(
+      key: key,
+      value: value
+    )
+    # rubocop:enable Rails/SaveBang
+    new_entry.publish
   rescue StandardError => e
-    Rails.logger.debug "Failed to process translation for key: #{key}. Error: #{e.message}"
-
-    Rails.logger.error "Failed to process translation for key: #{key}. Error: #{e.message}"
+    Rails.logger.debug "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
+    Rails.logger.error "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
   end
 
   # Unpublishes an entry in Contentful

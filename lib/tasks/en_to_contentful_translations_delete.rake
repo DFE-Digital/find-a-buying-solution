@@ -17,8 +17,8 @@ namespace :contentful do
     contentful_translations_keys = contentful_translations.map { |x| x.fields[:key] }
 
     puts "Fetching existing translations from Contentful..."
-    contentful_entries = ContentfulHelper.fetch_contentful_translations(space_id, token)
-    puts "Fetched Contentful entries: #{contentful_entries.map(&:fields).inspect}"
+    ContentfulHelper.fetch_contentful_translations(space_id, token)
+    # puts "Fetched Contentful entries: #{contentful_entries.map(&:fields).inspect}"
 
     # Listing translations to delete
     translations_to_delete = contentful_translations_keys - local_keys
@@ -41,8 +41,11 @@ namespace :contentful do
         puts "Unpublished entry with key: #{entry.fields[:key]}..."
       end
 
-      entry.destroy!
-      puts "Deleted entry with key: #{entry.fields[:key]}..."
+      if entry.destroy
+        puts "Deleted entry with key: #{entry.fields[:key]}..."
+      else
+        puts "Failed to delete entry with key: #{entry.fields[:key]}."
+      end
     rescue Contentful::Management::Error => e
       puts "Failed to delete entry with key: #{entry.fields[:key]}. Error: #{e.message}"
     end
