@@ -1,6 +1,6 @@
 namespace :contentful do
   desc "Upload translations from en.yml to Contentful"
-  task en_to_contentful_translations_create_or_update: :environment do
+  task en_to_contentful_translations_create: :environment do
     require "json"
 
     begin
@@ -23,24 +23,15 @@ namespace :contentful do
       contentful_translations = ContentfulHelper.transform_contentful_translations(contentful_entries)
       puts "Transformed Contentful translations: #{contentful_translations.inspect}"
 
-      # Identify new and updated translations
+      # Identify new translations
       new_translations = flat_translations.reject { |key, _| contentful_translations.key?(key) }
-      updated_translations = flat_translations.select do |key, value|
-        contentful_translations.key?(key) && contentful_translations[key] != value
-      end
 
       puts "Found #{new_translations.size} new translations."
-      puts "Found #{updated_translations.size} updated translations."
 
-      new_translations.merge(updated_translations).each do |key, value|
-        puts "Processing translation key: #{key}"
-        entry = contentful_entries.find { |e| e.fields[:key] == key }
-        puts "No entry found for key #{key}" unless entry
-        begin
-          ContentfulHelper.create_or_update_contentful_entry(key, value, entry, space_id, token)
-        rescue StandardError => e
-          puts "Failed to process translation key: #{key}. Error: #{e.message}"
-        end
+      new_translations.each do |key, value|
+        ContentfulHelper.create_contentful_entry(key, value, space_id, token)
+      rescue StandardError => e
+        puts "Failed to process translation key: #{key}. Error: #{e.message}"
       end
 
       puts "Translation upload completed successfully!"

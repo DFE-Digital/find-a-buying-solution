@@ -1,9 +1,9 @@
 namespace :contentful do
   desc "Sync translations: Upload strings from yml to Contentful, delete obsolete ones, and sync back updated strings in contentful back to en.yml"
   task yml_contentful_sync: :environment do
-    # Step 1: Run the task to upload new/updated translations from en.yml to Contentful
-    puts "Starting step 1: Upload new/updated translations from en.yml to Contentful"
-    Rake::Task["contentful:en_to_contentful_translations_create_or_update"].invoke
+    # Step 1: Run the task to upload new translations from en.yml to Contentful
+    puts "Starting step 1: Upload new translations from en.yml to Contentful"
+    Rake::Task["contentful:en_to_contentful_translations_create"].invoke
     puts "Step 1 completed successfully!"
 
     # Step 2: Run the task to delete obsolete translations in Contentful not found in en.yml

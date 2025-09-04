@@ -69,32 +69,23 @@ module_function
     end
   end
 
-  # Creates/updates the translation entries in Contentful
-  def create_or_update_contentful_entry(key, value, existing_entry, space_id, token)
+  # Creates new translation entries in Contentful
+  def create_contentful_entry(key, value, space_id, token)
     client = contentful_management_client(token)
     environment = fetch_environment(client, space_id)
-    if existing_entry
-      Rails.logger.debug("Updating entry for key: #{key}")
-      existing_entry.fields["key"] = key
-      existing_entry.fields["value"] = value
-      existing_entry.save!
-      existing_entry.publish
-      Rails.logger.debug "Updated and published entry for key: #{key}."
-    else
-      Rails.logger.debug("Creating new entry for key: #{key}")
-      begin
-        translation_type = environment.content_types.find("translation")
-        new_entry = translation_type.entries.create!(
-          key: key,
-          value: value
-        )
-        new_entry.publish
-        Rails.logger.debug "Created and published new entry for key: #{key}."
-      rescue StandardError => e
-        Rails.logger.debug "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
+    Rails.logger.debug("Creating new entry for key: #{key}")
+    begin
+      translation_type = environment.content_types.find("translation")
+      new_entry = translation_type.entries.create(
+        key: key,
+        value: value
+      )
+      new_entry.publish
+      Rails.logger.debug "Created and published new entry for key: #{key}."
+    rescue StandardError => e
+      Rails.logger.debug "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
 
-        Rails.logger.error "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
-      end
+      Rails.logger.error "Failed to create or publish entry for key: #{key}. Error: #{e.message}"
     end
   rescue StandardError => e
     Rails.logger.debug "Failed to process translation for key: #{key}. Error: #{e.message}"
