@@ -1,8 +1,8 @@
 # lib/tasks/contentful_sync.rake or a standalone script
 
-desc "Syncs Contentful data to Elasticsearch"
+desc "Syncs Contentful data to search index"
 task sync_contentful_to_es: :environment do
-  puts "Starting Contentful to Elasticsearch sync..."
+  puts "Starting Contentful to search sync..."
 
   # Create the index if it doesn't exist
   create_index("solution-data")
@@ -35,16 +35,16 @@ task sync_contentful_to_es: :environment do
   end
 
   # Perform the bulk indexing
-  elasticsearch_client.bulk(body: bulk_actions)
-  puts "Successfully indexed #{entries.size} entries into Elasticsearch."
+  SearchClient.instance.bulk(body: bulk_actions)
+  puts "Successfully indexed #{entries.size} entries into search index."
 end
 
 # Create the index and its mapping
 # rubocop:disable Rails/SaveBang
 def create_index(index_name)
-  return if elasticsearch_client.indices.exists?(index: index_name)
+  return if SearchClient.instance.indices.exists?(index: index_name)
 
-  elasticsearch_client.indices.create(
+  SearchClient.instance.indices.create(
     index: index_name,
     body: {
       settings: { number_of_shards: 1, number_of_replicas: 0 },
@@ -62,9 +62,3 @@ def create_index(index_name)
   )
 end
 # rubocop:enable Rails/SaveBang
-
-def elasticsearch_client
-  @elasticsearch_client ||= Elasticsearch::Client.new(url: ENV["ELASTICSEARCH_URL"],
-                                                      api_key: ENV["ELASTICSEARCH_API_KEY"],
-                                                      verify_elasticsearch_product: false)
-end

@@ -1,4 +1,4 @@
-require "elasticsearch/transport"
+require "opensearch/transport"
 
 class SolutionIndexer
   attr_reader :id, :client
@@ -6,11 +6,7 @@ class SolutionIndexer
   INDEX = "solution-data".freeze
 
   def initialize(id:)
-    @client = ::Elasticsearch::Client.new(
-      url: ENV["ELASTICSEARCH_URL"],
-      api_key: ENV["ELASTICSEARCH_API_KEY"],
-      verify_elasticsearch_product: false
-    )
+    @client = SearchClient.instance
     @id = id
   end
 
@@ -29,7 +25,7 @@ class SolutionIndexer
     return true if index_deleted?(response["result"])
 
     false
-  rescue Elastic::Transport::Transport::Errors::NotFound
+  rescue OpenSearch::Transport::Transport::Errors::NotFound
     true
   end
 
@@ -38,7 +34,7 @@ class SolutionIndexer
       index: "solution-data",
       id: id
     )
-  rescue Elastic::Transport::Transport::Errors::NotFound
+  rescue OpenSearch::Transport::Transport::Errors::NotFound
     nil
   end
 

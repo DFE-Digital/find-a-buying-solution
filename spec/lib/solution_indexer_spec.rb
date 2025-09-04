@@ -6,7 +6,7 @@ RSpec.describe SolutionIndexer do
   let(:solution_index) { "solution-data" }
   let(:id) { "solution-123" }
 
-  let(:es_client_mock) { instance_double(::Elasticsearch::Client) }
+  let(:es_client_mock) { instance_double(::OpenSearch::Client) }
   let(:primary_category) do
     instance_double(
       SolutionSearcher::PrimaryCategory,
@@ -38,13 +38,13 @@ RSpec.describe SolutionIndexer do
   end
 
   before do
-    allow(::Elasticsearch::Client).to receive(:new).and_return(es_client_mock)
+    allow(SearchClient).to receive(:instance).and_return(es_client_mock)
     allow(Solution).to receive(:find_by_id!).with(id).and_return(solution_entry)
   end
 
   describe "#index_document" do
     context "when the entry is found and indexing is successful" do
-      it "calls the Elasticsearch client's index method" do
+      it "calls the search client's index method" do
         allow(es_client_mock).to receive(:index).with(
           index: solution_index,
           id: id,
@@ -67,13 +67,13 @@ RSpec.describe SolutionIndexer do
         allow(Solution).to receive(:find_by_id!).with(id).and_return(nil)
       end
 
-      it "does not call the Elasticsearch client's index method" do
+      it "does not call the search client's index method" do
         expect(es_client_mock).not_to receive(:index)
         expect(indexer.index_document).to be false
       end
     end
 
-    context "when Elasticsearch indexing fails" do
+    context "when search indexing fails" do
       it "returns false when the client returns an unexpected result" do
         allow(es_client_mock).to receive(:index).and_return("result" => "failed")
         expect(indexer.index_document).to be false
@@ -83,7 +83,7 @@ RSpec.describe SolutionIndexer do
 
   describe "#delete_document" do
     context "when the document is successfully deleted" do
-      it "calls the Elasticsearch client's delete method and returns true" do
+      it "calls the search client's delete method and returns true" do
         allow(es_client_mock).to receive(:delete).with(
           index: solution_index,
           id: id
@@ -94,12 +94,12 @@ RSpec.describe SolutionIndexer do
 
     context "when the document is not found" do
       it "rescues the NotFound error and returns true" do
-        allow(es_client_mock).to receive(:delete).and_raise(Elastic::Transport::Transport::Errors::NotFound)
+        allow(es_client_mock).to receive(:delete).and_raise(OpenSearch::Transport::Transport::Errors::NotFound)
         expect(indexer.delete_document).to be true
       end
     end
 
-    context "when Elasticsearch deletion fails" do
+    context "when search deletion fails" do
       it "returns false for an unexpected result" do
         allow(es_client_mock).to receive(:delete).and_return("result" => "unexpected")
         expect(indexer.delete_document).to be false
@@ -111,7 +111,7 @@ RSpec.describe SolutionIndexer do
     let(:found_doc) { { "found" => true, "_id" => id, "_source" => { title: "Test Doc" } } }
 
     context "when the document is found" do
-      it "calls the Elasticsearch client's get method and returns the document" do
+      it "calls the search client's get method and returns the document" do
         allow(es_client_mock).to receive(:get).with(
           index: solution_index,
           id: id
@@ -122,7 +122,7 @@ RSpec.describe SolutionIndexer do
 
     context "when the document is not found" do
       it "rescues the NotFound error and returns nil" do
-        allow(es_client_mock).to receive(:get).and_raise(Elastic::Transport::Transport::Errors::NotFound)
+        allow(es_client_mock).to receive(:get).and_raise(OpenSearch::Transport::Transport::Errors::NotFound)
         expect(indexer.find_document).to be_nil
       end
     end

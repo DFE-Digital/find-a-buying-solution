@@ -71,24 +71,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 02 Sep 2025 16:45:35 GMT
+      - Tue, 02 Sep 2025 16:45:34 GMT
       Age:
       - '44'
       X-Served-By:
-      - cache-ewr-kewr1740038-EWR, cache-lcy-egml8630067-LCY
+      - cache-ewr-kewr1740038-EWR, cache-lcy-egml8630091-LCY
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1756831536.756913,VS0,VE1
+      - S1756831535.964162,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - bc8096b8-97d6-4079-abb8-7b7efda2385e
+      - eb5dbc83-9c78-4919-aba9-93d8e935f5bf
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         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
-  recorded_at: Tue, 02 Sep 2025 16:45:35 GMT
+  recorded_at: Tue, 02 Sep 2025 16:45:34 GMT
 - request:
     method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/production/entries?content_type=category&query=catering&select=fields.title,fields.description,fields.slug,sys
@@ -160,17 +160,17 @@ http_interactions:
       Date:
       - Tue, 02 Sep 2025 16:45:35 GMT
       Age:
-      - '44'
+      - '43'
       X-Served-By:
-      - cache-ewr-kewr1740073-EWR, cache-lcy-egml8630091-LCY
+      - cache-ewr-kewr1740073-EWR, cache-lcy-egml8630047-LCY
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1756831536.785151,VS0,VE1
+      - S1756831535.019226,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 23529213-1483-4a3f-b49d-ba3025c331b7
+      - fba0ec83-8207-4b57-8be0-c882cfe17633
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy

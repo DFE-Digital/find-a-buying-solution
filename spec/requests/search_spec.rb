@@ -5,7 +5,7 @@ RSpec.describe "Search pages", :vcr, type: :request do
 
   before do
     allow(ENV).to receive(:fetch).and_call_original
-    allow(ENV).to receive(:fetch).with("USE_ELASTIC_SEARCH", false).and_return(nil)
+    allow(ENV).to receive(:fetch).with("USE_OPENSEARCH", false).and_return(nil)
   end
 
   describe "GET /search" do
@@ -63,14 +63,9 @@ RSpec.describe "Search pages", :vcr, type: :request do
     end
   end
 
-  describe "Elastic search" do
+  describe "Search" do
     describe "GET /search" do
       before do
-        allow(ENV).to receive(:fetch).with("USE_ELASTIC_SEARCH", false).and_return("1")
-
-        allow(ENV).to receive(:[]).and_call_original
-        allow(ENV).to receive(:[]).with("ELASTICSEARCH_URL").and_return("http://elastic-search.mocked:9200")
-        allow(ENV).to receive(:[]).with("ELASTICSEARCH_API_KEY").and_return("mocked_api_key")
         get search_path(query: "catering")
       end
 
