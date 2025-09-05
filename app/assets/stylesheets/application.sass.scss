@@ -337,7 +337,10 @@ footer {
       border-bottom: 1px solid rgba(255, 255, 255);
     }
 
-    .govuk-service-navigation__link {
+    // All service navigation links should be white on homepage
+    .govuk-service-navigation__link:link,
+    .govuk-service-navigation__link:visited,
+    .govuk-service-navigation__active-fallback {
       color: #fff !important;
 
       &:hover {
@@ -347,28 +350,6 @@ footer {
       &:focus {
         color: #0b0c0c !important;
       }
-    }
-
-    .govuk-service-navigation__service-name {
-      .govuk-service-navigation__link {
-        color: #fff !important;
-
-        &:hover {
-          color: #fff !important;
-        }
-
-        &:focus {
-          color: #0b0c0c !important;
-        }
-      }
-
-      &.govuk-service-navigation__item--active .govuk-service-navigation__link {
-        color: #fff !important;
-      }
-    }
-
-    .govuk-service-navigation__active-fallback {
-      color: #fff !important;
     }
 
     // Override any active state borders/highlights
@@ -1377,4 +1358,11 @@ section.govuk-service-navigation .dfe-width-container .govuk-service-navigation_
 .dfe-header section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:link,
 .dfe-header section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:visited {
   color: #fff !important;
+}
+
+// All service navigation links should be blue on non-homepage pages
+section.govuk-service-navigation .govuk-service-navigation__link:link,
+section.govuk-service-navigation .govuk-service-navigation__link:visited,
+section.govuk-service-navigation .govuk-service-navigation__active-fallback {
+  color: #1d70b8 !important;
 }
