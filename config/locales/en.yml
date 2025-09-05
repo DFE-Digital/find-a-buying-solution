@@ -50,6 +50,7 @@ en:
     name: Get help buying for schools
     navigation:
       about: About this service
+      menu: Menu
   shared:
     dfe_footer:
       accessibility_statement: Accessibility statement
