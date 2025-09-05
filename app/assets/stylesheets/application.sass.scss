@@ -1303,3 +1303,8 @@ a.all-buying-options-link {
         margin-left: 7px;
     }
 }
+
+section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:link,
+section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:visited {
+  color: #1d70b8 !important;
+}
