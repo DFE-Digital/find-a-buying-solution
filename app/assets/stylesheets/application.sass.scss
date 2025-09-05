@@ -326,9 +326,74 @@ footer {
   color: #fff;
   background-color: govuk.$govuk-brand-colour;
   padding-bottom: 0px;
+
+  // Service navigation styling for homepage
+  .govuk-service-navigation {
+    background-color: transparent;
+    border: none;
+
+    .dfe-width-container {
+      border-top: 1px solid rgba(255, 255, 255);
+      border-bottom: 1px solid rgba(255, 255, 255);
+    }
+
+    .govuk-service-navigation__link {
+      color: #fff !important;
+
+      &:hover {
+        color: #fff !important;
+      }
+
+      &:focus {
+        color: #0b0c0c !important;
+      }
+    }
+
+    .govuk-service-navigation__service-name {
+      .govuk-service-navigation__link {
+        color: #fff !important;
+
+        &:hover {
+          color: #fff !important;
+        }
+
+        &:focus {
+          color: #0b0c0c !important;
+        }
+      }
+
+      &.govuk-service-navigation__item--active .govuk-service-navigation__link {
+        color: #fff !important;
+      }
+    }
+
+    .govuk-service-navigation__active-fallback {
+      color: #fff !important;
+    }
+
+    // Override any active state borders/highlights
+    .govuk-service-navigation__service-name.govuk-service-navigation__item--active,
+    .govuk-service-navigation__item.govuk-service-navigation__item--active {
+      border-bottom-color: #fff !important;
+      border-color: #fff !important;
+
+      &::after {
+        background-color: #fff !important;
+        border-color: #fff !important;
+      }
+
+      .govuk-service-navigation__link {
+        border-bottom-color: #fff !important;
+        border-color: #fff !important;
+
+        &::after {
+          background-color: #fff !important;
+          border-color: #fff !important;
+        }
+      }
+    }
+  }
 }
-
-
 
 @media (max-width: 40.0525em) {
   .dfe-header .dfe-header__service-name {
@@ -1307,4 +1372,9 @@ a.all-buying-options-link {
 section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:link,
 section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:visited {
   color: #1d70b8 !important;
+}
+
+.dfe-header section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:link,
+.dfe-header section.govuk-service-navigation .dfe-width-container .govuk-service-navigation__container .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link:visited {
+  color: #fff !important;
 }
