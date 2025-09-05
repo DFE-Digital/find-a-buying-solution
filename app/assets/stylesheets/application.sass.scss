@@ -352,7 +352,21 @@ footer {
       }
     }
 
-    // Override any active state borders/highlights
+    .govuk-service-navigation__toggle {
+      color: #fff !important;
+      border-color: #fff !important;
+
+      &:hover {
+        color: #fff !important;
+        border-color: #fff !important;
+      }
+
+      &:focus {
+        color: #0b0c0c !important;
+        border-color: #0b0c0c !important;
+      }
+    }
+
     .govuk-service-navigation__service-name.govuk-service-navigation__item--active,
     .govuk-service-navigation__item.govuk-service-navigation__item--active {
       border-bottom-color: #fff !important;
@@ -1360,7 +1374,6 @@ section.govuk-service-navigation .dfe-width-container .govuk-service-navigation_
   color: #fff !important;
 }
 
-// All service navigation links should be blue on non-homepage pages
 section.govuk-service-navigation .govuk-service-navigation__link:link,
 section.govuk-service-navigation .govuk-service-navigation__link:visited,
 section.govuk-service-navigation .govuk-service-navigation__active-fallback {
