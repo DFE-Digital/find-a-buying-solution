@@ -21,12 +21,13 @@ config.cache_store = :redis_cache_store,
                        expires_in: I18n::Backend::Contentful::CACHE_EXPIRY
                      }
 ```
+In `config/environments/development.rb` however `config.cache_store` is set to `:memory_store`
 - **Redis URL**: Provided via `ENV['REDIS_URL']`. Ensure this environment variable is set for the application through Heroku.
 - **Namespace**: All cache keys are prefixed with `myapp:cache` to avoid collisions with other keys in Redis ( ex: Sidekiq which uses redis too.) 
-- **Cache Expiry**: Provided visa `ENV['RAILS_CACHE_EXPIRY_IN_SECONDS']`. Ensure this environment variable is set for the application through Heroku. This is typically set to `86400` (24 hours), depending on application requirements and can be altered (or for testing purposes).
+- **Cache Expiry**: Provided via `ENV['RAILS_CACHE_EXPIRY_IN_SECONDS']`. Ensure this environment variable is set for the application through Heroku. This is typically set to `86400` (24 hours), depending on application requirements and can be altered (or for testing purposes).
 `I18n::Backend::Contentful::CACHE_EXPIRY` is set to inherit from `ENV['RAILS_CACHE_EXPIRY_IN_SECONDS']` in the code.
 
-### 2. **How Contentful translations data is Cached**
+### 2. **How Contentful translations are Cached**
 Contentful translations are fetched and cached using the following mechanisms:
 
 - **Primary Cache**: Content for the content-model 'Translation' from Contentful is stored in Redis under the key for a certain duration as mentioned in `ENV['RAILS_CACHE_EXPIRY_IN_SECONDS']`.
@@ -38,7 +39,35 @@ Contentful translations are fetched and cached using the following mechanisms:
     - Ensures the application always serves translations from Redis if available. If not, it fetches from Contentful and updates Redis -  `load_translations` in `lib/i18n/backend/contentful.rb`
     - Periodically refreshes cached data to ensure the freshest content without removing older data if fetching fails. -  `refresh_contentful_cache` in `config/initializers/contentful_initializer.rb`
 
-### 3. **Fallback Logic**
+### 3. **Contentful Integration with YAML Fallback in `production.rb`**
+This application uses **Contentful** for translations with a **YAML fallback** to ensure reliability.
+
+#### **1. Chained Backend Configuration**
+- **Primary Backend**: fetches translations dynamically. `I18n::Backend::Contentful`
+- **Fallback Backend**: (YAML) is used if Contentful fails to initialize. `I18n::Backend::Simple`
+- **Chaning the two above**: Combining Contentful and YAML -  `I18n::Backend::Chain`
+
+#### **2. Error Handling**
+- Contentful initialization failure logs:
+  _"Failed to initialize Contentful I18n backend: [error]. Falling back to YAML translations."_
+- Ensures translations are still served from YAML.
+
+#### **3. Redis Caching**
+- Uses Redis as a cache for Contentful translations with expiration.
+- If Redis is empty or expired, fetches fresh translations from Contentful.
+
+#### **4. Localization Fallback**
+- Default locale: . `:en`
+- Missing translations fallback to English.
+
+#### **5. Workflow**
+1. Check Redis for cached translations.
+2. If missing, fetch Contentful translations and cache them into Redis.
+3. Fallback to YAML if Contentful and Redis are unavailable.
+
+**Outcome**: Reliable, performant i18n with robust fallbacks.
+
+### 4. **Fallback Logic**
 To avoid disruptions in the user experience:
 - When Contentful fails to provide the content in the translations, the cached translations already in Redis are used as a fallback.
 - The application ensures that Redis cache isn't wiped on Contentful fetch failures, preventing stale content from being unavailable.
@@ -59,7 +88,7 @@ Rails.cache.write(
 ## **Configuration Options**
 To customize caching behavior, update the following environment variables:
 - **`REDIS_URL`**: The Redis connection string.
-- **`RAILS_CACHE_EXPIRY_IN_SECONDS`**: Defines how long the cached translations remain valid - `RAILS_CACHE_EXPIRY_IN_SECONDS`. Default is `86400` seconds (24 hours). Change this to suit the desired frequency of refresh.
+- **`RAILS_CACHE_EXPIRY_IN_SECONDS`**: Defines how long the cached translations remain valid. Default is `86400` seconds (24 hours). Change this to suit the desired frequency of refresh.
 - **`CONTENTFUL_xxxx`**: Ensure Contentful-related keys (`SPACE_ID`, `ACCESS_TOKEN`, `ENVIRONMENT`, `MANAGEMENT_TOKEN`   etc.) are correctly configured.
 
 ### **Useful Commands**
