@@ -327,7 +327,6 @@ footer {
   background-color: govuk.$govuk-brand-colour;
   padding-bottom: 0px;
 
-  // Service navigation styling for homepage
   .govuk-service-navigation {
     background-color: transparent;
     border: none;
@@ -337,7 +336,6 @@ footer {
       border-bottom: 1px solid rgba(255, 255, 255);
     }
 
-    // All service navigation links should be white on homepage
     .govuk-service-navigation__link:link,
     .govuk-service-navigation__link:visited,
     .govuk-service-navigation__active-fallback {
