@@ -45,7 +45,7 @@ This application uses **Contentful** for translations with a **YAML fallback** t
 #### **1. Chained Backend Configuration**
 - **Primary Backend**: fetches translations dynamically. `I18n::Backend::Contentful`
 - **Fallback Backend**: (YAML) is used if Contentful fails to initialize. `I18n::Backend::Simple`
-- **Chaning the two above**: Combining Contentful and YAML -  `I18n::Backend::Chain`
+- **Chaining the two above**: Combining Contentful and YAML -  `I18n::Backend::Chain`
 
 #### **2. Error Handling**
 - Contentful initialization failure logs:
