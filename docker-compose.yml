@@ -3,6 +3,7 @@ services:
     image: opensearchproject/opensearch:latest
     container_name: opensearch-node1
     environment:
+      - plugins.security.disabled=true
       - cluster.name=opensearch-cluster
       - node.name=opensearch-node1
       - discovery.seed_hosts=opensearch-node1
