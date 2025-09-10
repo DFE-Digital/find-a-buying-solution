@@ -1,5 +1,6 @@
 {
   "addons": [
+    { "plan": "scheduler:standard" },
     { "plan": "heroku-redis:mini" },
     {
       "plan": "bonsai:free",
