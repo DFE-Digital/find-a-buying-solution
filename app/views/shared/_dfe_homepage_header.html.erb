@@ -1,8 +1,10 @@
-<header class="dfe-header" data-module="govuk-header">
+<header class="dfe-header dfe-header--homepage" data-module="govuk-header">
   <%= render "shared/dfe_logo_and_menu" %>
+  <%= render "shared/dfe_search_box"%>
+  <div class="govuk-!-margin-bottom-6">
+    <%= render "shared/dfe_service_navigation" %>
+  </div>
 </header>
-
-<%= render "shared/dfe_search_box"%>
 
 <section class="dfe-page-hero dfe-header">
     <div class="dfe-width-container hero-text-container">
