@@ -1,4 +1,4 @@
-require "elasticsearch/transport"
+require "opensearch/transport"
 
 class SolutionSearcher
   attr_reader :query, :client
@@ -9,11 +9,7 @@ class SolutionSearcher
   PrimaryCategory = Struct.new(:id, :title, :slug)
 
   def initialize(query:)
-    @client = ::Elasticsearch::Client.new(
-      url: ENV["ELASTICSEARCH_URL"],
-      api_key: ENV["ELASTICSEARCH_API_KEY"],
-      verify_elasticsearch_product: false
-    )
+    @client = SearchClient.instance
     @query = query
   end
 

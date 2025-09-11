@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os Linux;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -68,26 +68,26 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Age:
-      - '216'
       Date:
-      - Thu, 07 Aug 2025 14:59:35 GMT
+      - Tue, 09 Sep 2025 09:26:43 GMT
+      Age:
+      - '18'
       X-Served-By:
-      - cache-ewr-kewr1740072-EWR, cache-lhr-egll1980028-LHR
+      - cache-ewr-kewr1740072-EWR, cache-lcy-egml8630080-LCY
       X-Cache-Hits:
-      - 1, 0
+      - 0, 1
       X-Timer:
-      - S1754578775.426707,VS0,VE72
+      - S1757410003.133699,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - b3e3d0cb-6a64-4e9f-94ca-d6cabe58b7e2
+      - b4b6d6ef-65bb-4d07-bdb6-ce55b2b190fb
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 07 Aug 2025 14:59:35 GMT
+  recorded_at: Tue, 09 Sep 2025 09:26:43 GMT
 - request:
     method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=nonexistent&select=fields.title,fields.description,fields.slug,sys
@@ -96,7 +96,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os Linux;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -156,24 +156,24 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Age:
-      - '67992'
       Date:
-      - Thu, 07 Aug 2025 14:59:35 GMT
+      - Tue, 09 Sep 2025 09:26:43 GMT
+      Age:
+      - '18'
       X-Served-By:
-      - cache-ewr-kewr1740069-EWR, cache-lhr-egll1980040-LHR
+      - cache-ewr-kewr1740069-EWR, cache-lcy-egml8630098-LCY
       X-Cache-Hits:
-      - 2, 0
+      - 0, 1
       X-Timer:
-      - S1754578776.547781,VS0,VE73
+      - S1757410003.200439,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 20bd3eaf-e99e-4f0b-bf7b-5c9edd4b7c26
+      - 81967ed0-fdba-40c2-9ea4-f2e45ae89323
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 07 Aug 2025 14:59:35 GMT
+  recorded_at: Tue, 09 Sep 2025 09:26:43 GMT
 recorded_with: VCR 6.3.1

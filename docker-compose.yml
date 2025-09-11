@@ -1,36 +1,41 @@
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.0
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+  opensearch-node1:
+    image: opensearchproject/opensearch:latest
+    container_name: opensearch-node1
     environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms96m -Xmx96m"
-
-      # Set a temporary password for the 'elastic' superuser
-      - ELASTIC_PASSWORD=FMp3U3uVm6PG-tLE4p5y
-      # Enable security features (required for API keys)
-      - xpack.security.enabled=true
-      # Allow CORS from all origins for development
-      - http.cors.enabled=true
-      - http.cors.allow-origin:"*"
-
+      - plugins.security.disabled=true
+      - cluster.name=opensearch-cluster
+      - node.name=opensearch-node1
+      - discovery.seed_hosts=opensearch-node1
+      - cluster.initial_cluster_manager_nodes=opensearch-node1
+      - bootstrap.memory_lock=true  # along with the memlock settings below, disables swapping
+      - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m  # minimum and maximum Java heap size, recommend setting both to 50% of system RAM
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=v1ZVRlCErg65NMY6fQny
     ulimits:
-      # Memory locked limit, essential for preventing swapping on disk
       memlock:
         soft: -1
         hard: -1
-      # Maximum number of open files, also a common requirement
       nofile:
-        soft: 65536
+        soft: 65536  # maximum number of open files for the OpenSearch user, set to at least 65536 on modern systems
         hard: 65536
     volumes:
-      # This named volume will persist your Elasticsearch data
-      - ./db/esdata:/usr/share/elasticsearch/data
-volumes:
-  # Define the named volume for persistence
-  esdata:
-    driver: local
+      - ./db/opensearch:/usr/share/opensearch/data
+    ports:
+      - 9200:9200
+      # - 9600:9600  # required for Performance Analyzer
+    networks:
+      - opensearch-net
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:latest
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601
+    expose:
+      - '5601'
+    environment:
+      OPENSEARCH_HOSTS: '["https://opensearch-node1:9200"]'
+    networks:
+      - opensearch-net
+
+networks:
+  opensearch-net:
