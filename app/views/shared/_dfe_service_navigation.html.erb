@@ -1,7 +1,7 @@
 <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation">
   <div class="dfe-width-container">
     <div class="govuk-service-navigation__container">
-      <span class="govuk-service-navigation__service-name govuk-!-padding-top-4 govuk-!-padding-bottom-4 <%= ' govuk-service-navigation__item--active' unless service_navigation_any_active? %>">
+      <span class="govuk-service-navigation__service-name <%= ' govuk-service-navigation__item--active' unless service_navigation_any_active? %>">
         <%= link_to t("header_title"), "/", class: "govuk-service-navigation__link" %>
       </span>
       <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
@@ -11,7 +11,7 @@
         <ul class="govuk-service-navigation__list" id="navigation">
           <% service_navigation_items.each do |item| %>
             <% is_active = service_navigation_active?(item[:path]) %>
-            <li class="govuk-service-navigation__item govuk-!-padding-top-4 govuk-!-padding-bottom-4 <%= ' govuk-service-navigation__item--active' if is_active %>">
+            <li class="govuk-service-navigation__item <%= ' govuk-service-navigation__item--active' if is_active %>">
               <%= link_to item[:path], class: "govuk-service-navigation__link", **({ "aria-current": "true" } if is_active) do %>
                 <% if is_active %>
                   <strong class="govuk-service-navigation__active-fallback"><%= item[:text] %></strong>
