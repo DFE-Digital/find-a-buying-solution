@@ -91,3 +91,8 @@ en:
     show:
       cta: Visit the provider’s website
       section_title: Buying option
+  offers:
+    index:
+      section_title: Buying category
+      title: Offers
+      description: Browse time-limited offers negotiated by DfE for you, so you can get best value.

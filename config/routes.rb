@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: %i[index], param: :slug
   resources :solutions, only: %i[show index], param: :slug
+  resources :offers, only: %i[index]
 
   resources :contentful_webhooks, only: %i[create]
   post "delete_contentful_entry", to: "contentful_webhooks#destroy"

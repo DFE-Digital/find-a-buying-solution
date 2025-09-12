@@ -1,0 +1,27 @@
+<div class="page-with-sidebar">
+  <div class="dfe-width-container">
+    <div class="govuk-grid-row">
+      <div class="all-buying-options govuk-grid-column-two-thirds govuk-!-margin-top-4 govuk-!-margin-bottom-7">
+        <% if @offers.present? %>
+          <ul class="provider-expires chevron-card-list">
+            <% @offers.each do |offer| %>
+              <li class="chevron-card">
+                <div class="chevron-card__wrapper">
+                  <p class="govuk-body-m  govuk-!-margin-bottom-1 govuk-!-font-weight-bold">
+                    <%= govuk_link_to offer.title, offer.url, class: "govuk-link chevron-card__link" %>
+                  </p>
+                  <p class="govuk-body-m chevron-card__description" style="margin-top: 10px;">
+                    <%= offer.description %>
+                  </p>
+                  <%# No provider/expiry for offers %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
