@@ -4,7 +4,7 @@ class Offer
 
   attr_reader :id, :title, :description,
               :slug, :url, :call_to_action,
-              :image, :featured_on_homepage
+              :image, :featured_on_homepage, :expiry
 
   def initialize(entry)
     @id = entry.id
@@ -15,6 +15,7 @@ class Offer
     @call_to_action = entry.fields[:call_to_action]
     @image = entry.fields[:image]
     @featured_on_homepage = entry.fields[:featured_on_homepage]
+    @expiry = entry.fields[:expiry]
     super
   end
 
@@ -30,6 +31,7 @@ class Offer
         fields.call_to_action
         fields.image
         fields.featured_on_homepage
+        fields.expiry
       ].join(","),
       order: "fields.title",
     }

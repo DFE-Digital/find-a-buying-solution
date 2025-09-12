@@ -9,6 +9,11 @@
           <p class="govuk-body-m chevron-card__description" style="margin-top: 10px;">
             <%= offer.description %>
           </p>
+          <% if offer.expiry.present? %>
+             <p class="expires govuk-body-s govuk-secondary-text-colour govuk-!-margin-top-2">
+              Expires on <%= format_date(offer.expiry) %>
+            </p>
+          <% end %>
         </div>
       </li>
     <% end %>
