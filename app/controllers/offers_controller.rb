@@ -7,10 +7,10 @@ class OffersController < ApplicationController
     @page_section_title = t(".section_title")
     @page_title = t(".title")
     @page_description = t(".description")
+    @page_header_class = "category-header"
     @page_back_link = request.referer
 
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
-    render layout: "all_buying_options"
   end
 end
 
