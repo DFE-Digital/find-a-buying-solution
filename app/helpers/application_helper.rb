@@ -75,6 +75,7 @@ module ApplicationHelper
 
   def service_navigation_items
     [
+      { path: "/offers", text: t("service.navigation.offers") },
       { path: "/about-this-service", text: t("service.navigation.about") },
     ]
   end

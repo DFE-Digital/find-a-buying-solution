@@ -51,6 +51,7 @@ en:
     navigation:
       about: About this service
       menu: Menu
+      offers: Offers
   shared:
     dfe_footer:
       accessibility_statement: Accessibility statement
