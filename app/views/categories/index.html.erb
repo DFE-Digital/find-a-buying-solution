@@ -6,19 +6,22 @@
   <% if @offers.present? %>
     <h2 class="govuk-heading-m"><%= t(".offers_title") %></h2>
     <p class="description"><%= t(".offers_description") %></p>
-    <%= link_to  t(".browse_all_offers"), root_path, class:"all-offers-link govuk-body underlined" %>
+    <% if @offers.size > 3 %>
+      <%= link_to  t(".browse_all_offers"), offers_path, class:"all-offers-link govuk-body underlined" %>
+    <% end %>
     <div class="dfe-grid-container">
-      <% featured_offers = @offers.select { |offer| offer.image.present? && offer.featured_on_homepage } %>
+      <% featured_offers_with_images = @offers.select { |offer| offer.image.present? && offer.featured_on_homepage } %>
 
-      <% if featured_offers.size >= 3 %>
+      <% if featured_offers_with_images.size >= 3 %>
         <!-- Display offers as cards if 3 or more have images -->
-        <% @offers.each do |offer| %>
+        <% featured_offers_with_images.each do |offer| %>
           <%= render partial: 'offer', locals: { offer: offer } %>
         <% end %>
       <% else %>
-        <!-- Display offers as bullet points if featured offers >=3 and don't images in one or more offers-->
+        <% featured_offers = @offers.select { |offer| offer.featured_on_homepage } %>
+        <!-- Display offers as bullet points if featured offers >=3 but don't have images in at-least 3 offers-->
         <ul class="offer-list">
-          <% @offers.each do |offer| %>
+          <% featured_offers.each do |offer| %>
             <li class="offer-list-item">
               <%= link_to offer.title, offer.url, class: "govuk-link" %>
             </li>
