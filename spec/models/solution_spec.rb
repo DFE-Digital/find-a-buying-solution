@@ -56,7 +56,7 @@ RSpec.describe Solution, :vcr, type: :model do
 
     before do
       allow(ENV).to receive(:fetch).and_call_original
-      allow(ENV).to receive(:fetch).with("USE_EXTERNAL_SEARCH", false).and_return(nil)
+      allow(ENV).to receive(:fetch).with("USE_OPENSEARCH", false).and_return(nil)
     end
 
     let(:query) { "technology" }
