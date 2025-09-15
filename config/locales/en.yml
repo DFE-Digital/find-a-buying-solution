@@ -7,6 +7,9 @@ en:
       remove_filter: Remove filter
     index:
       title: DfE-approved buying options by category
+      offers_title: Offers
+      offers_description: Browse time-limited offers negotiated by DfE for you, so you can get best value.
+      browse_all_offers: Browse all offers
     show:
       apply: Apply
       dfe_standfirst: These DfE buying options provide compliant, best value for schools
