@@ -23,6 +23,13 @@ en:
   header_description: A free and compliant service to help you buy for your school,
     trust or academy
   header_title: Get help buying for schools
+  offers:
+    index:
+      description: Browse time-limited offers negotiated by DfE for you, so you can
+        get best value.
+      expires_on: Expires on
+      section_title: Buying category
+      title: Offers
   results:
     count:
       one: 1 result
@@ -51,6 +58,7 @@ en:
     navigation:
       about: About this service
       menu: Menu
+      offers: Offers
   shared:
     dfe_footer:
       accessibility_statement: Accessibility statement
