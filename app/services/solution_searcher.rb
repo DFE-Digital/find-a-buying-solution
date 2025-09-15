@@ -5,9 +5,6 @@ class SolutionSearcher
 
   INDEX = "solution-data".freeze
 
-  SolutionSearchResults = Struct.new(:id, :fields)
-  PrimaryCategory = Struct.new(:id, :title, :slug)
-
   def initialize(query:)
     @client = SearchClient.instance
     @query = query
@@ -17,16 +14,7 @@ class SolutionSearcher
     results = client.search(index: INDEX, body: search_body)["hits"]["hits"]
     return [] if results.empty?
 
-    results.map do |result|
-      fields = result["_source"].transform_keys(&:to_sym)
-      primary_category = PrimaryCategory.new(id: fields[:primary_category]["id"],
-                                             title: fields[:primary_category]["title"],
-                                             slug: fields[:primary_category]["slug"])
-
-      fields[:primary_category] = primary_category
-      entry = SolutionSearchResults.new(id: fields[:id], fields: fields)
-      Solution.new(entry)
-    end
+    results.map { Solution.rehydrate_from_search(it["_source"]) }.compact
   end
 
 private

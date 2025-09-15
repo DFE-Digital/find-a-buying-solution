@@ -1,3 +1,5 @@
+require "ostruct"
+
 class Category
   include ActiveModel::Model
   include HasRelatedContent
@@ -37,6 +39,15 @@ class Category
       query: query,
       select: "sys.id,fields.title,fields.description,fields.slug"
     ).map { new(it) }
+  end
+
+  def self.rehydrate_from_search(result)
+    return nil unless result
+
+    new(OpenStruct.new(
+      id: result["id"],
+      fields: { title: result["title"], slug: result["slug"] }
+    ))
   end
 
   def to_param

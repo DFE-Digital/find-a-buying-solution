@@ -1,3 +1,5 @@
+require "ostruct"
+
 class Solution
   include ActiveModel::Model
   include HasRelatedContent
@@ -130,6 +132,17 @@ class Solution
       content_type: "solution",
       select: "fields.categories"
     ).flat_map { |solution| solution.fields[:categories]&.map(&:id) }.compact.uniq
+  end
+
+  def self.rehydrate_from_search(result)
+    return nil unless result
+
+    category = Category.rehydrate_from_search(result["primary_category"])
+    fields = result
+      .transform_keys(&:to_sym)
+      .merge(primary_category: category)
+
+    new(OpenStruct.new(id: result["id"], fields: fields))
   end
 
   def ==(other)
