@@ -38,9 +38,19 @@ class Offer
     ContentfulClient.entries(params).map { new(it) }
   end
 
+  def self.find_by_slug!(slug)
+    entry = ContentfulClient.entries(
+      content_type: "offer",
+      'fields.slug': slug,
+      include: 1
+    ).find { |offer| offer.fields[:slug] == slug }
+
+    raise ContentfulRecordNotFoundError.new("Offer not found", slug: slug) unless entry
+
+    new(entry)
+  end
+
   def ==(other)
     super || other.instance_of?(self.class) && other.id == id
   end
 end
-
-

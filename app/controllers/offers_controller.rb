@@ -13,5 +13,3 @@ class OffersController < ApplicationController
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
   end
 end
-
-
