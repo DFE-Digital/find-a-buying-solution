@@ -179,4 +179,8 @@ class Solution
 
     }
   end
+
+  def presentable?
+    title.present? && slug.present? && primary_category
+  end
 end
