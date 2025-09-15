@@ -1,15 +1,10 @@
 class Offer
   include ActiveModel::Model
-<<<<<<< HEAD
-
-  attr_reader :id, :title, :description, :call_to_action, :url, :image, :featured_on_homepage, :slug
-=======
   include HasRelatedContent
 
   attr_reader :id, :title, :description,
               :slug, :url, :call_to_action,
               :image, :featured_on_homepage, :expiry
->>>>>>> main
 
   def initialize(entry)
     @id = entry.id
@@ -24,17 +19,6 @@ class Offer
     super
   end
 
-  # def self.find_by_slug(slug)
-  #   entry = ContentfulClient.entries(
-  #     content_type: "offer",
-  #     'fields.slug': slug,
-  #     limit: 1
-  #   ).first
-  #   entry ? new(entry) : nil
-  # rescue ContentfulRecordNotFoundError => e
-  #   Rollbar.error(e, slug: slug)
-  #   nil
-  # end
   def self.find_by_slug!(slug)
     entry = ContentfulClient.entries(
       content_type: "offer",
