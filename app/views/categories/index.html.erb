@@ -2,6 +2,32 @@
   <% if @energy_banner %>
     <%= render partial: 'energy_banner', locals: { banner: @energy_banner } %>
   <% end %>
+
+  <% if @offers.present? %>
+    <h2 class="govuk-heading-m"><%= t(".offers_title") %></h2>
+    <p class="description"><%= t(".offers_description") %></p>
+    <%= link_to  t(".browse_all_offers"), root_path, class:"all-offers-link govuk-body underlined" %>
+    <div class="dfe-grid-container">
+      <% featured_offers = @offers.select { |offer| offer.image.present? && offer.featured_on_homepage } %>
+
+      <% if featured_offers.size >= 3 %>
+        <!-- Display offers as cards if 3 or more have images -->
+        <% @offers.each do |offer| %>
+          <%= render partial: 'offer', locals: { offer: offer } %>
+        <% end %>
+      <% else %>
+        <!-- Display offers as bullet points if featured offers >=3 and don't images in one or more offers-->
+        <ul class="offer-list">
+          <% @offers.each do |offer| %>
+            <li class="offer-list-item">
+              <%= link_to offer.title, offer.url, class: "govuk-link" %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+
   <h2 class="govuk-heading-m"><%= t(".title") %></h2>
   <div class="dfe-grid-container">
     <% @categories.each do |category| %>
