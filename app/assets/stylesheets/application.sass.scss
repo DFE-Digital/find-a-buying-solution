@@ -328,6 +328,83 @@ footer {
   padding-bottom: 0px;
 }
 
+.govuk-service-navigation {
+  .govuk-service-navigation__link:link,
+  .govuk-service-navigation__link:visited,
+  .govuk-service-navigation__active-fallback {
+    color: #1d70b8;
+    font-weight: normal;
+  }
+
+  .govuk-service-navigation__item--active .govuk-service-navigation__link,
+  .govuk-service-navigation__service-name.govuk-service-navigation__item--active .govuk-service-navigation__link,
+  .govuk-service-navigation__active-fallback {
+    font-weight: bold;
+  }
+}
+
+.dfe-header--homepage {
+
+  .govuk-service-navigation {
+    background-color: transparent;
+    border: none;
+
+    .dfe-width-container {
+      border-top: 1px solid rgba(255, 255, 255);
+      border-bottom: 1px solid rgba(255, 255, 255);
+    }
+
+    .govuk-service-navigation__link:link,
+    .govuk-service-navigation__link:visited,
+    .govuk-service-navigation__active-fallback {
+      color: #fff;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &:focus {
+        color: #0b0c0c;
+      }
+    }
+
+    .govuk-service-navigation__toggle {
+      color: #fff;
+      border-color: #fff;
+
+      &:hover {
+        color: #fff;
+        border-color: #fff;
+      }
+
+      &:focus {
+        color: #0b0c0c;
+        border-color: #0b0c0c;
+      }
+    }
+
+    .govuk-service-navigation__service-name.govuk-service-navigation__item--active,
+    .govuk-service-navigation__item.govuk-service-navigation__item--active {
+      border-bottom-color: #fff;
+      border-color: #fff;
+
+      &::after {
+        background-color: #fff;
+        border-color: #fff;
+      }
+
+      .govuk-service-navigation__link {
+        border-bottom-color: #fff;
+        border-color: #fff;
+
+        &::after {
+          background-color: #fff;
+          border-color: #fff;
+        }
+      }
+    }
+  }
+}
 
 
 @media (max-width: 40.0525em) {
@@ -899,7 +976,6 @@ a.all-buying-options-link {
   border-top: 1px solid #8eb8dc;
   position: relative;
   z-index: 10;
-
 }
 
 .govuk-header__link .govuk-header__logotype{
@@ -1361,3 +1437,4 @@ a.all-buying-options-link {
         margin-left: 7px;
     }
 }
+

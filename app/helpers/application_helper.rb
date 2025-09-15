@@ -72,4 +72,19 @@ module ApplicationHelper
   def page_title(page_title = nil)
     page_title.present? ? "#{h(page_title.strip)} - #{t('service.name')}" : t("service.name")
   end
+
+  def service_navigation_items
+    [
+      { path: "/offers", text: t("service.navigation.offers") },
+      { path: "/about-this-service", text: t("service.navigation.about") },
+    ]
+  end
+
+  def service_navigation_active?(path)
+    request.path == path
+  end
+
+  def service_navigation_any_active?
+    service_navigation_items.any? { |item| service_navigation_active?(item[:path]) }
+  end
 end

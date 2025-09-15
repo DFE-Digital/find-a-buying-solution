@@ -1,11 +1,17 @@
 {
   "addons": [
+    { "plan": "scheduler:standard" },
+    { "plan": "heroku-redis:mini" },
     {
-      "plan": "heroku-redis:mini"
+      "plan": "bonsai:free",
+      "options": { "engine": "opensearch" }
     }
   ],
   "buildpacks": [
     { "url": "heroku/nodejs" },
     { "url": "heroku/ruby" }
-  ]
+  ],
+  "env": {
+    "USE_OPENSEARCH": "true"
+  }
 }
