@@ -116,44 +116,48 @@ RSpec.describe Solution, :vcr, type: :model do
   end
 
   describe ".presentable?" do
-    let(:minimal_attrs) {
+    let(:minimal_attrs) do
       {
         title: "lord",
         slug: "banana",
-        primary_category: instance_double(Category)
+        primary_category: instance_double(Category),
       }
-    }
+    end
 
     it "is true if it has all required attributes" do
-      subject = described_class.new(OpenStruct.new(
-        id: "ID",
-        fields: minimal_attrs
-      ))
-      expect(subject).to be_presentable
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs
+        )
+      expect(described_class.new(params)).to be_presentable
     end
 
     it "requires a title" do
-      subject = described_class.new(OpenStruct.new(
-        id: "ID",
-        fields: minimal_attrs.merge(title: "")
-      ))
-      expect(subject).not_to be_presentable
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs.merge(title: "")
+        )
+      expect(described_class.new(params)).not_to be_presentable
     end
 
     it "requires a slug" do
-      subject = described_class.new(OpenStruct.new(
-        id: "ID",
-        fields: minimal_attrs.merge(slug: "")
-      ))
-      expect(subject).not_to be_presentable
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs.merge(slug: "")
+        )
+      expect(described_class.new(params)).not_to be_presentable
     end
 
     it "requires a primary category" do
-      subject = described_class.new(OpenStruct.new(
-        id: "ID",
-        fields: minimal_attrs.merge(primary_category: nil)
-      ))
-      expect(subject).not_to be_presentable
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs.merge(primary_category: nil)
+        )
+      expect(described_class.new(params)).not_to be_presentable
     end
   end
 end

@@ -14,8 +14,8 @@ class SolutionSearcher
     results = client.search(index: INDEX, body: search_body)["hits"]["hits"]
     return [] if results.empty?
 
-    results.map { Solution.rehydrate_from_search(it["_source"]) }.
-      select(&:presentable?)
+    results.map { Solution.rehydrate_from_search(it["_source"]) }
+      .select(&:presentable?)
   end
 
 private

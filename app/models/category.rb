@@ -45,9 +45,9 @@ class Category
     return nil unless result
 
     new(OpenStruct.new(
-      id: result["id"],
-      fields: { title: result["title"], slug: result["slug"] }
-    ))
+          id: result["id"],
+          fields: { title: result["title"], slug: result["slug"] }
+        ))
   end
 
   def to_param
