@@ -31,7 +31,6 @@ class Offer
     new(entry)
   end
 
-
   def self.all
     params = {
       content_type: "offer",
@@ -54,5 +53,4 @@ class Offer
   def ==(other)
     super || other.instance_of?(self.class) && other.id == id
   end
-
 end

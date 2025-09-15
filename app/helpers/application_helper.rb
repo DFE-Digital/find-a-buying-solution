@@ -80,7 +80,7 @@ module ApplicationHelper
     items
   end
 
-  private
+private
 
   def offers_available?
     Offer.all.any?
