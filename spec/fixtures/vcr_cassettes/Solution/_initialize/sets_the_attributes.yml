@@ -29,7 +29,7 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '67'
+      - '1427'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"10613539042586761942"'
+      - W/"5996100751672265955"
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -64,28 +64,29 @@ http_interactions:
       - '86400'
       Access-Control-Allow-Methods:
       - GET,HEAD,OPTIONS
+      Content-Encoding:
+      - gzip
       Via:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
       Age:
-      - '63626'
+      - '0'
       Date:
-      - Tue, 16 Sep 2025 08:48:38 GMT
+      - Tue, 16 Sep 2025 11:08:22 GMT
       X-Served-By:
-      - cache-ewr-kewr1740037-EWR, cache-lcy-eglc8600060-LCY
+      - cache-ewr-kewr1740037-EWR, cache-lcy-egml8630068-LCY
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1758012518.229637,VS0,VE1
+      - S1758020902.027354,VS0,VE143
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - 5d342048-0db2-4376-a005-853bef427bfc
+      - a9f934b3-b82b-409c-beba-ed5944f6b213
     body:
       encoding: ASCII-8BIT
-      string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
-
-        '
-  recorded_at: Tue, 16 Sep 2025 08:48:38 GMT
+      string: !binary |-
+        H4sIAAAAAAAAA81XXXPaOBR931/h9TNk/IFt4A1oPiAfQDAJYdthhCzbAttyZNkEMv3ve2Wnadqm20B3253hAdlXR7pX5x4dP6rZNlPbj6rYpkRtqx3O0Vb9WFMFEyhS23pNzdY0VdtaTY1oTAU80uA/FSSGeX89qjERyEMClSAokA8/1FTMEkxSUY4A7WmRLEUYVnn8atELmqxViZ+s3WobkzIQlvFgT8zGWaib9kpfcfUjoJVPrShvWTZjuGj0zIfRMUrvxpMNzHnK5DgRfAtDzAkSxOvAzlVDM6y61qrrtqvrba3R1ltHtmPNISxPIYnXw5y22TrSLEeGkaSgnCUxSQDvOY9yQxlkT5Pg8w6+Tev4xWyZSJovI5qFxLshPKMsgeIaNZWTglYjGEAhBSxW1eXHheu9CH8qVMaiXEhwuWLEMIrkQZOkPp3Ig/YpibyKAlSUrwTBYcIiFmzrKWdejkVWR4lXR1nGMJVVqmeEFxSTDJL1SIY5TcsV9p2b5XGM4JT2mvc+eZ8obkgzBX4JIR7xlOVWQblgsdycIkgm4CCO3ieLxSgiKCOKx5SECSVGa6KgZKvgECUBUQRTBADVFEm9msKJTzgB4iqMKx6JiIAQeP/nYgGJLvMtoC5YmeqiYpmPoozAOXIq81hgWD9gMqEfn9QnfpbcsS0Dh9al1blCp1HYZdbyrrl6V57YEyaFYst2+7JdX6NYRfsK9qyP/Pmc0ol5cdXIrGUxYeFMwu4JZJlDrT/KXSTmKzP2tWm0HTYxAEGrZ7nv04f9U+5sDRHPd1P92shxDyfLidBPypSBdQX1CF8kKJaEHHGGc05k0ymTz8zLojzYjzrVhgnnjH9RzbJYQJBrAs1SoCW0wbOOlNGyUTwQOhq9FMsfVP+fikYTHOXQOrJsFRN+p5Z+h35v0FKzbuiurrUtu23YR873tNQqw6y25bQtkFzzl2hpw3yppTqMfl5Mnzv8rWLad7/RyG6+Vfou6JCn9HuuQu5zmpbclk9eKOsTv+HOlU22/BkhaDSvxp1lstwY68bINZzbeGqG9AAhMPtxf26G0XjlT4ulvjHerW+u1gcA6bS5dJ3dzA9Yv1NsbsYP/sUsPwToBNNdczBIG+e0k6+dWTBfmukBQGbX2BVORxvGobZbT27M05u00uA9xdK+4/2zLoju9H6SedHqsreaNuGu3Vt1G7PuLAlPG/7I6XXN5P5OS8fngwOA7HPW2oQrbTJ0Nmi8G6Qnfb1gBwCZY552dpe75Na+8mwjM3F8NriuZJWTSF6/i6cm2/+2cnDk+72kO6X5zD719XlzMnAvD9plzzV0im8mg2Fvch2dBCcPF+VtuudJnuamG4+God8NuUOL2U4faNJHfSihfpfztV+/Od+g1o26YUjnazbbpn7k6N9xvhDWdLWWNMimddSym7/C+dr/vvGtjMlblfqEg9vYML5WnhzN1962E0WK/ykoU8D6MYX5YBnb0pLWFcziNKJI+scNFSFYRwKWMiIFAm0HT/PsYTgJcugVsJGZnJflKcyDLwAIInUcEryuLK0EQKl0QzB+XllClfZIzpUzUMDBBYPt5THsCu4Q6ECPlvAV538bUV+3n28gqlHXLEnURkvaCqulv/6JZtd109VNyeeGeaS1jF9B1Ebrf2ArjhPCA/l5++Xnl7QWwDgsOMVUbGtKgCpKMOASV/ycgIEFN1E5Z/IJ5CfdhbMbasPzu3mx260CB3to0L81DzIFqBjvljHyuqJ3O8rx2eaaGHcHCLcx0bcnqLGNu8GsS8S1cRfb60OAGlMbja/dPB+dm+Yp1tbvYjE7JDWj1RlFF52TmT8X046xLeIV2zz8SzenUQSF622Qs06c++n6UtzsoIYH1M0c//c3J1yef/wNYeOlr3cSAAA=
+  recorded_at: Tue, 16 Sep 2025 11:08:22 GMT
 recorded_with: VCR 6.3.1
