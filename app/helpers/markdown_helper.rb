@@ -4,7 +4,7 @@ module MarkdownHelper
 
     html = Kramdown::Document.new(markdown_content).to_html
 
-    return html.html_safe unless html.match?(/href|<p\b|<h2\b/)
+    return html.html_safe unless html.match?(/href|<p\b|<h2\b|<img\b/)
 
     doc = Nokogiri::HTML.fragment(html)
 
@@ -17,7 +17,8 @@ module MarkdownHelper
       end
     end
 
-    doc = update_class(doc, "a[href]", "govuk-body-s")
+    doc = update_class(doc, "a[href]", "govuk-link govuk-body-s")
+    doc = update_class(doc, "img", "govuk-!-width-full")
     doc.to_html.html_safe
   end
 
