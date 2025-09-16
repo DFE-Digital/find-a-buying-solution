@@ -19,12 +19,3 @@
     <% end %>
   </ul>
 <% end %>
-
-<% content_for :sidebar do %>
-  <% link_struct = Struct.new(:link_text, :url) %>
-  <% related_links = [
-    link_struct.new("Things to consider when buying energy", "#"),
-    link_struct.new("Get training on the Procurement Act 2023", "#")
-  ] %>
-  <%= render partial: "shared/related_content", locals: { related_content: related_links } %>
-<% end %>

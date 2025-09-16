@@ -21,10 +21,5 @@ RSpec.describe "Offers", :vcr, type: :request do
     it "displays offers list" do
       expect(response.body).to include("provider-expires chevron-card-list")
     end
-
-    it "displays related content in sidebar" do
-      expect(response.body).to include("Things to consider when buying energy")
-      expect(response.body).to include("Get training on the Procurement Act 2023")
-    end
   end
 end
