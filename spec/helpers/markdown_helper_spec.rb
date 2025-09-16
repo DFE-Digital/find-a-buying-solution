@@ -5,8 +5,8 @@ RSpec.describe MarkdownHelper, type: :helper do
     it "adds external link attributes to links" do
       markdown = "[Internal](/internal) [External](https://example.com)"
       html = helper.render_markdown_to_html(markdown)
-      expect(html).to include('<a href="/internal" class="govuk-body-s">Internal</a>')
-      expect(html).to include('<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="govuk-body-s">External</a>')
+      expect(html).to include('<a href="/internal" class="govuk-link govuk-body-s">Internal</a>')
+      expect(html).to include('<a href="https://example.com" target="_blank" rel="noopener noreferrer" class="govuk-link govuk-body-s">External</a>')
     end
 
     it "add the correct css class for h2 and paragraph tags" do
