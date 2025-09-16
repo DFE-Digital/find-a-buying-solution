@@ -19,7 +19,11 @@ RSpec.describe "Offers", :vcr, type: :request do
     end
 
     it "displays offers list" do
-      expect(response.body).to include("provider-expires chevron-card-list")
+      expect(response.body).to include("chevron-card-list")
+    end
+
+    it "displays offer titles and links" do
+      expect(response.body).to have_link("High interest bank accounts")
     end
   end
 end

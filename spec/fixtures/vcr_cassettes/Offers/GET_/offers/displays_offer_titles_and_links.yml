@@ -70,20 +70,20 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Date:
-      - Tue, 16 Sep 2025 09:18:35 GMT
       Age:
       - '3931'
+      Date:
+      - Tue, 16 Sep 2025 09:18:35 GMT
       X-Served-By:
-      - cache-ewr-kewr1740077-EWR, cache-lhr-egll1980093-LHR
+      - cache-ewr-kewr1740077-EWR, cache-lhr-egll1980074-LHR
       X-Cache-Hits:
-      - 0, 1
+      - 0, 0
       X-Timer:
-      - S1758014316.588831,VS0,VE1
+      - S1758014315.496063,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - abe90885-1b60-4ba4-ac87-c063ff7897d5
+      - bfd1405f-8194-41e3-9f7c-314a5c8b971d
     body:
       encoding: ASCII-8BIT
       string: !binary |-
