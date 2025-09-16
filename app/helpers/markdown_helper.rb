@@ -18,6 +18,20 @@ module MarkdownHelper
     end
 
     doc = update_class(doc, "a[href]", "govuk-link")
+
+    doc.css("img").each do |img|
+      src = img["src"].to_s
+      next unless src.start_with?("//videos.ctfassets.net")
+
+      video = Nokogiri::XML::Node.new("video", doc)
+      video["src"] = src
+      video["controls"] = "true"
+      video["class"] = img["class"]
+      video["alt"] = img["alt"] if img["alt"].present?
+      video["style"] = "max-width:100%;height:auto;display:block;"
+      img.replace(video)
+    end
+
     doc = update_class(doc, "img", "govuk-!-width-full")
     doc.to_html.html_safe
   end
