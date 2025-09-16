@@ -9,7 +9,7 @@ RSpec.describe SolutionIndexer do
   let(:es_client_mock) { instance_double(::OpenSearch::Client) }
   let(:primary_category) do
     instance_double(
-      SolutionSearcher::PrimaryCategory,
+      Category,
       id: "mock_id",
       title: "mock title",
       slug: " mock slug"

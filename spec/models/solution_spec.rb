@@ -56,7 +56,7 @@ RSpec.describe Solution, :vcr, type: :model do
 
     before do
       allow(ENV).to receive(:fetch).and_call_original
-      allow(ENV).to receive(:fetch).with("USE_EXTERNAL_SEARCH", false).and_return(nil)
+      allow(ENV).to receive(:fetch).with("USE_OPENSEARCH", false).and_return(nil)
     end
 
     let(:query) { "technology" }
@@ -112,6 +112,52 @@ RSpec.describe Solution, :vcr, type: :model do
       it "raises ContentfulRecordNotFoundError" do
         expect { solution }.to raise_error(ContentfulRecordNotFoundError, "Solution not found")
       end
+    end
+  end
+
+  describe ".presentable?" do
+    let(:minimal_attrs) do
+      {
+        title: "lord",
+        slug: "banana",
+        primary_category: instance_double(Category),
+      }
+    end
+
+    it "is true if it has all required attributes" do
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs
+        )
+      expect(described_class.new(params)).to be_presentable
+    end
+
+    it "requires a title" do
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs.merge(title: "")
+        )
+      expect(described_class.new(params)).not_to be_presentable
+    end
+
+    it "requires a slug" do
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs.merge(slug: "")
+        )
+      expect(described_class.new(params)).not_to be_presentable
+    end
+
+    it "requires a primary category" do
+      params =
+        OpenStruct.new(
+          id: "ID",
+          fields: minimal_attrs.merge(primary_category: nil)
+        )
+      expect(described_class.new(params)).not_to be_presentable
     end
   end
 end
