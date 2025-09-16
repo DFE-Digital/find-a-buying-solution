@@ -15,7 +15,7 @@
       <% if featured_offers_with_images.size >= 3 %>
         <!-- Display offers as cards if 3 or more have images -->
         <% featured_offers_with_images.each do |offer| %>
-          <%= render partial: 'offer', locals: { offer: offer } %>
+          <%= render partial: 'offers/offer', locals: { offer: offer } %>
         <% end %>
       <% else %>
         <% featured_offers = @offers.select { |offer| offer.featured_on_homepage } %>
