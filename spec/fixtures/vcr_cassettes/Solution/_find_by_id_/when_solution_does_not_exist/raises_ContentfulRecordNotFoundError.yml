@@ -88,4 +88,92 @@ http_interactions:
 
         '
   recorded_at: Wed, 13 Aug 2025 22:05:04 GMT
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=solution&include=1&select=fields.title,fields.description,fields.expiry,fields.related_content,fields.summary,fields.slug,fields.suffix,fields.provider_name,fields.provider_initials,fields.call_to_action,fields.url,fields.buying_option_type,fields.provider_reference,fields.primary_category,sys&sys.id=non-existent
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '67'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - staging
+      Cf-Environment-Uuid:
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - '"10613539042586761942"'
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '63625'
+      Date:
+      - Tue, 16 Sep 2025 08:48:38 GMT
+      X-Served-By:
+      - cache-ewr-kewr1740086-EWR, cache-lcy-eglc8600081-LCY
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1758012518.487134,VS0,VE1
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - d26fb110-5daa-4f35-b9a5-174cb6164341
+    body:
+      encoding: ASCII-8BIT
+      string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
+
+        '
+  recorded_at: Tue, 16 Sep 2025 08:48:38 GMT
 recorded_with: VCR 6.3.1
