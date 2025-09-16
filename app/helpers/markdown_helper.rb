@@ -17,7 +17,7 @@ module MarkdownHelper
       end
     end
 
-    doc = update_class(doc, "a[href]", "govuk-link govuk-body-s")
+    doc = update_class(doc, "a[href]", "govuk-link")
     doc = update_class(doc, "img", "govuk-!-width-full")
     doc.to_html.html_safe
   end
