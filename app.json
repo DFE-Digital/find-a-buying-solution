@@ -3,7 +3,7 @@
     { "plan": "scheduler:standard" },
     { "plan": "heroku-redis:mini" },
     {
-      "plan": "bonsai:free",
+      "plan": "bonsai:sandbox",
       "options": { "engine": "opensearch" }
     }
   ],
