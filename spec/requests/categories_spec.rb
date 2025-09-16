@@ -35,7 +35,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "does not display categories without solutions" do
-      expect(response.body).not_to include("category-no-solutions")
+      expect(response.body).not_to include("category-without-any-solution")
     end
   end
 
