@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=risk-protection-and-insurance
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=category&fields.slug=risk-protection-and-insurance
     body:
       encoding: ASCII-8BIT
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -35,7 +35,7 @@ http_interactions:
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - master
+      - staging
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"13397941486963817118"'
+      - '"10613539042586761942"'
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -69,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '1499'
+      - '63578'
       Date:
-      - Thu, 24 Jul 2025 13:30:54 GMT
+      - Tue, 16 Sep 2025 08:47:57 GMT
       X-Served-By:
-      - cache-ewr-kewr1740044-EWR, cache-lcy-eglc8600093-LCY
+      - cache-ewr-kewr1740074-EWR, cache-lon4277-LON
       X-Cache-Hits:
-      - 1, 0
+      - 2, 0
       X-Timer:
-      - S1753363854.127059,VS0,VE1
+      - S1758012478.765765,VS0,VE70
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - ff9a7607-146e-417a-8ef2-f286ca2174d0
+      - 52a0414d-b963-4504-95b4-ab3bbbcc8911
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Thu, 24 Jul 2025 13:30:54 GMT
+  recorded_at: Tue, 16 Sep 2025 08:47:57 GMT
 recorded_with: VCR 6.3.1

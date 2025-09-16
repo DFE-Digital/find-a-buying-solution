@@ -2,95 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=page&fields.slug=dynamic-purchasing-systems
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      X-Contentful-User-Agent:
-      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
-      Authorization:
-      - Bearer FAKE_API_KEY
-      Content-Type:
-      - application/vnd.contentful.delivery.v1+json
-      Accept-Encoding:
-      - gzip
-      Connection:
-      - close
-      Host:
-      - cdn.contentful.com
-      User-Agent:
-      - http.rb/5.3.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - close
-      Content-Length:
-      - '1053'
-      Content-Type:
-      - application/vnd.contentful.delivery.v1+json
-      Cf-Space-Id:
-      - FAKE_SPACE_ID
-      Cf-Environment-Id:
-      - staging
-      Cf-Environment-Uuid:
-      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
-      Cf-Organization-Id:
-      - 3za11RVJBwLIPn20QJ67Gq
-      X-Contentful-Route:
-      - "/spaces/:space/environments/:environment/entries"
-      Etag:
-      - W/"16779787422256138064"
-      Strict-Transport-Security:
-      - max-age=15768000
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - Contentful
-      X-Contentful-Region:
-      - us-east-1
-      Contentful-Api:
-      - cda
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
-      Access-Control-Expose-Headers:
-      - Etag
-      Access-Control-Max-Age:
-      - '86400'
-      Access-Control-Allow-Methods:
-      - GET,HEAD,OPTIONS
-      Content-Encoding:
-      - gzip
-      Via:
-      - 1.1 varnish, 1.1 varnish
-      Accept-Ranges:
-      - bytes
-      Date:
-      - Tue, 16 Sep 2025 08:48:07 GMT
-      Age:
-      - '63605'
-      X-Served-By:
-      - cache-ewr-kewr1740064-EWR, cache-lon420113-LON
-      X-Cache-Hits:
-      - 1, 1
-      X-Timer:
-      - S1758012488.835422,VS0,VE1
-      X-Cache:
-      - HIT
-      X-Contentful-Request-Id:
-      - 25ec0a6d-ff24-4688-8762-dab7237585d7
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA8VW227bOBB9368g1JcWsGTJ8lVvWTvZly4S1G663TYwaHFkM5ZILUk5EYIC+0f7T/2SDinVdrIJssWiCGAYEjWcOXPmcIZ3nq61l9x5pi7BS7wTpWjtfel4Rhqae0nU8fSWl14SdrycF9zgUojP3ECB+z7deQUYyqihzgld28WrjpdKkUJp3Bt6a4PokqYY5e5B0LdcbD3rX2wXDYy5M8QwDDHJYao3UTy8jq6V9wW9udX4j2HvNk5/hd38/fl0ML68Pp+eG9zTZnIqjKrxNVVADbATRO71wt7AD2M/ihbRIImjJA6DeBD+iWZViUk8MIujRThO+mHSm6DZyJqB2HElRQEC/e3zcIA0Zs/F+oDg32mdHu22iZTVKud6A+wSlOZSeEkPuVWw483b0BFpMFjDy/PETY/MW6JKugZHWy5Tmtsig/Dfz22RMw45a8rPjfs0qwUteErKSqUbqjEfgrWzxSaYGAOdKl4aB9WbZaekoDXREjXAC9BEQSoL5IYRSthTnsjr2cX8DaGalFQZIjNiNkAy7nZlihZwI9WWaFA7nkJAFhvQQKgCwniWgUI2iJFHlnStAGxFdIAYV5LVCO4DNxv0h6HI/nuH6Kosc45kk5QKci25IFKRHOgOvVfKpsuNJjnPXEYB+Sw+ixOBOd7bSNFLjSC+/v2P82ETwEgdwkWaV8y6cWQftjWePsrKBeYM0fKsbgGuajSXW7uNGgfA2HI0e9CvdjRbJXBRgU1eVYJU+JojL7JC5nphHOIKA0U+IWHkwiorJVYOiqbo8R2sq5zaymk0jgZXrzfGlDrpdqnWgNS1WkQQwXfq13IXVNtuAYzT7oCOIINRBGwSDdioD3GcxasJdGeKZmbZBFzuAy6PAi5twKBk2Rukes11g8NVtiY3PM+JkMiAWCP6FZBSybRSwNp8LLkXzZItMjlJDWbQixt6Xr0i3zVbULXFTFzNHq5Z+VBygzSi3rAy2GvW+JihZP+quGrk82zAtn5CGlKhJhEZ/meooBayE+GRF8cpHqYj9GajQG9kzqzwsJIF3Vph48kxhN5QxXRgT5rOqzWquD1E/uE4+u1xRBsFSCSwZdsiXDe+380f60BNV2xa6Axmo7NJPL7V8ylPP05m1eIytb3iBx0Np+NoECv4sP2t2OzG29/7Cz54i46u8IdtyJ0KcI3m1LXlFx0cj2f9nwZHrxkcvaQ3DsLh5KnB8YjZzx4c8fHcwKn9/+fGQ3k9N0Ls+F4auLWD9mzfxg/N2Q5ZhVcKr8sy8LGFKrkD5u87vn9k6iT4UjeLJ9T8IwLpJ/0o6Ef9ZwRybPazBYJ3icPF4uUF0oz72dnpXglkVdXuviHzyt0w9nqxdwOf+vdk0xj7e2PXa375BqMzWQbPCgAA
-  recorded_at: Tue, 16 Sep 2025 08:48:07 GMT
-- request:
-    method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
     body:
       encoding: ASCII-8BIT
@@ -160,24 +71,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 16 Sep 2025 08:48:08 GMT
+      - Tue, 16 Sep 2025 08:48:27 GMT
       Age:
-      - '66986'
+      - '67006'
       X-Served-By:
-      - cache-ewr-kewr1740081-EWR, cache-lon420099-LON
+      - cache-ewr-kewr1740081-EWR, cache-lon420128-LON
       X-Cache-Hits:
-      - 1, 1
+      - 1, 2
       X-Timer:
-      - S1758012488.021002,VS0,VE1
+      - S1758012507.413438,VS0,VE0
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - b625cd25-001a-43dd-9c5f-22c2dbde34b9
+      - 0e412bbc-5c1b-41f4-addc-d3a443032365
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         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
-  recorded_at: Tue, 16 Sep 2025 08:48:08 GMT
+  recorded_at: Tue, 16 Sep 2025 08:48:27 GMT
 - request:
     method: get
     uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
@@ -249,22 +160,22 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 16 Sep 2025 08:48:08 GMT
+      - Tue, 16 Sep 2025 08:48:27 GMT
       Age:
-      - '66987'
+      - '67006'
       X-Served-By:
-      - cache-ewr-kewr1740081-EWR, cache-lon4270-LON
+      - cache-ewr-kewr1740081-EWR, cache-lon420095-LON
       X-Cache-Hits:
       - 1, 3
       X-Timer:
-      - S1758012488.132803,VS0,VE0
+      - S1758012508.516157,VS0,VE0
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - cb71ade3-0402-407b-91b4-a869a2256da4
+      - de6550b0-0daf-4a1e-a49f-dba38989f546
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         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
-  recorded_at: Tue, 16 Sep 2025 08:48:08 GMT
+  recorded_at: Tue, 16 Sep 2025 08:48:27 GMT
 recorded_with: VCR 6.3.1

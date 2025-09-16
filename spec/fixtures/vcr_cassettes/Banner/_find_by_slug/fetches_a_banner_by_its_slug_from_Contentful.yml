@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=banner&fields.slug=energy-for-schools&limit=1
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=banner&fields.slug=energy-for-schools&limit=1
     body:
       encoding: ASCII-8BIT
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -29,13 +29,13 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '790'
+      - '782'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - master
+      - staging
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"10992942947112438784"
+      - W/"13591224849399364242"
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -71,22 +71,22 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Thu, 24 Jul 2025 13:31:07 GMT
+      - Tue, 16 Sep 2025 08:48:15 GMT
       Age:
-      - '72317'
+      - '412021'
       X-Served-By:
-      - cache-ewr-kewr1740049-EWR, cache-lcy-eglc8600085-LCY
+      - cache-ewr-kewr1740080-EWR, cache-lon420116-LON
       X-Cache-Hits:
-      - 1, 1
+      - 0, 1
       X-Timer:
-      - S1753363868.733548,VS0,VE1
+      - S1758012496.866402,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 14029342-f082-47cb-80ed-1648d19f134c
+      - 1505f9fe-8499-41ae-9a8b-50081c6fb2ec
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA8VV227cNhB971cQfGqAlURqtauNnrox3IubC1A7KdKiWNDUrERbIgWSsiMvFuhv9Pf6JRlK62Td5vaUPNkiZ86cGZ4zu6NucLTYUT90QAu6tlYMdD+j3njR0ILPqLtWHS3YjDaqVX48Uh5azPpzR1vwohRejBCiCod/zag0WkLnxy/EOpRwnZBYY/efkk+VvqYBXV9fTCTOx0AsUyIjs5Su5vPlFb+ydI9o42nK/NXyzY8vf/05e/1067Lb385ak2LOoY9T7e2An9KC8FCukTfmpIuILaJ0dcGXBcuKOY8Zz/7AsL7DJh6ELSOWXfC0YLxIeZzl8xAG+kZZo1vQiPeuj5FQK5wH+57A/7s6PUoOfXT9ZaNcDeUrsE4ZTYt5NqMWbtT0lY9z9FhrGsvn53ZyFH6Y06XQGmmFeo2RoglvDDp6eR7eeKugKafXV368OsXgaiBbY8m5rI1pHHZUgpNWdX7kSNdEwy25FQPxhnTWyN4CGUxviRsz/v37H0dgwnF91zXjM4im2XizEfKAcmaUJh+s1luUHa2971yRJK6/RNHFSKh1sQN7oyTElbmJ++skHCZ5uuKJhUqF8UeBR6RwaBacx3+iiUiEodFEzyVpzhhDTq7pq3EaoeXjCLxTrai+SKpr58CHhKCBxd2Ts3Jl32TA89/PXi1ebPu7uxMc/n6PplBaNj3OMihnSvuWBvoI13cGum/skwZKWZwz/jEDcXbBWYEeyjiGLb6CgRbzYwM9/jLNr8noA2K2pBsaox1BaZ7U4GqFyu5qgzrHKZTKkx/QQNJ51TQwQDmEHfXQHKd4762Syg9HYIJUFkAf6jhvwcta6QoLIbavgZQoX4E7EwG3KjhxRycfJMkoRRdLvxVBay7W4JPjpZh8+CmTnK3mXLJVloo5g4XMU9T9nGdS4l+5SpNfnv20QfcsNxu+ia86qMZ2vFDo+rDd1B0Swft0eWSIW1X6mhbLDH8QalBVjZswS/OwYALz56INe+QemnzPH91DP1hmk8OSsWqwx37/3VvqrRYiiwYAAA==
-  recorded_at: Thu, 24 Jul 2025 13:31:07 GMT
+        H4sIAAAAAAAAA8VV227bOBB9368g+NQC1oWyfIme6gbZS7bdBTZpi92iMBhqLDGRSYGk4iiGgf2N/b39kg4pp3Wa9PLUPhkUh2fOzJwz3lLbW1psqetboAVdGMN7uhtRpx1vaMFG1F7JlhbpiDZyLV34JB2s8dXbLV2D4yV3PEDwyn98N6JCKwGtCyfE2qewLReYY/tJyhdSXVGPrq7OBxJnIRDTlMhIT4Wt2Xh6yS4N3SFa+Jql7nJ68/Or33/N/36xsvnmr9O1zvDNvo4T5UyPR2GAOygXyBvfZJMonUTZ/JxNizQvxixOWf4PhnUtFnEv7Chi6TnDmFmRzuN8wnwYqGtptFqDQrwPdQRCFquXqvrI4GFZJwevfSFtd9FIW0P5GoyVWtFiPB9RA9dyOB2FRjpMNvTl6407PgjfN+qCKwVD4xoteOOHDCp6deaHvJLQlMP4pQtXJxhc9WSlDTkTtdaNxYpKsMLI1gWOdEEUbMiG98Rp0hotOgOk150hNrz4/9//LIEBx3Zt24Q58KZZOr3kYo9yqqUij2brDOqO1s61tkiSzWYTV+CiGpo2uuh67HGE7KIhl40tmGspIK70ddxdJUPe5AIwBiJkFeFgjEMGtumqULsv8BAC7+SaV9+kzIW14MHCyCe3z0/LubnJgc3enL6e/Lnqbm+PUaO7HXpAKtF02DkvlOHZj/TLZ7h+8MtdYV/0S5bGszQY4aFfpsEvacGyImcYNvkefpmMP/HLt0h8QYLsiV6Rtm+0sgSVeFyDrSUKua01yhrbUEpHnqFfhHWyaaCHsvc76b4XTvDeGSmk6w/AOKkMgNrnsc6AEzUKFxMhtquBlBJliTsSAVfSG29LB9knSdCijYVbcS82GytwyeESTB6fZTJL52Mm0nme8XEKEzHL0jQds1wI/BXzLPnt5S/LbM6myyVbxpct+GVV4v6WaHK/zeQtEsH7bHrgiI0sXU2LaY5/ADXIqsbNl2czv7888z/42q+NO2jyhD29g763uwaLJSGr98du99N7oKPpW3sGAAA=
+  recorded_at: Tue, 16 Sep 2025 08:48:15 GMT
 recorded_with: VCR 6.3.1
