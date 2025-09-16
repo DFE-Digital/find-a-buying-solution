@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=category&query=catering&select=fields.title,fields.description,fields.slug,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=catering&select=fields.title,fields.description,fields.slug,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -29,13 +29,13 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '582'
+      - '581'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - staging
+      - master
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"8210709925502201949"'
+      - '"198877570008219517"'
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -69,24 +69,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '63629'
+      - '283'
       Date:
-      - Tue, 16 Sep 2025 08:48:22 GMT
+      - Wed, 17 Sep 2025 10:13:18 GMT
       X-Served-By:
-      - cache-ewr-kewr1740056-EWR, cache-lon4256-LON
+      - cache-ewr-kewr1740087-EWR, cache-lcy-egml8630032-LCY
       X-Cache-Hits:
-      - 1, 0
+      - 0, 0
       X-Timer:
-      - S1758012502.487993,VS0,VE1
+      - S1758103999.923165,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - ca1b823e-0100-4592-a32c-289d63403851
+      - 701f06b4-55b3-49f3-89b9-d41dc31b2adc
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
-        food, drink and catering services","slug":"catering"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-06-02T13:07:04.784Z","environment":{"sys":{"id":"staging","type":"Link","linkType":"Environment"}},"publishedVersion":36,"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
+        food, drink and catering services","slug":"catering"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-06-02T13:07:04.784Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":36,"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
 
         '
-  recorded_at: Tue, 16 Sep 2025 08:48:22 GMT
+  recorded_at: Wed, 17 Sep 2025 10:13:18 GMT
 recorded_with: VCR 6.3.1

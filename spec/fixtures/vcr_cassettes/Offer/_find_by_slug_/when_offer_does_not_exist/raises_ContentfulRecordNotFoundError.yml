@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=offer&fields.slug=non-existent&include=1
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=offer&fields.slug=non-existent&include=1
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -35,7 +35,7 @@ http_interactions:
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - staging
+      - master
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - '"10613539042586761942"'
+      - '"13397941486963817118"'
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -69,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '63605'
+      - '0'
       Date:
-      - Tue, 16 Sep 2025 08:48:23 GMT
+      - Wed, 17 Sep 2025 10:09:18 GMT
       X-Served-By:
-      - cache-ewr-kewr1740073-EWR, cache-lon4248-LON
+      - cache-ewr-kewr1740090-EWR, cache-lcy-eglc8600053-LCY
       X-Cache-Hits:
-      - 1, 0
+      - 0, 0
       X-Timer:
-      - S1758012503.002459,VS0,VE70
+      - S1758103759.558488,VS0,VE135
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - f89cedf1-ebba-4e99-b95e-0cabad089ad6
+      - b251c0ad-ffa8-4819-ace6-73cbf1cc802f
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Tue, 16 Sep 2025 08:48:23 GMT
+  recorded_at: Wed, 17 Sep 2025 10:09:18 GMT
 recorded_with: VCR 6.3.1

@@ -3,7 +3,9 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @offers = Offer.all
+    @featured_offers = Offer.featured_offers
+    @featured_offers_with_images = @featured_offers.select { |offer| offer.image.present? }
+    @number_of_offers = Offer.number_of_offers
     @energy_banner = Banner.find_by_slug("energy-for-schools")
     render layout: "homepage"
   end

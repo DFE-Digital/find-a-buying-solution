@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -29,13 +29,13 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '1531'
+      - '1425'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - staging
+      - master
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"16353700265361212953"
+      - W/"4010212860042920566"
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -71,27 +71,116 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 16 Sep 2025 10:31:25 GMT
+      - Wed, 17 Sep 2025 10:08:17 GMT
       Age:
-      - '73184'
+      - '69001'
       X-Served-By:
-      - cache-ewr-kewr1740081-EWR, cache-lon420129-LON
+      - cache-ewr-kewr1740077-EWR, cache-lcy-eglc8600099-LCY
+      X-Cache-Hits:
+      - 1, 0
+      X-Timer:
+      - S1758103698.790981,VS0,VE73
+      X-Cache:
+      - HIT
+      X-Contentful-Request-Id:
+      - 9748e1f4-d787-4c2d-8b27-02b3169fd5bd
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA81X23LbNhB971dg+FqRIniTyDelsd24cSaOnbpRJ6MByaUIiyRoAjQjezzT3+jv9Uu6oOT4IjmxM2O3L5ZJLhYL7NmzZy8NuZRGdGmoZQ1GZEyahi2Nq4GhhGKFEbkDQy54bUT2wCh4yZURURv/5wpKXPfnpZFxKNKVC64K7WOngma+JJloyFGSC1FIY2CkIJOG14qLSm9DKuhIx5ZECVI3ImkbIEvRNkT2K/75629JYOVHtnVdLNGFLNo5rl29NtG9uTLW7tsGgzVypWoZDYdd11lzUGYORW3G7ZJX89v2loTmnCdgzcW51S6GK4/DGNAnmBiGKRVrFLpNWFHMlJixZB34vuAV2XpAXrI5nv7y3oW+5dUCHRX4c7y+YilB++YpRhxkxX5Xieadc3JA2aedyRE4f6TGFWYgA6bwWtKZqGa5KKHu/aumhYEBX2reLHG9Y7uuaYemQ49tO7Ltn22Kf3UC13mVNUseFdZRb7gOSwSJzKkbnNLTpg+mD/bk9dnycPG68t/Ub9VksvB++zSqcckaOzuVwpjw0hqMHNIJYgXjc3wdH6XH1It8P3LGljMKpzpldbppFhxTN3JctLRCuzeD6pw3oiqhQn9fb7ePp2RSQXMTwOZd79xarI9Rt3HBZQ7p79DIHoreeGA0cM5XTw7F8EWlcLNVtr6fzl9umV/fXpZhWHq/QiCCdE1AZX480q+2FcyvfJ4Tjrs2IBWJWbUgLElEW6nNyjkCuGNBhN5M9tV2q4AG6IGlUC4JvkfMSI24dQGxOEl1on8IsGfdWfhh5ATdaNodeIevxEK+2XsSXmmPV/8F8Prh3cnuXqUmdNqp3dPDN1NbvLp4El6DyKOWE3gP4tU5pn7kBhENLOraL4DX8DZckZ1fHq3vG6ROkjUAF0BERRKGnULMW9gE6x4oUojOrPslfc8gsk1ywvBXMc2prFkSVqUkKZiUjRAlGiDfc5DWDWI76Nn4xxDrH7qf3NCbpjV/v+udTC5eOQd7+9+B7PMQqD89rCaHtP0CeTil+yOenh0c0SchchR5jhX44wcRiUQ7ihwaeaHlOu4LIDK4Q6DPjMjPiIIqKVqUE7obTPpeqmVICYphP2G9lmFzrU3QFqsjgRppFJ+eKaXb0fW1Ka4ifKAp2sf2OLKx4fmW5/gPptTWJGOHkR9Y/pi+QEqpdy+n9/sYqpMN2Ye8UOpqXokysirWTeGXQYktEUXfHWsFLMmhIR1XOVGdIEnOi7SBCvsiQRGELNOkfM4qTTIZ1z31ci36hsN+K2klKkMOASWtCtTwtoQZbueAIY0D24398SjJsrHrQebYYNup7wBlcez6w3WUs9WZZv1G1mkNc4wiRcRx1LZalPALDAiF8UobXzfWjqcqN6JR4A+MHLDJI1S9kdeLOzzCO1ZqafCtPe6w+4r/hv32V72U+K9A/4BqfQTox6YTriWeG1ie72wH/VazZ1aCmKQbIYg68DGYP86BHEEBFW9LcoDjySbe5fXnsv/8dOxuv+xhkoyyOATHd91xwELXib2UjlmG6s72UjccfqwLwVJztxHlzjkrWqZwYroO1sRgEchbcRxQT09491DseKMbFDv2fRQ/drf/KaK3y9pHABpHG2Rx5GY78seWNw62A3o1AbmRSyMHG/PoJRqzg/LwBtH48BhEJ6ysGZ9XMz1uzjqIOUq0TWU3ITVUA1KzGklb6zdEN44iBHlcTxyJnkp6dcgIturFitcZKVitRE1kLjqcyfFj3EocUSocj4GUAEq/RcZXWFcxSxbzBqcgPaw8vWy2ZnQYOx4LQxanceb7QeyBDS5Nxt7YdiCj4Ayvz2/q85vX5zfpg8USjn0sjPvVcofzfWrf4/zv7PKtIvl8dfXTv5CB4US2EQAA
+  recorded_at: Wed, 17 Sep 2025 10:08:17 GMT
+- request:
+    method: get
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    headers:
+      X-Contentful-User-Agent:
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
+      Authorization:
+      - Bearer FAKE_API_KEY
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Accept-Encoding:
+      - gzip
+      Connection:
+      - close
+      Host:
+      - cdn.contentful.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '1425'
+      Content-Type:
+      - application/vnd.contentful.delivery.v1+json
+      Cf-Space-Id:
+      - FAKE_SPACE_ID
+      Cf-Environment-Id:
+      - master
+      Cf-Environment-Uuid:
+      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
+      Cf-Organization-Id:
+      - 3za11RVJBwLIPn20QJ67Gq
+      X-Contentful-Route:
+      - "/spaces/:space/environments/:environment/entries"
+      Etag:
+      - W/"4010212860042920566"
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - Contentful
+      X-Contentful-Region:
+      - us-east-1
+      Contentful-Api:
+      - cda
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '86400'
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Content-Encoding:
+      - gzip
+      Via:
+      - 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 17 Sep 2025 10:08:17 GMT
+      Age:
+      - '69001'
+      X-Served-By:
+      - cache-ewr-kewr1740077-EWR, cache-lcy-eglc8600082-LCY
       X-Cache-Hits:
       - 1, 1
       X-Timer:
-      - S1758018686.669007,VS0,VE1
+      - S1758103698.950319,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 8743d6df-0122-45d6-92cc-6d9bfdb4133a
+      - 72229bff-97cc-4fad-b6b4-70b4e486277a
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-  recorded_at: Tue, 16 Sep 2025 10:31:25 GMT
+        H4sIAAAAAAAAA81X23LbNhB971dg+FqRIniTyDelsd24cSaOnbpRJ6MByaUIiyRoAjQjezzT3+jv9Uu6oOT4IjmxM2O3L5ZJLhYL7NmzZy8NuZRGdGmoZQ1GZEyahi2Nq4GhhGKFEbkDQy54bUT2wCh4yZURURv/5wpKXPfnpZFxKNKVC64K7WOngma+JJloyFGSC1FIY2CkIJOG14qLSm9DKuhIx5ZECVI3ImkbIEvRNkT2K/75629JYOVHtnVdLNGFLNo5rl29NtG9uTLW7tsGgzVypWoZDYdd11lzUGYORW3G7ZJX89v2loTmnCdgzcW51S6GK4/DGNAnmBiGKRVrFLpNWFHMlJixZB34vuAV2XpAXrI5nv7y3oW+5dUCHRX4c7y+YilB++YpRhxkxX5Xieadc3JA2aedyRE4f6TGFWYgA6bwWtKZqGa5KKHu/aumhYEBX2reLHG9Y7uuaYemQ49tO7Ltn22Kf3UC13mVNUseFdZRb7gOSwSJzKkbnNLTpg+mD/bk9dnycPG68t/Ub9VksvB++zSqcckaOzuVwpjw0hqMHNIJYgXjc3wdH6XH1It8P3LGljMKpzpldbppFhxTN3JctLRCuzeD6pw3oiqhQn9fb7ePp2RSQXMTwOZd79xarI9Rt3HBZQ7p79DIHoreeGA0cM5XTw7F8EWlcLNVtr6fzl9umV/fXpZhWHq/QiCCdE1AZX480q+2FcyvfJ4Tjrs2IBWJWbUgLElEW6nNyjkCuGNBhN5M9tV2q4AG6IGlUC4JvkfMSI24dQGxOEl1on8IsGfdWfhh5ATdaNodeIevxEK+2XsSXmmPV/8F8Prh3cnuXqUmdNqp3dPDN1NbvLp4El6DyKOWE3gP4tU5pn7kBhENLOraL4DX8DZckZ1fHq3vG6ROkjUAF0BERRKGnULMW9gE6x4oUojOrPslfc8gsk1ywvBXMc2prFkSVqUkKZiUjRAlGiDfc5DWDWI76Nn4xxDrH7qf3NCbpjV/v+udTC5eOQd7+9+B7PMQqD89rCaHtP0CeTil+yOenh0c0SchchR5jhX44wcRiUQ7ihwaeaHlOu4LIDK4Q6DPjMjPiIIqKVqUE7obTPpeqmVICYphP2G9lmFzrU3QFqsjgRppFJ+eKaXb0fW1Ka4ifKAp2sf2OLKx4fmW5/gPptTWJGOHkR9Y/pi+QEqpdy+n9/sYqpMN2Ye8UOpqXokysirWTeGXQYktEUXfHWsFLMmhIR1XOVGdIEnOi7SBCvsiQRGELNOkfM4qTTIZ1z31ci36hsN+K2klKkMOASWtCtTwtoQZbueAIY0D24398SjJsrHrQebYYNup7wBlcez6w3WUs9WZZv1G1mkNc4wiRcRx1LZalPALDAiF8UobXzfWjqcqN6JR4A+MHLDJI1S9kdeLOzzCO1ZqafCtPe6w+4r/hv32V72U+K9A/4BqfQTox6YTriWeG1ie72wH/VazZ1aCmKQbIYg68DGYP86BHEEBFW9LcoDjySbe5fXnsv/8dOxuv+xhkoyyOATHd91xwELXib2UjlmG6s72UjccfqwLwVJztxHlzjkrWqZwYroO1sRgEchbcRxQT09491DseKMbFDv2fRQ/drf/KaK3y9pHABpHG2Rx5GY78seWNw62A3o1AbmRSyMHG/PoJRqzg/LwBtH48BhEJ6ysGZ9XMz1uzjqIOUq0TWU3ITVUA1KzGklb6zdEN44iBHlcTxyJnkp6dcgIturFitcZKVitRE1kLjqcyfFj3EocUSocj4GUAEq/RcZXWFcxSxbzBqcgPaw8vWy2ZnQYOx4LQxanceb7QeyBDS5Nxt7YdiCj4Ayvz2/q85vX5zfpg8USjn0sjPvVcofzfWrf4/zv7PKtIvl8dfXTv5CB4US2EQAA
+  recorded_at: Wed, 17 Sep 2025 10:08:17 GMT
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -118,13 +207,13 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '1531'
+      - '1425'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - staging
+      - master
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -132,7 +221,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"16353700265361212953"
+      - W/"4010212860042920566"
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -160,111 +249,22 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 16 Sep 2025 10:31:25 GMT
+      - Wed, 17 Sep 2025 10:08:18 GMT
       Age:
-      - '73184'
+      - '69001'
       X-Served-By:
-      - cache-ewr-kewr1740081-EWR, cache-lon420112-LON
-      X-Cache-Hits:
-      - 1, 3
-      X-Timer:
-      - S1758018686.781131,VS0,VE0
-      X-Cache:
-      - HIT
-      X-Contentful-Request-Id:
-      - bceee197-d1e3-43e8-a6fa-c0ab046732e6
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-  recorded_at: Tue, 16 Sep 2025 10:31:25 GMT
-- request:
-    method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=offer&order=fields.title&select=fields.title,fields.description,fields.slug,fields.url,fields.call_to_action,fields.image,fields.featured_on_homepage,fields.expiry,sys
-    body:
-      encoding: ASCII-8BIT
-      string: ''
-    headers:
-      X-Contentful-User-Agent:
-      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
-      Authorization:
-      - Bearer FAKE_API_KEY
-      Content-Type:
-      - application/vnd.contentful.delivery.v1+json
-      Accept-Encoding:
-      - gzip
-      Connection:
-      - close
-      Host:
-      - cdn.contentful.com
-      User-Agent:
-      - http.rb/5.3.1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Connection:
-      - close
-      Content-Length:
-      - '1531'
-      Content-Type:
-      - application/vnd.contentful.delivery.v1+json
-      Cf-Space-Id:
-      - FAKE_SPACE_ID
-      Cf-Environment-Id:
-      - staging
-      Cf-Environment-Uuid:
-      - 6d47d495-0492-4e8e-8148-17f0a9a6d541
-      Cf-Organization-Id:
-      - 3za11RVJBwLIPn20QJ67Gq
-      X-Contentful-Route:
-      - "/spaces/:space/environments/:environment/entries"
-      Etag:
-      - W/"16353700265361212953"
-      Strict-Transport-Security:
-      - max-age=15768000
-      X-Content-Type-Options:
-      - nosniff
-      Server:
-      - Contentful
-      X-Contentful-Region:
-      - us-east-1
-      Contentful-Api:
-      - cda
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Resource-Resolution
-      Access-Control-Expose-Headers:
-      - Etag
-      Access-Control-Max-Age:
-      - '86400'
-      Access-Control-Allow-Methods:
-      - GET,HEAD,OPTIONS
-      Content-Encoding:
-      - gzip
-      Via:
-      - 1.1 varnish, 1.1 varnish
-      Accept-Ranges:
-      - bytes
-      Date:
-      - Tue, 16 Sep 2025 10:31:25 GMT
-      Age:
-      - '73185'
-      X-Served-By:
-      - cache-ewr-kewr1740081-EWR, cache-lon4234-LON
+      - cache-ewr-kewr1740077-EWR, cache-lcy-eglc8600062-LCY
       X-Cache-Hits:
       - 1, 1
       X-Timer:
-      - S1758018686.891478,VS0,VE1
+      - S1758103698.036700,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - bee46054-b513-4294-af69-4297c51f257f
+      - bbae9c2f-eec3-4297-af49-21c2434abbfb
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        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
-  recorded_at: Tue, 16 Sep 2025 10:31:25 GMT
+        H4sIAAAAAAAAA81X23LbNhB971dg+FqRIniTyDelsd24cSaOnbpRJ6MByaUIiyRoAjQjezzT3+jv9Uu6oOT4IjmxM2O3L5ZJLhYL7NmzZy8NuZRGdGmoZQ1GZEyahi2Nq4GhhGKFEbkDQy54bUT2wCh4yZURURv/5wpKXPfnpZFxKNKVC64K7WOngma+JJloyFGSC1FIY2CkIJOG14qLSm9DKuhIx5ZECVI3ImkbIEvRNkT2K/75629JYOVHtnVdLNGFLNo5rl29NtG9uTLW7tsGgzVypWoZDYdd11lzUGYORW3G7ZJX89v2loTmnCdgzcW51S6GK4/DGNAnmBiGKRVrFLpNWFHMlJixZB34vuAV2XpAXrI5nv7y3oW+5dUCHRX4c7y+YilB++YpRhxkxX5Xieadc3JA2aedyRE4f6TGFWYgA6bwWtKZqGa5KKHu/aumhYEBX2reLHG9Y7uuaYemQ49tO7Ltn22Kf3UC13mVNUseFdZRb7gOSwSJzKkbnNLTpg+mD/bk9dnycPG68t/Ub9VksvB++zSqcckaOzuVwpjw0hqMHNIJYgXjc3wdH6XH1It8P3LGljMKpzpldbppFhxTN3JctLRCuzeD6pw3oiqhQn9fb7ePp2RSQXMTwOZd79xarI9Rt3HBZQ7p79DIHoreeGA0cM5XTw7F8EWlcLNVtr6fzl9umV/fXpZhWHq/QiCCdE1AZX480q+2FcyvfJ4Tjrs2IBWJWbUgLElEW6nNyjkCuGNBhN5M9tV2q4AG6IGlUC4JvkfMSI24dQGxOEl1on8IsGfdWfhh5ATdaNodeIevxEK+2XsSXmmPV/8F8Prh3cnuXqUmdNqp3dPDN1NbvLp4El6DyKOWE3gP4tU5pn7kBhENLOraL4DX8DZckZ1fHq3vG6ROkjUAF0BERRKGnULMW9gE6x4oUojOrPslfc8gsk1ywvBXMc2prFkSVqUkKZiUjRAlGiDfc5DWDWI76Nn4xxDrH7qf3NCbpjV/v+udTC5eOQd7+9+B7PMQqD89rCaHtP0CeTil+yOenh0c0SchchR5jhX44wcRiUQ7ihwaeaHlOu4LIDK4Q6DPjMjPiIIqKVqUE7obTPpeqmVICYphP2G9lmFzrU3QFqsjgRppFJ+eKaXb0fW1Ka4ifKAp2sf2OLKx4fmW5/gPptTWJGOHkR9Y/pi+QEqpdy+n9/sYqpMN2Ye8UOpqXokysirWTeGXQYktEUXfHWsFLMmhIR1XOVGdIEnOi7SBCvsiQRGELNOkfM4qTTIZ1z31ci36hsN+K2klKkMOASWtCtTwtoQZbueAIY0D24398SjJsrHrQebYYNup7wBlcez6w3WUs9WZZv1G1mkNc4wiRcRx1LZalPALDAiF8UobXzfWjqcqN6JR4A+MHLDJI1S9kdeLOzzCO1ZqafCtPe6w+4r/hv32V72U+K9A/4BqfQTox6YTriWeG1ie72wH/VazZ1aCmKQbIYg68DGYP86BHEEBFW9LcoDjySbe5fXnsv/8dOxuv+xhkoyyOATHd91xwELXib2UjlmG6s72UjccfqwLwVJztxHlzjkrWqZwYroO1sRgEchbcRxQT09491DseKMbFDv2fRQ/drf/KaK3y9pHABpHG2Rx5GY78seWNw62A3o1AbmRSyMHG/PoJRqzg/LwBtH48BhEJ6ysGZ9XMz1uzjqIOUq0TWU3ITVUA1KzGklb6zdEN44iBHlcTxyJnkp6dcgIturFitcZKVitRE1kLjqcyfFj3EocUSocj4GUAEq/RcZXWFcxSxbzBqcgPaw8vWy2ZnQYOx4LQxanceb7QeyBDS5Nxt7YdiCj4Ayvz2/q85vX5zfpg8USjn0sjPvVcofzfWrf4/zv7PKtIvl8dfXTv5CB4US2EQAA
+  recorded_at: Wed, 17 Sep 2025 10:08:18 GMT
 recorded_with: VCR 6.3.1

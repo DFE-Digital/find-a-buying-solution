@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/staging/entries?content_type=banner&fields.slug=energy-for-schools
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=banner&fields.slug=energy-for-schools
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -29,13 +29,13 @@ http_interactions:
       Connection:
       - close
       Content-Length:
-      - '784'
+      - '783'
       Content-Type:
       - application/vnd.contentful.delivery.v1+json
       Cf-Space-Id:
       - FAKE_SPACE_ID
       Cf-Environment-Id:
-      - staging
+      - master
       Cf-Environment-Uuid:
       - 6d47d495-0492-4e8e-8148-17f0a9a6d541
       Cf-Organization-Id:
@@ -43,7 +43,7 @@ http_interactions:
       X-Contentful-Route:
       - "/spaces/:space/environments/:environment/entries"
       Etag:
-      - W/"7688535691967248253"
+      - W/"12207265783453829950"
       Strict-Transport-Security:
       - max-age=15768000
       X-Content-Type-Options:
@@ -71,22 +71,22 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '63631'
+      - '0'
       Date:
-      - Tue, 16 Sep 2025 08:48:16 GMT
+      - Wed, 17 Sep 2025 10:09:57 GMT
       X-Served-By:
-      - cache-ewr-kewr1740052-EWR, cache-lon420119-LON
+      - cache-ewr-kewr1740070-EWR, cache-lcy-eglc8600076-LCY
       X-Cache-Hits:
-      - 2, 0
+      - 0, 0
       X-Timer:
-      - S1758012496.970786,VS0,VE71
+      - S1758103797.086447,VS0,VE144
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - 82b0ad55-7493-414b-a323-10ceca01274f
+      - 6d7e6174-7e27-4796-82d8-2947f5a74007
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA8VU247bNhB971cQfEoBSyJl+RI91V1sL9ukBbqbBG0RGFxqLHFXJgWSWkdrGOhv9Pf6JRlS3sSbS5un9skWOTxzZuac2VM3OFruqR86oCVdWSsGephQb7xoackn1N2qjpZsQlu1VR6PGP5XHrb47o893YIXlfAigog6HL6eUGm0hM7HL0Q7JnGdkJhl/0HSZ0rf0oCvb69GGpcxENNUyMnMpWv4dH7Dbyw9IFo8zZm/mb/57sVPPxS/Pdu4Yvfrxdbk+OZYybn2dsBPaUF4qFbIHN/ks4TNknx5xeclK8opTxkvfsewvsMiHoU9TTi74hizKNkyLWY8hIG+U9boLWjEe1dHJOSweqXr9ww+Luv85HUopOuvW+UaqF6CdcpoWk6XE2rhTo1fT2MjPSYb+/LvjTs7CT826lpoDWPjWiNFG8YMOnlxGca8UdBWowCUj1fnGFwPZGMsuZSNMa3Diipw0qrOR450RTTsyE4MxBvSWSN7C2QwvSUuvvj7z78cgRHH9V3XxjmItl17sxbyiHJhlCafzNZbVB5tvO9cmWW73S6twScNtF1y3Q/Y4wTZJWMulzqwd0pCWpu7tL/NxrzZNWAMJMgqwcFYjwxc29ex9lDgKQTeqa2ov0iZK+cggMWRz+6/vaiW9k0BfPHq4uXsl01/f3+GGj0c0ANKy7bHzgWhjM/+T798hus7vzwU9o9+yVm6YNEIH/tlHv3CSp6XBcew2X/hl9n0A798icRXJMqemA3phtZoR1CJZw24RqGQu8agrLENlfLkG/SLdF61LQxQDWEnPfbCOd57q6TywwmYILUF0Mc8zlvwskHhYiLE9g2QSqEscUci4EYF4+3pKPssi1p0qfQbEcTmUg0+O12C2adnmS3YcsolWxa5mDKYyUXOGJvyQkr8lcs8+/H59+t8yefrNV+nNx2EZVXh/lZo8rDN1D0Swft8fuKInap8Q8t5gWu/AVU3uPmKfBH2V2D+s9iGtfEATZ7wrx+gH+2u0WJZzBr8cTh89RY/b/Y7fQYAAA==
-  recorded_at: Tue, 16 Sep 2025 08:48:16 GMT
+        H4sIAAAAAAAAA8VU247bNhB971cQfEoBSyJl+RI91V1sL9ukBbqbBG0RGFxqLHFXJgWSWkdrGOhv9Pf6JRlS3sSbS5un9skWOTxzZuac2VM3OFruqR86oCVdWSsGephQb7xoackn1N2qjpZsQlu1VR6PGP5XHrb47o893YIXlfAigog6HL6eUGm0hM7HL0Q7JnGdkJhl/0HSZ0rf0oCvb69GGpcxENNUyMnMpWv4dH7Dbyw9IFo8zZm/mb/57sVPPxS/Pdu4Yvfrxdbk+OZYybn2dsBPaUF4qFbIHN/ks4TNknx5xeclK8opTxkvfsewvsMiHoU9TTi74hizKNkyLWY8hIG+U9boLWjEe1dHJLQVzoN9T+Djqs5PHoc6uv66Va6B6iVYp4ym5XQ5oRbu1Pj1NPbRY66xLf/et7OT8GOfroXWSCvka40UbZgy6OTFZZjyRkFbjfNXPl6dY3A9kI2x5FI2xrQOK6rASas6HznSFdGwIzsxEG9IZ43sLZDB9Ja4+OLvP/9yBEYc13ddG8cg2nbtzVrII8qFUZp8MltvUXi08b5zZZbtdru0Bp800HbJdT8oXSfILhlzudSBvVMS0trcpf1tNubNrgFjIEFWifPCemTg2r6OtYcCTyHwTm1F/UXCXDkHASxOfHb/7UW1tG8K4ItXFy9nv2z6+/szbPXhgBZQWrY9di7oZHz2f9rlM1zf2eWhsH+0S87SBYs++Ngu82gXVvK8LDiGzf4Du8ymH9jlSxS+IlH1xGxIN7RGO4JCPGvANQp13DUGVY1dqJQn36BdpPOqbWGAaggb6bEVzvHeWyWVH07ABKktgD7mcd6Clw3qFhMhtm+AVApViRsSATcq+G5PR9VnWZSiS6XfiKA1l2rw2ekKzD49ymzBllMu2bLIxZTBTC5yxtiUF1Lir1zm2Y/Pv1/nSz5fr/k6vemgjuV4odDjYZepeySC9/n8xBA7VfmGlvMCl34Dqm5w7xX5IqyTwPxnsQ1b4wGaPOFfP0A/Wl2jw7KYNdjjcPjqLZALu9F7BgAA
+  recorded_at: Wed, 17 Sep 2025 10:09:57 GMT
 recorded_with: VCR 6.3.1

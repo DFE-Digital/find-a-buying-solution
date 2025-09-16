@@ -50,6 +50,31 @@ class Offer
     ContentfulClient.entries(params).map { new(it) }
   end
 
+  def self.featured_offers
+    params = {
+      content_type: "offer",
+      select: %w[
+        sys.id
+        fields.title
+        fields.description
+        fields.slug
+        fields.url
+        fields.call_to_action
+        fields.image
+        fields.featured_on_homepage
+        fields.expiry
+      ].join(","),
+      "fields.featured_on_homepage": true,
+      order: "fields.title",
+    }
+    ContentfulClient.entries(params).map { |entry| new(entry) }
+  end
+
+  def self.number_of_offers
+    params = { content_type: "offer" }
+    ContentfulClient.entries(params).size
+  end
+
   def ==(other)
     super || other.instance_of?(self.class) && other.id == id
   end
