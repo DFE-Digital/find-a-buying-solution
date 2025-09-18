@@ -7,7 +7,7 @@ RSpec.describe Offer, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "offer",
-        "fields.slug": "energy-for-schools"
+        "fields.slug": "energy-for-schools-used-by-spec-test"
       ).first
     end
 
@@ -40,7 +40,7 @@ RSpec.describe Offer, :vcr, type: :model do
     subject(:offer) { described_class.find_by_slug!(slug) }
 
     context "when offer exists" do
-      let(:slug) { "energy-for-schools" }
+      let(:slug) { "energy-for-schools-used-by-spec-test" }
 
       it "returns the offer" do
         expect(offer).to be_a(described_class)

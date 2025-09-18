@@ -12,4 +12,16 @@ class OffersController < ApplicationController
 
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
   end
+
+  def show
+    @offer = Offer.find_by_slug!(params[:slug])
+
+    @page_section_title = t(".section_title")
+    @page_title = @offer.title
+    @page_description = @offer.description
+    @page_header_class = "details-header"
+    add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
+
+    add_breadcrumb :offers_breadcrumb_name, :offers_breadcrumb_path
+  end
 end

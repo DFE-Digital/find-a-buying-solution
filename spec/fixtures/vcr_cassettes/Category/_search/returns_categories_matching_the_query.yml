@@ -68,25 +68,25 @@ http_interactions:
       - 1.1 varnish, 1.1 varnish
       Accept-Ranges:
       - bytes
-      Age:
-      - '283'
       Date:
-      - Wed, 17 Sep 2025 10:13:18 GMT
+      - Tue, 23 Sep 2025 22:10:27 GMT
+      Age:
+      - '208'
       X-Served-By:
-      - cache-ewr-kewr1740087-EWR, cache-lcy-egml8630032-LCY
+      - cache-ewr-kewr1740087-EWR, cache-lcy-eglc8600093-LCY
       X-Cache-Hits:
-      - 0, 0
+      - 0, 1
       X-Timer:
-      - S1758103999.923165,VS0,VE1
+      - S1758665428.527887,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 701f06b4-55b3-49f3-89b9-d41dc31b2adc
+      - bd5db7e2-c2db-441a-a138-dae46030215e
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
         food, drink and catering services","slug":"catering"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-06-02T13:07:04.784Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":36,"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
 
         '
-  recorded_at: Wed, 17 Sep 2025 10:13:18 GMT
+  recorded_at: Tue, 23 Sep 2025 22:10:27 GMT
 recorded_with: VCR 6.3.1

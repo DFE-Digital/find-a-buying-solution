@@ -5,22 +5,23 @@
   <% if @number_of_offers > 0 %>
     <h2 class="govuk-heading-m"><%= t(".offers_title") %></h2>
     <p class="description"><%= t(".offers_description") %></p>
-    <% if @number_of_offers > @featured_offers_with_images.size %>
+    <% if @number_of_offers > 3  %>
       <%= link_to  t(".browse_all_offers"), offers_path, class:"all-offers-link govuk-body underlined" %>
     <% end %>
 
     <div class="dfe-grid-container offers-grid-container">
-      <% if @featured_offers_with_images.size >= 3 %>
-        <!-- Display offers as cards if 3 or more have images -->
-        <% @featured_offers_with_images.each do |offer| %>
-          <%= render partial: 'offers/offer', locals: { offer: offer } %>
+      <% if @featured_offers_with_images_to_show_on_homepage.size == 3 %>
+        <!-- Display the first 3 featured offers with images as cards -->
+        <% @featured_offers_with_images_to_show_on_homepage.each do |offer| %>
+          <%= render partial: "offers/offer", locals: { offer: offer } %>
         <% end %>
       <% else %>
-        <!-- Display offers as bullet points if featured offers >=3 but don't have images in at-least 3 offers-->
+        <!-- A minimum of 3 featured offers with images is required to display as cards -->
+        <!-- Display the first 3 featured offers as bullet points -->
         <ul class="offer-list">
-          <% @featured_offers.each do |offer| %>
+          <% @featured_offers_to_show_as_bullet_points.each do |offer| %>
             <li class="offer-list-item">
-              <%= link_to offer.title, offer.url, class: "govuk-link" %>
+              <%= govuk_link_to offer.title, offer_path(slug: offer.slug), class: "govuk-link chevron-card__link" %>
             </li>
           <% end %>
         </ul>
@@ -36,4 +37,3 @@
     <% end %>
   </div>
 </div>
-
