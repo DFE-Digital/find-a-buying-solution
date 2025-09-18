@@ -610,6 +610,19 @@ a.all-buying-options-link {
   color: #ffffff;
 }
 
+.all-offers-link {
+  color: #1d70b8;
+  text-decoration: underline;
+  margin-top: 0;
+  display: inline-block;
+
+  &:hover,
+  &:focus {
+    color: #003078;
+    text-decoration: underline;
+  }
+}
+
 .dfe-page-hero {
    color: #fff;
    .hero-text-container{
@@ -701,6 +714,51 @@ a.all-buying-options-link {
 .govuk-secondary-text-colour {
   color: #505a5f;
 }
+
+.offer-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.offer-list-item {
+  position: relative;
+  margin-bottom: 10px; /* Spacing between list items */
+  padding-left: 20px; /* Add space for the chevron bullet */
+}
+
+.offer-list-item::before {
+  content: "";
+  position: absolute;
+  left: 0; /* Position it to the left */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%) rotate(45deg); /* Create chevron with rotation */
+  width: 8px; /* Adjust size */
+  height: 8px;
+  border-top: 2px solid #1d70b8; /* Chevron color */
+  border-right: 2px solid #1d70b8; /* Chevron color */
+}
+
+.offer-list-item a {
+  text-decoration: none; /* Optional, adjust link styling as needed */
+  color: #1d70b8;
+}
+
+.offer-list-item a:hover {
+  color: #003078; /* Hover state color */
+}
+
+.offer__image {
+  width: 100%;
+  height: 0;
+  padding-top: 40%;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
 
 .energy-banner {
   display: flex;

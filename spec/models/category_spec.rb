@@ -54,7 +54,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "does not include categories without solutions" do
       categories = described_class.all
       category_slugs = categories.map(&:slug)
-      expect(category_slugs).not_to include("category-no-solutions")
+      expect(category_slugs).not_to include("category-without-any-solution")
     end
   end
 
@@ -89,7 +89,7 @@ RSpec.describe Category, :vcr, type: :model do
     it "filters solutions by subcategory slugs" do
       subcategory_slugs = %w[hardware software]
       filtered = category.filtered_solutions(subcategory_slugs: subcategory_slugs)
-      expected_solution_slugs = %w[audio-visual-solutions corporate-software electronic-catering-management-and-payment-solutions ict-procurement g-cloud it-hardware microsoft-shape-the-future outsourced-ict software-application-solutions software-licenses sustainable-hardware-asset-recycling-and-data-destruction technology-products-and-associated-services-2 technology-products-and-associated-services]
+      expected_solution_slugs = %w[audio-visual-solutions corporate-software electronic-catering-management-and-payment-solutions ict-procurement g-cloud it-hardware microsoft-shape-the-future outsourced-ict software-application-solutions software-licenses sustainable-hardware-asset-recycling-and-data-destruction technology-products-and-associated-services-2]
 
       expect(filtered).to be_an(Array)
       expect(filtered).to all(be_a(Solution))
