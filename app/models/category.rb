@@ -4,7 +4,7 @@ class Category
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :description, :slug, :subcategories
+  attr_reader :id, :title, :description, :slug, :subcategories, :banner
 
   def initialize(entry)
     @id = entry.id
@@ -12,6 +12,7 @@ class Category
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
     @subcategories = entry.fields.fetch(:subcategories, []).map { Subcategory.new(it) }.sort_by(&:title)
+    @banner = entry.fields[:banner] ? Banner.new(entry.fields[:banner]) : nil
     super
   end
 
@@ -25,9 +26,10 @@ class Category
 
     params = {
       content_type: "category",
-      select: "sys.id,fields.title,fields.description,fields.slug",
+      select: "sys.id,fields.title,fields.description,fields.slug,fields.banner",
       order: "fields.title",
       "sys.id[in]" => category_ids.join(","),
+      include: 1,
     }
 
     ContentfulClient.entries(params).map { new(it) }
@@ -37,7 +39,8 @@ class Category
     ContentfulClient.entries(
       content_type: "category",
       query: query,
-      select: "sys.id,fields.title,fields.description,fields.slug"
+      select: "sys.id,fields.title,fields.description,fields.slug,fields.banner",
+      include: 1
     ).map { new(it) }
   end
 
@@ -57,7 +60,8 @@ class Category
   def self.find_by_slug!(slug)
     entry = ContentfulClient.entries(
       content_type: "category",
-      'fields.slug': slug
+      'fields.slug': slug,
+      include: 1
     ).first
 
     raise ContentfulRecordNotFoundError.new("Category not found", slug: slug) unless entry
