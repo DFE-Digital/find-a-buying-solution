@@ -1,3 +1,14 @@
+<% content_for :pre_main do %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render partial: "shared/content_banner", locals: { 
+        title: "Current accounts and Savings", 
+        description: "Access a range of current accounts, savings accounts, and other services designed to increase the interest paid on balances held in the short and long term."
+      } %>
+    </div>
+  </div>
+<% end %>
+
 <% unless @subcategories.empty? %>
   <div class="subcategory-filters-container">
     <div class="filters-top-row">
