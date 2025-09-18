@@ -6,6 +6,10 @@ en:
       clear_all_filters: Clear all filters
       remove_filter: Remove filter
     index:
+      browse_all_offers: Browse all offers
+      offers_description: Browse time-limited offers negotiated by DfE for you, so
+        you can get best value.
+      offers_title: Offers
       title: DfE-approved buying options by category
     show:
       apply: Apply

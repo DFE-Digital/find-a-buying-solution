@@ -69,23 +69,23 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '20'
+      - '0'
       Date:
-      - Fri, 12 Sep 2025 16:00:27 GMT
+      - Wed, 17 Sep 2025 10:09:18 GMT
       X-Served-By:
-      - cache-ewr-kewr1740090-EWR, cache-lcy-eglc8600093-LCY
+      - cache-ewr-kewr1740090-EWR, cache-lcy-eglc8600053-LCY
       X-Cache-Hits:
-      - 1, 0
+      - 0, 0
       X-Timer:
-      - S1757692827.143014,VS0,VE72
+      - S1758103759.558488,VS0,VE135
       X-Cache:
-      - HIT
+      - MISS
       X-Contentful-Request-Id:
-      - 7f7a939a-2999-4f00-9c02-39d8235d3d5c
+      - b251c0ad-ffa8-4819-ace6-73cbf1cc802f
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Fri, 12 Sep 2025 16:00:30 GMT
+  recorded_at: Wed, 17 Sep 2025 10:09:18 GMT
 recorded_with: VCR 6.3.1

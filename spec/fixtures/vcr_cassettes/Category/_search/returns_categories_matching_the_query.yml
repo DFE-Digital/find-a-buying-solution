@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       X-Contentful-User-Agent:
-      - sdk contentful.rb/2.17.2; platform ruby/3.4.1; os macOS/24;
+      - sdk contentful.rb/2.18.0; platform ruby/3.4.1; os macOS/24;
       Authorization:
       - Bearer FAKE_API_KEY
       Content-Type:
@@ -69,24 +69,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Age:
-      - '72297'
+      - '283'
       Date:
-      - Thu, 24 Jul 2025 13:30:52 GMT
+      - Wed, 17 Sep 2025 10:13:18 GMT
       X-Served-By:
-      - cache-ewr-kewr1740087-EWR, cache-lcy-eglc8600061-LCY
+      - cache-ewr-kewr1740087-EWR, cache-lcy-egml8630032-LCY
       X-Cache-Hits:
-      - 1, 0
+      - 0, 0
       X-Timer:
-      - S1753363853.912607,VS0,VE1
+      - S1758103999.923165,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 94800a84-d355-4987-ba01-afc5044bfed9
+      - 701f06b4-55b3-49f3-89b9-d41dc31b2adc
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
         food, drink and catering services","slug":"catering"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-06-02T13:07:04.784Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":36,"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
 
         '
-  recorded_at: Thu, 24 Jul 2025 13:30:52 GMT
+  recorded_at: Wed, 17 Sep 2025 10:13:18 GMT
 recorded_with: VCR 6.3.1

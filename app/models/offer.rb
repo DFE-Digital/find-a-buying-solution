@@ -19,6 +19,18 @@ class Offer
     super
   end
 
+  def self.find_by_slug!(slug)
+    entry = ContentfulClient.entries(
+      content_type: "offer",
+      'fields.slug': slug,
+      include: 1
+    ).find { |offer| offer.fields[:slug] == slug }
+
+    raise ContentfulRecordNotFoundError.new("Offer not found", slug: slug) unless entry
+
+    new(entry)
+  end
+
   def self.all
     params = {
       content_type: "offer",
@@ -38,16 +50,29 @@ class Offer
     ContentfulClient.entries(params).map { new(it) }
   end
 
-  def self.find_by_slug!(slug)
-    entry = ContentfulClient.entries(
+  def self.featured_offers
+    params = {
       content_type: "offer",
-      'fields.slug': slug,
-      include: 1
-    ).find { |offer| offer.fields[:slug] == slug }
+      select: %w[
+        sys.id
+        fields.title
+        fields.description
+        fields.slug
+        fields.url
+        fields.call_to_action
+        fields.image
+        fields.featured_on_homepage
+        fields.expiry
+      ].join(","),
+      "fields.featured_on_homepage": true,
+      order: "fields.title",
+    }
+    ContentfulClient.entries(params).map { |entry| new(entry) }
+  end
 
-    raise ContentfulRecordNotFoundError.new("Offer not found", slug: slug) unless entry
-
-    new(entry)
+  def self.number_of_offers
+    params = { content_type: "offer" }
+    ContentfulClient.entries(params).size
   end
 
   def ==(other)
