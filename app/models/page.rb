@@ -2,7 +2,7 @@ class Page
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :body, :description, :slug
+  attr_reader :id, :title, :body, :description, :slug, :parent_page_path
 
   def initialize(entry)
     @id = entry.id
@@ -10,6 +10,7 @@ class Page
     @body = entry.fields[:body]
     @description = entry.fields[:description]
     @slug = entry.fields[:slug]
+    @parent_page_path = entry.fields[:parent_page_path]
     super
   end
 

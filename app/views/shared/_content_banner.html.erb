@@ -1,11 +1,7 @@
 <div class="content-banner govuk-!-margin-top-8 govuk-!-margin-bottom-2">
   <div class="content-banner__content">
     <h3 class="govuk-heading-s content-banner__title">
-      <% if local_assigns[:url].present? %>
-        <%= link_to title, url, class: "govuk-link content-banner__link" %>
-      <% else %>
-        <%= link_to title, "#", class: "govuk-link content-banner__link" %>
-      <% end %>
+      <%= link_to title, url, class: "govuk-link content-banner__link" %>
     </h3>
     <p class="govuk-body-m content-banner__description govuk-!-padding-right-9"><%= description %></p>
   </div>
