@@ -4,40 +4,41 @@ class PagesController < ApplicationController
     @page_title = @page.title
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
 
-    # Traverse parent_page_path upwards to build breadcrumbs
-    parent_path = @page.parent_page_path
-    visited = []
-    trail = []
-    while parent_path.present? && !visited.include?(parent_path)
-      visited << parent_path
-      begin
-        route = Rails.application.routes.recognize_path(parent_path)
-      rescue ActionController::RoutingError
-        break
-      end
+    build_page_breadcrumbs(@page)
+  end
 
-      case [route[:controller], route[:action]]
-      when ["categories", "show"]
+  private
+
+  def build_page_breadcrumbs(page)
+    parent_path = page.parent_page_path
+    visited_paths = []
+    trail = []
+
+    while parent_path.present? && !visited_paths.include?(parent_path)
+      visited_paths << parent_path
+      route = (Rails.application.routes.recognize_path(parent_path) rescue nil)
+      break unless route
+
+      if route[:controller] == "categories" && route[:action] == "show"
         category = Category.find_by_slug!(route[:slug])
         @category = category
-        trail << { type: :category, category: category }
+        trail << [:category, category]
         break
-      when ["pages", "show"]
+      elsif route[:controller] == "pages" && route[:action] == "show"
         parent_page = Page.find_by_slug!(route[:slug])
-        trail << { type: :page, page: parent_page }
+        trail << [:page, parent_page]
         parent_path = parent_page.parent_page_path
       else
         break
       end
     end
 
-    # Add crumbs in root-to-leaf order
-    trail.reverse_each do |crumb|
-      if crumb[:type] == :category
-        @category = crumb[:category]
+    trail.reverse_each do |type, node|
+      if type == :category
+        @category = node
         add_breadcrumb :category_breadcrumb_name, :category_breadcrumb_path
       else
-        add_breadcrumb crumb[:page].title, page_path(crumb[:page].slug)
+        add_breadcrumb node.title, page_path(node.slug)
       end
     end
   end
