@@ -16,7 +16,7 @@
       <div class="all-buying-options govuk-grid-column-two-thirds govuk-!-margin-top-4 govuk-!-margin-bottom-7">
         <% @sorted_categories.each do |category_slug, category_data| %>
           <div class="all-buying-options-category govuk-!-margin-bottom-7">
-            <h3 id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h3>
+            <h2 class="govuk-heading-m" id="<%= category_slug.parameterize %>"><%= category_data[:slug] %></h2>
             <p><%= category_data[:description] %></p>
             <%= render partial: "shared/solutions", locals: { solutions: category_data[:solutions], category_slug: category_data[:cat_slug] } %>
           </div>
