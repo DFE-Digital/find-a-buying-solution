@@ -7,38 +7,39 @@ class PagesController < ApplicationController
     build_page_breadcrumbs(@page)
   end
 
-  private
+private
 
   def build_page_breadcrumbs(page)
-    parent_path = page.parent_page_path
-    visited_paths = []
+    node = page.parent
     trail = []
+    depth = 0
+    max_depth = 4
 
-    while parent_path.present? && !visited_paths.include?(parent_path)
-      visited_paths << parent_path
-      route = (Rails.application.routes.recognize_path(parent_path) rescue nil)
-      break unless route
+    while node && depth < max_depth
+      depth += 1
 
-      if route[:controller] == "categories" && route[:action] == "show"
-        category = Category.find_by_slug!(route[:slug])
-        @category = category
-        trail << [:category, category]
+      trail << node
+
+      case node
+      when Category
         break
-      elsif route[:controller] == "pages" && route[:action] == "show"
-        parent_page = Page.find_by_slug!(route[:slug])
-        trail << [:page, parent_page]
-        parent_path = parent_page.parent_page_path
+      when Page
+        node = node.parent
       else
         break
       end
     end
 
-    trail.reverse_each do |type, node|
-      if type == :category
-        @category = node
+    if (category = trail.find { |n| n.is_a?(Category) })
+      @category = category
+    end
+
+    trail.reverse_each do |n|
+      case n
+      when Category
         add_breadcrumb :category_breadcrumb_name, :category_breadcrumb_path
-      else
-        add_breadcrumb node.title, page_path(node.slug)
+      when Page
+        add_breadcrumb n.title, page_path(n.slug)
       end
     end
   end
