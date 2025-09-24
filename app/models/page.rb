@@ -31,22 +31,13 @@ private
   def build_parent_from_entry(parent_entry)
     return nil unless parent_entry
 
-    # Resolve Contentful::Link to a full entry if necessary
-    entry = if parent_entry.respond_to?(:fields)
-              parent_entry
-            else
-              ContentfulClient.entries('sys.id': parent_entry.id, include: 2).first
-            end
-
-    return nil unless entry
-
-    content_type_id = entry.respond_to?(:content_type) ? entry.content_type&.id : nil
+    content_type_id = parent_entry.respond_to?(:content_type) ? parent_entry.content_type&.id : nil
 
     case content_type_id
     when "category"
-      Category.new(entry)
+      Category.new(parent_entry)
     when "page"
-      Page.new(entry)
+      Page.new(parent_entry)
     end
   end
 end
