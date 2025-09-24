@@ -7,7 +7,7 @@ gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
 gem "csv", require: false
-gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: "v1.15.7"
+gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: "v1.15.8"
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
@@ -18,7 +18,7 @@ gem "opensearch-ruby"
 gem "propshaft"
 gem "puma", ">= 5.0"
 gem "rack-attack", "~> 6.7"
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.0.3"
 gem "redis", "~> 5.4", require: false
 gem "redis-rails", require: false
 gem "rollbar"
