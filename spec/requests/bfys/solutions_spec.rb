@@ -16,6 +16,7 @@ RSpec.describe "BFYS Solutions API", :vcr, type: :request do
 
         expect(json).to be_an(Array)
         expect(json.first).to include(
+          "id" => be_a(String),
           "provider" => hash_including(
             "initials" => be_a(String).or(be_nil),
             "title" => be_a(String).or(be_nil)
