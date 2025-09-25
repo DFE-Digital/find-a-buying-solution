@@ -2,7 +2,7 @@
   <% if @energy_banner %>
     <%= render partial: 'energy_banner', locals: { banner: @energy_banner } %>
   <% end %>
-  <% if @number_of_offers > 0 %>
+  <% if @featured_offers.size > 0 %>
     <h2 class="govuk-heading-m"><%= t(".offers_title") %></h2>
     <p class="description"><%= t(".offers_description") %></p>
     <% if @number_of_offers > 3  %>
@@ -21,7 +21,7 @@
         <ul class="offer-list">
           <% @featured_offers_to_show_as_bullet_points.each do |offer| %>
             <li class="offer-list-item">
-              <%= govuk_link_to offer.title, offer_path(slug: offer.slug), class: "govuk-link chevron-card__link" %>
+              <%= govuk_link_to offer.title, offer_path(slug: offer.slug), class: "govuk-link" %>
             </li>
           <% end %>
         </ul>
