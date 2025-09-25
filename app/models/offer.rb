@@ -2,7 +2,7 @@ class Offer
   include ActiveModel::Model
   include HasRelatedContent
 
-  attr_reader :id, :title, :description,
+  attr_reader :id, :title, :description, :summary,
               :slug, :url, :call_to_action,
               :image, :featured_on_homepage, :expiry
 
@@ -10,6 +10,7 @@ class Offer
     @id = entry.id
     @title = entry.fields[:title]
     @description = entry.fields[:description]
+    @summary = entry.fields[:summary]
     @slug = entry.fields[:slug]
     @url = entry.fields[:url]
     @call_to_action = entry.fields[:call_to_action]
@@ -38,11 +39,13 @@ class Offer
         sys.id
         fields.title
         fields.description
+        fields.summary
         fields.slug
         fields.url
         fields.call_to_action
         fields.image
         fields.featured_on_homepage
+        fields.related_content
         fields.expiry
       ].join(","),
       order: "fields.title",
@@ -57,6 +60,7 @@ class Offer
         sys.id
         fields.title
         fields.description
+        fields.summary
         fields.slug
         fields.url
         fields.call_to_action
@@ -68,11 +72,6 @@ class Offer
       order: "fields.title",
     }
     ContentfulClient.entries(params).map { |entry| new(entry) }
-  end
-
-  def self.number_of_offers
-    params = { content_type: "offer" }
-    ContentfulClient.entries(params).size
   end
 
   def ==(other)

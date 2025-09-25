@@ -2,7 +2,7 @@
   <div class="govuk-grid-column-one offer__image" style="--bg-image: url('<%= offer.image.url %>')"></div>
   <div class="dfe-card-container">
     <h3 class="govuk-heading-m title">
-      <%= link_to offer.title, root_path , class: "govuk-link govuk-link--no-visited-state dfe-card-link--header" %>
+      <%= govuk_link_to offer.title, offer_path(slug: offer.slug), class: "govuk-link govuk-link--no-visited-state dfe-card-link--header" %>
     </h3>
     <p class="description"> <%= offer.description %></p>
     </p>

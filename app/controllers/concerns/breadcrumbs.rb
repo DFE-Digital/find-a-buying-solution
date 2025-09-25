@@ -31,5 +31,15 @@ module Breadcrumbs
       category_path(slug: @primary_category&.slug)
     end
     helper_method :primary_category_breadcrumb_path
+
+    def offers_breadcrumb_name
+      t("breadcrumbs.offers")
+    end
+    helper_method :offers_breadcrumb_name
+
+    def offers_breadcrumb_path
+      offers_path
+    end
+    helper_method :offers_breadcrumb_path
   end
 end
