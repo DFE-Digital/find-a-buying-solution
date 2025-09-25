@@ -152,6 +152,7 @@ class Solution
 
   def as_json(_options = {})
     {
+      id: id,
       provider: {
         initials: provider_initials,
         title: provider_name,
