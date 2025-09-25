@@ -12,26 +12,22 @@ private
   def build_page_breadcrumbs(page)
     node = page.parent
     trail = []
-    depth = 0
     max_depth = 4
 
-    while node && depth < max_depth
-      depth += 1
+    max_depth.times do
+      break unless node
 
       trail << node
 
       case node
       when Category
+        @category = node
         break
       when Page
         node = node.parent
       else
         break
       end
-    end
-
-    if (category = trail.find { |n| n.is_a?(Category) })
-      @category = category
     end
 
     trail.reverse_each do |n|
