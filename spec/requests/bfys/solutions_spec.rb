@@ -30,7 +30,8 @@ RSpec.describe "BFYS Solutions API", :vcr, type: :request do
           "url" => be_a(String).or(be_nil),
           "descr" => be_a(String).or(be_nil),
           "expiry" => be_a(String).or(be_nil),
-          "body" => be_a(String).or(be_nil)
+          "body" => be_a(String).or(be_nil),
+          "provider_reference" => be_a(String).or(be_nil)
         )
       end
     end
