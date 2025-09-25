@@ -69,6 +69,30 @@ RSpec.describe "Categories pages", :vcr, type: :request do
       expect(response.body).to include("Related content")
       expect(response.body).to have_link("Plan technology for your school")
     end
+
+    it "displays breadcrumbs with Home only" do
+      expect(response.body).to have_css("nav.govuk-breadcrumbs")
+      expect(response.body).to have_link("Home", href: "/")
+    end
+  end
+
+  describe "GET /categories/:slug with banner" do
+    before do
+      get category_path("banking-finance")
+    end
+
+    it "displays banner structure" do
+      expect(response.body).to have_css(".content-banner")
+      expect(response.body).to have_css(".content-banner__title")
+    end
+
+    it "displays banner link" do
+      expect(response.body).to have_link("Current accounts and Savings", href: "/current-account-and-savings")
+    end
+
+    it "displays banner description" do
+      expect(response.body).to have_css(".content-banner__description", text: "Access a range of current accounts, savings accounts, and other services designed to increase the interest paid on balances held in the short and long term.")
+    end
   end
 
   describe "GET /categories/:slug with no related content" do

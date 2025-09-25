@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=risk-protection-and-insurance
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&fields.slug=risk-protection-and-insurance&include=1
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -71,21 +71,21 @@ http_interactions:
       Age:
       - '0'
       Date:
-      - Wed, 24 Sep 2025 18:11:46 GMT
+      - Thu, 25 Sep 2025 08:44:07 GMT
       X-Served-By:
-      - cache-ewr-kewr1740044-EWR, cache-lon4271-LON
+      - cache-ewr-kewr1740041-EWR, cache-lcy-egml8630022-LCY
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1758737506.944248,VS0,VE130
+      - S1758789848.570425,VS0,VE117
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - 1e9572aa-0847-46fd-9a22-3bf98b53c1fe
+      - 170baf48-8ce1-40cd-95d4-1e9d3fa1d2e9
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Wed, 24 Sep 2025 18:11:46 GMT
+  recorded_at: Thu, 25 Sep 2025 08:44:14 GMT
 recorded_with: VCR 6.3.1

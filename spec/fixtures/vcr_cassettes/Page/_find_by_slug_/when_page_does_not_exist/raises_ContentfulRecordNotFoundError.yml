@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=page&fields.slug=non-existent
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=page&fields.slug=non-existent&include=4
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -71,21 +71,21 @@ http_interactions:
       Age:
       - '0'
       Date:
-      - Tue, 23 Sep 2025 22:09:54 GMT
+      - Thu, 25 Sep 2025 08:44:23 GMT
       X-Served-By:
-      - cache-ewr-kewr1740040-EWR, cache-lcy-egml8630033-LCY
+      - cache-ewr-kewr1740064-EWR, cache-lcy-egml8630074-LCY
       X-Cache-Hits:
       - 0, 0
       X-Timer:
-      - S1758665394.979538,VS0,VE127
+      - S1758789863.178875,VS0,VE138
       X-Cache:
-      - MISS
+      - HIT
       X-Contentful-Request-Id:
-      - 249e7b86-4b35-4355-ba55-94a24aeb041a
+      - 0f8c8568-e1d0-4601-9ee2-84ff86dd2d0e
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":0,"skip":0,"limit":100,"items":[]}
 
         '
-  recorded_at: Tue, 23 Sep 2025 22:09:54 GMT
+  recorded_at: Thu, 25 Sep 2025 08:44:30 GMT
 recorded_with: VCR 6.3.1

@@ -7,7 +7,9 @@ VCR.configure do |config|
   config.filter_sensitive_data("FAKE_SPACE_ID") { ENV["CONTENTFUL_SPACE_ID"] }
   config.filter_sensitive_data("FAKE_OPENSEARCH_URL") { ENV["OPENSEARCH_URL"] }
   config.default_cassette_options = {
-    record: :once,
+    record: (ENV["RECORD_VCR"] == "1" ? :all : :once),
+    match_requests_on: %i[method uri body],
+    allow_playback_repeats: true,
   }
 end
 

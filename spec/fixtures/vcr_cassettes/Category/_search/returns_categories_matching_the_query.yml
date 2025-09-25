@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&query=catering&select=fields.title,fields.description,fields.slug,sys
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=category&include=1&query=catering&select=fields.title,fields.description,fields.slug,fields.banner,sys
     body:
       encoding: ASCII-8BIT
       string: ''
@@ -69,24 +69,24 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 23 Sep 2025 22:10:27 GMT
+      - Thu, 25 Sep 2025 08:44:19 GMT
       Age:
-      - '208'
+      - '61305'
       X-Served-By:
-      - cache-ewr-kewr1740087-EWR, cache-lcy-eglc8600093-LCY
+      - cache-ewr-kewr1740070-EWR, cache-lcy-egml8630063-LCY
       X-Cache-Hits:
       - 0, 1
       X-Timer:
-      - S1758665428.527887,VS0,VE1
+      - S1758789860.617134,VS0,VE1
       X-Cache:
       - HIT
       X-Contentful-Request-Id:
-      - bd5db7e2-c2db-441a-a138-dae46030215e
+      - 4e740f4d-12aa-4a7a-8467-38c2e1a66aeb
     body:
       encoding: ASCII-8BIT
       string: '{"sys":{"type":"Array"},"total":1,"skip":0,"limit":100,"items":[{"fields":{"title":"Catering","description":"Buy
         food, drink and catering services","slug":"catering"},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"FAKE_SPACE_ID"}},"id":"1AVucmSe9gdJXq41k61mQP","type":"Entry","createdAt":"2025-03-16T22:25:24.392Z","updatedAt":"2025-06-02T13:07:04.784Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":36,"revision":13,"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"category"}},"locale":"en-US"}}]}
 
         '
-  recorded_at: Tue, 23 Sep 2025 22:10:27 GMT
+  recorded_at: Thu, 25 Sep 2025 08:44:26 GMT
 recorded_with: VCR 6.3.1
