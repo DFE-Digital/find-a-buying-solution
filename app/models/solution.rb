@@ -176,7 +176,7 @@ class Solution
         title: primary_category&.title,
         ref: primary_category&.slug,
       },
-
+      provider_reference: provider_reference,
     }
   end
 
