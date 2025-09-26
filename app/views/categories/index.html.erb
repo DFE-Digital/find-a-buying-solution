@@ -2,10 +2,10 @@
   <% if @energy_banner %>
     <%= render partial: 'energy_banner', locals: { banner: @energy_banner } %>
   <% end %>
-  <% if @featured_offers.size > 0 %>
+  <% if show_offers_section?(@number_of_offers) %>
     <h2 class="govuk-heading-m"><%= t(".offers_title") %></h2>
     <p class="description"><%= t(".offers_description") %></p>
-    <% if @number_of_offers > 3  %>
+    <% if show_browse_all_offers_link?(@number_of_offers, @featured_offers) %>
       <%= link_to  t(".browse_all_offers"), offers_path, class:"all-offers-link govuk-body underlined" %>
     <% end %>
 
