@@ -34,7 +34,7 @@ en:
       description: Browse time-limited offers negotiated by DfE for you, so you can
         get best value.
       expires_on: Expires on
-      section_title: Buying category
+      section_title: ''
       title: Offers
     show:
       cta: Link to the offer
