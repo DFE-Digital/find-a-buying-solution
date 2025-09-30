@@ -11,6 +11,7 @@ class OffersController < ApplicationController
     @page_back_link = request.referer
 
     add_breadcrumb :home_breadcrumb_name, :home_breadcrumb_path
+    render layout: "all_offers"
   end
 
   def show
