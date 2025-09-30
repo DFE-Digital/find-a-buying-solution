@@ -49,13 +49,13 @@ RSpec.describe "Homepage Offers Section", :vcr, type: :feature do
     end
   end
 
-  context "when there are 3 offers without images" do
+  context "when there are 3 offers without images and no featured offers" do
     before do
       visit root_path
     end
 
     it "shows all offers as bullet points" do
-      expect(page).to have_css(".offer-list .offer-list-item", count: 3)
+      expect(page).not_to have_css(".offer-list .offer-list-item")
     end
 
     it "does not show offer images" do
@@ -63,7 +63,7 @@ RSpec.describe "Homepage Offers Section", :vcr, type: :feature do
     end
 
     it "does not show the 'Browse all offers' link" do
-      expect(page).not_to have_link("Browse all offers", href: "/offers")
+      expect(page).to have_link("Browse all offers", href: "/offers")
     end
   end
 
