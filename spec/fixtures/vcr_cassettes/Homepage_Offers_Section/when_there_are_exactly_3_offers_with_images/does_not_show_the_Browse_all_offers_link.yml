@@ -536,7 +536,7 @@ http_interactions:
   recorded_at: Thu, 25 Sep 2025 13:30:58 GMT
 - request:
     method: get
-    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=banner&fields.slug=energy-for-schools&limit=1
+    uri: https://cdn.contentful.com/spaces/FAKE_SPACE_ID/environments/master/entries?content_type=banner&fields.slug=homepage-banner&limit=1
     body:
       encoding: ASCII-8BIT
       string: ''
