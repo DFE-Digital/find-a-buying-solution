@@ -43,7 +43,7 @@ ngrok                                                                           
 🧱 Block threats before they reach your services with new WAF actions → https://ngrok.com/r/waf
 
 Session Status                online
-Account                       anthonymckernan@gmail.com (Plan: Free)
+Account                       test@example.com (Plan: Free)
 Version                       3.26.0
 Region                        Europe (eu)
 Latency                       23ms
