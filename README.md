@@ -59,4 +59,3 @@ You will need to save the forwarding url in `CONTENTFUL_WEBHOOK_HOST` environmen
 Now take the forwarding url and create a web hook in contentful like
 
 https://app.contentful.com/spaces/xdhmps7ck0lp/settings/webhooks/3abewvVCTpeftGHoSfY5U1/settings
-
