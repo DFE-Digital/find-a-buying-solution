@@ -81,6 +81,53 @@ namespace :contentful do
     puts "URL check complete."
   end
 
+  desc "Unpublish expired solutions"
+  task unpublish_expired_solutions: :environment do
+    client = Contentful::Management::Client.new(ENV["CONTENTFUL_CMA_TOKEN"])
+    space = client.spaces.find(ENV["CONTENTFUL_SPACE_ID"])
+    environment = space.environments.find(ENV.fetch("CONTENTFUL_ENVIRONMENT", "master"))
+
+    expired_entries = environment.entries.all(
+      content_type: "solution",
+      "fields.expiry[lt]": Time.zone.today.iso8601
+    )
+
+    if expired_entries.empty?
+      puts "No expired solutions found."
+      Rollbar.info("No expired solutions found", rake_task: "contentful:unpublish_expired_solutions")
+      next
+    end
+
+    published_expired = expired_entries.select(&:published?)
+
+    if published_expired.empty?
+      puts "Found #{expired_entries.count} expired solutions, but all are already unpublished."
+      Rollbar.info("All expired solutions already unpublished",
+                   rake_task: "contentful:unpublish_expired_solutions",
+                   total_expired: expired_entries.count)
+      next
+    end
+
+    puts "Found #{published_expired.count} published expired solutions to unpublish (#{expired_entries.count - published_expired.count} already unpublished)"
+
+    unpublished_count = 0
+    published_expired.each do |entry|
+      entry.unpublish
+      unpublished_count += 1
+      puts "Unpublished: #{entry.title} (slug: #{entry.fields[:slug]}, expired: #{entry.fields[:expiry]})"
+    rescue StandardError => e
+      puts "ERROR: Failed to unpublish #{entry.title} (ID: #{entry.id}): #{e.message}"
+      Rollbar.error(e, rake_task: "contentful:unpublish_expired_solutions", entry_id: entry.id, entry_title: entry.title, expiry: entry.fields[:expiry])
+    end
+
+    puts "Unpublishing complete. #{unpublished_count} of #{published_expired.count} solutions unpublished."
+    Rollbar.info("Unpublished #{unpublished_count} of #{published_expired.count} expired solutions", rake_task: "contentful:unpublish_expired_solutions", count: unpublished_count, total: published_expired.count)
+  rescue StandardError => e
+    puts "ERROR: Contentful rake task  failed - Unpublish expired solutions: #{e.message}"
+    Rollbar.error("Contentful rake task  failed - Unpublish expired solutions: #{e.message}", rake_task: "contentful:unpublish_expired_solutions")
+    raise
+  end
+
   desc "Update solutions with a primary category, \
     Run a dry run: rake contentful:update_solution_with_primary_category['dry_run'] \
     publish_all with out confirming: rake contentful:update_solution_with_primary_category['publish_all']"
