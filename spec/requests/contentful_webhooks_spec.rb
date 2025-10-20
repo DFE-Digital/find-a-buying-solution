@@ -14,6 +14,7 @@ RSpec.describe "ContentfulWebhooks", :vcr, type: :request do
 
   before do
     allow(SolutionIndexer).to receive(:new).and_return(solution_indexer_mock)
+    allow(ENV).to receive(:[]).and_call_original
     allow(ENV).to receive(:[]).with("CONTENTFUL_WEBHOOK_SECRET").and_return(secret)
   end
 
