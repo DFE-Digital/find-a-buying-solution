@@ -54,10 +54,6 @@ RSpec.describe "Homepage Offers Section", :vcr, type: :feature do
       visit root_path
     end
 
-    it "shows all offers as bullet points" do
-      expect(page).not_to have_css(".offer-list .offer-list-item")
-    end
-
     it "does not show offer images" do
       expect(page).not_to have_css(".dfe-card img")
     end

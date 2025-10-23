@@ -9,16 +9,12 @@
       <%= link_to  t(".browse_all_offers"), offers_path, class:"all-offers-link govuk-body underlined" %>
     <% end %>
 
-    <% if @featured_offers_with_images_to_show_on_homepage.size > 0 %>
-      <div class="dfe-grid-container offers-grid-container">
+    <div class="dfe-grid-container offers-grid-container">
       <% if @featured_offers_with_images_to_show_on_homepage.size == 3 %>
-        <!-- Display the first 3 featured offers with images as cards -->
         <% @featured_offers_with_images_to_show_on_homepage.each do |offer| %>
           <%= render partial: "offers/offer", locals: { offer: offer } %>
         <% end %>
       <% else %>
-        <!-- A minimum of 3 featured offers with images is required to display as cards -->
-        <!-- Display the first 3 featured offers as bullet points -->
         <ul class="offer-list">
           <% @featured_offers_to_show_as_bullet_points.each do |offer| %>
             <li class="offer-list-item">
@@ -28,7 +24,6 @@
         </ul>
       <% end %>
     </div>
-    <% end %>
   <% end %>
 
   <h2 class="govuk-heading-m"><%= t(".title") %></h2>
