@@ -17,11 +17,9 @@
           <%= render partial: "offers/offer", locals: { offer: offer } %>
         <% end %>
       <% else %>
-        <!-- A minimum of 3 featured offers with images is required to display as cards -->
-        <!-- Display the first 3 featured offers as bullet points -->
-        <ul class="offer-list">
+        <ul>
           <% @featured_offers_to_show_as_bullet_points.each do |offer| %>
-            <li class="offer-list-item">
+            <li>
               <%= govuk_link_to offer.title, offer_path(slug: offer.slug), class: "govuk-link" %>
             </li>
           <% end %>
