@@ -108,7 +108,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.3.6)
-    connection_pool (3.0.2)
+    connection_pool (2.5.5)
     contentful (2.19.0)
       http (> 0.8, < 6.0)
       multi_json (~> 1.15)
@@ -449,12 +449,12 @@ GEM
       rubocop (~> 1.72, >= 1.72.1)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    sidekiq (8.1.0)
-      connection_pool (>= 3.0.0)
-      json (>= 2.16.0)
-      logger (>= 1.7.0)
-      rack (>= 3.2.0)
-      redis-client (>= 0.26.0)
+    sidekiq (8.0.10)
+      connection_pool (>= 2.5.0)
+      json (>= 2.9.0)
+      logger (>= 1.6.2)
+      rack (>= 3.1.0)
+      redis-client (>= 0.23.2)
     signet (0.21.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -509,6 +509,7 @@ DEPENDENCIES
   brakeman
   breadcrumbs_on_rails
   capybara
+  connection_pool (~> 2.5)
   contentful
   contentful-management
   cssbundling-rails
@@ -536,7 +537,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-govuk
   rubocop-performance
-  sidekiq (~> 8.1)
+  sidekiq (~> 8.0.10)
   vcr
   webmock
 
