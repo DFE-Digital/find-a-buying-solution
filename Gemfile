@@ -3,6 +3,7 @@ ruby file: ".tool-versions"
 
 gem "bootsnap", require: false
 gem "breadcrumbs_on_rails"
+gem "connection_pool", "~> 2.5"
 gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
@@ -23,7 +24,6 @@ gem "redis", "~> 5.4", require: false
 gem "redis-rails", require: false
 gem "rollbar"
 gem "sidekiq", "~> 8.0.10"
-gem "connection_pool", "~> 2.5"
 
 group :development, :test do
   gem "brakeman", require: false
