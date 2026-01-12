@@ -21,5 +21,46 @@ RSpec.describe MarkdownHelper, type: :helper do
       html = helper.render_markdown_to_html(markdown)
       expect(html).to include('<h1 id="h1-heading">H1 heading</h1>')
     end
+
+    describe "sanitization" do
+      it "strips script tags" do
+        markdown = "<script>alert('xss')</script>"
+        html = helper.render_markdown_to_html(markdown)
+        expect(html).not_to include("<script")
+        expect(html).not_to include("</script>")
+      end
+
+      it "strips iframe tags" do
+        markdown = "<iframe src='https://evil.com'></iframe>"
+        html = helper.render_markdown_to_html(markdown)
+        expect(html).not_to include("<iframe")
+      end
+
+      it "strips style tags" do
+        markdown = "<style>body { display: none; }</style>"
+        html = helper.render_markdown_to_html(markdown)
+        expect(html).not_to include("<style>")
+      end
+
+      it "strips event handler attributes" do
+        markdown = "<a href='/safe' onclick='alert(1)'>Click</a>"
+        html = helper.render_markdown_to_html(markdown)
+        expect(html).not_to include("onclick")
+        expect(html).to include('href="/safe"')
+      end
+
+      it "strips onerror attributes from images" do
+        markdown = "<img src='x' onerror='alert(1)'>"
+        html = helper.render_markdown_to_html(markdown)
+        expect(html).not_to include("onerror")
+      end
+
+      it "allows safe tags and attributes" do
+        markdown = "<a href='https://gov.uk' title='Gov'>Link</a>"
+        html = helper.render_markdown_to_html(markdown)
+        expect(html).to include('href="https://gov.uk"')
+        expect(html).not_to include("title")
+      end
+    end
   end
 end

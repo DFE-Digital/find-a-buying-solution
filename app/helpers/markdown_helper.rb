@@ -1,8 +1,12 @@
 module MarkdownHelper
+  ALLOWED_TAGS = %w[p h1 h2 h3 h4 h5 h6 a ul ol li strong em br img].freeze
+  ALLOWED_ATTRIBUTES = %w[href src alt target rel class id].freeze
+
   def render_markdown_to_html(markdown_content)
     return "" if markdown_content.blank?
 
     html = Kramdown::Document.new(markdown_content).to_html
+    html = sanitize(html, tags: ALLOWED_TAGS, attributes: ALLOWED_ATTRIBUTES)
 
     return html.html_safe unless html.match?(/href|<p\b|<h2\b|<img\b/)
 
