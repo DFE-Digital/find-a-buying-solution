@@ -1,3 +1,4 @@
+
 <div class="govuk-!-margin-top-4">
   <% if @energy_banner %>
     <%= render partial: 'energy_banner', locals: { banner: @energy_banner } %>
@@ -32,4 +33,8 @@
       <%= render "category", category: category %>
     <% end %>
   </div>
+
+  <p class="govuk-body">
+    <%= govuk_link_to t(".procurement_support"), "https://www.get-help-buying-for-schools.service.gov.uk/procurement-support", target: "_blank", rel: "noopener noreferrer" %>
+  </p>
 </div>
