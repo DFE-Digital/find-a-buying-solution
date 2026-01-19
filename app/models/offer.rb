@@ -4,7 +4,7 @@ class Offer
 
   attr_reader :id, :title, :description, :summary,
               :slug, :url, :call_to_action,
-              :image, :featured_on_homepage, :expiry
+              :image, :featured_on_homepage, :expiry, :sort_order
 
   def initialize(entry)
     @id = entry.id
@@ -17,6 +17,7 @@ class Offer
     @image = entry.fields[:image]
     @featured_on_homepage = entry.fields[:featured_on_homepage]
     @expiry = entry.fields[:expiry]
+    @sort_order = entry.fields[:sort_order]
     super
   end
 
@@ -24,6 +25,20 @@ class Offer
     entry = ContentfulClient.entries(
       content_type: "offer",
       'fields.slug': slug,
+      select: %w[
+        sys.id
+        fields.title
+        fields.description
+        fields.summary
+        fields.slug
+        fields.url
+        fields.call_to_action
+        fields.image
+        fields.featured_on_homepage
+        fields.related_content
+        fields.expiry
+        fields.sort_order
+      ].join(","),
       include: 1
     ).find { |offer| offer.fields[:slug] == slug }
 
@@ -47,8 +62,9 @@ class Offer
         fields.featured_on_homepage
         fields.related_content
         fields.expiry
+        fields.sort_order
       ].join(","),
-      order: "fields.title",
+      order: "fields.sort_order",
     }
     ContentfulClient.entries(params).map { new(it) }
   end
@@ -67,9 +83,10 @@ class Offer
         fields.image
         fields.featured_on_homepage
         fields.expiry
+        fields.sort_order
       ].join(","),
       "fields.featured_on_homepage": true,
-      order: "fields.title",
+      order: "fields.sort_order",
     }
     ContentfulClient.entries(params).map { |entry| new(entry) }
   end

@@ -75,16 +75,11 @@ module ApplicationHelper
 
   def service_navigation_items
     items = []
-    items << { path: "/offers", text: t("service.navigation.offers") } if offers_available?
     items << { path: "/about-this-service", text: t("service.navigation.about") }
     items
   end
 
 private
-
-  def offers_available?
-    Offer.all.any?
-  end
 
   def service_navigation_active?(path)
     request.path == path
