@@ -3,7 +3,6 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @number_of_offers = Offer.all.size
     @featured_offers = Offer.featured_offers
     @energy_banner = Banner.find_by_slug(ENV.fetch("HOMEPAGE_BANNER_SLUG", "homepage-banner"))
     render layout: "homepage"
