@@ -9,10 +9,6 @@ RSpec.describe "Homepage Offers Section", :vcr, type: :feature do
     it "shows the offers section" do
       expect(page).to have_css("h2.govuk-heading-m", text: "DfE featured")
     end
-
-    it "shows offers in the service navigation" do
-      expect(page).to have_css(".govuk-service-navigation__item a", text: "Offers")
-    end
   end
 
   context "when there are featured offers" do

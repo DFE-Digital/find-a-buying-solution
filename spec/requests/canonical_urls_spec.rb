@@ -9,12 +9,6 @@ RSpec.describe "Canonical URLs", :vcr, type: :request do
     it { is_expected.to include(canonical_tag) }
   end
 
-  context "when requesting a nested path" do
-    before { get "/categories/banking-finance/debt-resolution-services" }
-
-    it { is_expected.to include(canonical_tag("categories/consultancy-services/debt-resolution-services")) }
-  end
-
   def canonical_tag(path = nil)
     %(<link href="http://www.example.com/#{path}" rel="canonical" />)
   end

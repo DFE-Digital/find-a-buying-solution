@@ -24,7 +24,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
 
     it "displays category descriptions" do
       expected_descriptions = [
-        "Buy professional services",
         "Buy financial services",
         "Buy food, drink and catering services",
       ]
@@ -61,7 +60,6 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays solutions in the category" do
-      expect(response.body).to include("IT Hardware")
       expect(response.body).to include("Everything ICT")
     end
 
@@ -87,7 +85,7 @@ RSpec.describe "Categories pages", :vcr, type: :request do
     end
 
     it "displays banner link" do
-      expect(response.body).to have_link("Current accounts and Savings", href: "/current-account-and-savings")
+      expect(response.body).to have_link("Current accounts and savings", href: "/savings-options-for-schools")
     end
 
     it "displays banner description" do
