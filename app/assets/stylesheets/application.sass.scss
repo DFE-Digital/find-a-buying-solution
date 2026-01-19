@@ -682,20 +682,6 @@ a.all-buying-options-link {
 }
 
 .dfe-card.dfe-card--featured {
-  border: 5px solid #505a5f;
-  a.govuk-link {
-    color: #0b0c0c;
-  }
-  &:hover {
-    border: 5px solid #0b0c0c;
-    background-color: #505a5f;
-    a.govuk-link {
-      color: #ffffff;
-    }
-  }
-}
-
-.dfe-card.dfe-card--featured2 {
   background-color: #f3f2f1;
   a.govuk-link {
     color: #0b0c0c;
@@ -705,6 +691,16 @@ a.all-buying-options-link {
     background-color: #505a5f;
     a.govuk-link {
       color: #ffffff;
+    }
+  }
+  &:focus,
+  &:focus-within,
+  &:focus-visible {
+    border: 1px solid #505a5f;
+    background-color: #505a5f;
+
+    a.govuk-link {
+      color: #0b0c0c;
     }
   }
 }

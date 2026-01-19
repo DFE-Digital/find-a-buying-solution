@@ -18,11 +18,11 @@ RSpec.describe "Homepage Offers Section", :vcr, type: :feature do
 
     it "shows the offers section" do
       expect(page).to have_css("h2.govuk-heading-m", text: "DfE featured")
-      expect(page).to have_css(".offers-grid-container .dfe-card.dfe-card--featured2")
+      expect(page).to have_css(".offers-grid-container .dfe-card.dfe-card--featured")
     end
 
     it "shows all featured offers as cards" do
-      expect(page).to have_css(".offers-grid-container .dfe-card.dfe-card--featured2")
+      expect(page).to have_css(".offers-grid-container .dfe-card.dfe-card--featured")
     end
   end
 end
