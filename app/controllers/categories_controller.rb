@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @featured_offers = Offer.featured_offers
+    @featured_offers = Offer.featured_offers.select { |offer| offer.sort_order.present? }.first(3)
     @energy_banner = Banner.find_by_slug(ENV.fetch("HOMEPAGE_BANNER_SLUG", "homepage-banner"))
     render layout: "homepage"
   end
