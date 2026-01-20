@@ -7,7 +7,7 @@ RSpec.describe Offer, :vcr, type: :model do
     let(:entry) do
       ContentfulClient.entries(
         content_type: "offer",
-        "fields.slug": "energy-for-schools-used-by-spec-test"
+        "fields.slug": "energy-for-schools"
       ).first
     end
 
@@ -31,8 +31,11 @@ RSpec.describe Offer, :vcr, type: :model do
       expect(offers).to all(be_a(described_class))
     end
 
-    it "fetches offers in alphabetical order" do
-      expect(offers.map(&:title)).to eq(offers.map(&:title).sort_by(&:downcase))
+    it "fetches offers ordered by sort_order" do
+      expect(offers).to be_present
+      # Verify offers are ordered by sort_order (ascending)
+      sort_orders = offers.map(&:sort_order).compact
+      expect(sort_orders).to eq(sort_orders.sort) if sort_orders.any?
     end
   end
 
@@ -40,7 +43,7 @@ RSpec.describe Offer, :vcr, type: :model do
     subject(:offer) { described_class.find_by_slug!(slug) }
 
     context "when offer exists" do
-      let(:slug) { "energy-for-schools-used-by-spec-test" }
+      let(:slug) { "energy-for-schools" }
 
       it "returns the offer" do
         expect(offer).to be_a(described_class)

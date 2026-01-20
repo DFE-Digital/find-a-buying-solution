@@ -3,11 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @number_of_offers = Offer.all.size
-    @featured_offers = Offer.featured_offers
-    @featured_offers_with_images = @featured_offers.select { |offer| offer.image.present? }
-    @featured_offers_with_images_to_show_on_homepage = @featured_offers_with_images.sort_by(&:title).first(3)
-    @featured_offers_to_show_as_bullet_points = @featured_offers.sort_by(&:title).first(3)
+    @featured_offers = Offer.featured_offers.select { |offer| offer.sort_order.present? }.first(3)
     @energy_banner = Banner.find_by_slug(ENV.fetch("HOMEPAGE_BANNER_SLUG", "homepage-banner"))
     render layout: "homepage"
   end
