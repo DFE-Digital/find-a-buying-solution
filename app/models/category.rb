@@ -69,6 +69,18 @@ class Category
     new(entry)
   end
 
+  def self.find_by_id!(id)
+    entry = ContentfulClient.entries(
+      content_type: "category",
+      'sys.id': id,
+      include: 1
+    ).find { |category| category.sys[:id] == id }
+
+    raise ContentfulRecordNotFoundError.new("Category not found", id: id) unless entry
+
+    new(entry)
+  end
+
   def filtered_solutions(subcategory_slugs: nil)
     return solutions if subcategory_slugs.blank?
 

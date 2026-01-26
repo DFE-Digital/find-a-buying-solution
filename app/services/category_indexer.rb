@@ -1,9 +1,9 @@
 require "opensearch/transport"
 
-class SolutionIndexer
+class CategoryIndexer
   attr_reader :id, :client
 
-  INDEX = "solution-data".freeze
+  INDEX = "category-data".freeze
 
   def initialize(id:)
     @client = SearchClient.instance
@@ -31,7 +31,7 @@ class SolutionIndexer
 
   def find_document
     client.get(
-      index: "solution-data",
+      index: INDEX,
       id: id
     )
   rescue OpenSearch::Transport::Transport::Errors::NotFound
@@ -49,7 +49,7 @@ private
   end
 
   def entry
-    @entry ||= Solution.find_by_id!(id)
+    @entry ||= Category.find_by_id!(id)
   rescue ContentfulRecordNotFoundError
     nil
   end
@@ -59,20 +59,7 @@ private
       id: entry.id,
       title: entry.title,
       description: entry.description,
-      summary: entry.summary,
       slug: entry.slug,
-      provider_reference: entry.provider_reference,
-      primary_category: primary_category,
-    }
-  end
-
-  def primary_category
-    return nil unless entry.primary_category
-
-    {
-      id: entry.primary_category.id,
-      title: entry.primary_category.title,
-      slug: entry.primary_category.slug,
     }
   end
 end

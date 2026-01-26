@@ -26,6 +26,17 @@ class Page
     new(entry)
   end
 
+  def self.find_by_id!(id)
+    entry = ContentfulClient.entries(
+      content_type: "page",
+      'sys.id': id,
+      include: 4
+    ).find { |page| page.sys[:id] == id }
+    raise ContentfulRecordNotFoundError.new("Page not found", id: id) unless entry
+
+    new(entry)
+  end
+
 private
 
   def build_parent_from_entry(parent_entry)

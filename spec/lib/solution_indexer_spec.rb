@@ -62,7 +62,7 @@ RSpec.describe SolutionIndexer do
       end
     end
 
-    context "when the entry is not found" do
+    context "when the entry is not found (returns nil)" do
       before do
         allow(Solution).to receive(:find_by_id!).with(id).and_return(nil)
       end
@@ -70,6 +70,53 @@ RSpec.describe SolutionIndexer do
       it "does not call the search client's index method" do
         expect(es_client_mock).not_to receive(:index)
         expect(indexer.index_document).to be false
+      end
+    end
+
+    context "when Contentful raises ContentfulRecordNotFoundError" do
+      before do
+        allow(Solution).to receive(:find_by_id!).with(id).and_raise(ContentfulRecordNotFoundError.new("Not found"))
+      end
+
+      it "does not call the search client's index method and returns false" do
+        expect(es_client_mock).not_to receive(:index)
+        expect(indexer.index_document).to be false
+      end
+    end
+
+    context "when the solution has no primary_category" do
+      let(:solution_without_category) do
+        instance_double(
+          Solution,
+          id: "solution-123",
+          title: "Test Solution",
+          description: "A description.",
+          summary: "A summary.",
+          slug: "test-solution",
+          provider_reference: "ref-123",
+          primary_category: nil
+        )
+      end
+
+      before do
+        allow(Solution).to receive(:find_by_id!).with(id).and_return(solution_without_category)
+      end
+
+      it "indexes the document with primary_category as nil" do
+        allow(es_client_mock).to receive(:index).with(
+          index: solution_index,
+          id: id,
+          body: {
+            id: solution_without_category.id,
+            title: solution_without_category.title,
+            description: solution_without_category.description,
+            summary: solution_without_category.summary,
+            slug: solution_without_category.slug,
+            provider_reference: solution_without_category.provider_reference,
+            primary_category: nil,
+          }
+        ).and_return("result" => "created")
+        expect(indexer.index_document).to be true
       end
     end
 
