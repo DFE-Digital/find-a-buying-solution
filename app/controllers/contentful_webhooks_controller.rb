@@ -36,6 +36,7 @@ class ContentfulWebhooksController < ApplicationController
 private
 
   def id
+    # params.dig("sys", "id") || params.dig(:sys, :id) || 
     params["entityId"]
   end
 
