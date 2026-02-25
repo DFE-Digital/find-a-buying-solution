@@ -36,6 +36,31 @@ RSpec.describe "ContentfulWebhooks", :vcr, type: :request do
       end
     end
 
+    context "when only sys.id is provided" do
+      let(:sys_id_params) do
+        {
+          "sys" => {
+            "id" => entity_id,
+          },
+        }
+      end
+
+      before do
+        allow(solution_indexer_mock).to receive(:index_document).and_return(true)
+      end
+
+      it "returns a 200 OK status" do
+        post contentful_webhooks_path, params: sys_id_params, headers: valid_headers
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "returns a success message" do
+        post contentful_webhooks_path, params: sys_id_params, headers: valid_headers
+        json_response = JSON.parse(response.body)
+        expect(json_response["message"]).to eq("Webhook for entry #{entity_id} processed successfully.")
+      end
+    end
+
     context "when the document fails to index" do
       before do
         allow(solution_indexer_mock).to receive(:index_document).and_return(false)
@@ -80,6 +105,31 @@ RSpec.describe "ContentfulWebhooks", :vcr, type: :request do
 
       it "returns a success message" do
         post delete_contentful_entry_path, params: valid_params, headers: valid_headers
+        json_response = JSON.parse(response.body)
+        expect(json_response["message"]).to eq("Webhook for entry #{entity_id} deletion processed successfully.")
+      end
+    end
+
+    context "when only sys.id is provided" do
+      let(:sys_id_params) do
+        {
+          "sys" => {
+            "id" => entity_id,
+          },
+        }
+      end
+
+      before do
+        allow(solution_indexer_mock).to receive(:delete_document).and_return(true)
+      end
+
+      it "returns a 200 OK status" do
+        post delete_contentful_entry_path, params: sys_id_params, headers: valid_headers
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "returns a success message" do
+        post delete_contentful_entry_path, params: sys_id_params, headers: valid_headers
         json_response = JSON.parse(response.body)
         expect(json_response["message"]).to eq("Webhook for entry #{entity_id} deletion processed successfully.")
       end

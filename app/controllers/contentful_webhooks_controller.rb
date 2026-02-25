@@ -36,8 +36,7 @@ class ContentfulWebhooksController < ApplicationController
 private
 
   def id
-    # params.dig("sys", "id") || params.dig(:sys, :id) || 
-    params["entityId"]
+    params.dig("sys", "id") || params.dig(:sys, :id) || params["entityId"]
   end
 
   def valid_signature?
