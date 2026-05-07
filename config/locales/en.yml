@@ -8,12 +8,13 @@ en:
       clear_all_filters: Clear all filters
       remove_filter: Remove filter
     index:
+      expert_help_button: Get expert buying help
+      not_sure_body: Our buying team can help you choose the right way to buy for
+        your school
+      not_sure_title: Not sure where to start?
       offers_title: DfE featured
       procurement_support: I need something else (opens in a new tab)
       title: DfE-approved buying options by category
-      not_sure_title: Not sure where to start?
-      not_sure_body: Our buying team can help you choose the right way to buy for your school
-      expert_help_button: Get expert buying help
     show:
       apply: Apply
       dfe_standfirst: These DfE buying options provide compliant, best value for schools
