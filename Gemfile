@@ -8,7 +8,7 @@ gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
 gem "csv", require: false
-gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: "v1.16.2"
+gem "dfe-analytics", github: "DFE-Digital/dfe-analytics", tag: "v1.16.3"
 gem "dotenv"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
