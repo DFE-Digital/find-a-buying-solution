@@ -3,7 +3,7 @@ ruby file: ".tool-versions"
 
 gem "bootsnap", require: false
 gem "breadcrumbs_on_rails"
-gem "connection_pool", "~> 2.5"
+gem "connection_pool", "~> 3.0"
 gem "contentful"
 gem "contentful-management", require: false
 gem "cssbundling-rails"
